@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Получение текущего значения настройки конфигурации magic_quotes_gpc</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.get-loaded-extensions.html">get_loaded_extensions</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.get-magic-quotes-runtime.html">get_magic_quotes_runtime</a></div>
+ <div class="up"><a href="ref.info.html">PHP опции/Информационные Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.get-magic-quotes-gpc" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">get_magic_quotes_gpc</h1>
+  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">get_magic_quotes_gpc</span> &mdash; <span class="dc-title">
+   Получение текущего значения настройки конфигурации magic_quotes_gpc
+  </span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.get-magic-quotes-gpc-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><strong>get_magic_quotes_gpc</strong></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Возвращает текущее значение настройки <a href="info.configuration.html#ini.magic-quotes-gpc" class="link">magic_quotes_gpc</a> 
+  </p>
+  <p class="para">
+   Сдедует иметь в виду, что значение <a href="info.configuration.html#ini.magic-quotes-gpc" class="link">
+   magic_quotes_gpc</a> нельзя изменить во время выполнения.
+  </p>
+  <p class="para">
+   За дополнительной информацией обращайтесь в 
+   <a href="security.magicquotes.html" class="link">раздел посвященный безопасности</a>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.get-magic-quotes-gpc-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает 0, если magic_quotes_gpc выключен, 1 в противном случае. 
+   С версии PHP 5.4.0 всегда возвращает <strong><code>FALSE</code></strong>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.get-magic-quotes-gpc-changelog">
+  <h3 class="title">Список изменений</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Версия</th>
+       <th>Описание</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.4.0</td>
+       <td>
+        Всегда возвращает <strong><code>FALSE</code></strong>, так как функционал магических кавычек удален из PHP.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.get-magic-quotes-gpc-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-488">
+    <p><strong>Пример #1 Пример использования <span class="function"><strong>get_magic_quotes_gpc()</strong></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//если&nbsp;магические&nbsp;кавычки&nbsp;включены<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'lastname'</span><span style="color: #007700">];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;O\'reilly<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">addslashes</span><span style="color: #007700">(</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'lastname'</span><span style="color: #007700">]);&nbsp;</span><span style="color: #FF8000">//&nbsp;O\\\'reilly<br /><br />//работает&nbsp;во&nbsp;всех&nbsp;версиях<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">get_magic_quotes_gpc</span><span style="color: #007700">())&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$lastname&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">stripslashes</span><span style="color: #007700">(</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'lastname'</span><span style="color: #007700">]);<br />}<br />else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$lastname&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'lastname'</span><span style="color: #007700">];<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;при&nbsp;использовании&nbsp;MySQL<br /></span><span style="color: #0000BB">$lastname&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysql_real_escape_string</span><span style="color: #007700">(</span><span style="color: #0000BB">$lastname</span><span style="color: #007700">);<br /><br />echo&nbsp;</span><span style="color: #0000BB">$lastname</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;O\'reilly<br /></span><span style="color: #0000BB">$sql&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"INSERT&nbsp;INTO&nbsp;lastnames&nbsp;(lastname)&nbsp;VALUES&nbsp;('</span><span style="color: #0000BB">$lastname</span><span style="color: #DD0000">')"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.get-magic-quotes-gpc-notes">
+  <h3 class="title">Примечания</h3>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <p class="para">
+    Если директива <a href="sybase.configuration.html#ini.magic-quotes-sybase" class="link">
+    magic_quotes_sybase</a> включена, она будет замещать 
+    <a href="info.configuration.html#ini.magic-quotes-gpc" class="link">magic_quotes_gpc</a>. Таким образом,
+    даже если <span class="function"><strong>get_magic_quotes_gpc()</strong></span> возвращает <strong><code>TRUE</code></strong>,
+    двойные кавычки, обратные слеши и NULL значения экранироваться не будут.
+    Экранироваться в этом случае будут только одинарные кавычки, при чем выглядеть
+    это будет так: <em class="emphasis">&#039;&#039;</em>
+   </p>
+  </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.get-magic-quotes-gpc-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.addslashes.html" class="function" rel="rdfs-seeAlso">addslashes()</a> - Экранирует строку с помощью слэшей</span></li>
+    <li class="member"><span class="function"><a href="function.stripslashes.html" class="function" rel="rdfs-seeAlso">stripslashes()</a> - Удаляет экранирование символов</span></li>
+    <li class="member"><span class="function"><a href="function.get-magic-quotes-runtime.html" class="function" rel="rdfs-seeAlso">get_magic_quotes_runtime()</a> - Получение текущего значения настройки конфигурации magic_quotes_runtime</span></li>
+    <li class="member"><span class="function"><a href="function.ini-get.html" class="function" rel="rdfs-seeAlso">ini_get()</a> - Получает значение настройки конфигурации</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.get-loaded-extensions.html">get_loaded_extensions</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.get-magic-quotes-runtime.html">get_magic_quotes_runtime</a></div>
+ <div class="up"><a href="ref.info.html">PHP опции/Информационные Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

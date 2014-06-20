@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Отправка статуса задания (устаревший метод)</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="gearmanjob.setreturn.html">GearmanJob::setReturn</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="gearmanjob.unique.html">GearmanJob::unique</a></div>
+ <div class="up"><a href="class.gearmanjob.html">GearmanJob</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="gearmanjob.status" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">GearmanJob::status</h1>
+  <p class="verinfo">(PECL gearman &lt;= 0.5.0)</p><p class="refpurpose"><span class="refname">GearmanJob::status</span> &mdash; <span class="dc-title">Отправка статуса задания (устаревший метод)</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-gearmanjob.status-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><strong>GearmanJob::status</strong></span>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$numerator</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$denominator</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Посылает на сервер задач и всем слушающим клиентам статус текущей работы.
+   С помощью этого метода можно узнать, какой процент задания выполнен.
+  </p>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <p class="para">
+    Этот метод был заменен на <span class="methodname"><a href="gearmanjob.sendstatus.html" class="methodname">GearmanJob::sendStatus()</a></span> в
+    версии 0.6.0 расширения Gearman.
+   </p>
+  </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-gearmanjob.status-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">numerator</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Доля выполненной работы.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">denominator</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Количество всей работы.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-gearmanjob.status-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает <strong><code>TRUE</code></strong> в случае успешного завершения  или <strong><code>FALSE</code></strong> в случае возникновения ошибки.
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-gearmanjob.status-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="methodname"><a href="gearmanclient.jobstatus.html" class="methodname" rel="rdfs-seeAlso">GearmanClient::jobStatus()</a> - Получение статуса выполнения фонового задания</span></li>
+    <li class="member"><span class="methodname"><a href="gearmantask.taskdenominator.html" class="methodname" rel="rdfs-seeAlso">GearmanTask::taskDenominator()</a> - Получение знаменателя в дроби, отвечающей за процент выполненной работы</span></li>
+    <li class="member"><span class="methodname"><a href="gearmantask.tasknumerator.html" class="methodname" rel="rdfs-seeAlso">GearmanTask::taskNumerator()</a> - Получение числителя дроби, отвечающей за процент выполненной работы</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="gearmanjob.setreturn.html">GearmanJob::setReturn</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="gearmanjob.unique.html">GearmanJob::unique</a></div>
+ <div class="up"><a href="class.gearmanjob.html">GearmanJob</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>switch</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="control-structures.continue.html">continue</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="control-structures.declare.html">declare</a></div>
+ <div class="up"><a href="language.control-structures.html">Управляющие конструкции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="control-structures.switch" class="sect1">
+ <h2 class="title"><em>switch</em></h2>
+ <p class="verinfo">(PHP 4, PHP 5)</p>
+ <p class="simpara">
+  Оператор <em>switch</em> подобен серии операторов IF
+  с одинаковым условием. Во многих случаях вам может понадобиться
+  сравнивать одну и ту же переменную (или выражение) с множеством
+  различных значений, и выполнять различные участки кода в зависимости
+  от того, какое значение принимает эта переменная (или выражение). Это
+  именно тот случай, для которого удобен оператор <em>switch</em>.
+ </p>
+ <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+  <span class="simpara">
+   Обратите внимание, что в отличие от некоторых других языков, оператор
+   <a href="control-structures.continue.html" class="link">continue</a> применяется в
+   конструкциях switch и действует подобно оператору <em>break</em>.
+   Если у вас конструкция switch находится внутри цикла, и вам необходимо
+   перейти к следующей итерации цикла, используйте <em>continue 2</em>.
+  </span>
+ </p></blockquote>
+ <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+  <p class="para">
+   Заметьте, что конструкция swich/case использует
+   <a href="types.comparisons.html#types.comparisions-loose" class="link">неточные сравнения (==)</a>.
+  </p>
+ </p></blockquote>
+ <p class="para">
+  Следующие два примера иллюстрируют два различных способа
+  написать то же самое. Один использует серию операторов <em>if</em> и
+  <em>elseif</em>, а другой -- оператор <em>switch</em>:
+  <div class="example" id="example-132">
+   <p><strong>Пример #1 Оператор <em>switch</em></strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"i&nbsp;равно&nbsp;0"</span><span style="color: #007700">;<br />}&nbsp;elseif&nbsp;(</span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"i&nbsp;равно&nbsp;1"</span><span style="color: #007700">;<br />}&nbsp;elseif&nbsp;(</span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"i&nbsp;равно&nbsp;2"</span><span style="color: #007700">;<br />}<br /><br />switch&nbsp;(</span><span style="color: #0000BB">$i</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"i&nbsp;равно&nbsp;0"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"i&nbsp;равно&nbsp;1"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"i&nbsp;равно&nbsp;2"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+  <div class="example" id="example-133">
+   <p><strong>Пример #2 Оператор <em>switch</em> допускает сравнение со строками</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">switch&nbsp;(</span><span style="color: #0000BB">$i</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #DD0000">"яблоко"</span><span style="color: #007700">:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"i&nbsp;это&nbsp;яблоко"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #DD0000">"шоколадка"</span><span style="color: #007700">:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"i&nbsp;это&nbsp;шоколадка"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #DD0000">"пирог"</span><span style="color: #007700">:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"i&nbsp;это&nbsp;пирог"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+ </p>
+ <p class="para">
+  Важно понять, как оператор <em>switch</em> выполняется,
+  чтобы избежать ошибок. Оператор <em>switch</em> исполняет
+  строчка за строчкой (на самом деле выражение за выражением).
+  В начале никакой код не исполняется. Только в случае
+  нахождения оператора <em>case</em>, значение которого
+  совпадает со значением выражения в операторе <em>switch</em>,
+  PHP начинает исполнять операторы. PHP продолжает исполнять операторы
+  до конца блока <em>switch</em> либо до тех пор, пока не
+  встретит оператор <em>break</em>. Если вы не напишете
+  оператор <em>break</em> в конце секции case, PHP будет продолжать
+  исполнять команды следующей секции case. Например :
+  <div class="informalexample">
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">switch&nbsp;(</span><span style="color: #0000BB">$i</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"i&nbsp;равно&nbsp;0"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"i&nbsp;равно&nbsp;1"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"i&nbsp;равно&nbsp;2"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+ </p>
+ <p class="simpara">
+  В этом примере, если <var class="varname"><var class="varname">$i</var></var> равно 0, то PHP исполнит все операторы echo!
+  Если <var class="varname"><var class="varname">$i</var></var> равно 1, PHP исполнит два последних оператора echo.
+  Вы получите ожидаемое поведение оператора (&#039;i равно 2&#039; будет отображено) только, если
+  <var class="varname"><var class="varname">$i</var></var> будет равно 2.  Таким образом, важно не забывать об операторах
+  <em>break</em> (даже если вы, возможно, хотите избежать его использования по назначению
+  при определенных обстоятельствах).
+ </p>
+ <p class="simpara">
+  В операторе <em>switch</em> выражение вычисляется
+  один раз и этот результат сравнивается с каждым оператором
+  <em>case</em>. В выражении <em>elseif</em>,
+  выражение вычисляется снова. Если ваше условие более сложное,
+  чем простое сравнение и/или находится в цикле, конструкция
+ <em>switch</em> может работать быстрее.
+ </p>
+ <p class="para">
+  Список операторов для исполнения в секции case также может быть пустым, что просто
+  передает управление списку операторов в следующей секции case.
+  <div class="informalexample">
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">switch&nbsp;(</span><span style="color: #0000BB">$i</span><span style="color: #007700">)&nbsp;{<br />case&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">:<br />case&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">:<br />case&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">:<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"i&nbsp;меньше&nbsp;чем&nbsp;3,&nbsp;но&nbsp;неотрицательно"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;break;<br />case&nbsp;</span><span style="color: #0000BB">3</span><span style="color: #007700">:<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"i&nbsp;равно&nbsp;3"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+ </p>
+ <p class="para">
+  Специальный вид конструкции case -- <em>default</em>. Сюда управление попадает
+  тогда, когда не сработал ни один из других операторов case. Например:
+  <div class="informalexample">
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">switch&nbsp;(</span><span style="color: #0000BB">$i</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"i&nbsp;равно&nbsp;0"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"i&nbsp;равно&nbsp;1"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"i&nbsp;равно&nbsp;2"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br />&nbsp;&nbsp;&nbsp;&nbsp;default:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"i&nbsp;не&nbsp;равно&nbsp;0,&nbsp;1&nbsp;или&nbsp;2"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+ </p>
+ <p class="para">
+  Выражением в операторе <em>case</em> может быть любое выражение,
+  которое приводится в простой тип, то есть в тип integer, или в тип с плавающей точкой (float),
+  или строку. Массивы или объекты не могут быть здесь использованы до тех пор, пока
+  они не будут разыменованы до простого типа.
+ </p>
+ <p class="para">
+  Возможен альтернативный синтаксис для управляющей структуры switch.
+  Для более детальной информации, см. <a href="control-structures.alternative-syntax.html" class="link">Альтернативный синтаксис для
+  управляющих структур</a>.
+  <div class="informalexample">
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">switch&nbsp;(</span><span style="color: #0000BB">$i</span><span style="color: #007700">):<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"i&nbsp;равно&nbsp;0"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"i&nbsp;равно&nbsp;1"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"i&nbsp;равно&nbsp;2"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br />&nbsp;&nbsp;&nbsp;&nbsp;default:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"i&nbsp;не&nbsp;равно&nbsp;to&nbsp;0,&nbsp;1&nbsp;или&nbsp;2"</span><span style="color: #007700">;<br />endswitch;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+ </p>
+ <p class="para">
+  Возможно использование точки с запятой вместо двоеточия после оператора case. К примеру :
+  <div class="informalexample">
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">switch(</span><span style="color: #0000BB">$beer</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #DD0000">'tuborg'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #DD0000">'carlsberg'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #DD0000">'heineken'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'Хороший&nbsp;выбор'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;break;<br />&nbsp;&nbsp;&nbsp;&nbsp;default;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'Пожалуйста,&nbsp;сделайте&nbsp;новый&nbsp;выбор...'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;break;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+ </p>
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="control-structures.continue.html">continue</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="control-structures.declare.html">declare</a></div>
+ <div class="up"><a href="language.control-structures.html">Управляющие конструкции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

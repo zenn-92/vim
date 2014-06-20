@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Осуществляет замену по регулярному выражению с поддержкой многобайтовых символов</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.mb-ereg-replace-callback.html">mb_ereg_replace_callback</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.mb-ereg-search-getpos.html">mb_ereg_search_getpos</a></div>
+ <div class="up"><a href="ref.mbstring.html">Функции для работы с Многобайтными строками</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.mb-ereg-replace" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">mb_ereg_replace</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5)</p><p class="refpurpose"><span class="refname">mb_ereg_replace</span> &mdash; <span class="dc-title">Осуществляет замену по регулярному выражению с поддержкой многобайтовых символов</span></p>
+
+ </div>
+   
+ <div class="refsect1 description" id="refsect1-function.mb-ereg-replace-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">string</span> <span class="methodname"><strong>mb_ereg_replace</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$pattern</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$replacement</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$option</code><span class="initializer"> = &quot;msr&quot;</span></span>
+  ] )</div>
+
+  <p class="simpara">
+   Сканирует строку <code class="parameter">string</code> для поиска совпадений с
+   <code class="parameter">pattern</code>, затем заменяет совпавший текст
+   на <code class="parameter">replacement</code>  
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.mb-ereg-replace-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">pattern</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Шаблон регулярного выражения.
+      </p>
+      <p class="para">
+       В <code class="parameter">pattern</code> могут использоваться многобайтовые символы.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">replacement</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Текст замены.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">string</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Проверяемая строка <span class="type"><a href="language.types.string.html" class="type string">string</a></span>.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">option</code></dt>
+
+     <dd>
+
+      <span class="simpara">
+       Условие совпадения может быть установлено параметром 
+       <code class="parameter">option</code>. Если в этом параметре указан модификатор <em>i</em>
+       , будет игнорироваться регистр. Если указан модификатор <em>x</em>
+       , будут игнорироваться пробелы. Если указан модификатор <em>m</em>
+       , поиск совпадений будет выполняться в многострочном режиме, а &#039;.&#039; 
+       будет совпадать с символом конца строки. Если указан модификатор <em>p</em>
+       , поиск совпадений будет выполняться в режиме POSIX; символ конца строки  
+       будет рассматриваться как обычный символ. Если указан модификатор <em>e</em>
+       , строка <code class="parameter">replacement</code>  
+       будет вычисляться как выражение PHP.
+      </span>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 returnvalues" id="refsect1-function.mb-ereg-replace-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Результирующая строка <span class="type"><a href="language.types.string.html" class="type string">string</a></span> в случае успеха, или <strong><code>FALSE</code></strong> в случае ошибки.
+  </p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.mb-ereg-replace-notes">
+  <h3 class="title">Примечания</h3>
+  
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: <p class="para">Для этой функции будет
+использована внутренняя кодировка или кодировка, установленная функцией <span class="function"><a href="function.mb-regex-encoding.html" class="function">mb_regex_encoding()</a></span>.</p></p></blockquote>
+  <div class="warning"><strong class="warning">Внимание</strong><p class="para">Никогда не используйте
+модификатор <em>e</em> при работе с данными, полученными из недостоверных источников. Не выполняется никакого
+автоматического экранирования этих данных (в отличие от <span class="function"><a href="function.preg-replace.html" class="function">preg_replace()</a></span>). Неучитывание данных требований,
+скорее всего, создаст уязвимость выполнения удаленного кода в вашем приложении.</p></div>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.mb-ereg-replace-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.mb-regex-encoding.html" class="function" rel="rdfs-seeAlso">mb_regex_encoding()</a> - Возвращает текущую кодировку для многобайтового регулярного выражения в виде строки</span></li>
+    <li class="member"><span class="function"><a href="function.mb-eregi-replace.html" class="function" rel="rdfs-seeAlso">mb_eregi_replace()</a> - Осуществляет замену по регулярному выражению с поддержкой многобайтовых символов без учета регистра</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.mb-ereg-replace-callback.html">mb_ereg_replace_callback</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.mb-ereg-search-getpos.html">mb_ereg_search_getpos</a></div>
+ <div class="up"><a href="ref.mbstring.html">Функции для работы с Многобайтными строками</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

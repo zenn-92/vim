@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Задает имя класса, который будет использоваться для открытия файлов методом
+   SplFileInfo::openFile</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="splfileinfo.openfile.html">SplFileInfo::openFile</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="splfileinfo.setinfoclass.html">SplFileInfo::setInfoClass</a></div>
+ <div class="up"><a href="class.splfileinfo.html">SplFileInfo</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="splfileinfo.setfileclass" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">SplFileInfo::setFileClass</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.2)</p><p class="refpurpose"><span class="refname">SplFileInfo::setFileClass</span> &mdash; <span class="dc-title">
+   Задает имя класса, который будет использоваться для открытия файлов методом
+   <span class="methodname"><a href="splfileinfo.openfile.html" class="methodname">SplFileInfo::openFile()</a></span>
+  </span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-splfileinfo.setfileclass-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type"><span class="type void">void</span></span> <span class="methodname"><strong>SplFileInfo::setFileClass</strong></span>
+    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$class_name</code></span>
+  ] )</div>
+
+  <p class="para rdfs-comment">
+   Задает имя класса, которое SplFileInfo будет использовать для открытия файлов
+   при вызове метода openFile(). Этот класс должен быть унаследован от 
+   SplFileObject.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-splfileinfo.setfileclass-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">class_name</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Имя класса, открывающего файлы.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-splfileinfo.setfileclass-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Эта функция не возвращает значения после выполнения.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-splfileinfo.setfileclass-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-3989">
+    <p><strong>Пример #1 Пример использования <span class="function"><strong>SplFileInfo::setFileClass()</strong></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;создаем&nbsp;класс&nbsp;расширяющий&nbsp;SplFileObject<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">MyFoo&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">SplFileObject&nbsp;</span><span style="color: #007700">{}<br /><br /></span><span style="color: #0000BB">$info&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">SplFileInfo</span><span style="color: #007700">(</span><span style="color: #0000BB">__FILE__</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">//&nbsp;задаем&nbsp;имя&nbsp;класса<br /></span><span style="color: #0000BB">$info</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setFileClass</span><span style="color: #007700">(</span><span style="color: #DD0000">'MyFoo'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$info</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">openFile</span><span style="color: #007700">());<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>Результатом выполнения данного примера
+будет что-то подобное:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+object(MyFoo)#2 (0) { } 
+</pre></div>
+    </div>
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-splfileinfo.setfileclass-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="methodname"><a href="splfileinfo.openfile.html" class="methodname" rel="rdfs-seeAlso">SplFileInfo::openFile()</a> - Получает объект SplFileObject для файла</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="splfileinfo.openfile.html">SplFileInfo::openFile</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="splfileinfo.setinfoclass.html">SplFileInfo::setInfoClass</a></div>
+ <div class="up"><a href="class.splfileinfo.html">SplFileInfo</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

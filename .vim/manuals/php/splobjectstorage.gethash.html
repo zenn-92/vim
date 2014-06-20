@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Вычисляет уникальный идентификатор для объектов контейнера</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="splobjectstorage.detach.html">SplObjectStorage::detach</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="splobjectstorage.getinfo.html">SplObjectStorage::getInfo</a></div>
+ <div class="up"><a href="class.splobjectstorage.html">SplObjectStorage</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="splobjectstorage.gethash" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">SplObjectStorage::getHash</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.4.0)</p><p class="refpurpose"><span class="refname">SplObjectStorage::getHash</span> &mdash; <span class="dc-title">
+   Вычисляет уникальный идентификатор для объектов контейнера
+  </span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-splobjectstorage.gethash-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">string</span> <span class="methodname"><strong>SplObjectStorage::getHash</strong></span>
+    ( <span class="methodparam"><span class="type">object</span> <code class="parameter">$object</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Этот метод вычисляет уникальный идентификатор для объектов добавляемых в
+   контейнер <a href="class.splobjectstorage.html" class="classname">SplObjectStorage</a>.
+  </p>
+  <p class="para">
+   Реализация <a href="class.splobjectstorage.html" class="classname">SplObjectStorage</a> возвращает то же значение,
+   что и функция <span class="function"><a href="function.spl-object-hash.html" class="function">spl_object_hash()</a></span>.
+  </p>
+  <p class="para">
+   В одном контейнере никогда не появится двух объектов с одинаковыми
+   идентификаторами. Таким образом, с помощью контейнера можно реализовать
+   множество (коллекцию значений, каждое из которых представлено в единственном
+   экземпляре), в котором уникальность объектов будет определяться этим
+   идентификатором.
+  </p>
+
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-splobjectstorage.gethash-parameters">
+  <h3 class="title">Список параметров</h3>
+  <dl>
+
+   
+    <dt>
+<code class="parameter">object</code></dt>
+
+    <dd>
+
+     <p class="para">
+      Объект, чей идентификатор требуется вычислить.
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-splobjectstorage.gethash-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Строка <span class="type"><a href="language.types.string.html" class="type string">string</a></span> с результатом вычисления.
+  </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-splobjectstorage.gethash-errors">
+  <h3 class="title">Ошибки</h3>
+  <p class="para">
+   Метод выбрасывает исключение <a href="class.runtimeexception.html" class="classname">RuntimeException</a>, когда тип
+   возвращаемого значения отличен от типа <span class="type"><a href="language.types.string.html" class="type string">string</a></span>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-splobjectstorage.gethash-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-3861">
+    <p><strong>Пример #1 Пример использования <span class="function"><strong>SplObjectStorage::getHash()</strong></span></strong></p>
+<div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">OneSpecimenPerClassStorage&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">SplObjectStorage&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">getHash</span><span style="color: #007700">(</span><span style="color: #0000BB">$o</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">get_class</span><span style="color: #007700">(</span><span style="color: #0000BB">$o</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br />class&nbsp;</span><span style="color: #0000BB">A&nbsp;</span><span style="color: #007700">{}<br /><br /></span><span style="color: #0000BB">$s&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">OneSpecimenPerClassStorage</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$o1&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">stdClass</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$o2&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">stdClass</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$o3&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">A</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$s</span><span style="color: #007700">[</span><span style="color: #0000BB">$o1</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//$o2&nbsp;предполагается&nbsp;равным&nbsp;$o1,&nbsp;соответственно&nbsp;значение&nbsp;замещается<br /></span><span style="color: #0000BB">$s</span><span style="color: #007700">[</span><span style="color: #0000BB">$o2</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$s</span><span style="color: #007700">[</span><span style="color: #0000BB">$o3</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">3</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//предполагаем,&nbsp;что&nbsp;следующие&nbsp;объекты&nbsp;эквивалентны&nbsp;приведенным&nbsp;выше<br />//таким&nbsp;образом&nbsp;их&nbsp;можно&nbsp;использовать&nbsp;для&nbsp;извлечения&nbsp;данных&nbsp;из&nbsp;контейнера<br /></span><span style="color: #0000BB">$p1&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">stdClass</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$p2&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">A</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">$s</span><span style="color: #007700">[</span><span style="color: #0000BB">$p1</span><span style="color: #007700">],&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">$s</span><span style="color: #007700">[</span><span style="color: #0000BB">$p2</span><span style="color: #007700">],&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>Результатом выполнения данного примера
+будет что-то подобное:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+2
+3
+</pre></div>
+    </div>
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-splobjectstorage.gethash-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.spl-object-hash.html" class="function" rel="rdfs-seeAlso">spl_object_hash()</a> - Возвращает хеш-идентификатор для объекта</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="splobjectstorage.detach.html">SplObjectStorage::detach</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="splobjectstorage.getinfo.html">SplObjectStorage::getInfo</a></div>
+ <div class="up"><a href="class.splobjectstorage.html">SplObjectStorage</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

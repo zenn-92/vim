@@ -1,0 +1,564 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Предопределенные константы</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="oci8.configuration.html">Настройка во время выполнения</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="oci8.examples.html">Примеры</a></div>
+ <div class="up"><a href="book.oci8.html">OCI8</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="oci8.constants" class="appendix">
+ <h1>Предопределенные константы</h1>
+
+ <p class="simpara">
+Перечисленные ниже константы определены данным расширением и могут быть
+доступны только в том случае, если PHP был собран с
+поддержкой этого расширения или же в том случае, если
+данное расширение было подгружено во время выполнения.
+</p>
+ <table class="doctable table">
+   <caption><strong>OCI8 Function and Method Modes</strong></caption>
+   
+     <thead>
+       <tr>
+         <th>Константа</th>
+         <th>Описание</th>
+       </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+       <tr id="constant.oci-assoc">
+         <td><strong><code>OCI_ASSOC</code></strong></td>
+         <td>
+           Используется функциями <span class="function"><a href="function.oci-fetch-all.html" class="function">oci_fetch_all()</a></span> и
+           <span class="function"><a href="function.oci-fetch-array.html" class="function">oci_fetch_array()</a></span> для получения  результатов в виде ассоциативного 
+           массива.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-both">
+         <td><strong><code>OCI_BOTH</code></strong></td>
+         <td>
+           Используется функциями <span class="function"><a href="function.oci-fetch-all.html" class="function">oci_fetch_all()</a></span> и
+           <span class="function"><a href="function.oci-fetch-array.html" class="function">oci_fetch_array()</a></span> для получения результатов
+           в виде массива с ассоциативными и числовыми индексами.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-commit-on-success">
+         <td><strong><code>OCI_COMMIT_ON_SUCCESS</code></strong></td>
+         <td>
+           Режим выполнения выражений для <span class="function"><a href="function.oci-execute.html" class="function">oci_execute()</a></span>.
+           Автоматически завершает транзакцию опператором COMMIT 
+           при успешном выполнении выражения.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-cred-ext">
+         <td><strong><code>OCI_CRED_EXT</code></strong></td>
+         <td>
+           Используется функцией <span class="function"><a href="function.oci-connect.html" class="function">oci_connect()</a></span> для
+           внешней или системной аутентификации. Добавлена Introduced в PHP
+           5.3 и PECL OCI8 1.3.4.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-default">
+         <td><strong><code>OCI_DEFAULT</code></strong></td>
+         <td>
+           Смотри <strong><code>OCI_NO_AUTO_COMMIT</code></strong>.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-describe-only">
+         <td><strong><code>OCI_DESCRIBE_ONLY</code></strong></td>
+         <td>
+           Режим выполнения выражений для <span class="function"><a href="function.oci-execute.html" class="function">oci_execute()</a></span>. 
+           Используйте этот режим, если вы
+           хотите получить данные о выполнении запроса, а не выполнить сам
+           запрос.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-exact-fetch">
+         <td><strong><code>OCI_EXACT_FETCH</code></strong></td>
+         <td>
+           Устарело. Режим получения результатов запроса. Используется в том случае,
+           если приложению известно заранее сколько строк будет получено
+           в результате. Oracle 8 и более поздние версии не используют выборку
+           результатов с упреждением в этом режиме, а курсоры уничтожаются 
+           автоматически после выборки ожидаемого количества строк, что
+           может уменьшить требования сервера к ресурсам.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-fetchstatement-by-column">
+         <td><strong><code>OCI_FETCHSTATEMENT_BY_COLUMN</code></strong></td>
+         <td>
+           Режим <span class="function"><a href="function.oci-fetch-all.html" class="function">oci_fetch_all()</a></span> по умолчанию.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-fetchstatement-by-row">
+         <td><strong><code>OCI_FETCHSTATEMENT_BY_ROW</code></strong></td>
+         <td>
+           Альтернативный режим <span class="function"><a href="function.oci-fetch-all.html" class="function">oci_fetch_all()</a></span>.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-lob-buffer-free">
+         <td><strong><code>OCI_LOB_BUFFER_FREE</code></strong></td>
+         <td>
+           Используется функцией <a href="oci-lob.flush.html" class="xref">OCI-Lob::flush</a> для освобождения
+           используемых буфферов.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-no-auto-commit">
+         <td><strong><code>OCI_NO_AUTO_COMMIT</code></strong></td>
+         <td>
+           Режим выполнения выражений для <span class="function"><a href="function.oci-execute.html" class="function">oci_execute()</a></span>. 
+           В этом режиме транзакция не завершается
+           автоматически оператором COMMIT. Для повышения читаемости
+           используйте в новом коде эту константу вместо старой
+           равносильной константы <strong><code>OCI_DEFAULT</code></strong>.
+           Добавлена в PHP 5.3.2 (PECL OCI8 1.4).
+         </td>
+       </tr>
+
+       <tr id="constant.oci-num">
+         <td><strong><code>OCI_NUM</code></strong></td>
+         <td>
+           Используется с <span class="function"><a href="function.oci-fetch-all.html" class="function">oci_fetch_all()</a></span> и
+           <span class="function"><a href="function.oci-fetch-array.html" class="function">oci_fetch_array()</a></span> для получения массива с числовыми
+           индексами.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-return-lobs">
+         <td><strong><code>OCI_RETURN_LOBS</code></strong></td>
+         <td>
+           Используется <span class="function"><a href="function.oci-fetch-array.html" class="function">oci_fetch_array()</a></span> для получения
+           содержания объекта LOB вместо дескриптора.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-return-nulls">
+         <td><strong><code>OCI_RETURN_NULLS</code></strong></td>
+         <td>
+           Используется с <span class="function"><a href="function.oci-fetch-array.html" class="function">oci_fetch_array()</a></span> для получения 
+           пустых элементов массива, если соответствующее поле в результате равно 
+           <strong><code>NULL</code></strong>.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-seek-cur">
+         <td><strong><code>OCI_SEEK_CUR</code></strong></td>
+         <td>
+           Используется <a href="oci-lob.seek.html" class="xref">OCI-Lob::seek</a> для задания позиции смещения.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-seek-end">
+         <td><strong><code>OCI_SEEK_END</code></strong></td>
+         <td>
+           Используется <a href="oci-lob.seek.html" class="xref">OCI-Lob::seek</a> для задания позиции смещения.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-seek-set">
+         <td><strong><code>OCI_SEEK_SET</code></strong></td>
+         <td>
+           Используется <a href="oci-lob.seek.html" class="xref">OCI-Lob::seek</a> для задания позиции смещения.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-sysdate">
+         <td><strong><code>OCI_SYSDATE</code></strong></td>
+         <td>
+           Больше не используется.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-sysdba">
+         <td><strong><code>OCI_SYSDBA</code></strong></td>
+         <td>
+           Используется функцией <span class="function"><a href="function.oci-connect.html" class="function">oci_connect()</a></span> для соединения с
+           привилегиями SYSOPER. Опция <var class="filename">php.ini</var>
+           <a href="oci8.configuration.html#ini.oci8.privileged-connect" class="link">oci8.privileged_connect</a>
+           должна быть включена.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-sysoper">
+         <td><strong><code>OCI_SYSOPER</code></strong></td>
+         <td>
+           Используется функцией <span class="function"><a href="function.oci-connect.html" class="function">oci_connect()</a></span> для соединения с
+           привилегиями SYSOPER. Опция <var class="filename">php.ini</var>
+           <a href="oci8.configuration.html#ini.oci8.privileged-connect" class="link">oci8.privileged_connect</a>
+           должна быть включена.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-temp-blob">
+         <td><strong><code>OCI_TEMP_BLOB</code></strong></td>
+         <td>
+           Используется функцией <a href="oci-lob.writetemporary.html" class="xref">OCI-Lob::writeTemporary</a>
+           для создания временного BLOB.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-temp-clob">
+         <td><strong><code>OCI_TEMP_CLOB</code></strong></td>
+         <td>
+           Используется функцией <a href="oci-lob.writetemporary.html" class="xref">OCI-Lob::writeTemporary</a>
+           для создания временного CLOB.
+         </td>
+       </tr>
+
+     </tbody>
+   
+ </table>
+
+ <table class="doctable table">
+   <caption><strong>OCI8 привязка переменных и определение типов</strong></caption>
+   
+     <thead>
+       <tr>
+         <th>Константа</th>
+         <th>Описание</th>
+       </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+       <tr id="constant.oci-b-bfile">
+         <td><strong><code>OCI_B_BFILE</code></strong></td>
+         <td>
+           Используется функцией <span class="function"><a href="function.oci-bind-by-name.html" class="function">oci_bind_by_name()</a></span> для
+           привязки переменных типа BFILE.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-b-bin">
+         <td><strong><code>OCI_B_BIN</code></strong></td>
+         <td>
+           Используется совместно с функцией <span class="function"><a href="function.oci-bind-by-name.html" class="function">oci_bind_by_name()</a></span>
+           для привязки необработанных (RAW) данных.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-b-blob">
+         <td><strong><code>OCI_B_BLOB</code></strong></td>
+         <td>
+           Используется функцией <span class="function"><a href="function.oci-bind-by-name.html" class="function">oci_bind_by_name()</a></span> для
+           привязки переменных типа BLOB.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-b-cfilee">
+         <td><strong><code>OCI_B_CFILEE</code></strong></td>
+         <td>
+           Используется функцией <span class="function"><a href="function.oci-bind-by-name.html" class="function">oci_bind_by_name()</a></span> для
+           привязки переменных типа CFILE.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-b-clob">
+         <td><strong><code>OCI_B_CLOB</code></strong></td>
+         <td>
+           Используется функцией <span class="function"><a href="function.oci-bind-by-name.html" class="function">oci_bind_by_name()</a></span>  для
+           привязки переменных типа CLOB.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-b-cursor">
+         <td><strong><code>OCI_B_CURSOR</code></strong></td>
+         <td>
+           Используется функцией <span class="function"><a href="function.oci-bind-by-name.html" class="function">oci_bind_by_name()</a></span> для 
+           привязки курсоров, ранее полученных из
+           <span class="function"><a href="function.oci-new-descriptor.html" class="function">oci_new_descriptor()</a></span>.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-b-int">
+         <td><strong><code>OCI_B_INT</code></strong></td>
+         <td>
+           Используется функцией <span class="function"><a href="function.oci-bind-array-by-name.html" class="function">oci_bind_array_by_name()</a></span> для
+           привязки массивов элементов типа INTEGER.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-b-nty">
+         <td><strong><code>OCI_B_NTY</code></strong></td>
+         <td>
+           Используется функцией <span class="function"><a href="function.oci-bind-by-name.html" class="function">oci_bind_by_name()</a></span> для привязки
+           именованных типов данных. Обратите внимание: в PHP &lt; 5.0 константа называлась
+           <strong><code>OCI_B_SQLT_NTY</code></strong>.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-b-num">
+         <td><strong><code>OCI_B_NUM</code></strong></td>
+         <td>
+           Используется функцией <span class="function"><a href="function.oci-bind-array-by-name.html" class="function">oci_bind_array_by_name()</a></span> для
+           привязки массивов элементов типа NUMBER.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-b-rowid">
+         <td><strong><code>OCI_B_ROWID</code></strong></td>
+         <td>
+           Используется функцией <span class="function"><a href="function.oci-bind-by-name.html" class="function">oci_bind_by_name()</a></span> для
+           привязки переменных типа ROWID.
+         </td>
+       </tr>
+
+       <tr id="constant.sqlt-afc">
+         <td><strong><code>SQLT_AFC</code></strong></td>
+         <td>
+           Используется функцией <span class="function"><a href="function.oci-bind-array-by-name.html" class="function">oci_bind_array_by_name()</a></span> для привязки массивов
+           с элементами типа CHAR.
+         </td>
+       </tr>
+
+       <tr id="constant.sqlt-avc">
+         <td><strong><code>SQLT_AVC</code></strong></td>
+         <td>
+           Используется функцией <span class="function"><a href="function.oci-bind-array-by-name.html" class="function">oci_bind_array_by_name()</a></span> для привязки массивов
+           с элементами типа VARCHAR2.
+         </td>
+       </tr>
+
+       <tr id="constant.sqlt-bdouble">
+         <td><strong><code>SQLT_BDOUBLE</code></strong></td>
+         <td>
+           Не поддерживается.
+         </td>
+       </tr>
+
+       <tr id="constant.sqlt-bfilee">
+         <td><strong><code>SQLT_BFILEE</code></strong></td>
+         <td>
+           То же, что и <strong><code>OCI_B_BFILE</code></strong>.
+         </td>
+       </tr>
+
+       <tr id="constant.sqlt-bfloat">
+         <td><strong><code>SQLT_BFLOAT</code></strong></td>
+         <td>
+           Не поддерживается.
+         </td>
+       </tr>
+
+       <tr id="constant.sqlt-bin">
+         <td><strong><code>SQLT_BIN</code></strong></td>
+         <td>
+          То же, что и <strong><code>OCI_B_BIN</code></strong>.
+         </td>
+       </tr>
+
+       <tr id="constant.sqlt-blob">
+         <td><strong><code>SQLT_BLOB</code></strong></td>
+         <td>
+           То же, что и <strong><code>OCI_B_BLOB</code></strong>.
+         </td>
+       </tr>
+
+       <tr id="constant.sqlt-cfilee">
+         <td><strong><code>SQLT_CFILEE</code></strong></td>
+         <td>
+           То же, что и <strong><code>OCI_B_CFILEE</code></strong>.
+         </td>
+       </tr>
+
+       <tr id="constant.sqlt-chr">
+         <td><strong><code>SQLT_CHR</code></strong></td>
+         <td>
+           Используется функцией <span class="function"><a href="function.oci-bind-array-by-name.html" class="function">oci_bind_array_by_name()</a></span> для привязки массивов
+           с элементами типа VARCHAR2.
+           Также используется функцией <span class="function"><a href="function.oci-bind-by-name.html" class="function">oci_bind_by_name()</a></span>.
+         </td>
+       </tr>
+
+       <tr id="constant.sqlt-clob">
+         <td><strong><code>SQLT_CLOB</code></strong></td>
+         <td>
+          То же, что и <strong><code>OCI_B_CLOB</code></strong>.
+         </td>
+       </tr>
+
+       <tr id="constant.sqlt-flt">
+         <td><strong><code>SQLT_FLT</code></strong></td>
+         <td>
+           Используется функцией <span class="function"><a href="function.oci-bind-array-by-name.html" class="function">oci_bind_array_by_name()</a></span> для привязки массивов
+           с элементами типа FLOAT.
+         </td>
+       </tr>
+
+       <tr id="constant.sqlt-int">
+         <td><strong><code>SQLT_INT</code></strong></td>
+         <td>
+           То же, что и <strong><code>OCI_B_INT</code></strong>.
+         </td>
+       </tr>
+
+       <tr id="constant.sqlt-lbi">
+         <td><strong><code>SQLT_LBI</code></strong></td>
+         <td>
+           Используется функцией <span class="function"><a href="function.oci-bind-by-name.html" class="function">oci_bind_by_name()</a></span> для привязки
+           переменных типа LONG RAW.
+         </td>
+       </tr>
+
+       <tr id="constant.sqlt-lng">
+         <td><strong><code>SQLT_LNG</code></strong></td>
+         <td>
+           Используется функцией <span class="function"><a href="function.oci-bind-by-name.html" class="function">oci_bind_by_name()</a></span>  для привязки
+           переменных типа LONG.
+         </td>
+       </tr>
+
+       <tr id="constant.sqlt-lvc">
+         <td><strong><code>SQLT_LVC</code></strong></td>
+         <td>
+           Используется функцией <span class="function"><a href="function.oci-bind-array-by-name.html" class="function">oci_bind_array_by_name()</a></span> для привязки массивов
+           с элементами типа LONG VARCHAR.
+         </td>
+       </tr>
+
+       <tr id="constant.sqlt-nty">
+         <td><strong><code>SQLT_NTY</code></strong></td>
+         <td>
+           То же, что и <strong><code>OCI_B_NTY</code></strong>.
+         </td>
+       </tr>
+
+       <tr id="constant.sqlt-num">
+         <td><strong><code>SQLT_NUM</code></strong></td>
+         <td>
+           То же, что и <strong><code>OCI_B_NUM</code></strong>.
+         </td>
+       </tr>
+
+       <tr id="constant.sqlt-odt">
+         <td><strong><code>SQLT_ODT</code></strong></td>
+         <td>
+           Используется функцией <span class="function"><a href="function.oci-bind-array-by-name.html" class="function">oci_bind_array_by_name()</a></span> для привязки массивов
+           с элементами типа LONG.
+         </td>
+       </tr>
+
+       <tr id="constant.sqlt-rdd">
+         <td><strong><code>SQLT_RDD</code></strong></td>
+         <td>
+           То же, что и <strong><code>OCI_B_ROWID</code></strong>.
+         </td>
+       </tr>
+
+       <tr id="constant.sqlt-rset">
+         <td><strong><code>SQLT_RSET</code></strong></td>
+         <td>
+           То же, что и <strong><code>OCI_B_CURSOR</code></strong>.           
+         </td>
+       </tr>
+
+       <tr id="constant.sqlt-str">
+         <td><strong><code>SQLT_STR</code></strong></td>
+         <td>
+           Используется функцией <span class="function"><a href="function.oci-bind-array-by-name.html" class="function">oci_bind_array_by_name()</a></span> для привязки массивов
+           с элементами типа STRING.
+         </td>
+       </tr>
+
+       <tr id="constant.sqlt-uin">
+         <td><strong><code>SQLT_UIN</code></strong></td>
+         <td>
+           Не поддерживается.
+         </td>
+       </tr>
+
+       <tr id="constant.sqlt-vcs">
+         <td><strong><code>SQLT_VCS</code></strong></td>
+         <td>
+           Используется совместно с <span class="function"><a href="function.oci-bind-array-by-name.html" class="function">oci_bind_array_by_name()</a></span>
+           для привязки массивов VARCHAR.
+         </td>
+       </tr>
+
+     </tbody>
+   
+ </table>
+
+ <table class="doctable table">
+   <caption><strong>Типы дескрипторов OCI8</strong></caption>
+   
+     <thead>
+       <tr>
+         <th>Константа</th>
+         <th>Описание</th>
+       </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+       <tr id="constant.oci-dtype-file">
+         <td><strong><code>OCI_DTYPE_FILE</code></strong></td>
+         <td>
+           Флаг используется <span class="function"><a href="function.oci-new-descriptor.html" class="function">oci_new_descriptor()</a></span> для
+           инициализации дескриптора типа FILE.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-dtype-lob">
+         <td><strong><code>OCI_DTYPE_LOB</code></strong></td>
+         <td>
+           Флаг используется <span class="function"><a href="function.oci-new-descriptor.html" class="function">oci_new_descriptor()</a></span> для
+           инициализации дескриптора типа LOB.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-dtype-rowid">
+         <td><strong><code>OCI_DTYPE_ROWID</code></strong></td>
+         <td>
+           Флаг используется <span class="function"><a href="function.oci-new-descriptor.html" class="function">oci_new_descriptor()</a></span> для
+           инициализации дескриптора типа ROWID.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-d-file">
+         <td><strong><code>OCI_D_FILE</code></strong></td>
+         <td>
+           То же, что и <strong><code>OCI_DTYPE_FILE</code></strong>.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-d-lob">
+         <td><strong><code>OCI_D_LOB</code></strong></td>
+         <td>
+           То же, что и <strong><code>OCI_DTYPE_LOB</code></strong>.
+         </td>
+       </tr>
+
+       <tr id="constant.oci-d-rowid">
+         <td><strong><code>OCI_D_ROWID</code></strong></td>
+         <td>
+           То же, что и <strong><code>OCI_DTYPE_ROWID</code></strong>.
+         </td>
+       </tr>
+
+     </tbody>
+   
+ </table>
+
+</div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="oci8.configuration.html">Настройка во время выполнения</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="oci8.examples.html">Примеры</a></div>
+ <div class="up"><a href="book.oci8.html">OCI8</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

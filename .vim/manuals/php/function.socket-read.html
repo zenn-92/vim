@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Читает строку байт максимальной длины length из сокета</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.socket-listen.html">socket_listen</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.socket-recv.html">socket_recv</a></div>
+ <div class="up"><a href="ref.sockets.html">Сокетные Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.socket-read" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">socket_read</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.1.0, PHP 5)</p><p class="refpurpose"><span class="refname">socket_read</span> &mdash; <span class="dc-title">Читает строку байт максимальной длины length из сокета</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.socket-read-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">string</span> <span class="methodname"><strong>socket_read</strong></span>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$socket</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$type</code><span class="initializer"> = PHP_BINARY_READ</span></span>
+  ] )</div>
+
+  <p class="para rdfs-comment">
+   Функция <span class="function"><strong>socket_read()</strong></span> читает данные из ресурса
+   сокета <code class="parameter">socket</code>, созданного при помощи
+   функций <span class="function"><a href="function.socket-create.html" class="function">socket_create()</a></span> или
+   <span class="function"><a href="function.socket-accept.html" class="function">socket_accept()</a></span>. 
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.socket-read-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">socket</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Действующий ресурс сокета, созданный при помощи функций <span class="function"><a href="function.socket-create.html" class="function">socket_create()</a></span>
+       или <span class="function"><a href="function.socket-accept.html" class="function">socket_accept()</a></span>.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">length</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Максимальное количество байт для чтения определено параметром
+       <code class="parameter">length</code>. Как вариант вы можете использовать
+       <strong><code>\r</code></strong>, <strong><code>\n</code></strong>,
+       или <strong><code>\0</code></strong> для окончания чтения (в зависимости от параметра 
+       <code class="parameter">type</code>, см ниже).
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">type</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Необязательный параметр <code class="parameter">type</code> - это именованная константа:
+       <ul class="itemizedlist">
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code>PHP_BINARY_READ</code></strong> (По умолчанию) - используется системная функция
+          <em>recv()</em>. Безопасно для чтения бинарных данных.
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code>PHP_NORMAL_READ</code></strong> - чтение останавливается на
+          <em>\n</em> или <em>\r</em>.
+         </span>
+        </li>
+       </ul>
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.socket-read-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   <span class="function"><strong>socket_read()</strong></span> возвращает данные в виде строки в случае успеха,
+   или <strong><code>FALSE</code></strong> в случае ошибки (включая случай, когда удалённый хост закрыл
+   соединение). Код ошибки может быть получен при помощи функции
+   <span class="function"><a href="function.socket-last-error.html" class="function">socket_last_error()</a></span>. Этот код может быть передан функции
+   <span class="function"><a href="function.socket-strerror.html" class="function">socket_strerror()</a></span> для получения текстового описания ошибки.
+  </p>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <p class="para">
+    <span class="function"><strong>socket_read()</strong></span> возвращает строку нулевой длины (&quot;&quot;)
+    когда больше нет данных для чтения.
+   </p>
+  </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.socket-read-changelog">
+  <h3 class="title">Список изменений</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Версия</th>
+       <th>Описание</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>4.1.0</td>
+       <td>
+        Значение по умолчанию для параметра <code class="parameter">type</code> было изменено с
+        <strong><code>PHP_NORMAL_READ</code></strong> на
+        <strong><code>PHP_BINARY_READ</code></strong>
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.socket-read-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.socket-accept.html" class="function" rel="rdfs-seeAlso">socket_accept()</a> - Принимает соединение на сокете</span></li>
+    <li class="member"><span class="function"><a href="function.socket-bind.html" class="function" rel="rdfs-seeAlso">socket_bind()</a> - Привязывает имя к сокету</span></li>
+    <li class="member"><span class="function"><a href="function.socket-connect.html" class="function" rel="rdfs-seeAlso">socket_connect()</a> - Начинает соединение с сокетом</span></li>
+    <li class="member"><span class="function"><a href="function.socket-listen.html" class="function" rel="rdfs-seeAlso">socket_listen()</a> - Listens for a connection on a socket</span></li>
+    <li class="member"><span class="function"><a href="function.socket-last-error.html" class="function" rel="rdfs-seeAlso">socket_last_error()</a> - Возвращает последнюю ошибку на сокете</span></li>
+    <li class="member"><span class="function"><a href="function.socket-strerror.html" class="function" rel="rdfs-seeAlso">socket_strerror()</a> - Возвращает строку, описывающую ошибку сокета</span></li>
+    <li class="member"><span class="function"><a href="function.socket-write.html" class="function" rel="rdfs-seeAlso">socket_write()</a> - Запись в сокет</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.socket-listen.html">socket_listen</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.socket-recv.html">socket_recv</a></div>
+ <div class="up"><a href="ref.sockets.html">Сокетные Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

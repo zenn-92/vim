@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Возвращает код SQLSTATE результата последней операции с базой данных</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="pdo.construct.html">PDO::__construct</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="pdo.errorinfo.html">PDO::errorInfo</a></div>
+ <div class="up"><a href="class.pdo.html">PDO</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="pdo.errorcode" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">PDO::errorCode</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PECL pdo &gt;= 0.1.0)</p><p class="refpurpose"><span class="refname">PDO::errorCode</span> &mdash; <span class="dc-title">
+   Возвращает код SQLSTATE результата последней операции с базой данных
+  </span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-pdo.errorcode-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <span class="methodname"><strong>PDO::errorCode</strong></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-pdo.errorcode-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает SQLSTATE - пятисимвольный идентификатор, определенный в стандарте
+   ANSI SQL-92. Первые два символа SQLSTATE отвечают за класс ошибки, а следующие
+   три определяют ее подкласс. Класс ошибок 01 означает предупреждение, которому
+   сопутствует возвращаемый код SQL_SUCCESS_WITH_INFO. Классы отличные от 01,
+   за исключением &#039;IM&#039;, означают ошибки выполнения запросов к базе данных. Класс
+   &#039;IM&#039; свидетельствует об ошибках и предупреждениях, которые вызваны самой
+   реализацией PDO (или, возможно, ODBC, если используется ODBC драйвер). Значение
+   подкласса &#039;000&#039; в любом классе означает, что подкласс для этого SQLSTATE
+   отсутствует.
+  </p>
+  <p class="para">
+   <span class="function"><strong>PDO::errorCode()</strong></span> выдает код ошибки только для операций
+   совершаемых с базой данных напрямую из PDO. Если создать объект PDOStatement
+   методами <span class="function"><a href="pdo.prepare.html" class="function">PDO::prepare()</a></span> или
+   <span class="function"><a href="pdo.query.html" class="function">PDO::query()</a></span>, и вызвать ошибку его методами,
+   <span class="function"><strong>PDO::errorCode()</strong></span> эту ошибку не отобразит. В таких случаях
+   нужно пользоваться собственными методами получения кодов ошибок объекта
+   PDOStatement <span class="function"><a href="pdostatement.errorcode.html" class="function">PDOStatement::errorCode()</a></span>.
+  </p>
+  <p class="para">
+   Возвращает <strong><code>NULL</code></strong>, если никаких операций над базой данных средствами PDO объекта
+   не производилось.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-pdo.errorcode-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-944"><p><strong>Пример #1 Получение кода SQLSTATE</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;Спровоцируем&nbsp;ошибку&nbsp;--&nbsp;таблицы&nbsp;BONES&nbsp;не&nbsp;существует&nbsp;*/<br /></span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">exec</span><span style="color: #007700">(</span><span style="color: #DD0000">"INSERT&nbsp;INTO&nbsp;bones(skull)&nbsp;VALUES&nbsp;('lucy')"</span><span style="color: #007700">);<br /><br />echo&nbsp;</span><span style="color: #DD0000">"\nPDO::errorCode():&nbsp;"</span><span style="color: #007700">;<br />print&nbsp;</span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">errorCode</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>Результат выполнения данного примера:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+PDO::errorCode(): 42S02
+</pre></div>
+    </div>
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-pdo.errorcode-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="pdo.errorinfo.html" class="function" rel="rdfs-seeAlso">PDO::errorInfo()</a> - Получает расширенную информацию об ошибке, произошедшей в ходе
+   последнего обращения к базе данных</span></li>
+    <li class="member"><span class="function"><a href="pdostatement.errorcode.html" class="function" rel="rdfs-seeAlso">PDOStatement::errorCode()</a> - Определяет SQLSTATE код соответствующий последней операции объекта PDOStatement</span></li>
+    <li class="member"><span class="function"><a href="pdostatement.errorinfo.html" class="function" rel="rdfs-seeAlso">PDOStatement::errorInfo()</a> - Получение расширенной информации об ошибке, произошедшей в результате работы
+   объекта PDOStatement</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="pdo.construct.html">PDO::__construct</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="pdo.errorinfo.html">PDO::errorInfo</a></div>
+ <div class="up"><a href="class.pdo.html">PDO</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

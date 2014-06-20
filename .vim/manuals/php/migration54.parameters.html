@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Измененные функции</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="migration54.deprecated.html">Устаревшие функции и возможности в PHP 5.4.x</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="migration54.functions.html">Новые функции</a></div>
+ <div class="up"><a href="migration54.html">Переход с PHP 5.3.x на PHP 5.4.x</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="migration54.parameters" class="section">
+  <h2 class="title">Измененные функции</h2>
+  <p class="simpara">
+   К некоторым функциям были добавлены новые необязательные параметры в PHP 5.4:
+  </p>
+  <p class="simpara">Ядро PHP:</p>
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara">
+     Добавлен необязательный аргумент <code class="parameter">limit</code> к функциям <span class="function"><a href="function.debug-backtrace.html" class="function">debug_backtrace()</a></span> и
+     <span class="function"><a href="function.debug-print-backtrace.html" class="function">debug_print_backtrace()</a></span> для ограничения количества возвращаемых фреймов стека.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     Функция <span class="function"><a href="function.is-link.html" class="function">is_link()</a></span> теперь работает правильно с символическими ссылками в системе Windows Vista
+     или более поздними. Более ранние версии не поддерживали символические ссылки.
+    </span>
+   </li>
+  </ul>
+  <p class="simpara">OpenSSL:</p>
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara">
+     В функции <span class="function"><a href="function.openssl-encrypt.html" class="function">openssl_encrypt()</a></span> и <span class="function"><a href="function.openssl-decrypt.html" class="function">openssl_decrypt()</a></span>
+     добавлена опция &quot;no padding&quot; (не дополнять размер шифруемого блока).
+    </span>
+   </li>
+  </ul>
+  <p class="simpara">Intl:</p>
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara">
+     Функции <span class="function"><a href="function.idn-to-ascii.html" class="function">idn_to_ascii()</a></span> и <span class="function"><a href="function.idn-to-utf8.html" class="function">idn_to_utf8()</a></span> теперь принимают два дополнительных
+     параметра: один указывает вид (IDNA 2003 или UTS #46) и другой, передаваемый по ссылке,
+     предназначен для возврата детальной информации об операции в случае выбора UTS #46.
+    </span>
+   </li>
+  </ul>
+ </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="migration54.deprecated.html">Устаревшие функции и возможности в PHP 5.4.x</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="migration54.functions.html">Новые функции</a></div>
+ <div class="up"><a href="migration54.html">Переход с PHP 5.3.x на PHP 5.4.x</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

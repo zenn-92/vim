@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Store multiple items on a specific server</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="memcached.setmulti.html">Memcached::setMulti</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="memcached.setoption.html">Memcached::setOption</a></div>
+ <div class="up"><a href="class.memcached.html">Memcached</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="memcached.setmultibykey" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">Memcached::setMultiByKey</h1>
+  <p class="verinfo">(PECL memcached &gt;= 0.1.0)</p><p class="refpurpose"><span class="refname">Memcached::setMultiByKey</span> &mdash; <span class="dc-title">Store multiple items on a specific server</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-memcached.setmultibykey-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><strong>Memcached::setMultiByKey</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$server_key</code></span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$items</code></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$expiration</code></span>
+  ] )</div>
+
+  <p class="para rdfs-comment">
+   <span class="function"><strong>Memcached::setMultiByKey()</strong></span> is functionally equivalent to
+   <span class="methodname"><a href="memcached.setmulti.html" class="methodname">Memcached::setMulti()</a></span>, except that the free-form
+   <code class="parameter">server_key</code> can be used to map the keys from
+   <code class="parameter">items</code> to a specific server. This is useful if you
+   need to keep a bunch of related keys on a certain server.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-memcached.setmultibykey-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">server_key</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Ключ, идентифицирующий сервер, на котором хранится значение. Вместо хэширования по ключу самого элемента, мы хэшируем по ключу сервера при выборе подключаемого сервера memcached. Данный подход позволяет группировать связанные элементы вместе на одном сервере, что улучшает эффективность групповых операций.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">items</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Сохраняемый массив пар ключей/значений.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">expiration</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Время хранения объекта, по умолчанию равно 0. Для более подробной информации смотрите <a href="memcached.expiration.html" class="link">Время хранения объекта</a>.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-memcached.setmultibykey-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает <strong><code>TRUE</code></strong> в случае успешного завершения  или <strong><code>FALSE</code></strong> в случае возникновения ошибки.
+   Используйте при необходимости <span class="methodname"><a href="memcached.getresultcode.html" class="methodname">Memcached::getResultCode()</a></span>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-memcached.setmultibykey-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="methodname"><a href="memcached.setmulti.html" class="methodname" rel="rdfs-seeAlso">Memcached::setMulti()</a> - Store multiple items</span></li>
+    <li class="member"><span class="methodname"><a href="memcached.set.html" class="methodname" rel="rdfs-seeAlso">Memcached::set()</a> - Store an item</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="memcached.setmulti.html">Memcached::setMulti</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="memcached.setoption.html">Memcached::setOption</a></div>
+ <div class="up"><a href="class.memcached.html">Memcached</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Новые возможности</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="migration54.incompatible.html">Обратно несовместимые изменения</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="migration54.sapi.html">Изменения в модулях SAPI</a></div>
+ <div class="up"><a href="migration54.html">Переход с PHP 5.3.x на PHP 5.4.x</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="migration54.new-features" class="section">
+  <h2 class="title">Новые возможности</h2>
+  <p class="simpara">
+   PHP версии 5.4.0 предлагает широкий спектр новых возможностей:
+  </p>
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara">
+     Добавлена поддержка <a href="language.oop5.traits.html" class="link">трейтов</a>.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     Добавлен короткий синтаксис объявления массивов. Например, <em>$a = [1, 2, 3, 4];</em> или
+     <em>$a = [&#039;one&#039; =&gt; 1, &#039;two&#039; =&gt; 2, &#039;three&#039; =&gt; 3, &#039;four&#039; =&gt; 4];</em>.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     Добавлена возможность разыменования массивов, возвращаемых функциями. Например: <em>foo()[0]</em>.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <a href="functions.anonymous.html" class="link">Классы для создания анонимных функций (Closures)</a> теперь поддерживают <em>$this</em>.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     Оператор <em>&lt;?=</em> теперь доступен всегда, несмотря на значение <var class="filename">php.ini</var> опции
+     <a href="ini.core.html#ini.short-open-tag" class="link">short_open_tag</a>.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     Добавлена возможность получения доступа к члену класса при создании экземпляра.
+     Например: <em>(new Foo)-&gt;bar()</em>.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     Теперь поддерживается такой синтаксис: <em>Class::{expr}()</em>.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     Добавлен бинарный формат задания чисел, например: <em>0b001001101</em>.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     Улучшены сообщения об ошибках разбора и предупреждения о несовместимых аргументах.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     Расширение по работе с сессиями теперь может отслеживать <a href="session.upload-progress.html" class="link">процесс загрузки</a> файлов.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     Встроенный <a href="features.commandline.webserver.html" class="link">веб-сервер в режиме командной строки</a> для разработчиков.
+    </span>
+   </li>
+  </ul>
+ </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="migration54.incompatible.html">Обратно несовместимые изменения</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="migration54.sapi.html">Изменения в модулях SAPI</a></div>
+ <div class="up"><a href="migration54.html">Переход с PHP 5.3.x на PHP 5.4.x</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

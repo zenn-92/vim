@@ -1,0 +1,476 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Настройка во время выполнения</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="info.installation.html">Установка</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="info.resources.html">Типы ресурсов</a></div>
+ <div class="up"><a href="info.setup.html">Установка и настройка</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="info.configuration" class="section">
+ <h2 class="title">Настройка во время выполнения</h2>
+ <p class="simpara">
+Поведение этих функций зависит от установок в <var class="filename">php.ini</var>.
+</p>
+ <p class="para">
+  <table class="doctable table">
+   <caption><strong>Настройки PHP/Inf-настройки конфигурации</strong></caption>
+   
+    <thead>
+     <tr>
+      <th>Имя</th>
+      <th>По умолчанию</th>
+      <th>Меняемо</th>
+      <th>Список изменений</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+    <tr>
+     <td><a href="info.configuration.html#ini.assert.active" class="link">assert.active</a></td>
+     <td>&quot;1&quot;</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr>
+     <td><a href="info.configuration.html#ini.assert.bail" class="link">assert.bail</a></td>
+     <td>&quot;0&quot;</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr>
+     <td><a href="info.configuration.html#ini.assert.warning" class="link">assert.warning</a></td>
+     <td>&quot;1&quot;</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr>
+     <td><a href="info.configuration.html#ini.assert.callback" class="link">assert.callback</a></td>
+     <td>NULL</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr>
+     <td><a href="info.configuration.html#ini.assert.quiet-eval" class="link">assert.quiet_eval</a></td>
+     <td>&quot;0&quot;</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr>
+     <td><a href="info.configuration.html#ini.enable-dl" class="link">enable_dl</a></td>
+     <td>&quot;1&quot;</td>
+     <td>PHP_INI_SYSTEM</td>
+     <td>Эта возможность устарела и <em class="emphasis">будет</em>
+обязательно <em class="emphasis">удалена</em> в будущем.</td>
+    </tr>
+
+    <tr>
+     <td><a href="info.configuration.html#ini.max-execution-time" class="link">max_execution_time</a></td>
+     <td>&quot;30&quot;</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr>
+     <td><a href="info.configuration.html#ini.max-input-time" class="link">max_input_time</a></td>
+     <td>&quot;-1&quot;</td>
+     <td>PHP_INI_PERDIR</td>
+     <td>Доступна с PHP 4.3.0.</td>
+    </tr>
+
+    <tr>
+     <td><a href="info.configuration.html#ini.max-input-nesting-level" class="link">max_input_nesting_level</a></td>
+     <td>&quot;64&quot;</td>
+     <td>PHP_INI_PERDIR</td>
+     <td>Доступна с PHP 4.4.8 и PHP 5.2.3.</td>
+    </tr>
+
+    <tr>
+     <td><a href="info.configuration.html#ini.max-input-vars" class="link">max_input_vars</a></td>
+     <td>1000</td>
+     <td>PHP_INI_PERDIR</td>
+     <td>Доступна с PHP 5.3.9.</td>
+    </tr>
+
+    <tr>
+     <td><a href="info.configuration.html#ini.magic-quotes-gpc" class="link">magic_quotes_gpc</a></td>
+     <td>&quot;1&quot;</td>
+     <td>PHP_INI_PERDIR</td>
+     <td>PHP_INI_ALL в PHP &lt;= 4.2.3. Удалена в PHP 5.4.0.</td>
+    </tr>
+
+    <tr>
+     <td><a href="info.configuration.html#ini.magic-quotes-runtime" class="link">magic_quotes_runtime</a></td>
+     <td>&quot;0&quot;</td>
+     <td>PHP_INI_ALL</td>
+     <td>Удалена в PHP 5.4.0.</td>
+    </tr>
+
+    <tr>
+     <td><a href="info.configuration.html#ini.zend.enable-gc" class="link">zend.enable_gc</a></td>
+     <td>&quot;1&quot;</td>
+     <td>PHP_INI_ALL</td>
+     <td>Доступна с PHP 5.3.0.</td>
+    </tr>
+
+    </tbody>
+   
+  </table>
+
+  Для подробного описания констант
+PHP_INI_*, обратитесь к разделу <a href="configuration.changes.modes.html" class="xref">Где могут быть установлены параметры конфигурации</a>.
+ </p>
+ 
+ <p class="para">Краткое разъяснение конфигурационных
+директив.</p>
+ 
+ <p class="para">
+  <dl>
+
+   
+    <dt id="ini.assert.active">
+     <code class="parameter">assert.active</code>
+     <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Включение <span class="function"><a href="function.assert.html" class="function">assert()</a></span> проверки.
+     </p>
+    </dd>
+
+   
+
+   
+    <dt id="ini.assert.bail">
+     <code class="parameter">assert.bail</code>
+     <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Завершение работы скрипта при провале проверки утверждений.
+     </p>
+    </dd>
+
+   
+
+   
+    <dt id="ini.assert.warning">
+     <code class="parameter">assert.warning</code>
+     <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Выдача PHP предупреждений для каждой проваленной проверки утверждения.
+     </p>
+    </dd>
+
+   
+
+   
+    <dt id="ini.assert.callback">
+     <code class="parameter">assert.callback</code>
+     <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Пользовательская функция, вызываемая при провале проверки утверждений.
+     </p>
+    </dd>
+
+   
+
+   
+    <dt id="ini.assert.quiet-eval">
+     <code class="parameter">assert.quiet_eval</code>
+     <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Используйте эту настройку функции <span class="function"><a href="function.error-reporting.html" class="function">error_reporting()</a></span>
+      во время выполнения проверки утверждений. При включении настройки сообщения
+      об ошибках во время проверки утверждений выдаваться не будут (это неявный
+      вызов error_reporting(0)). Если настройка выключена, ошибки будут выдаваться
+      в соответствии с настройками <span class="function"><a href="function.error-reporting.html" class="function">error_reporting()</a></span>
+     </p>
+    </dd>
+
+   
+
+   
+    <dt id="ini.enable-dl">
+      <code class="parameter">enable_dl</code>
+      <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Эта директива может оказаться полезной только в PHP, используемом в качестве
+      Apache модуля. С ее помощью можно включать динамическую подгрузку расширений
+      посредством функции <span class="function"><a href="function.dl.html" class="function">dl()</a></span>. Динамическая загрузка может быть
+      включена или отключена для каждого отдельно взятого виртуального сервера или 
+      директории.
+     </p>
+     <p class="para">
+      Главной причиной, по которой требуется выключение динамической загрузки,
+      является безопасность. С помощью динамической загрузки можно обойти все
+      <a href="ini.core.html#ini.open-basedir" class="link">open_basedir</a> ограничения. По
+      умолчанию динамическая загрузка разрешена, за исключением работы в
+      <a href="ini.sect.safe-mode.html#ini.safe-mode" class="link">безопасный режим</a>. В <a href="ini.sect.safe-mode.html#ini.safe-mode" class="link">безопасный режим</a> невозможен вызов <span class="function"><a href="function.dl.html" class="function">dl()</a></span>.
+     </p>
+    </dd>
+
+   
+
+   
+    <dt id="ini.max-execution-time">
+     <code class="parameter">max_execution_time</code>
+      <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Эта директива задает максимальное время в секундах, в течение которого
+      скрипт должен полностью загрузиться. Если этого не происходит, анализатор
+      завершает его работу. Этот механизм помогает предотвратить зависание сервера
+      из-за криво написанного скрипта. По умолчанию на загрузку дается
+      <em>30</em> секунд. Если PHP запущен из
+      <a href="features.commandline.html" class="link">командной строки</a>, это значение
+      по умолчанию равно <em>0</em>.
+     </p>
+     <p class="para">
+      На максимальное время выполнения не влияют системные вызовы, потоковые
+      операции и т.п. За дополнительной информацией обращайтесь к документации к
+      функции <span class="function"><a href="function.set-time-limit.html" class="function">set_time_limit()</a></span>.
+     </p>
+     <p class="para">
+      При работе в <a href="ini.sect.safe-mode.html#ini.safe-mode" class="link">безопасный режим</a> эту настройку нельзя изменить функцией
+      <span class="function"><a href="function.ini-set.html" class="function">ini_set()</a></span>. Если значение все же нужно изменить, надо либо
+      выключить безопасный режим, либо изменить значение прямо в <var class="filename">php.ini</var>.
+     </p>
+     <p class="para">
+      Web-серверы обычно имеют свои настройки таймаута, по истечении которого сами
+      завершают выполнение PHP скрипта. В Apache есть директива
+      <em>Timeout</em>, в IIS есть функция CGI timeout. В обоих случаях
+      по умолчанию установлено 300 секунд. Точные значения можно узнать из
+      документации к Web-серверу.
+     </p>
+    </dd>
+
+   
+
+   
+    <dt id="ini.max-input-time">
+     <code class="parameter">max_input_time</code>
+      <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Эта директива задает максимальное время в секундах, в течение которого скрипт
+      должен разобрать все входные данные, переданные запросами вроде POST или GET.
+      Это время измеряется от момента, когда сервером получены все данные, до
+      момента, когда скрипт начинает выполняться.
+     </p>
+    </dd>
+
+   
+
+   
+    <dt id="ini.max-input-nesting-level">
+     <code class="parameter">max_input_nesting_level</code>
+     <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Задает максимальную глубину вложенности 
+      <a href="language.variables.external.html" class="link">входных переменных</a> (т.е.
+      <var class="varname"><var class="varname"><a href="reserved.variables.get.html" class="classname">$_GET</a></var></var>, <var class="varname"><var class="varname"><a href="reserved.variables.post.html" class="classname">$_POST</a></var></var>..)
+     </p>
+    </dd>
+
+   
+
+   
+    <dt id="ini.max-input-vars">
+     <code class="parameter">max_input_vars</code>
+     <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Сколько <a href="language.variables.external.html" class="link">входных переменных</a>
+      может быть принято в одном запросе (ограничение накладывается на каждую из
+      глобальных переменных $_GET, $_POST и $_COOKIE отдельно).
+      Использование этой директивы снижает
+      вероятность сбоев в случае атак с использованием хеш-коллизий. Если входных
+      переменных больше, чем задано директивой, выбрасывается предупреждение
+      <strong><code>E_WARNING</code></strong>, и все последующие переменные в запросе
+      игнорируются. Это ограничение применяется к каждому уровню вложенности
+      входного многомерного массива.
+     </p>
+    </dd>
+
+   
+   
+   
+    <dt id="ini.magic-quotes-gpc">
+     <code class="parameter">magic_quotes_gpc</code>
+     <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+    </dt>
+
+     <dd>
+
+     <div class="warning"><strong class="warning">Внимание</strong><p class="simpara">Данная возможность была
+помечена <em class="emphasis">УСТАРЕВШЕЙ</em> начиная с версии PHP 5.3.0 и
+была <em class="emphasis">УДАЛЕНА</em> в версии PHP 5.4.0.</p></div>
+     <p class="para">
+      Задает режим magic_quotes для GPC (Get/Post/Cookie) операций. Если
+      magic_quotes включен, все &#039; (одинарные кавычки), &quot; (двойные кавычки),
+      \ (обратный слеш) и NUL экранируются обратным слешем автоматически.
+     </p>
+     <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+      <p class="para">
+       В PHP 4, <var class="varname"><var class="varname"><a href="reserved.variables.environment.html" class="classname">$_ENV</a></var></var> переменные также экранируются.
+      </p>
+     </p></blockquote>
+     <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+      <p class="para">
+       Если включена директива
+       <a href="sybase.configuration.html#ini.magic-quotes-sybase" class="link">magic_quotes_sybase</a>,
+       она замещает magic_quotes_gpc. Если включены обе директивы, то
+       экранироваться будут только одинарные кавычки, причем экранированы они будут
+       теми же кавычками: <em class="emphasis">&#039;&#039;</em>. Двойные кавычки, обратные слеши и
+       NUL при этом останутся нетронутыми и неэкранированными.
+      </p>
+     </p></blockquote>
+     <p class="para">
+      См. также <span class="function"><a href="function.get-magic-quotes-gpc.html" class="function">get_magic_quotes_gpc()</a></span>
+     </p>
+    </dd>
+
+   
+
+   
+    <dt id="ini.magic-quotes-runtime">
+     <code class="parameter">magic_quotes_runtime</code>
+     <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+    </dt>
+
+    <dd>
+
+     <div class="warning"><strong class="warning">Внимание</strong><p class="simpara">Данная возможность была
+помечена <em class="emphasis">УСТАРЕВШЕЙ</em> начиная с версии PHP 5.3.0 и
+была <em class="emphasis">УДАЛЕНА</em> в версии PHP 5.4.0.</p></div>
+     <p class="para">
+      Если включена директива <code class="parameter">magic_quotes_runtime</code>,
+      большинство функций возвращающих данные из внешних источников, таких как
+      базы данных или текстовые файлы, будут экранировать кавычки обратным слешем.
+      Если при этом директива
+      <a href="sybase.configuration.html#ini.magic-quotes-sybase" class="link">magic_quotes_sybase</a>
+      также включена, то одинарные кавычки будут экранироваться одинарной кавычкой
+      вместо обратного слеша.
+     </p>
+     <p class="para">
+      Функции, на которые распростаняется действие директивы
+      <code class="parameter">magic_quotes_runtime</code>
+      (исключая функции из PECL):
+      <ul class="simplelist">
+       <li class="member"><span class="function"><a href="function.get-meta-tags.html" class="function">get_meta_tags()</a></span></li>
+       <li class="member"><span class="function"><a href="function.file-get-contents.html" class="function">file_get_contents()</a></span></li>
+       <li class="member"><span class="function"><a href="function.file.html" class="function">file()</a></span></li>
+       <li class="member"><span class="function"><a href="function.fgets.html" class="function">fgets()</a></span></li>
+       <li class="member"><span class="function"><a href="function.fwrite.html" class="function">fwrite()</a></span></li>
+       <li class="member"><span class="function"><a href="function.fread.html" class="function">fread()</a></span></li>
+       <li class="member"><span class="function"><a href="function.fputcsv.html" class="function">fputcsv()</a></span></li>
+       <li class="member"><span class="function"><a href="function.stream-socket-recvfrom.html" class="function">stream_socket_recvfrom()</a></span></li>
+       <li class="member"><span class="function"><a href="function.exec.html" class="function">exec()</a></span></li>
+       <li class="member"><span class="function"><a href="function.system.html" class="function">system()</a></span></li>
+       <li class="member"><span class="function"><a href="function.passthru.html" class="function">passthru()</a></span></li>
+       <li class="member"><span class="function"><a href="function.stream-get-contents.html" class="function">stream_get_contents()</a></span></li>
+       <li class="member"><span class="function"><a href="function.bzread.html" class="function">bzread()</a></span></li>
+       <li class="member"><span class="function"><a href="function.gzfile.html" class="function">gzfile()</a></span></li>
+       <li class="member"><span class="function"><a href="function.gzgets.html" class="function">gzgets()</a></span></li>
+       <li class="member"><span class="function"><a href="function.gzwrite.html" class="function">gzwrite()</a></span></li>
+       <li class="member"><span class="function"><a href="function.gzread.html" class="function">gzread()</a></span></li>
+       <li class="member"><span class="function"><a href="function.exif-read-data.html" class="function">exif_read_data()</a></span></li>
+       <li class="member"><span class="function"><a href="function.dba-insert.html" class="function">dba_insert()</a></span></li>
+       <li class="member"><span class="function"><a href="function.dba-replace.html" class="function">dba_replace()</a></span></li>
+       <li class="member"><span class="function"><a href="function.dba-fetch.html" class="function">dba_fetch()</a></span></li>
+       <li class="member"><span class="function"><a href="function.ibase-fetch-row.html" class="function">ibase_fetch_row()</a></span></li>
+       <li class="member"><span class="function"><a href="function.ibase-fetch-assoc.html" class="function">ibase_fetch_assoc()</a></span></li>
+       <li class="member"><span class="function"><a href="function.ibase-fetch-object.html" class="function">ibase_fetch_object()</a></span></li>
+       <li class="member"><span class="function"><a href="function.mssql-fetch-row.html" class="function">mssql_fetch_row()</a></span></li>
+       <li class="member"><span class="function"><a href="function.mssql-fetch-object.html" class="function">mssql_fetch_object()</a></span></li>
+       <li class="member"><span class="function"><a href="function.mssql-fetch-array.html" class="function">mssql_fetch_array()</a></span></li>
+       <li class="member"><span class="function"><a href="function.mssql-fetch-assoc.html" class="function">mssql_fetch_assoc()</a></span></li>
+       <li class="member"><span class="function"><a href="mysqli-result.fetch-row.html" class="function">mysqli_fetch_row()</a></span></li>
+       <li class="member"><span class="function"><a href="mysqli-result.fetch-array.html" class="function">mysqli_fetch_array()</a></span></li>
+       <li class="member"><span class="function"><a href="mysqli-result.fetch-assoc.html" class="function">mysqli_fetch_assoc()</a></span></li>
+       <li class="member"><span class="function"><a href="mysqli-result.fetch-object.html" class="function">mysqli_fetch_object()</a></span></li>
+       <li class="member"><span class="function"><a href="function.pg-fetch-row.html" class="function">pg_fetch_row()</a></span></li>
+       <li class="member"><span class="function"><a href="function.pg-fetch-assoc.html" class="function">pg_fetch_assoc()</a></span></li>
+       <li class="member"><span class="function"><a href="function.pg-fetch-array.html" class="function">pg_fetch_array()</a></span></li>
+       <li class="member"><span class="function"><a href="function.pg-fetch-object.html" class="function">pg_fetch_object()</a></span></li>
+       <li class="member"><span class="function"><a href="function.pg-fetch-all.html" class="function">pg_fetch_all()</a></span></li>
+       <li class="member"><span class="function"><a href="function.pg-select.html" class="function">pg_select()</a></span></li>
+       <li class="member"><span class="function"><a href="function.sybase-fetch-object.html" class="function">sybase_fetch_object()</a></span></li>
+       <li class="member"><span class="function"><a href="function.sybase-fetch-array.html" class="function">sybase_fetch_array()</a></span></li>
+       <li class="member"><span class="function"><a href="function.sybase-fetch-assoc.html" class="function">sybase_fetch_assoc()</a></span></li>
+       <li class="member"><span class="function"><a href="splfileobject.fgets.html" class="function">SplFileObject::fgets()</a></span></li>
+       <li class="member"><span class="function"><a href="splfileobject.fgetcsv.html" class="function">SplFileObject::fgetcsv()</a></span></li>
+       <li class="member"><span class="function"><a href="splfileobject.fwrite.html" class="function">SplFileObject::fwrite()</a></span></li>
+      </ul>
+     </p>
+    </dd>
+
+   
+
+   
+    <dt id="ini.zend.enable-gc">
+     <code class="parameter">zend.enable_gc</code>
+     <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Включает или отключает сборщик циклических ссылок.
+     </p>
+    </dd>
+
+   
+
+  </dl>
+
+ </p>
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="info.installation.html">Установка</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="info.resources.html">Типы ресурсов</a></div>
+ <div class="up"><a href="info.setup.html">Установка и настройка</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

@@ -1,0 +1,182 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Заключает строку в кавычки для использования в запросе</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="pdo.query.html">PDO::query</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="pdo.rollback.html">PDO::rollBack</a></div>
+ <div class="up"><a href="class.pdo.html">PDO</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="pdo.quote" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">PDO::quote</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PECL pdo &gt;= 0.2.1)</p><p class="refpurpose"><span class="refname">PDO::quote</span> &mdash; <span class="dc-title">
+   Заключает строку в кавычки для использования в запросе
+  </span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-pdo.quote-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">string</span> <span class="methodname"><strong>PDO::quote</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$parameter_type</code><span class="initializer"> = PDO::PARAM_STR</span></span>
+  ] )</div>
+
+
+  <p class="para rdfs-comment">
+   <span class="function"><strong>PDO::quote()</strong></span> заключает строку в кавычки (если требуется) и
+   экранирует специальные символы внутри строки подходящим для драйвера способом.
+  </p>
+  <p class="para">
+   Если вы используете эту функцию для построения SQL запросов, 
+   <em class="emphasis">настоятельно</em> рекомендуется пользоваться методом
+   <span class="function"><a href="pdo.prepare.html" class="function">PDO::prepare()</a></span> для подготовки запроса с псевдопеременными
+   вместо использования <span class="function"><strong>PDO::quote()</strong></span> для вставки данных введенных
+   пользователем в SQL запрос. Подготавливаемые запросы с параметрами не только
+   компактней, удобней, устойчивей к SQL иньекциям, но и работают быстрее, нежели
+   вручную построенные запросы, так как и клиент и сервер могут кэшировать
+   такие запросы в уже скомпилированном виде.
+  </p>
+  <p class="para">
+   Не все PDO драйверы реализуют этот метод (особенно PDO_ODBC). Предполагается,
+   что вместо него будут использоваться подготавливаемые запросы.
+  </p>
+  <div class="caution"><strong class="caution">Предостережение</strong>
+   <h1 class="title">Безопасность: набор символов по умолчанию</h1>
+   <p class="para">
+    Для корректной работы <span class="methodname"><strong>PDO::quote()</strong></span> набор
+    символов должен быть задан либо на сервере, либо задаваться
+    самим соединением с базой данных (это зависит от драйвера).
+    Подробнее см. 
+    <a href="pdo.drivers.html" class="link">документацию к драйверу базы данных</a>.
+   </p>
+  </div>
+ </div>
+
+ <div class="refsect1 parameters" id="refsect1-pdo.quote-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">string</code></dt>
+
+      <dd>
+
+       <p class="para">
+        Экранируемая строка.
+       </p>
+      </dd>
+
+     
+    
+     <dt>
+<code class="parameter">parameter_type</code></dt>
+
+      <dd>
+
+       <p class="para">
+        Представляет подсказку о типе данных первого параметра для драйверов,
+        которые имеют альтернативные способы экранирования.
+       </p>
+      </dd>
+
+     
+   </dl>
+
+  </p>
+ </div>
+
+ <div class="refsect1 returnvalues" id="refsect1-pdo.quote-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает экранированную строку, которую теоретически безопасно использовать
+   в теле SQL запроса. Возвращает <strong><code>FALSE</code></strong>, если драйвер не поддерживает
+   экранирование.
+  </p>
+ </div>
+
+
+ 
+
+ <div class="refsect1 examples" id="refsect1-pdo.quote-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-952">
+    <p><strong>Пример #1 Экранирование обычной строки</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$conn&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">(</span><span style="color: #DD0000">'sqlite:/home/lynn/music.sql3'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;простая&nbsp;строка&nbsp;*/<br /></span><span style="color: #0000BB">$string&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'Nice'</span><span style="color: #007700">;<br />print&nbsp;</span><span style="color: #DD0000">"Неэкранированная&nbsp;строка:&nbsp;</span><span style="color: #0000BB">$string</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br />print&nbsp;</span><span style="color: #DD0000">"Экранированная&nbsp;строка:&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$conn</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">quote</span><span style="color: #007700">(</span><span style="color: #0000BB">$string</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>Результат выполнения данного примера:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+Неэкранированная строка: Nice
+Экранированная строка: &#039;Nice&#039;
+</pre></div>
+    </div>
+   </div>
+   <div class="example" id="example-953">
+    <p><strong>Пример #2 Экранирование небезопасной строки</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$conn&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">(</span><span style="color: #DD0000">'sqlite:/home/lynn/music.sql3'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;небезопасная&nbsp;строка&nbsp;*/<br /></span><span style="color: #0000BB">$string&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'Naughty&nbsp;\'&nbsp;string'</span><span style="color: #007700">;<br />print&nbsp;</span><span style="color: #DD0000">"Неэкранированная&nbsp;строка:&nbsp;</span><span style="color: #0000BB">$string</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br />print&nbsp;</span><span style="color: #DD0000">"Экранированная&nbsp;строка:"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$conn</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">quote</span><span style="color: #007700">(</span><span style="color: #0000BB">$string</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>Результат выполнения данного примера:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+Неэкранированная строка: Naughty &#039; string
+Экранированная строка: &#039;Naughty &#039;&#039; string&#039;
+</pre></div>
+    </div>
+   </div>
+   <div class="example" id="example-954">
+    <p><strong>Пример #3 Экранирование сложной строки</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$conn&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">(</span><span style="color: #DD0000">'sqlite:/home/lynn/music.sql3'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;сложная&nbsp;строка&nbsp;*/<br /></span><span style="color: #0000BB">$string&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"Co'mpl''ex&nbsp;\"st'\"ring"</span><span style="color: #007700">;<br />print&nbsp;</span><span style="color: #DD0000">"Неэкранированная&nbsp;строка:&nbsp;</span><span style="color: #0000BB">$string</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br />print&nbsp;</span><span style="color: #DD0000">"Экранированная&nbsp;строка:&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$conn</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">quote</span><span style="color: #007700">(</span><span style="color: #0000BB">$string</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>Результат выполнения данного примера:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+Неэкранированная строка: Co&#039;mpl&#039;&#039;ex &quot;st&#039;&quot;ring
+Экранированная строка: &#039;Co&#039;&#039;mpl&#039;&#039;&#039;&#039;ex &quot;st&#039;&#039;&quot;ring&#039;
+</pre></div>
+    </div>
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-pdo.quote-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="pdo.prepare.html" class="function" rel="rdfs-seeAlso">PDO::prepare()</a> - Подготавливает запрос к выполнению и возвращает ассоциированный с этим запросом
+   объект</span></li>
+    <li class="member"><span class="function"><a href="pdostatement.execute.html" class="function" rel="rdfs-seeAlso">PDOStatement::execute()</a> - Запускает подготовленный запрос на выполнение</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="pdo.query.html">PDO::query</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="pdo.rollback.html">PDO::rollBack</a></div>
+ <div class="up"><a href="class.pdo.html">PDO</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

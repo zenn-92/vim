@@ -1,0 +1,162 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Генерирует уникальный ID</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.time-sleep-until.html">time_sleep_until</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.unpack.html">unpack</a></div>
+ <div class="up"><a href="ref.misc.html">Разные Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.uniqid" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">uniqid</h1>
+  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">uniqid</span> &mdash; <span class="dc-title">Генерирует уникальный ID</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.uniqid-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">string</span> <span class="methodname"><strong>uniqid</strong></span>
+    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$prefix</code><span class="initializer"> = &quot;&quot;</span></span>
+   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$more_entropy</code><span class="initializer"> = false</span></span>
+  ]] )</div>
+
+  <p class="para rdfs-comment">
+   Получает уникальный идентификатор с префиксом, основанный на текущем
+   времени в микросекундах.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.uniqid-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">prefix</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Может быть полезно, к примеру, если идентификаторы генерируются 
+       одновременно на нескольких хостах и генерация идентификаторы производится
+       в одну и ту же микросекунду.
+      </p>
+      <p class="para">
+       С пустым параметром <code class="parameter">prefix</code>, возвращаемая строка
+       будет длиной в 13 символов. Если параметр <code class="parameter">more_entropy</code>
+       равен <strong><code>TRUE</code></strong>, то строка буде длиной в 23 символа.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">more_entropy</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Если равен <strong><code>TRUE</code></strong>, то функция <span class="function"><strong>uniqid()</strong></span> добавит
+       дополнительную энтропию (используя комбинированный линейный конгруэнтный
+       генератор) в конце возвращаемого значения, что увеличивает вероятность
+       уникальности результата.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.uniqid-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает уникальный идентификатор в виде строки (string).
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.uniqid-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-3834">
+    <p><strong>Пример #1 Пример использования <span class="function"><strong>uniqid()</strong></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;Уникальный&nbsp;id,&nbsp;например:&nbsp;4b3403665fea6&nbsp;*/<br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"uniqid():&nbsp;%s\r\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">uniqid</span><span style="color: #007700">());<br /><br /></span><span style="color: #FF8000">/*&nbsp;Префикс&nbsp;к&nbsp;уникальному&nbsp;id&nbsp;можно&nbsp;добавить&nbsp;одним<br />&nbsp;*&nbsp;из&nbsp;следующих&nbsp;способов:<br />&nbsp;*<br />&nbsp;*&nbsp;$uniqid&nbsp;=&nbsp;$prefix&nbsp;.&nbsp;uniqid();<br />&nbsp;*&nbsp;$uniqid&nbsp;=&nbsp;uniqid($prefix);<br />&nbsp;*/<br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"uniqid('php_'):&nbsp;%s\r\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">uniqid</span><span style="color: #007700">(</span><span style="color: #DD0000">'php_'</span><span style="color: #007700">));<br /><br /></span><span style="color: #FF8000">/*&nbsp;Также&nbsp;можно&nbsp;активировать&nbsp;параметр&nbsp;большей&nbsp;энтропии,&nbsp;который<br />&nbsp;*&nbsp;требуется&nbsp;на&nbsp;некоторых&nbsp;системах,&nbsp;таких&nbsp;как&nbsp;Cygwin.&nbsp;Таким&nbsp;образом<br />&nbsp;*&nbsp;функция&nbsp;uniqid()&nbsp;сгенерирует&nbsp;значение:&nbsp;4b340550242239.64159797<br />&nbsp;*/<br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"uniqid('',&nbsp;true):&nbsp;%s\r\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">uniqid</span><span style="color: #007700">(</span><span style="color: #DD0000">''</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.uniqid-changelog">
+  <h3 class="title">Список изменений</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Версия</th>
+       <th>Описание</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.0.0</td>
+       <td>
+        Параметр <code class="parameter">prefix</code> был сделан необязательным.
+       </td>
+      </tr>
+
+      <tr>
+       <td>4.3.1</td>
+       <td>
+        Был увеличен предел в 114 символов длины параметра <code class="parameter">prefix</code>.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.uniqid-notes">
+  <h3 class="title">Примечания</h3>
+  <div class="caution"><strong class="caution">Предостережение</strong>
+   <p class="para">
+    Эта функция не генерирует защищенные криптографически токены, по сути, не передается каких-либо дополнительных параметров и возвращаемое значение мало чем отличается от возвращаемого функцией <span class="function"><a href="function.microtime.html" class="function">microtime()</a></span>. Если необходимо сгенерировать криптографически защищенные токены, то нужно использовать функцию <span class="function"><a href="function.openssl-random-pseudo-bytes.html" class="function">openssl_random_pseudo_bytes()</a></span>.
+   </p>
+  </div>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <p class="para">
+    В Cygwin, параметр <code class="parameter">more_entropy</code> должен быть задан 
+    как <strong><code>TRUE</code></strong> для работы этой функции.
+   </p>
+  </p></blockquote>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.time-sleep-until.html">time_sleep_until</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.unpack.html">unpack</a></div>
+ <div class="up"><a href="ref.misc.html">Разные Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

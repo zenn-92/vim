@@ -1,0 +1,206 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Выводит список разработчиков PHP</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.php-uname.html">php_uname</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.phpinfo.html">phpinfo</a></div>
+ <div class="up"><a href="ref.info.html">PHP опции/Информационные Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.phpcredits" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">phpcredits</h1>
+  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">phpcredits</span> &mdash; <span class="dc-title">
+   Выводит список разработчиков PHP
+  </span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.phpcredits-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><strong>phpcredits</strong></span>
+    ([ <span class="methodparam"><span class="type">int</span> <code class="parameter">$flag</code><span class="initializer"> = CREDITS_ALL</span></span>
+  ] )</div>
+
+  <p class="para rdfs-comment">
+   Эта функция выводит список разработчиков PHP, модулей и т.п. Она генерирует 
+   соответствующий HTML код для вставки на страницу.
+  </p>   
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.phpcredits-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">flag</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Использование аргумента <code class="parameter">flag</code> позволяет произвольно
+       компоновать информацию об отдельных группах разработчиков.
+      </p>
+      <p class="para">
+       <table class="doctable table">
+        <caption><strong>Предопределенные флаги <span class="function"><strong>phpcredits()</strong></span></strong></caption>
+        
+         <thead>
+          <tr>
+           <th>Имя</th>
+           <th>Описание</th>
+          </tr>
+
+         </thead>
+
+         <tbody class="tbody">
+          <tr>
+           <td>CREDITS_ALL</td>
+           <td>
+            Все разработчики, эквиваленткно заданию:
+            <strong><code>CREDITS_DOCS</code></strong> +
+            <strong><code>CREDITS_GENERAL</code></strong> + <strong><code>CREDITS_GROUP</code></strong> +
+            <strong><code>CREDITS_MODULES</code></strong> + <strong><code>CREDITS_FULLPAGE</code></strong>.
+            В этом случае будет сгенерирована полностью независимая HTML страница с
+            соответствующими тэгами.
+           </td>
+          </tr>
+
+          <tr>
+           <td>CREDITS_DOCS</td>
+           <td>Участники команды документирования</td>
+          </tr>
+
+          <tr>
+           <td>CREDITS_FULLPAGE</td>
+           <td>
+            Обычно используется в комбинации с другими флагами. Указывает на то, что
+            независимая HTML страница должна содержать информацию других флагов.
+           </td>
+          </tr>
+
+          <tr>
+           <td>CREDITS_GENERAL</td>
+           <td>
+            Главные разработчики: Концепция и дизайн языка, авторы PHP и SAPI
+            модуля.
+           </td>
+          </tr>
+
+          <tr>
+           <td>CREDITS_GROUP</td>
+           <td>Список разработчиков ядра языка</td>
+          </tr>
+
+          <tr>
+           <td>CREDITS_MODULES</td>
+           <td>
+            Список расширений для PHP и их авторов
+           </td>
+          </tr>
+
+          <tr>
+           <td>CREDITS_SAPI</td>
+           <td>
+            Список модулей серверных API и их авторов
+           </td>
+          </tr>
+
+         </tbody>
+        
+       </table>
+
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.phpcredits-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает <strong><code>TRUE</code></strong> в случае успешного завершения  или <strong><code>FALSE</code></strong> в случае возникновения ошибки.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.phpcredits-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-508">
+    <p><strong>Пример #1 Выводит основных разработчиков</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />phpcredits</span><span style="color: #007700">(</span><span style="color: #0000BB">CREDITS_GENERAL</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+  <p class="para">
+   <div class="example" id="example-509">
+    <p><strong>Пример #2 Выводит разработчиков ядра и участников команды документировани</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />phpcredits</span><span style="color: #007700">(</span><span style="color: #0000BB">CREDITS_GROUP&nbsp;</span><span style="color: #007700">|&nbsp;</span><span style="color: #0000BB">CREDITS_DOCS&nbsp;</span><span style="color: #007700">|&nbsp;</span><span style="color: #0000BB">CREDITS_FULLPAGE</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+  <p class="para">
+   <div class="example" id="example-510">
+    <p><strong>Пример #3 Вывод всех разработчиков</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+&lt;html&gt;<br />&nbsp;&lt;head&gt;<br />&nbsp;&nbsp;&lt;title&gt;My&nbsp;credits&nbsp;page&lt;/title&gt;<br />&nbsp;&lt;/head&gt;<br />&nbsp;&lt;body&gt;<br /><span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;какой-то&nbsp;код<br /></span><span style="color: #0000BB">phpcredits</span><span style="color: #007700">(</span><span style="color: #0000BB">CREDITS_ALL&nbsp;</span><span style="color: #007700">-&nbsp;</span><span style="color: #0000BB">CREDITS_FULLPAGE</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">//&nbsp;еще&nbsp;код<br /></span><span style="color: #0000BB">?&gt;<br /></span>&nbsp;&lt;/body&gt;<br />&lt;/html&gt;</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 notes" id="refsect1-function.phpcredits-notes">
+  <h3 class="title">Примечания</h3>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <p class="para">
+    В режиме работы из командной строки (CLI) <span class="function"><strong>phpcredits()</strong></span> выводит обычный текст
+    вместо HTML.
+   </p>
+  </p></blockquote>
+ </div>
+
+ 
+ <div class="refsect1 seealso" id="refsect1-function.phpcredits-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.phpversion.html" class="function" rel="rdfs-seeAlso">phpversion()</a> - Выдает текущую версию PHP</span></li>
+    <li class="member"><span class="function"><a href="function.php-logo-guid.html" class="function" rel="rdfs-seeAlso">php_logo_guid()</a> - Получение guid логотипа</span></li>
+    <li class="member"><span class="function"><a href="function.phpinfo.html" class="function" rel="rdfs-seeAlso">phpinfo()</a> - Выводит информацию о текущей конфигурации PHP</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.php-uname.html">php_uname</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.phpinfo.html">phpinfo</a></div>
+ <div class="up"><a href="ref.info.html">PHP опции/Информационные Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

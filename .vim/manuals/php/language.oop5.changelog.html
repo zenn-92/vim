@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Журнал изменений ООП</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="language.oop5.serialization.html">Сериализация объектов</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="language.namespaces.html">Пространства имен</a></div>
+ <div class="up"><a href="language.oop5.html">Классы и объекты</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="language.oop5.changelog" class="sect1">
+ <h2 class="title">Журнал изменений ООП</h2>
+ <p class="para">
+  Изменения модели ООП в PHP 5 описаны в этом разделе. Описания и другие примечания,
+  касающиеся этих возможностей, описаны в рамках документации ООП PHP5
+ </p>
+ <p class="para">
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Версия</th>
+      <th>Описание</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>5.4.0</td>
+      <td>
+       Изменено: Если <a href="language.oop5.abstract.html" class="link">абстрактный</a> класс
+       определяет сигнатуру для конструктора, то она будет принудительно применяться.
+      </td>
+     </tr>
+
+     <tr>
+      <td>5.3.3</td>
+      <td>
+       Изменено: Методы с тем же именем, что и последний элемент
+       <a href="language.namespaces.html" class="link">пространства имен</a>
+       класса больше не будет рассматриваться как <a href="language.oop5.decon.html" class="link">конструктор</a>. Это изменение не будет
+       влиять на классы, не входящие в пространства имен.
+      </td>
+     </tr>
+
+     <tr>
+      <td>5.3.0</td>
+      <td>
+       Изменено: Больше не требуется, чтобы классы, реализующие интерфейсы с методами,
+       которые имеют значения по умолчанию в прототипе, соответствовали значениям
+       по умолчанию в интерфейсе.
+      </td>
+     </tr>
+
+     <tr>
+      <td>5.3.0</td>
+      <td>
+       Изменено: Теперь стало возможным ссылаться на класс, используя переменную (например,
+       <em>echo $classname::constant;</em>).
+       Значение переменной не может быть ключевым словом (например, <em>self</em>,
+       <em>parent</em> или <em>static</em>).
+      </td>
+     </tr>
+
+     <tr>
+      <td>5.3.0</td>
+      <td>
+       Изменено: Ошибка <strong><code>E_WARNING</code></strong> происходит, если
+       магические <a href="language.oop5.overloading.html" class="link">перегруженные</a>
+       методы задекларированы как <a href="language.oop5.static.html" class="link">статические</a>.
+       Это также усиливает требование, что эти методы должны быть публичными. 
+      </td>
+     </tr>
+
+     <tr>
+      <td>5.3.0</td>
+      <td>
+       Изменено: До 5.3.0, исключения в функции
+       <span class="function"><a href="function.autoload.html" class="function">__autoload()</a></span> не могли быть
+       перехвачены в блоке <a href="language.exceptions.html" class="link">catch</a> и
+       приводили к фатальной ошибке. Сейчас исключения в функции __autoload
+       могут быть перехвачены в блоке <a href="language.exceptions.html" class="link">catch</a>,
+       но с одной оговоркой. Если перехватывается пользовательское исключение, то класс,
+       обрабатывающий это исключение, должен быть доступен. Функция __autoload может быть
+       использована рекурсивно для автозагрузки пользовательского
+       класса обработки исключения.
+      </td>
+     </tr>
+
+     <tr>
+      <td>5.3.0</td>
+      <td>
+       Добавлено: Метод <a href="language.oop5.overloading.html" class="link">__callStatic</a>.
+      </td>
+     </tr>
+
+     <tr>
+      <td>5.3.0</td>
+      <td>
+       Добавлено: Поддержка <a href="language.types.string.html#language.types.string.syntax.heredoc" class="link">heredoc</a>
+       и <a href="language.types.string.html#language.types.string.syntax.heredoc" class="link">nowdoc</a>
+       для <em class="emphasis">констант</em> и определений свойств класса.
+       Примечание: Значение heredoc должны следовать тем же правилам, что и строки в двойных кавычках
+       (например, без переменных внутри).
+      </td>
+     </tr>
+
+     <tr>
+      <td>5.3.0</td>
+      <td>
+       Добавлено: <a href="language.oop5.late-static-bindings.html" class="link">Позднее статическое связывание</a>.
+      </td>
+     </tr>
+
+     <tr>
+      <td>5.3.0</td>
+      <td>
+       Добавлено: метод <a href="language.oop5.magic.html#object.invoke" class="link">__invoke()</a>.
+      </td>
+     </tr>
+
+     <tr>
+      <td>5.2.0</td>
+      <td>
+       Изменено: Метод <a href="language.oop5.magic.html#object.tostring" class="link">__toString()</a>
+       вызывался только когда он напрямую комбинировался с
+       <span class="function"><a href="function.echo.html" class="function">echo</a></span> или <span class="function"><a href="function.print.html" class="function">print</a></span>.
+       Сейчас он вызывается в любом контексте строки (например, в
+       <span class="function"><a href="function.printf.html" class="function">printf()</a></span> с модификатором <em>%s</em>), но не
+       в других типах контекста (например, с модификатором <em>%d</em>).
+       С PHP 5.2.0, преобразование объектов без метода <em>__toString</em>
+       в строку выдает ошибку уровня <strong><code>E_RECOVERABLE_ERROR</code></strong>.
+      </td>
+     </tr>
+
+     <tr>
+      <td>5.1.3</td>
+      <td>
+       Изменено: В предыдущих версиях PHP 5 использование <em>var</em>
+       считалось устаревшим и выдавало ошибку <strong><code>E_STRICT</code></strong>.
+       Сейчас это не считается устаревшим, поэтому ошибка больше не выдается.
+      </td>
+     </tr>
+
+     <tr>
+      <td>5.1.0</td>
+      <td>
+       Изменено: Статический метод <a href="language.oop5.magic.html#object.set-state" class="link">__set_state()</a>
+       теперь вызывается для классов, экспортируемых функцией <span class="function"><a href="function.var-export.html" class="function">var_export()</a></span>.
+      </td>
+     </tr>
+
+     <tr>
+      <td>5.1.0</td>
+      <td>
+       Добавлены: методы <a href="language.oop5.overloading.html#object.isset" class="link">__isset()</a>
+       и <a href="language.oop5.overloading.html#object.unset" class="link">__unset()</a>.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </p>
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="language.oop5.serialization.html">Сериализация объектов</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="language.namespaces.html">Пространства имен</a></div>
+ <div class="up"><a href="language.oop5.html">Классы и объекты</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

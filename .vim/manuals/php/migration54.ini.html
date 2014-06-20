@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Изменения в обработке INI-файлов</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="migration54.global-constants.html">Новые глобальные константы</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="migration54.other.html">Другие изменения</a></div>
+ <div class="up"><a href="migration54.html">Переход с PHP 5.3.x на PHP 5.4.x</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="migration54.ini" class="section">
+  <h2 class="title">Изменения в обработке INI-файлов</h2>
+  <p class="simpara">
+   Следующие <var class="filename">php.ini</var> директивы были удалены:
+  </p>
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara">
+     <a href="ini.core.html#ini.register-globals" class="link">register_globals</a> и
+     <a href="ini.core.html#ini.register-long-arrays" class="link">register_long_arrays</a>
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <a href="info.configuration.html#ini.magic-quotes-gpc" class="link">magic_quotes_gpc</a>,
+     <a href="info.configuration.html#ini.magic-quotes-runtime" class="link">magic_quotes_runtime</a>
+     и <a href="sybase.configuration.html#ini.magic-quotes-sybase" class="link">magic_quotes_sybase</a>
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <a href="ini.core.html#ini.allow-call-time-pass-reference" class="link">allow_call_time_pass_reference</a>
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <a href="network.configuration.html#ini.define-syslog-variables" class="link">define_syslog_variables</a>
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <a href="misc.configuration.html#ini.syntax-highlighting" class="link">highlight.bg</a>
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <a href="session.configuration.html#ini.session.bug-compat-42" class="link">session.bug_compat_42</a> и
+     <a href="session.configuration.html#ini.session.bug-compat-warn" class="link">session.bug_compat_warn</a>
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <a href="ini.core.html#ini.y2k-compliance" class="link">y2k_compliance</a>
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <a href="ini.sect.safe-mode.html#ini.safe-mode" class="link">safe_mode</a>,
+     <a href="ini.sect.safe-mode.html#ini.safe-mode-gid" class="link">safe_mode_gid</a>,
+     <a href="ini.sect.safe-mode.html#ini.safe-mode-include-dir" class="link">safe_mode_include_dir</a>,
+     <a href="ini.sect.safe-mode.html#ini.safe-mode-exec-dir" class="link">safe_mode_exec_dir</a>,
+     <a href="ini.sect.safe-mode.html#ini.safe-mode-allowed-env-vars" class="link">safe_mode_allowed_env_vars</a> и
+     <a href="ini.sect.safe-mode.html#ini.safe-mode-protected-env-vars" class="link">safe_mode_protected_env_vars</a>
+    </span>
+   </li>
+  </ul>
+  <p class="simpara">
+   Следующие <var class="filename">php.ini</var> директивы были добавлены:
+  </p>
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara">
+     <a href="readline.configuration.html#ini.cli.pager" class="link">cli.pager</a> и
+     <a href="readline.configuration.html#ini.cli.prompt" class="link">cli.prompt</a> для CLI SAPI, используя функцию readline
+     в интерактивном режиме.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <a href="features.commandline.ini.html#ini.cli-server.color" class="link">cli_server.color</a>
+     для включения ANSI-раскраски в консольном выводе встроенного
+     веб-сервера для разработки.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <a href="info.configuration.html#ini.max-input-vars" class="link">max_input_vars</a>
+     - указывает, какое количество входных переменных GET/POST/COOKIE может быть принято.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <a href="ini.core.html#ini.zend.multibyte" class="link">zend.multibyte</a>
+     - для управления новой возможностью автоопределения закодированных Unicode скриптов и файлов.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <a href="ini.core.html#ini.zend.script-encoding" class="link">zend.script_encoding</a>
+     - Это значение будет использоваться до тех пор, пока не встретится
+     директива &quot;declare(encoding=...)&quot; в начале скрипта.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <a href="ini.core.html#ini.zend.signal-check" class="link">zend.signal_check</a>
+     - для проверки замененных обработчиков сигналов при завершении.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <a href="session.configuration.html#ini.session.upload-progress.enabled" class="link">session.upload_progress.enabled</a>,
+     <a href="session.configuration.html#ini.session.upload-progress.cleanup" class="link">session.upload_progress.cleanup</a>,
+     <a href="session.configuration.html#ini.session.upload-progress.prefix" class="link">session.upload_progress.prefix</a>,
+     <a href="session.configuration.html#ini.session.upload-progress.name" class="link">session.upload_progress.name</a>,
+     <a href="session.configuration.html#ini.session.upload-progress.freq" class="link">session.upload_progress.freq</a>,
+     <a href="session.configuration.html#ini.session.upload-progress.min-freq" class="link">session.upload_progress.min_freq</a>
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <a href="ini.core.html#ini.enable-post-data-reading" class="link">enable_post_data_reading</a>
+     - Когда отключено, данные POST не читаются (и не обрабатываются)
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <a href="ini.core.html#ini.windows-show-crt-warning" class="link">windows_show_crt_warning</a>
+     - Эта директива включает отображение предупреждений Windows CRT. До этого момента
+     отображение было включено по умолчанию.
+    </span>
+   </li>
+   </ul>
+  <p class="simpara">
+   Следующие <var class="filename">php.ini</var> директивы были изменены:
+  </p>
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara">
+     <a href="session.configuration.html#ini.session.entropy-file" class="link">session.entropy_file</a>
+     теперь принимает значение по умолчанию /dev/random или /dev/urandom в зависимости от
+     того, что было определено на этапе компиляции.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <a href="session.configuration.html#ini.session.entropy-length" class="link">session.entropy_length</a>
+     теперь принимает значение по умолчанию 32.
+    </span>
+   </li>
+   </ul>
+ </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="migration54.global-constants.html">Новые глобальные константы</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="migration54.other.html">Другие изменения</a></div>
+ <div class="up"><a href="migration54.html">Переход с PHP 5.3.x на PHP 5.4.x</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

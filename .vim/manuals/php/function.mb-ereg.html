@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Совпадение с регулярным выражением с поддержкой многобайтовых символов</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.mb-ereg-search.html">mb_ereg_search</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.mb-eregi-replace.html">mb_eregi_replace</a></div>
+ <div class="up"><a href="ref.mbstring.html">Функции для работы с Многобайтными строками</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.mb-ereg" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">mb_ereg</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5)</p><p class="refpurpose"><span class="refname">mb_ereg</span> &mdash; <span class="dc-title">Совпадение с регулярным выражением с поддержкой многобайтовых символов</span></p>
+
+ </div>
+   
+ <div class="refsect1 description" id="refsect1-function.mb-ereg-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">int</span> <span class="methodname"><strong>mb_ereg</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$pattern</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
+   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$regs</code></span>
+  ] )</div>
+
+  <p class="simpara">
+   Выполняет поиск совпадения с регулярным выражением с поддержкой многобайтовых символов.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.mb-ereg-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">pattern</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Шаблон поиска.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">string</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Строка <span class="type"><a href="language.types.string.html" class="type string">string</a></span>, в которой производится поиск.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">regs</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Содержит подстроку совпавшей строки <span class="type"><a href="language.types.string.html" class="type string">string</a></span>.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 returnvalues" id="refsect1-function.mb-ereg-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="simpara">
+   Выполняет поиск совпадения с регулярным выражением
+   с поддержкой многобайтовых символов, и возвращает <em>1</em>, если совпадения найдены.
+   Если указан необязательный параметр <code class="parameter">regs</code>, функция
+   возвращает длину совпавшей части в байтах, а массив ( <span class="type"><a href="language.types.array.html" class="type array">array</a></span>)
+   <code class="parameter">regs</code> будет содержать подстроку совпавшей
+   строки. Функция возвращает <em>1</em>, если регулярное выражение совпадает с пустой
+   строкой. Если совпадения не найдены или возникла ошибка, возвращается <strong><code>FALSE</code></strong>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.mb-ereg-notes">
+  <h3 class="title">Примечания</h3>
+  
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: <p class="para">Для этой функции будет
+использована внутренняя кодировка или кодировка, установленная функцией <span class="function"><a href="function.mb-regex-encoding.html" class="function">mb_regex_encoding()</a></span>.</p></p></blockquote>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.mb-ereg-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.mb-regex-encoding.html" class="function" rel="rdfs-seeAlso">mb_regex_encoding()</a> - Возвращает текущую кодировку для многобайтового регулярного выражения в виде строки</span></li>
+    <li class="member"><span class="function"><a href="function.mb-eregi.html" class="function" rel="rdfs-seeAlso">mb_eregi()</a> - Поиск соответствий регулярному выражению поддерживающий многобайтные 
+  символы и нечувствительный к регистру</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.mb-ereg-search.html">mb_ereg_search</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.mb-eregi-replace.html">mb_eregi_replace</a></div>
+ <div class="up"><a href="ref.mbstring.html">Функции для работы с Многобайтными строками</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

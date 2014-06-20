@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Получение значения переменной окружения</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.get-required-files.html">get_required_files</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.getlastmod.html">getlastmod</a></div>
+ <div class="up"><a href="ref.info.html">PHP опции/Информационные Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.getenv" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">getenv</h1>
+  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">getenv</span> &mdash; <span class="dc-title">
+   Получение значения переменной окружения
+  </span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.getenv-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">string</span> <span class="methodname"><strong>getenv</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$varname</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Получает значение переменной среды.
+  </p>
+  <p class="para">
+   Список всех переменных окружения можно посмотреть с помощью функции
+   <span class="function"><a href="function.phpinfo.html" class="function">phpinfo()</a></span>. Многие из этих переменных есть в документе
+   <a href="http://www.faqs.org/rfcs/rfc3875" class="link external">&raquo;&nbsp;RFC 3875</a>, по большей части в разделе
+   4.1, &quot;Request Meta-Variables&quot;.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.getenv-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">varname</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Имя переменной.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.getenv-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает значение переменной среды <code class="parameter">varname</code> или <strong><code>FALSE</code></strong>,
+   если переменной <code class="parameter">varname</code> не существует.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.getenv-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-490">
+    <p><strong>Пример #1 Пример использования <span class="function"><strong>getenv()</strong></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Пример&nbsp;использования&nbsp;getenv()<br /></span><span style="color: #0000BB">$ip&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">getenv</span><span style="color: #007700">(</span><span style="color: #DD0000">'REMOTE_ADDR'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;можно&nbsp;еще&nbsp;воспользоваться&nbsp;суперглобальной&nbsp;переменной&nbsp;($_SERVER&nbsp;or&nbsp;$_ENV)<br /></span><span style="color: #0000BB">$ip&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'REMOTE_ADDR'</span><span style="color: #007700">];<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.getenv-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.putenv.html" class="function" rel="rdfs-seeAlso">putenv()</a> - Устанавливает значение переменной среды</span></li>
+    <li class="member"><span class="function"><a href="function.apache-getenv.html" class="function" rel="rdfs-seeAlso">apache_getenv()</a> - Возвращает переменную окружения подпроцесса сервера Apache</span></li>
+    <li class="member"><a href="language.variables.superglobals.html" class="link">Superglobals</a></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.get-required-files.html">get_required_files</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.getlastmod.html">getlastmod</a></div>
+ <div class="up"><a href="ref.info.html">PHP опции/Информационные Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

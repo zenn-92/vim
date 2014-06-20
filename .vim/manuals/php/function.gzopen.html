@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Открывает gz-файл</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.gzinflate.html">gzinflate</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.gzpassthru.html">gzpassthru</a></div>
+ <div class="up"><a href="ref.zlib.html">Zlib;</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.gzopen" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">gzopen</h1>
+  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">gzopen</span> &mdash; <span class="dc-title">Открывает gz-файл</span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-function.gzopen-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">resource</span> <span class="methodname"><strong>gzopen</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$mode</code></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$use_include_path</code><span class="initializer"> = 0</span></span>
+  ] )</div>
+
+  <p class="para rdfs-comment">
+   Открывает файл gzip (.gz) для чтения или записи.
+  </p>
+  <p class="para">
+   <span class="function"><strong>gzopen()</strong></span> также можно использовать для несжатых 
+   файлов (т.е. не в формате gzip). В этом случае <span class="function"><a href="function.gzread.html" class="function">gzread()</a></span> 
+   вернёт файл напрямую без какой-либо обработки.
+  </p>
+ </div>
+
+ <div class="refsect1 parameters" id="refsect1-function.gzopen-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">filename</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Имя файла.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">mode</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Как в <span class="function"><a href="function.fopen.html" class="function">fopen()</a></span> (<em>rb</em> или 
+       <em>wb</em>), но также может включать уровень сжатия
+       (<em>wb9</em>) или стратегию: <em>f</em> для 
+       фильтрации данных как в <em>wb6f</em>, <em>h</em> 
+       для сжатия <em>только по алгоритму Хаффмана</em> как в <em>wb1h</em>
+       (Для более детальной информации о параметре стратегии см. описание 
+       <em>deflateInit2</em> в <var class="filename">zlib.h</var>).
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">use_include_path</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Если вы хотите, чтобы поиск файла выполнялся также в директориях 
+       <a href="ini.core.html#ini.include-path" class="link">include_path</a>, установите 
+       значение этого аргумента в <em>1</em>.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+ <div class="refsect1 returnvalues" id="refsect1-function.gzopen-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает указатель на открытый файл, после чего всё, что вы читаете из 
+   этого дескриптора, будет автоматически распаковываться, а всё, что вы 
+   записываете - упаковываться.
+  </p>
+  <p class="para">
+   В случае ошибки функция возвращает <strong><code>FALSE</code></strong>.
+  </p>
+ </div>
+
+ <div class="refsect1 examples" id="refsect1-function.gzopen-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-836">
+    <p><strong>Пример #1 Пример использования <span class="function"><strong>gzopen()</strong></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$fp&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">gzopen</span><span style="color: #007700">(</span><span style="color: #DD0000">"/tmp/file.gz"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"r"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+ <div class="refsect1 seealso" id="refsect1-function.gzopen-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.gzclose.html" class="function" rel="rdfs-seeAlso">gzclose()</a> - Закрывает открытый gz-файл по его указателю</span></li>
+   </ul>
+  </p>
+ </div>
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.gzinflate.html">gzinflate</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.gzpassthru.html">gzpassthru</a></div>
+ <div class="up"><a href="ref.zlib.html">Zlib;</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

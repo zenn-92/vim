@@ -1,0 +1,520 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Предопределенные константы</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="info.resources.html">Типы ресурсов</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="ref.info.html">PHP опции/Информационные Функции</a></div>
+ <div class="up"><a href="book.info.html">PHP Опции/Информация</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="info.constants" class="appendix">
+ <h1>Предопределенные константы</h1>
+
+ <p class="simpara">
+Перечисленные ниже константы всегда доступны как часть ядра PHP.
+</p>
+ <table class="doctable table">
+  <caption><strong>Предопределенные константы <span class="function"><a href="function.phpcredits.html" class="function">phpcredits()</a></span></strong></caption>
+  
+   <thead>
+    <tr>
+     <th>Константа</th>
+     <th>Значение</th>
+     <th>Описание</th>
+    </tr>
+
+   </thead>
+
+   <tbody class="tbody">
+    <tr id="constant.credits-group">
+     <td><strong><code>CREDITS_GROUP</code></strong></td>
+     <td>1</td>
+     <td>Список разработчиков ядра PHP</td>
+    </tr>
+
+    <tr id="constant.credits-general">
+     <td><strong><code>CREDITS_GENERAL</code></strong></td>
+     <td>2</td>
+     <td>
+      Главные разработчики: Дизайн и концепции языка, авторы PHP и SAPI модуля.
+     </td>
+    </tr>
+
+    <tr id="constant.credits-sapi">
+     <td><strong><code>CREDITS_SAPI</code></strong></td>
+     <td>4</td>
+     <td>
+      Список серверных API для PHP и их авторы.
+     </td>
+    </tr>
+
+    <tr id="constant.credits-modules">
+     <td><strong><code>CREDITS_MODULES</code></strong></td>
+     <td>8</td>
+     <td>
+      Список расширений для PHP и их авторы.
+     </td>
+    </tr>
+
+    <tr id="constant.credits-docs">
+     <td><strong><code>CREDITS_DOCS</code></strong></td>
+     <td>16</td>
+     <td>
+      Члены команды разработчиков документации.
+     </td>
+    </tr>
+
+    <tr id="constant.credits-fullpage">
+     <td><strong><code>CREDITS_FULLPAGE</code></strong></td>
+     <td>32</td>
+     <td>
+      Обычно используется в сочетании с другими флагами. Означает, что HTML
+      страница должна печататься вместе с дополнительной информацией (за которую
+      отвечают другие флаги).
+     </td>
+    </tr>
+
+    <tr id="constant.credits-qa">
+     <td><strong><code>CREDITS_QA</code></strong></td>
+     <td>64</td>
+     <td>
+      Члены команды контроля качества.
+     </td>
+    </tr>
+
+    <tr id="constant.credits-all">
+     <td><strong><code>CREDITS_ALL</code></strong></td>
+     <td>-1</td>
+     <td>
+      Все разработчики, аналогично использованию: <em>CREDITS_DOCS +
+      CREDITS_GENERAL + CREDITS_GROUP + CREDITS_MODULES + CREDITS_QA
+      CREDITS_FULLPAGE</em>. Будет сгенерирована HTML страница с соответствующими
+      тэгами. Это значение по умолчанию.
+     </td>
+    </tr>
+
+   </tbody>
+  
+ </table>
+
+
+ <table class="doctable table">
+  <caption><strong>Константы <span class="function"><a href="function.phpinfo.html" class="function">phpinfo()</a></span></strong></caption>
+  
+   <thead>
+    <tr>
+     <th>Константа</th>
+     <th>Значение</th>
+     <th>Описание</th>
+    </tr>
+
+   </thead>
+
+   <tbody class="tbody">
+    <tr id="constant.info-general">
+     <td><strong><code>INFO_GENERAL</code></strong></td>
+     <td>1</td>
+     <td>
+      Строка конфигурации, размещение <var class="filename">php.ini</var>, дата сборки, Web-сервер, система
+      и др.
+     </td>
+    </tr>
+
+    <tr id="constant.info-credits">
+     <td><strong><code>INFO_CREDITS</code></strong></td>
+     <td>2</td>
+     <td>
+      PHP разработчкики. См. также <span class="function"><a href="function.phpcredits.html" class="function">phpcredits()</a></span>.
+     </td>
+    </tr>
+
+    <tr id="constant.info-configuration">
+     <td><strong><code>INFO_CONFIGURATION</code></strong></td>
+     <td>4</td>
+     <td>
+      Текущие локальные и основные значения PHP директив. См. также
+      <span class="function"><a href="function.ini-get.html" class="function">ini_get()</a></span>.
+     </td>
+    </tr>
+
+    <tr id="constant.info-modules">
+     <td><strong><code>INFO_MODULES</code></strong></td>
+     <td>8</td>
+     <td>
+      Загруженные модули и их настройки.
+     </td>
+    </tr>
+
+    <tr id="constant.info-environment">
+     <td><strong><code>INFO_ENVIRONMENT</code></strong></td>
+     <td>16</td>
+     <td>
+      Информация о переменных среды, которая также доступна в
+      <var class="varname"><var class="varname"><a href="reserved.variables.environment.html" class="classname">$_ENV</a></var></var>.
+     </td>
+    </tr>
+
+    <tr id="constant.info-variables">
+     <td><strong><code>INFO_VARIABLES</code></strong></td>
+     <td>32</td>
+     <td>
+      Показывает все <a href="language.variables.predefined.html" class="link">
+      предопределенные переменные</a> из <em>EGPCS</em> (Environment,
+      GET, POST, Cookie, Server).
+     </td>
+    </tr>
+
+    <tr id="constant.info-license">
+     <td><strong><code>INFO_LICENSE</code></strong></td>
+     <td>64</td>
+     <td>
+      Информация о лицензии PHP. См. также <a href="http://www.php.net/license/" class="link external">&raquo;&nbsp;Чаво по лицензиям</a>.
+     </td>
+    </tr>
+
+    <tr id="constant.info-all">
+     <td><strong><code>INFO_ALL</code></strong></td>
+     <td>-1</td>
+     <td>
+      Константа по умолчанию. Показывает всю информацию описанную выше.
+     </td>
+    </tr>
+
+   </tbody>
+  
+ </table>
+
+
+ <table class="doctable table">
+  <caption><strong>INI константы</strong></caption>
+  
+   <thead>
+    <tr>
+     <th>Константа</th>
+     <th>Значение</th>
+     <th>Описание</th>
+    </tr>
+
+   </thead>
+
+   <tbody class="tbody">
+    <tr id="constant.ini-user">
+     <td><em>INI_USER</em></td>
+     <td>1</td>
+     <td>Не используется</td>
+    </tr>
+
+    <tr id="constant.ini-perdir">
+     <td><em>INI_PERDIR</em></td>
+     <td>2</td>
+     <td>Не используется</td>
+    </tr>
+
+    <tr id="constant.ini-system">
+     <td><em>INI_SYSTEM</em></td>
+     <td>4</td>
+     <td>Не используется</td>
+    </tr>
+
+    <tr id="constant.ini-all">
+     <td><em>INI_ALL</em></td>
+     <td>7</td>
+     <td>Не используется</td>
+    </tr>
+
+   </tbody>
+  
+ </table>
+
+
+ <p class="simpara">
+  Константы проверки утверждений. Эти значения используются для задания настроек
+  <span class="function"><a href="function.assert-options.html" class="function">assert_options()</a></span>.
+ </p>
+ <table class="doctable table">
+  <caption><strong><span class="function"><a href="function.assert.html" class="function">assert()</a></span> константы</strong></caption>
+  
+   <thead>
+    <tr>
+     <th>Константа</th>
+     <th>INI настройка</th>
+     <th>Описание</th>
+    </tr>
+
+   </thead>
+
+   <tbody class="tbody">
+    <tr id="constant.assert-active">
+     <td><strong><code>ASSERT_ACTIVE</code></strong></td>
+     <td>assert.active</td>
+     <td>
+      Включение <span class="function"><a href="function.assert.html" class="function">assert()</a></span> проверок.
+     </td>
+    </tr>
+
+    <tr id="constant.assert-callback">
+     <td><strong><code>ASSERT_CALLBACK</code></strong></td>
+     <td>assert.callback</td>
+     <td>
+      Обратный вызов при провале проверки утверждения.
+     </td>
+    </tr>
+
+    <tr id="constant.assert-bail">
+     <td><strong><code>ASSERT_BAIL</code></strong></td>
+     <td>assert.bail</td>
+     <td>
+      Прервать выполнение при провале проверки утверждения.
+     </td>
+    </tr>
+
+    <tr id="constant.assert-warning">
+     <td><strong><code>ASSERT_WARNING</code></strong></td>
+     <td>assert.warning</td>
+     <td>
+      Выдавать предупреждение PHP в случае провала проверки каждого утверждения
+     </td>
+    </tr>
+
+    <tr id="constant.assert-quiet-eval">
+     <td><strong><code>ASSERT_QUIET_EVAL</code></strong></td>
+     <td>assert.quiet_eval</td>
+     <td>
+      Отключить <em>error_reporting</em> в время выполнения проверки
+      утверждения.
+     </td>
+    </tr>
+
+   </tbody>
+  
+ </table>
+
+
+ <p class="simpara">
+  Следующие константы доступны только под Windows. Они позволяют извлечь различную
+  информацию о версиях программного обеспечения. Все константы доступны с PHP 5.3.0.
+ </p>
+ <table class="doctable table">
+  <caption><strong>Специфичные для Windows константы</strong></caption>
+  
+   <thead>
+    <tr>
+     <th>Константа</th>
+     <th>Описание</th>
+    </tr>
+
+   </thead>
+
+   <tbody class="tbody">
+    <tr id="constant.php-windows-version-major">
+     <td><strong><code>PHP_WINDOWS_VERSION_MAJOR</code></strong></td>
+     <td>
+      Основной номер версии Windows, это может быть <em>4</em>
+      (NT4/Me/98/95), <em>5</em> (XP/2003 R2/2003/2000) или
+      <em>6</em> (Vista/2008).
+    </td>
+    </tr>
+
+    <tr id="constant.php-windows-version-minor">
+     <td><strong><code>PHP_WINDOWS_VERSION_MINOR</code></strong></td>
+     <td>
+      Уточняющий номер версии Windows, это может быть <em>0</em>
+      (Vista/2008/2000/NT4/95), <em>1</em> (XP), <em>2</em>
+      (2003 R2/2003/XP x64), <em>10</em> (98) или <em>90</em>
+      (ME).
+     </td>
+    </tr>
+
+    <tr id="constant.php-windows-version-build">
+     <td><strong><code>PHP_WINDOWS_VERSION_BUILD</code></strong></td>
+     <td>
+      Номер сборки Windows (например, Windows Vista SP1 имеет номер сборки 6001)
+     </td>
+    </tr>
+
+    <tr id="constant.php-windows-version-platform">
+     <td><strong><code>PHP_WINDOWS_VERSION_PLATFORM</code></strong></td>
+     <td>
+      Платформа, на которой PHP работает на данный момент. Возможны значения
+      <em>2</em> для Windows Vista/XP/2000/NT4, Server 2008/2003, а для
+      Windows ME/98/95 это значение будет <em>1</em>.
+     </td>
+    </tr>
+
+    <tr id="constant.php-windows-version-sp-major">
+     <td><strong><code>PHP_WINDOWS_VERSION_SP_MAJOR</code></strong></td>
+     <td>
+      Основной номер версии установленного сервис-пакета. Возможно значение
+      <em>0</em>, если пакетов не установлено. Например, в Windows XP
+      с 3м сервис паком это значение будет <em>3</em>.
+     </td>
+    </tr>
+
+    <tr id="constant.php-windows-version-sp-minor">
+     <td><strong><code>PHP_WINDOWS_VERSION_SP_MINOR</code></strong></td>
+     <td>
+      Дополнительный номер установленного пакета обновлений. Значение 
+      <em>0</em> говорит от том, что пакетов не установлено.
+     </td>
+    </tr>
+
+    <tr id="constant.php-windows-version-suitemask">
+     <td><strong><code>PHP_WINDOWS_VERSION_SUITEMASK</code></strong></td>
+     <td>
+      Битовая маска указывающая, какой дополнительный функционал установлен в
+      системе Windows. Ниже приведена таблица с возможными значениями битового поля.
+     </td>
+    </tr>
+
+    <tr id="constant.php-windows-version-producttype">
+     <td><strong><code>PHP_WINDOWS_VERSION_PRODUCTTYPE</code></strong></td>
+     <td>
+      Содержит значение, определяющее константы вида
+      <em>PHP_WINDOWS_NT_*</em>. Этим значением может быть одна из 
+      констант <em>PHP_WINDOWS_NT_*</em> указывающая на тип платформы.
+     </td>
+    </tr>
+
+    <tr id="constant.php-windows-nt-domain-controller">
+     <td><strong><code>PHP_WINDOWS_NT_DOMAIN_CONTROLLER</code></strong></td>
+     <td>Контроллер домена</td>
+    </tr>
+
+    <tr id="constant.php-windows-nt-server">
+     <td><strong><code>PHP_WINDOWS_NT_SERVER</code></strong></td>
+     <td>
+      Серверная система (напр. Server 2008/2003/2000). Надо учесть, что если сервер
+      является контроллером домена, вместо этой константы будет выдаваться
+      <strong><code>PHP_WINDOWS_NT_DOMAIN_CONTROLLER</code></strong>.
+     </td>
+    </tr>
+
+    <tr id="constant.php-windows-nt-workstation">
+     <td><strong><code>PHP_WINDOWS_NT_WORKSTATION</code></strong></td>
+     <td>Система рабочей станции (напр. Vista/XP/2000/NT4)</td>
+    </tr>
+
+   </tbody>
+  
+ </table>
+
+ <p class="simpara">
+  Таблица значений битовой маски <strong><code>PHP_WINDOWS_VERSION_SUITEMASK</code></strong>.
+ </p>
+ <table class="doctable table">
+  <caption><strong>Битовое поле функциональных возможностей Windows</strong></caption>
+  
+   <thead>
+    <tr>
+     <th>Биты</th>
+     <th>Описание</th>
+    </tr>
+
+   </thead>
+
+   <tbody class="tbody">
+    <tr>
+     <td><em>0x00000004</em></td>
+     <td>Установлены компоненты Microsoft BackOffice.</td>
+    </tr>
+
+    <tr>
+     <td><em>0x00000400</em></td>
+     <td>Установлен Windows Server 2003 Web Edition.</td>
+    </tr>
+
+    <tr>
+     <td><em>0x00004000</em></td>
+     <td>Установлен Windows Server 2003 Compute Cluster Edition.</td>
+    </tr>
+
+    <tr>
+     <td><em>0x00000080</em></td>
+     <td>
+      Установлен Windows Server 2008 Datacenter, Windows Server 2003, Datacenter
+      Edition или Windows 2000 Datacenter Server.
+     </td>
+    </tr>
+
+    <tr>
+     <td><em>0x00000002</em></td>
+     <td>
+      Установлен Windows Server 2008 Enterprise, Windows Server 2003, Enterprise
+      Edition, Windows 2000 Advanced Server или Windows NT Server 4.0 Enterprise
+      Edition.
+     </td>
+    </tr>
+
+    <tr>
+     <td><em>0x00000040</em></td>
+     <td>Установлен Windows XP Embedded.</td>
+    </tr>
+
+    <tr>
+     <td><em>0x00000200</em></td>
+     <td>
+      Установлен Windows Vista Home Premium, Windows Vista Home Basic или Windows
+      XP Home Edition.
+     </td>
+    </tr>
+
+    <tr>
+     <td><em>0x00000100</em></td>
+     <td>
+      Поддерживается удаленный рабочий стол, но только в интерактивном режиме.
+      Это значение устанавливается до тех пор, пока система не будет запущена в
+      режиме сервера приложений.
+     </td>
+    </tr>
+
+    <tr>
+     <td><em>0x00000001</em></td>
+     <td>
+      Microsoft Small Business Server был установлен изначально, однако мог быть
+      проведен апгрейд системы до другой версии Windows.
+     </td>
+    </tr>
+
+    <tr>
+     <td><em>0x00000020</em></td>
+     <td>
+      Microsoft Small Business Server установлен с ограниченной лицензией.
+     </td>
+    </tr>
+
+    <tr>
+     <td><em>0x00002000</em></td>
+     <td>
+      Установлен Windows Storage Server 2003 R2 или Windows Storage
+      Server 2003.
+     </td>
+    </tr>
+
+    <tr>
+     <td><em>0x00000010</em></td>
+     <td>
+      Установлены терминальные службы. Это значение всегда установлено. Если это
+      значение установлено, значение <em>0x00000100</em> не задано,
+      то система работает в режиме сервера приложений.
+     </td>
+    </tr>
+
+    <tr>
+     <td><em>0x00008000</em></td>
+     <td>Установлен Windows Home Server.</td>
+    </tr>
+
+   </tbody>
+  
+ </table>
+
+</div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="info.resources.html">Типы ресурсов</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="ref.info.html">PHP опции/Информационные Функции</a></div>
+ <div class="up"><a href="book.info.html">PHP Опции/Информация</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

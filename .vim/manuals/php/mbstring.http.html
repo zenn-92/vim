@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>HTTP Ввод и Вывод</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mbstring.ja-basic.html">Основы Японских многобайтных кодировок</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mbstring.supported-encodings.html">Поддерживаемые кодировки символов</a></div>
+ <div class="up"><a href="book.mbstring.html">Многобайтные строки</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="mbstring.http" class="chapter">
+ <h1>HTTP Ввод и Вывод</h1>
+
+ <p class="para">
+  Механизм преобразования кодировок ввода/вывода HTTP также может 
+  конвертировать двоичные данные. Пользователи должны сами следить 
+  за процессом преобразования, если в качестве ввода/вывода HTTP 
+  передаются двоичные данные.
+ </p>
+ <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+  <p class="para">
+   В PHP 4.3.2 и более ранних версиях этот функционал ограничен.
+   <em>mbstring</em> не конвертирует данные запроса POST,
+   если атрибут <em>enctype</em> в элементе <em>form</em>
+   имеет значение <em>multipart/form-data</em>. Таким образом,
+   при необходимости, вы должны сами преобразовывать входные данные.
+  </p>
+  <p class="para">
+   Начиная с PHP 4.3.3, если <em>enctype</em> в HTML форме имеет
+   значение <em>multipart/form-data</em>, а значение
+   <em>mbstring.encoding_translation</em> в <var class="filename">php.ini</var> установлено
+   в On, переменные и имена загружаемых файлов в POST запросах конвертируются
+   во внутреннюю кодировку скрипта автоматически. Однако, это не относится
+   к ключевым словам запроса.
+  </p>
+ </p></blockquote>
+ <p class="para">
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara">
+     HTTP Ввод
+    </span>
+    <p class="para"> 
+     Из PHP скрипта невозможно контролировать преобразование кодировки
+     входящих через HTTP символов. Если нужно отключить автоматическую 
+     конвертацию для HTTP ввода, это можно сделать в <var class="filename">php.ini</var>.
+     <div class="example" id="example-2746">
+      <p><strong>Пример #1 
+       Отключение преобразования кодировки HTTP ввода в <var class="filename">php.ini</var>
+      </strong></p>
+      <div class="example-contents">
+<div class="php.inicode"><pre class="php.inicode">;; Отключение конвертации
+mbstring.http_input = pass
+;; Отключение конвертации (PHP 4.3.0 или выше)
+mbstring.encoding_translation = Off</pre>
+</div>
+      </div>
+
+     </div>
+    </p>
+    <p class="para">
+     Если PHP используется как Apache модуль, можно замещать эти 
+     настройки в каждой директиве Виртуального Хоста в <var class="filename">httpd.conf</var> 
+     или для каждой директории с <var class="filename">.htaccess</var>. За дополнительной информацией
+     обращайтесь в раздел <a href="configuration.html" class="link">Конфигурация</a> 
+     Руководства по работе с Apache.
+    </p>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     HTTP Вывод
+    </span>
+    <p class="para">
+     Есть несколько способов включить преобразование кодировки для выходных
+     данных. Один из них - использование <var class="filename">php.ini</var>, другой - использование 
+     функции <span class="function"><a href="function.ob-start.html" class="function">ob_start()</a></span> с 
+     <span class="function"><a href="function.mb-output-handler.html" class="function">mb_output_handler()</a></span> в качестве callback-функции для 
+     <em>ob_start</em>.
+    </p>
+   </li>
+  </ul>
+ </p>
+ <p class="para">
+  <div class="example" id="example-2747">
+   <p><strong>Пример #2 Пример настройки <var class="filename">php.ini</var></strong></p>
+   <div class="example-contents">
+<div class="cdata"><pre>
+;; Включение преобразования кодировок выходных символов для всех PHP страниц
+
+;; Включение буферизации выходных данных
+output_buffering    = On
+
+;; Определение mb_output_handler для включения конвертации вывода
+output_handler      = mb_output_handler
+</pre></div>
+   </div>
+
+  </div>
+ </p>
+ <p class="para">
+  <div class="example" id="example-2748">
+   <p><strong>Пример #3 Пример скрипта</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">//&nbsp;Включение&nbsp;преобразования&nbsp;кодировок&nbsp;выходных&nbsp;символов&nbsp;только&nbsp;для&nbsp;этой&nbsp;страницы<br /><br />//&nbsp;Установка&nbsp;кодировки&nbsp;HTTP&nbsp;вывода&nbsp;в&nbsp;SJIS<br /></span><span style="color: #0000BB">mb_http_output</span><span style="color: #007700">(</span><span style="color: #DD0000">'SJIS'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Запуск&nbsp;буферизации&nbsp;и&nbsp;определение&nbsp;"mb_output_handler"&nbsp;как<br />//&nbsp;callback-функции<br /></span><span style="color: #0000BB">ob_start</span><span style="color: #007700">(</span><span style="color: #DD0000">'mb_output_handler'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+ </p>
+</div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mbstring.ja-basic.html">Основы Японских многобайтных кодировок</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mbstring.supported-encodings.html">Поддерживаемые кодировки символов</a></div>
+ <div class="up"><a href="book.mbstring.html">Многобайтные строки</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

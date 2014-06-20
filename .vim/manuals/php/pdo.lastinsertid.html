@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Возвращает ID последней вставленной строки или последовательное значение</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="pdo.intransaction.html">PDO::inTransaction</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="pdo.prepare.html">PDO::prepare</a></div>
+ <div class="up"><a href="class.pdo.html">PDO</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="pdo.lastinsertid" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">PDO::lastInsertId</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PECL pdo &gt;= 0.1.0)</p><p class="refpurpose"><span class="refname">PDO::lastInsertId</span> &mdash; <span class="dc-title">
+   Возвращает ID последней вставленной строки или последовательное значение
+  </span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-pdo.lastinsertid-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">string</span> <span class="methodname"><strong>PDO::lastInsertId</strong></span>
+    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
+  ] )</div>
+
+
+  <p class="para rdfs-comment">
+   Возвращает ID последней вставленной строки либо последнее значение, которое
+   выдал объект последовательности. Что именно будет возвращено, зависит от
+   нижележащего драйвера. Например, метод <span class="function"><strong>PDO_PGSQL()</strong></span>
+   требует задать имя объекта последовательности для параметра
+   <code class="parameter">name</code>.
+  </p>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <p class="para">
+    В зависимости от PDO драйвера этот метод может вообще не выдать осмысленного
+    результата, так как база данных может не поддерживать автоинкремент или
+    последовательности.
+   </p>
+  </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-pdo.lastinsertid-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">name</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Имя объекта последовательности, который должен выдать ID.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-pdo.lastinsertid-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Если объект последовательности для <code class="parameter">name</code> не задан,
+   <span class="function"><strong>PDO::lastInsertId()</strong></span> вернет строку представляющую ID
+   последней добавленной в базу записи.
+  </p>
+  <p class="para">
+   Если же объект последовательности для <code class="parameter">name</code> задан,
+   <span class="function"><strong>PDO::lastInsertId()</strong></span> вернет строку представляющую последнее
+   значение, полученное от этого объекта.
+  </p>
+  <p class="para">
+   Если PDO драйвер не поддерживает эту возможность,
+   <span class="function"><strong>PDO::lastInsertId()</strong></span> запишет
+   <em>IM001</em> в SQLSTATE.
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="pdo.intransaction.html">PDO::inTransaction</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="pdo.prepare.html">PDO::prepare</a></div>
+ <div class="up"><a href="class.pdo.html">PDO</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

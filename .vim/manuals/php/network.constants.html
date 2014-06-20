@@ -1,0 +1,292 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Предопределенные константы</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="network.resources.html">Типы ресурсов</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="ref.network.html">Сетевые Функции</a></div>
+ <div class="up"><a href="book.network.html">Network</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="network.constants" class="appendix">
+ <h1>Предопределенные константы</h1>
+
+ <p class="simpara">
+Перечисленные ниже константы всегда доступны как часть ядра PHP.
+</p>
+  <table class="doctable table">
+   <caption><strong>Опции <span class="function"><a href="function.openlog.html" class="function">openlog()</a></span></strong></caption>
+   
+    <thead>
+     <tr>
+      <th>Константа</th>
+      <th>Описание</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr id="constant.log-cons">
+      <td><strong><code>LOG_CONS</code></strong></td>
+      <td>
+       если при передаче данных системному журналу произошла ошибка,
+       произвести вывод в системную консоль
+      </td>
+     </tr>
+
+     <tr id="constant.log-ndelay">
+      <td><strong><code>LOG_NDELAY</code></strong></td>
+      <td>
+       немедленно открыть соединение со службой журналирования
+      </td>
+     </tr>
+
+     <tr id="constant.log-odelay">
+      <td><strong><code>LOG_ODELAY</code></strong></td>
+      <td>
+       (по умолчанию) отсрочить открытие соединения до появления первого сообщения
+      </td>
+     </tr>
+
+     <tr id="constant.log-nowait">
+      <td><strong><code>LOG_NOWAIT</code></strong></td>
+      <td>
+      </td>
+     </tr>
+
+     <tr id="constant.log-perror">
+      <td><strong><code>LOG_PERROR</code></strong></td>
+      <td>вывод журнала вместе со стандартной ошибкой</td>
+     </tr>
+
+     <tr id="constant.log-pid">
+      <td><strong><code>LOG_PID</code></strong></td>
+      <td>добавить PID к каждому сообщению</td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ 
+  <table class="doctable table">
+   <caption><strong>Средства <span class="function"><a href="function.openlog.html" class="function">openlog()</a></span></strong></caption>
+   
+    <thead>
+     <tr>
+      <th>Константа</th>
+      <th>Описание</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr id="constant.log-auth">
+      <td><strong><code>LOG_AUTH</code></strong></td>
+      <td>
+       сообщения безопасности/авторизации (используйте <strong><code>LOG_AUTHPRIV</code></strong> в системах, где
+       эта константа определена)
+      </td>
+     </tr>
+
+     <tr id="constant.log-authpriv">
+      <td><strong><code>LOG_AUTHPRIV</code></strong></td>
+      <td>сообщения безопасности/авторизации (частно)</td>
+     </tr>
+
+     <tr id="constant.log-cron">
+      <td><strong><code>LOG_CRON</code></strong></td>
+      <td>планировщик событий (cron и at)</td>
+     </tr>
+
+     <tr id="constant.log-daemon">
+      <td><strong><code>LOG_DAEMON</code></strong></td>
+      <td>другие системные службы</td>
+     </tr>
+
+     <tr id="constant.log-kern">
+      <td><strong><code>LOG_KERN</code></strong></td>
+      <td>сообщения ядра</td>
+     </tr>
+
+     <tr id="constant.log-local0">
+      <td><strong><code>LOG_LOCAL0 ... LOG_LOCAL7</code></strong></td>
+      <td>зарезервированы для локального использования, недоступны в Windows</td>
+     </tr>
+
+     <tr id="constant.log-lpr">
+      <td><strong><code>LOG_LPR</code></strong></td>
+      <td>подсистема построчной печати</td>
+     </tr>
+
+     <tr id="constant.log-mail">
+      <td><strong><code>LOG_MAIL</code></strong></td>
+      <td>почтовая подсистема</td>
+     </tr>
+
+     <tr id="constant.log-news">
+      <td><strong><code>LOG_NEWS</code></strong></td>
+      <td>подсистема новостей USENET</td>
+     </tr>
+
+     <tr id="constant.log-syslog">
+      <td><strong><code>LOG_SYSLOG</code></strong></td>
+      <td>сообщения, сгенерированные syslogd</td>
+     </tr>
+
+     <tr id="constant.log-user">
+      <td><strong><code>LOG_USER</code></strong></td>
+      <td>общие сообщения уровня пользователя</td>
+     </tr>
+
+     <tr id="constant.log-uucp">
+      <td><strong><code>LOG_UUCP</code></strong></td>
+      <td>подсистема UUCP</td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ 
+  <table class="doctable table">
+   <caption><strong>Приоритеты <span class="function"><a href="function.syslog.html" class="function">syslog()</a></span> (в порядке убывания)</strong></caption>
+   
+    <thead>
+     <tr>
+      <th>Константа</th>
+      <th>Описание</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr id="constant.log-emerg">
+      <td><strong><code>LOG_EMERG</code></strong></td>
+      <td>система не может быть использована</td>
+     </tr>
+
+     <tr id="constant.log-alert">
+      <td><strong><code>LOG_ALERT</code></strong></td>
+      <td>необходимо незамедлительное действие</td>
+     </tr>
+
+     <tr id="constant.log-crit">
+      <td><strong><code>LOG_CRIT</code></strong></td>
+      <td>критические условия</td>
+     </tr>
+
+     <tr id="constant.log-err">
+      <td><strong><code>LOG_ERR</code></strong></td>
+      <td>условия ошибки</td>
+     </tr>
+
+     <tr id="constant.log-warning">
+      <td><strong><code>LOG_WARNING</code></strong></td>
+      <td>условия предупреждения</td>
+     </tr>
+
+     <tr id="constant.log-notice">
+      <td><strong><code>LOG_NOTICE</code></strong></td>
+      <td>нормальное, но значительное состояние</td>
+     </tr>
+
+     <tr id="constant.log-info">
+      <td><strong><code>LOG_INFO</code></strong></td>
+      <td>информационное сообщение</td>
+     </tr>
+
+     <tr id="constant.log-debug">
+      <td><strong><code>LOG_DEBUG</code></strong></td>
+      <td>сообщения уровня отладки</td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+  <table class="doctable table">
+   <caption><strong>Опции <span class="function"><a href="function.dns-get-record.html" class="function">dns_get_record()</a></span></strong></caption>
+   
+    <thead>
+     <tr>
+      <th>Константа</th>
+      <th>Описание</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr id="constant.dns-a">
+      <td><strong><code>DNS_A</code></strong></td>
+      <td>Ресурсная запись IPv4</td>
+     </tr>
+
+     <tr id="constant.dns-mx">
+      <td><strong><code>DNS_MX</code></strong></td>
+      <td>Ресурсная запись Mail Exchanger</td>
+     </tr>
+
+     <tr id="constant.dns-cname">
+      <td><strong><code>DNS_CNAME</code></strong></td>
+      <td>Ресурсная запись Canonical Name</td>
+     </tr>
+
+     <tr id="constant.dns-ns">
+      <td><strong><code>DNS_NS</code></strong></td>
+      <td>Ресурсная запись Name Server</td>
+     </tr>
+
+     <tr id="constant.dns-ptr">
+      <td><strong><code>DNS_PTR</code></strong></td>
+      <td>Ресурсная запись Pointer</td>
+     </tr>
+
+     <tr id="constant.dns-hinfo">
+      <td><strong><code>DNS_HINFO</code></strong></td>
+      <td>Ресурс Host Info (См. <a href="http://www.iana.org/assignments/operating-system-names" class="link external">&raquo;&nbsp;<em>IANA Названия операционных систем</em></a>
+       для получения расшифровки значений)</td>
+     </tr>
+
+     <tr id="constant.dns-soa">
+      <td><strong><code>DNS_SOA</code></strong></td>
+      <td>Ресурсная запись SOA</td>
+     </tr>
+
+     <tr id="constant.dns-txt">
+      <td><strong><code>DNS_TXT</code></strong></td>
+      <td>Ресурсная запись текстового типа</td>
+     </tr>
+
+     <tr id="constant.dns-any">
+      <td><strong><code>DNS_ANY</code></strong></td>
+      <td>Любая ресурсная запись.  На большинстве систем
+       возвращает все ресурсные записи, однако
+       для использования в критических условиях не подходит.
+       Вместо этого необходимо использовать <strong><code>DNS_ALL</code></strong></td>
+     </tr>
+
+     <tr id="constant.dns-aaaa">
+      <td><strong><code>DNS_AAAA</code></strong></td>
+      <td>Ресурсная запись IPv6</td>
+     </tr>
+
+     <tr id="constant.dns-all">
+      <td><strong><code>DNS_ALL</code></strong></td>
+      <td>Итеративно опрашивает DNS сервер
+       по каждому доступному типу записи.</td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+</div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="network.resources.html">Типы ресурсов</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="ref.network.html">Сетевые Функции</a></div>
+ <div class="up"><a href="book.network.html">Network</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Подготавливает запрос к выполнению и возвращает ассоциированный с этим запросом
+   объект</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="pdo.lastinsertid.html">PDO::lastInsertId</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="pdo.query.html">PDO::query</a></div>
+ <div class="up"><a href="class.pdo.html">PDO</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="pdo.prepare" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">PDO::prepare</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PECL pdo &gt;= 0.1.0)</p><p class="refpurpose"><span class="refname">PDO::prepare</span> &mdash; <span class="dc-title">
+   Подготавливает запрос к выполнению и возвращает ассоциированный с этим запросом
+   объект
+  </span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-pdo.prepare-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type"><a href="class.pdostatement.html" class="type PDOStatement">PDOStatement</a></span> <span class="methodname"><strong>PDO::prepare</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$statement</code></span>
+   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$driver_options</code><span class="initializer"> = array()</span></span>
+  ] )</div>
+
+
+  <p class="para rdfs-comment">
+   Подготавливает SQL запрос к базе данных к запуску посредством метода
+   <span class="function"><a href="pdostatement.execute.html" class="function">PDOStatement::execute()</a></span>. Запрос может содержать именованные
+   (:name) или неименованные (?) псевдопеременные, которые будут заменены реальными
+   значениями во время запуска запроса на выполнение. Использовать одновременно
+   и именованные, и неименованные псевдопеременные в одном запросе нельзя,
+   необходимо выбрать что-то одно. Используйте псевдопеременные, чтобы привязать
+   к запросу пользовательский ввод, не включайте данные, введенные пользователем,
+   напрямую в запрос.
+  </p>
+  <p class="para">
+   Вы должны подбирать уникальные имена псевдопеременных для каждого значение,
+   которое необходимо передавать в запрос при вызове
+   <span class="function"><a href="pdostatement.execute.html" class="function">PDOStatement::execute()</a></span>. Нельзя использовать одну
+   псевдопеременную в запросе дважды. Также нельзя к одной именованной
+   псевдопеременной привязать несколько значений, как например, в выражении IN()
+   SQL запроса.
+  </p>
+  <p class="para">
+   Вызов <span class="function"><strong>PDO::prepare()</strong></span> и
+   <span class="function"><a href="pdostatement.execute.html" class="function">PDOStatement::execute()</a></span> для запросов, которые будут
+   запускаться многократно с различными параметрами, повышает производительность
+   приложения, так как позволяет драйверу кэшировать на клиенте и/или сервере
+   план выполнения запроса и метаданные, а также помогает избежать SQL иньекций,
+   так как нет необходимости экранировать передаваемые параметры.
+  </p>
+  <p class="para">
+   Если драйвер не поддерживает подготавливаемые запросы, PDO умеет их эмулировать.
+   Также, PDO может заменять псевдопеременные на то, что больше подходит,
+   если, например, драйвер поддерживает только именованные
+   или, наоборот, только неименованные маркеры.
+  </p>
+ </div>
+
+ <div class="refsect1 parameters" id="refsect1-pdo.prepare-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">statement</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Это должен быть корректный запрос с точки зрения целевой СУБД.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">driver_options</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Этот массив содержит одну или более пар ключ=&gt;значение для установки
+       значений атрибутов объекта PDOStatement, который будет возвращен из
+       этого метода. В основном, вы будете использовать этот массив для присвоения
+       значения <em>PDO::ATTR_CURSOR</em> атрибуту
+       <em>PDO::CURSOR_SCROLL</em>, чтобы получить прокручиваемый курсор.
+       У некоторых драйверов могут быть свои специфические настройки, которые
+       можно задать во время подготовки запроса.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-pdo.prepare-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Если СУБД успешно подготовила запрос, 
+   <span class="function"><strong>PDO::prepare()</strong></span> возвращает объект 
+   <a href="class.pdostatement.html" class="classname">PDOStatement</a>. Если подготовить запрос не удалось,
+   <span class="function"><strong>PDO::prepare()</strong></span> возвращает <strong><code>FALSE</code></strong> или выбрасывает исключение
+   <a href="class.pdoexception.html" class="classname">PDOException</a> (зависит от текущего режима <a href="pdo.error-handling.html" class="link">обработки ошибок</a>).
+  </p>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <p class="para">
+    Эмулируемые подготовленные запросы не создаются на сервере баз данных,
+    поэтому <span class="function"><strong>PDO::prepare()</strong></span> не может проверить правильность
+    построенного запроса.
+   </p>
+  </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-pdo.prepare-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-949">
+    <p><strong>Пример #1 
+     Подготовка SQL запроса с именованными параметрами
+    </strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;Выполнение&nbsp;запроса&nbsp;с&nbsp;передачей&nbsp;ему&nbsp;массива&nbsp;параметров&nbsp;*/<br /></span><span style="color: #0000BB">$sql&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'SELECT&nbsp;name,&nbsp;colour,&nbsp;calories<br />&nbsp;&nbsp;&nbsp;&nbsp;FROM&nbsp;fruit<br />&nbsp;&nbsp;&nbsp;&nbsp;WHERE&nbsp;calories&nbsp;&lt;&nbsp;:calories&nbsp;AND&nbsp;colour&nbsp;=&nbsp;:colour'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$sth&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #0000BB">$sql</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">ATTR_CURSOR&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">CURSOR_FWDONLY</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">(array(</span><span style="color: #DD0000">':calories'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">150</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">':colour'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'red'</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">$red&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetchAll</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">(array(</span><span style="color: #DD0000">':calories'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">175</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">':colour'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'yellow'</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">$yellow&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetchAll</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+   <div class="example" id="example-950">
+    <p><strong>Пример #2 
+     Подготовка SQL запроса с неименованными параметрами (?)
+    </strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;Выполнение&nbsp;запроса&nbsp;с&nbsp;передачей&nbsp;ему&nbsp;массива&nbsp;параметров&nbsp;*/<br /></span><span style="color: #0000BB">$sth&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #DD0000">'SELECT&nbsp;name,&nbsp;colour,&nbsp;calories<br />&nbsp;&nbsp;&nbsp;&nbsp;FROM&nbsp;fruit<br />&nbsp;&nbsp;&nbsp;&nbsp;WHERE&nbsp;calories&nbsp;&lt;&nbsp;?&nbsp;AND&nbsp;colour&nbsp;=&nbsp;?'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">(array(</span><span style="color: #0000BB">150</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'red'</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">$red&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetchAll</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">(array(</span><span style="color: #0000BB">175</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'yellow'</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">$yellow&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetchAll</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-pdo.prepare-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="pdo.exec.html" class="function" rel="rdfs-seeAlso">PDO::exec()</a> - Запускает SQL запрос на выполнение и возвращает количество строк, задействованых
+   в ходе его выполнения</span></li>
+    <li class="member"><span class="function"><a href="pdo.query.html" class="function" rel="rdfs-seeAlso">PDO::query()</a> - Выполняет SQL запрос и возвращает результирующий набор в виде объекта
+   PDOStatement</span></li>
+    <li class="member"><span class="function"><a href="pdostatement.execute.html" class="function" rel="rdfs-seeAlso">PDOStatement::execute()</a> - Запускает подготовленный запрос на выполнение</span></li>
+   </ul>
+  </p>
+ </div>
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="pdo.lastinsertid.html">PDO::lastInsertId</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="pdo.query.html">PDO::query</a></div>
+ <div class="up"><a href="class.pdo.html">PDO</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

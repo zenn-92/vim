@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Устанавливает значение настройки конфигурации include_path</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.restore-include-path.html">restore_include_path</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.set-magic-quotes-runtime.html">set_magic_quotes_runtime</a></div>
+ <div class="up"><a href="ref.info.html">PHP опции/Информационные Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.set-include-path" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">set_include_path</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5)</p><p class="refpurpose"><span class="refname">set_include_path</span> &mdash; <span class="dc-title">
+   Устанавливает значение настройки конфигурации include_path
+  </span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.set-include-path-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">string</span> <span class="methodname"><strong>set_include_path</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$new_include_path</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Задает значение настройки конфигурации
+   <a href="ini.core.html#ini.include-path" class="link">include_path</a>
+   на время выполнения скрипта.  
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.set-include-path-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">new_include_path</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Новое значение настройки <a href="ini.core.html#ini.include-path" class="link">include_path</a>
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.set-include-path-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает старое значение <a href="ini.core.html#ini.include-path" class="link">include_path</a>
+   в случае успеха.  или <strong><code>FALSE</code></strong> в случае возникновения ошибки.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.set-include-path-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-516">
+    <p><strong>Пример #1 Пример использования <span class="function"><strong>set_include_path()</strong></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Работает&nbsp;с&nbsp;версии&nbsp;PHP&nbsp;4.3.0<br /></span><span style="color: #0000BB">set_include_path</span><span style="color: #007700">(</span><span style="color: #DD0000">'/usr/lib/pear'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Работает&nbsp;во&nbsp;всех&nbsp;версиях&nbsp;PHP<br /></span><span style="color: #0000BB">ini_set</span><span style="color: #007700">(</span><span style="color: #DD0000">'include_path'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'/usr/lib/pear'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+  <p class="para">
+   <div class="example" id="example-517">
+    <p><strong>Пример #2 Составление более длинного пути include path</strong></p>
+    <div class="example-contents"><p>
+     Используя константу <strong><code>PATH_SEPARATOR</code></strong>, можно добавить
+     к пути вложенные директории независимо от операционной системы.
+    </p></div>
+    <div class="example-contents"><p>
+     В этом примере мы добавим <var class="filename">/usr/lib/pear</var> в конец
+     существующего пути <em>include_path</em>.
+    </p></div>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$path&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'/usr/lib/pear'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">set_include_path</span><span style="color: #007700">(</span><span style="color: #0000BB">get_include_path</span><span style="color: #007700">()&nbsp;.&nbsp;</span><span style="color: #0000BB">PATH_SEPARATOR&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$path</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.set-include-path-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.ini-set.html" class="function" rel="rdfs-seeAlso">ini_set()</a> - Установка значения настройки конфигурации</span></li>
+    <li class="member"><span class="function"><a href="function.get-include-path.html" class="function" rel="rdfs-seeAlso">get_include_path()</a> - Получение текущего значения настройки include_path</span></li>
+    <li class="member"><span class="function"><a href="function.restore-include-path.html" class="function" rel="rdfs-seeAlso">restore_include_path()</a> - Восстанавливает изначальное значение настройки конфигурации include_path</span></li>
+    <li class="member"><span class="function"><a href="function.include.html" class="function" rel="rdfs-seeAlso">include</a> - include</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.restore-include-path.html">restore_include_path</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.set-magic-quotes-runtime.html">set_magic_quotes_runtime</a></div>
+ <div class="up"><a href="ref.info.html">PHP опции/Информационные Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

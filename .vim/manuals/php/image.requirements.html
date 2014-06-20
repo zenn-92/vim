@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Требования</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="image.setup.html">Установка и настройка</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="image.installation.html">Установка</a></div>
+ <div class="up"><a href="image.setup.html">Установка и настройка</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="image.requirements" class="section">
+  <h2 class="title">Требования</h2>
+  <p class="para">
+   При наличии <acronym title="Graphics Draw">GD</acronym>-библиотеки (доступна по адресу <a href="http://www.libgd.org/" class="link external">&raquo;&nbsp;http://www.libgd.org/</a>), вы можете создавать и изменять
+   изображения.
+  </p>
+  <p class="para">
+   Форматы изображений, с которыми можно работать, зависят от версии установленной
+   <acronym title="Graphics Draw">GD</acronym>, а так же от наличия других библиотек, к которым 
+   <acronym title="Graphics Draw">GD</acronym> может обращаться для получения доступа к тем или иным
+   форматам. Версии <acronym title="Graphics Draw">GD</acronym> страрше, чем gd-1.6, поддерживают
+   <acronym title="Graphic Interchange Format">GIF</acronym> изображения, но не поддерживают <acronym title="Portable Network Graphics">PNG</acronym>,
+   в то время как версии выше gd-1.6 и ниже gd-2.0.28 поддерживают PNG, но не
+   поддерживают GIF. Поддержка <acronym title="Graphic Interchange Format">GIF</acronym> снова включена в версии
+   gd-2.0.28.
+   <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+    <span class="simpara">
+     Начиная с PHP 4.3, <acronym title="Graphics Draw">GD</acronym> библиотека встроена в PHP. Эта
+     встроенная версия имеет несколько дополнительных возможностей, таких как
+     альфа-сопряжение. Рекомендуется использовать именно встроенную версию, так как
+     ее код более стабилен и имеет лучше поддерживается разработчиками.
+    </span>
+   </p></blockquote>
+  </p>
+  
+  <p class="para">
+   Возможно, вы пожелаете расширить <acronym title="Graphics Draw">GD</acronym>, чтобы обрабатывать
+   больше форматов изображений.
+   <table class="doctable table">
+   <caption><strong>Поддерживаемые форматы изображений</strong></caption>
+    
+     <thead>
+      <tr>
+       <th>Формат изображения</th>
+       <th>Необходимая библиотека</th>
+       <th>Замечания</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td><em>gif</em></td>
+       <td class="empty">&nbsp;</td>
+       <td>
+        Поддерживается только в версиях <acronym title="Graphics Draw">GD</acronym> старше gd-1.6 или
+        новее gd-2.0.28. Поддержка <em class="emphasis">Read-only</em>
+        <acronym title="Graphic Interchange Format">GIF</acronym> доступна в PHP 4.3.0 во встроенной GD-библиотеке.
+        <em class="emphasis">Write</em> поддержка доступна с PHP 4.3.9 и PHP 5.0.1.
+       </td>
+      </tr>
+
+      <tr>
+       <td><em>jpeg</em></td>
+       <td><a href="http://www.ijg.org/" class="link external">&raquo;&nbsp;http://www.ijg.org/</a></td>
+       <td>
+        При сборке библиотеки jpeg (перед сборкой PHP) необходимо включить
+        настройку <strong class="option configure">--enable-shared</strong>
+
+        на этапе конфигурирования. Если этого не сделать, на этапе конфигурирования
+        сборки PHP будет выдана ошибка <em>libjpeg.(a|so) not found</em>.
+       </td>
+      </tr>
+
+      <tr>
+       <td><em>png</em></td>
+       <td><a href="http://www.libpng.org/pub/png/libpng.html" class="link external">&raquo;&nbsp;http://www.libpng.org/pub/png/libpng.html</a></td>
+       <td>
+        Поддерживается только в версиях <acronym title="Graphics Draw">GD</acronym> выше gd-1.6.
+       </td>
+      </tr>
+
+      <tr>
+       <td><em>xpm</em></td>
+       <td><a href="ftp://metalab.unc.edu/pub/Linux/libs/X/!INDEX.html" class="link external">&raquo;&nbsp;ftp://metalab.unc.edu/pub/Linux/libs/X/!INDEX.html</a></td>
+       <td>
+        Если в системе установлено окружение X-Environment, то бибилиотека уже
+        доступна.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+
+  <p class="para">
+   Можно расширить функционал <acronym title="Graphics Draw">GD</acronym> для работы с различными
+   шрифтами. Доступные библиотеки шрифтов:
+   <table class="doctable table">
+   <caption><strong>Доступные библиотеки шрифтов</strong></caption>
+    
+     <thead>
+      <tr>
+       <th>Библиотека шрифтов</th>
+       <th>Загрузка</th>
+       <th>Замечания</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td><em>FreeType 1.x</em></td>
+       <td><a href="http://www.freetype.org/" class="link external">&raquo;&nbsp;http://www.freetype.org/</a></td>
+       <td>Эта возможность устарела и <em class="emphasis">будет</em>
+обязательно <em class="emphasis">удалена</em> в будущем.</td>
+      </tr>
+
+      <tr>
+       <td><em>FreeType 2</em></td>
+       <td><a href="http://www.freetype.org/" class="link external">&raquo;&nbsp;http://www.freetype.org/</a></td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><em>T1lib</em></td>
+       <td><a href="ftp://sunsite.unc.edu/pub/Linux/libs/graphics/" class="link external">&raquo;&nbsp;ftp://sunsite.unc.edu/pub/Linux/libs/graphics/</a>)</td>
+       <td>
+        Поддержка шрифтов Postscript Type 1.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="image.setup.html">Установка и настройка</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="image.installation.html">Установка</a></div>
+ <div class="up"><a href="image.setup.html">Установка и настройка</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

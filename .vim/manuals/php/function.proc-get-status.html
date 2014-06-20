@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Получает информацию о процессе, открытом при помощи функции proc_open</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.proc-close.html">proc_close</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.proc-nice.html">proc_nice</a></div>
+ <div class="up"><a href="ref.exec.html">Функции запуска программ</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.proc-get-status" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">proc_get_status</h1>
+  <p class="verinfo">(PHP 5)</p><p class="refpurpose"><span class="refname">proc_get_status</span> &mdash; <span class="dc-title">Получает информацию о процессе, открытом при помощи функции <span class="function"><a href="function.proc-open.html" class="function">proc_open()</a></span></span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.proc-get-status-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">array</span> <span class="methodname"><strong>proc_get_status</strong></span>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$process</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   <span class="function"><strong>proc_get_status()</strong></span> получает данные о
+   процессе, открытом при помощи функции <span class="function"><a href="function.proc-open.html" class="function">proc_open()</a></span>.
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 parameters" id="refsect1-function.proc-get-status-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">process</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Полученный при помощи функции <span class="function"><a href="function.proc-open.html" class="function">proc_open()</a></span> ресурс <span class="type"><a href="language.types.resource.html" class="type resource">resource</a></span>, который
+       будет исследоваться.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.proc-get-status-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Массив <span class="type"><a href="language.types.array.html" class="type array">array</a></span> с полученной информацией в случае успеха и <strong><code>FALSE</code></strong>
+   в случае неудачи. Получаемый массив содержит следующие элементы:
+  </p>
+  <p class="para">
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr><th>элемент</th><th>тип</th><th>описание</th></tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>command</td>
+      <td><span class="type"><a href="language.types.string.html" class="type string">string</a></span></td>
+      <td>
+       Строка с командой, которая была передана функции <span class="function"><a href="function.proc-open.html" class="function">proc_open()</a></span>.
+      </td>
+     </tr>
+
+     <tr>
+      <td>pid</td>
+      <td><span class="type"><a href="language.types.integer.html" class="type int">int</a></span></td>
+      <td>идентификатор процесса</td>
+     </tr>
+
+     <tr>
+      <td>running</td>
+      <td><span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span></td>
+      <td>
+       <strong><code>TRUE</code></strong> если процесс всё ещё работает, <strong><code>FALSE</code></strong> если он был
+       завершён.
+      </td>
+     </tr>
+
+     <tr>
+      <td>signaled</td>
+      <td><span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span></td>
+      <td>
+       <strong><code>TRUE</code></strong> если дочерний процесс был завершён 
+       сигналом. Всегда устанавливается в <strong><code>FALSE</code></strong> в Windows.
+      </td>
+     </tr>
+
+     <tr>
+      <td>stopped</td>
+      <td><span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span></td>
+      <td>
+       <strong><code>TRUE</code></strong> если дочерний процесс был остановлен 
+       сигналом. Всегда устанавливается в <strong><code>FALSE</code></strong> в Windows.
+      </td>
+     </tr>
+
+     <tr>
+      <td>exitcode</td>
+      <td><span class="type"><a href="language.types.integer.html" class="type int">int</a></span></td>
+      <td>
+       Код возврата, передаваемый процессом (имеет значение только в 
+       том случае, если <em>running</em> равно <strong><code>FALSE</code></strong>).
+       Только первый вызов этой функции возвратит реальное значение, последующие вызовы
+       будут возвращать <em>-1</em>.
+      </td>
+     </tr>
+
+     <tr>
+      <td>termsig</td>
+      <td><span class="type"><a href="language.types.integer.html" class="type int">int</a></span></td>
+      <td>
+       Номер сигнала, который заставил дочерний процесс прекратить своё
+       выполнение (имеет значение только в том случае, если <em>signaled</em> равно <strong><code>TRUE</code></strong>).
+      </td>
+     </tr>
+
+     <tr>
+      <td>stopsig</td>
+      <td><span class="type"><a href="language.types.integer.html" class="type int">int</a></span></td>
+      <td>
+       Номер сигнала, который заставил дочерний процесс остановить своё
+       выполнение (имеет значение только в том случае, если  <em>stopped</em> равно <strong><code>TRUE</code></strong>).
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.proc-get-status-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.proc-open.html" class="function" rel="rdfs-seeAlso">proc_open()</a> - Выполняет команду и открывает указатель на файл для ввода/вывода</span></li>
+   </ul>
+  </p>
+ </div>
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.proc-close.html">proc_close</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.proc-nice.html">proc_nice</a></div>
+ <div class="up"><a href="ref.exec.html">Функции запуска программ</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

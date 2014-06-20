@@ -1,0 +1,238 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Преобразование кодировок &quot;kana&quot; из одной в другую (&quot;zen-kaku&quot;, &quot;han-kaku&quot; и другие)</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.mb-convert-encoding.html">mb_convert_encoding</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.mb-convert-variables.html">mb_convert_variables</a></div>
+ <div class="up"><a href="ref.mbstring.html">Функции для работы с Многобайтными строками</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.mb-convert-kana" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">mb_convert_kana</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5)</p><p class="refpurpose"><span class="refname">mb_convert_kana</span> &mdash; <span class="dc-title">Преобразование кодировок &quot;kana&quot; из одной в другую (&quot;zen-kaku&quot;, &quot;han-kaku&quot; и другие)</span></p>
+
+ </div>
+   
+ <div class="refsect1 description" id="refsect1-function.mb-convert-kana-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">string</span> <span class="methodname"><strong>mb_convert_kana</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$str</code></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$option</code><span class="initializer"> = &quot;KV&quot;</span></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$encoding</code></span>
+  ]] )</div>
+
+  <p class="para rdfs-comment">
+   Поизводит преобразование &quot;han-kaku&quot; - &quot;zen-kaku&quot; для агрумента <span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">str</code>. 
+   Эта функция может быть полезной только для японского языка.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.mb-convert-kana-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">str</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Исходная строка <span class="type"><a href="language.types.string.html" class="type string">string</a></span>.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">option</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Настройка конвертации.
+      </p>
+      <p class="para">
+       Задается комбинацией следующих настроек.
+       <table class="doctable table">
+        <caption><strong>Возможные настройки преобразования</strong></caption>
+        
+         <thead>
+          <tr>
+           <th>Настройка</th>
+           <th>Описание</th>
+          </tr>
+
+         </thead>
+
+         <tbody class="tbody">
+          <tr>
+           <td><em>r</em></td>
+           <td>
+            Преобразование &quot;zen-kaku&quot; букв в &quot;han-kaku&quot;
+           </td>
+          </tr>
+
+          <tr>
+           <td><em>R</em></td>
+           <td>
+            Преобразование &quot;han-kaku&quot; букв в &quot;zen-kaku&quot;
+           </td>
+          </tr>
+
+          <tr>
+           <td><em>n</em></td>
+           <td>
+            Преобразование &quot;zen-kaku&quot; чисел в &quot;han-kaku&quot;
+           </td>
+          </tr>
+
+          <tr>
+           <td><em>N</em></td>
+           <td>
+            Преобразование &quot;han-kaku&quot; чисел в &quot;zen-kaku&quot;
+           </td>
+          </tr>
+
+          <tr>
+           <td><em>a</em></td>
+           <td>
+            Преобразование &quot;zen-kaku&quot; букв и чисел в &quot;han-kaku&quot;
+           </td>
+          </tr>
+
+          <tr>
+           <td><em>A</em></td>
+           <td>
+            Преобразование &quot;han-kaku&quot; букв и чисел в &quot;zen-kaku&quot;
+            (Для настроек &quot;a&quot;, &quot;A&quot; символы берутся из диапазона
+            U+0021 - U+007E, исключая U+0022, U+0027, U+005C, U+007E)
+           </td>
+          </tr>
+
+          <tr>
+           <td><em>s</em></td>
+           <td>
+            Преобразование &quot;zen-kaku&quot; пробела в &quot;han-kaku&quot; (U+3000 -&gt; U+0020)
+           </td>
+          </tr>
+
+          <tr>
+           <td><em>S</em></td>
+           <td>
+            Преобразование &quot;han-kaku&quot; пробела в &quot;zen-kaku&quot; (U+0020 -&gt; U+3000)
+           </td>
+          </tr>
+
+          <tr>
+           <td><em>k</em></td>
+           <td>
+            Преобразование &quot;zen-kaku kata-kana&quot; в &quot;han-kaku kata-kana&quot;
+           </td>
+          </tr>
+
+          <tr>
+           <td><em>K</em></td>
+           <td>
+            Преобразование &quot;han-kaku kata-kana&quot; в &quot;zen-kaku kata-kana&quot;
+           </td>
+          </tr>
+
+          <tr>
+           <td><em>h</em></td>
+           <td>
+            Преобразование &quot;zen-kaku hira-gana&quot; в &quot;han-kaku kata-kana&quot;
+           </td>
+          </tr>
+
+          <tr>
+           <td><em>H</em></td>
+           <td>
+            Преобразование &quot;han-kaku kata-kana&quot; в &quot;zen-kaku hira-gana&quot;
+           </td>
+          </tr>
+
+          <tr>
+           <td><em>c</em></td>
+           <td>
+           Преобразование &quot;zen-kaku kata-kana&quot; в &quot;zen-kaku hira-gana&quot;
+           </td>
+          </tr>
+
+          <tr>
+           <td><em>C</em></td>
+           <td>
+            Преобразование &quot;zen-kaku hira-gana&quot; в &quot;zen-kaku kata-kana&quot;
+           </td>
+          </tr>
+
+          <tr>
+           <td><em>V</em></td>
+           <td>
+            Производит свертку фонем и преобразует их в символ. Используется с &quot;K&quot;,&quot;H&quot;
+           </td>
+          </tr>
+
+         </tbody>
+        
+       </table>
+
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">encoding</code></dt>
+
+     <dd>
+
+      <p class="para">Параметр <code class="parameter">encoding</code>
+представляет собой символьную кодировку. Если он опущен, вместо него будет использовано значение внутренней кодировки.</p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 returnvalues" id="refsect1-function.mb-convert-kana-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Преобразованная строка <span class="type"><a href="language.types.string.html" class="type string">string</a></span>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.mb-convert-kana-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-2752">
+    <p><strong>Пример #1 Пример использования <span class="function"><strong>mb_convert_kana()</strong></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;Преобразование&nbsp;всех&nbsp;символов&nbsp;"kana"&nbsp;в&nbsp;"zen-kaku"&nbsp;"kata-kana"&nbsp;*/<br /></span><span style="color: #0000BB">$str&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mb_convert_kana</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"KVC"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Преобразование&nbsp;"han-kaku"&nbsp;"kata-kana"&nbsp;в&nbsp;"zen-kaku"&nbsp;"kata-kana"&nbsp;<br />&nbsp;&nbsp;&nbsp;и&nbsp;"zen-kaku"&nbsp;alpha-numeric&nbsp;в&nbsp;"han-kaku"&nbsp;*/<br /></span><span style="color: #0000BB">$str&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mb_convert_kana</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"KVa"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.mb-convert-encoding.html">mb_convert_encoding</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.mb-convert-variables.html">mb_convert_variables</a></div>
+ <div class="up"><a href="ref.mbstring.html">Функции для работы с Многобайтными строками</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

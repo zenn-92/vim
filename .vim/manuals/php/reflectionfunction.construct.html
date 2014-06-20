@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Конструктор класса ReflectionFunction</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="class.reflectionfunction.html">ReflectionFunction</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="reflectionfunction.export.html">ReflectionFunction::export</a></div>
+ <div class="up"><a href="class.reflectionfunction.html">ReflectionFunction</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="reflectionfunction.construct" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">ReflectionFunction::__construct</h1>
+  <p class="verinfo">(PHP 5)</p><p class="refpurpose"><span class="refname">ReflectionFunction::__construct</span> &mdash; <span class="dc-title">Конструктор класса ReflectionFunction</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-reflectionfunction.construct-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>ReflectionFunction::__construct</strong></span>
+    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$name</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Создает объект класса <a href="class.reflectionfunction.html" class="classname">ReflectionFunction</a>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-reflectionfunction.construct-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">name</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Имя reflection-функции или <a href="functions.anonymous.html" class="link">замыкания</a>.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-reflectionfunction.construct-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Эта функция не возвращает значения после выполнения.
+  </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-reflectionfunction.construct-errors">
+  <h3 class="title">Ошибки</h3>
+  <p class="para">
+   Объект класса <a href="class.reflectionexception.html" class="classname">ReflectionException</a>, если аргумент
+   <code class="parameter">name</code> не содержит допустимой функции.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-reflectionfunction.construct-changelog">
+  <h3 class="title">Список изменений</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Версия</th>
+       <th>Описание</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.3.0</td>
+       <td>
+        <code class="parameter">name</code> теперь может быть <a href="functions.anonymous.html" class="link">замыканием</a>.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-reflectionfunction.construct-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-5257">
+    <p><strong>Пример #1 Пример использования <span class="methodname"><strong>ReflectionFunction::__construct()</strong></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/**<br />&nbsp;*&nbsp;Простой&nbsp;счетчик<br />&nbsp;*<br />&nbsp;*&nbsp;@return&nbsp;&nbsp;&nbsp;&nbsp;int<br />&nbsp;*/<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">counter1</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;</span><span style="color: #0000BB">$c&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;++</span><span style="color: #0000BB">$c</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #FF8000">/**<br />&nbsp;*&nbsp;Другой&nbsp;счетчик<br />&nbsp;*<br />&nbsp;*&nbsp;@return&nbsp;&nbsp;&nbsp;&nbsp;int<br />&nbsp;*/<br /></span><span style="color: #0000BB">$counter2&nbsp;</span><span style="color: #007700">=&nbsp;function()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;</span><span style="color: #0000BB">$d&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;++</span><span style="color: #0000BB">$d</span><span style="color: #007700">;<br /><br />};<br /><br />function&nbsp;</span><span style="color: #0000BB">dumpReflectionFunction</span><span style="color: #007700">(</span><span style="color: #0000BB">$func</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Вывод&nbsp;основной&nbsp;информации<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"\n\n===&gt;&nbsp;%s&nbsp;функция&nbsp;'%s'\n"</span><span style="color: #007700">.<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;объявлена&nbsp;в&nbsp;%s\n"</span><span style="color: #007700">.<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;строки&nbsp;с&nbsp;%d&nbsp;по&nbsp;%d\n"</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$func</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">isInternal</span><span style="color: #007700">()&nbsp;?&nbsp;</span><span style="color: #DD0000">'internal'&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #DD0000">'user-defined'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$func</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getName</span><span style="color: #007700">(),<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$func</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getFileName</span><span style="color: #007700">(),<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$func</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getStartLine</span><span style="color: #007700">(),<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$func</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getEndline</span><span style="color: #007700">()<br />&nbsp;&nbsp;&nbsp;&nbsp;);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Печать&nbsp;документации<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"---&gt;&nbsp;Документация:\n&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">var_export</span><span style="color: #007700">(</span><span style="color: #0000BB">$func</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getDocComment</span><span style="color: #007700">(),&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">));<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Вывод&nbsp;статических&nbsp;переменных<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">$statics&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$func</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getStaticVariables</span><span style="color: #007700">())<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"---&gt;&nbsp;Статические&nbsp;переменные:&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">var_export</span><span style="color: #007700">(</span><span style="color: #0000BB">$statics</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;Создание&nbsp;объекта&nbsp;класса&nbsp;ReflectionFunction<br /></span><span style="color: #0000BB">dumpReflectionFunction</span><span style="color: #007700">(new&nbsp;</span><span style="color: #0000BB">ReflectionFunction</span><span style="color: #007700">(</span><span style="color: #DD0000">'counter1'</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">dumpReflectionFunction</span><span style="color: #007700">(new&nbsp;</span><span style="color: #0000BB">ReflectionFunction</span><span style="color: #007700">(</span><span style="color: #0000BB">$counter2</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>Результатом выполнения данного примера
+будет что-то подобное:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+===&gt; user-defined функция &#039;counter1&#039;
+     объявлена в Z:\reflectcounter.php
+     строки с 7 по 11
+---&gt; Документация:
+ &#039;/**
+ * Простой счетчик
+ *
+ * @return    int
+ */&#039;
+---&gt; Статические переменные: array (
+  &#039;c&#039; =&gt; 0,
+)
+
+
+===&gt; user-defined функция &#039;{closure}&#039;
+     объявлена в Z:\reflectcounter.php
+     строки с 18 по 23
+---&gt; Документация:
+ &#039;/**
+ * Другой счетчик
+ *
+ * @return    int
+ */&#039;
+---&gt; Статические переменные: array (
+  &#039;d&#039; =&gt; 0,
+)
+</pre></div>
+    </div>
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-reflectionfunction.construct-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="methodname"><a href="reflectionmethod.construct.html" class="methodname" rel="rdfs-seeAlso">ReflectionMethod::__construct()</a> - Конструктор класса ReflectionMethod</span></li>
+    <li class="member"><a href="language.oop5.decon.html#language.oop5.decon.constructor" class="link">Конструкторы</a></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="class.reflectionfunction.html">ReflectionFunction</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="reflectionfunction.export.html">ReflectionFunction::export</a></div>
+ <div class="up"><a href="class.reflectionfunction.html">ReflectionFunction</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

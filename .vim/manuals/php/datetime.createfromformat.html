@@ -1,0 +1,517 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Создает и возвращает экземпляр класса DateTime, соответствующий заданному формату</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="datetime.construct.html">DateTime::__construct</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="datetime.getlasterrors.html">DateTime::getLastErrors</a></div>
+ <div class="up"><a href="class.datetime.html">DateTime</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="datetime.createfromformat" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">DateTime::createFromFormat</h1>
+  <h1 class="refname">date_create_from_format</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0)</p><p class="refpurpose"><span class="refname">DateTime::createFromFormat</span> -- <span class="refname">date_create_from_format</span> &mdash; <span class="dc-title">
+   Создает и возвращает экземпляр класса DateTime, соответствующий заданному формату
+  </span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-datetime.createfromformat-description">
+  <h3 class="title">Описание</h3>
+  <p class="para">Объектно-ориентированный стиль</p>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="modifier">static</span> <span class="type"><a href="class.datetime.html" class="type DateTime">DateTime</a></span> <span class="methodname"><strong>DateTime::createFromFormat</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$format</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$time</code></span>
+   [, <span class="methodparam"><span class="type"><a href="class.datetimezone.html" class="type DateTimeZone">DateTimeZone</a></span> <code class="parameter">$timezone</code></span>
+  ] )</div>
+
+  <p class="para rdfs-comment">Процедурный стиль</p>
+  <div class="methodsynopsis dc-description">
+   <span class="type"><a href="class.datetime.html" class="type DateTime">DateTime</a></span> <span class="methodname"><a href="function.date-create-from-format.html" class="methodname">date_create_from_format</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$format</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$time</code></span>
+   [, <span class="methodparam"><span class="type"><a href="class.datetimezone.html" class="type DateTimeZone">DateTimeZone</a></span> <code class="parameter">$timezone</code></span>
+  ] )</div>
+
+  <p class="para rdfs-comment">
+   Создает и возвращает экземпляр класса DateTime, соответствующий 
+   заданному формату.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-datetime.createfromformat-parameters">
+  <h3 class="title">Список параметров</h3>
+  <dl>
+
+   
+    <dt>
+<code class="parameter">format</code></dt>
+
+    <dd>
+
+     <p class="para">
+      Формат даты и времени в виде строки (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>), которому  
+      соответствует значение второго аргумента функции. Список вариантов 
+      форматирования представлен ниже. В большинстве случаев при форматировании 
+      используются те же символы, что и в функции <span class="function"><a href="function.date.html" class="function">date()</a></span>.
+     </p>
+     <p class="para">
+      <table class="doctable table">
+       <caption><strong>Список возможных символов для составления строки 
+        <code class="parameter">format</code>
+       </strong></caption>
+       
+        <thead>
+         <tr>
+          <th>Символ в строке <code class="parameter">format</code></th>
+          <th>Описание</th>
+          <th>Возможные значения</th>
+         </tr>
+
+        </thead>
+
+        <tbody class="tbody">
+         <tr>
+          <td style="text-align: center;"><em class="emphasis">День</em></td>
+          <td>---</td>
+          <td>---</td>
+         </tr>
+
+         <tr>
+          <td><em>d</em> и <em>j</em></td>
+          <td>
+           День месяца, 2 цифры с нулем в начале или без него
+          </td>
+          <td>
+           От <em>01</em> до <em>31</em> либо 
+           от <em>1</em> до <em>31</em>
+          </td>
+         </tr>
+
+         <tr>
+          <td><em>D</em> и <em>l</em></td>
+          <td>
+           Текстовое представление дня месяца
+          </td>
+          <td>
+           От <em>Mon</em> до <em>Sun</em> либо 
+           от <em>Sunday</em> до <em>Saturday</em>
+          </td>
+         </tr>
+
+         <tr>
+          <td><em>S</em></td>
+          <td>
+           Суффикс для числа в английской нумерации, 2 буквы. Эти буквы 
+           будут пропущены при разборе строки.
+          </td>
+          <td>
+           <em>st</em>, <em>nd</em>, <em>rd</em> или
+           <em>th</em>.
+          </td>
+         </tr>
+
+         <tr>
+          <td><em>z</em></td>
+          <td>
+           Номер дня с начала года (начиная с нуля)
+          </td>
+          <td>C <em>0</em> по <em>365</em></td>
+         </tr>
+
+         <tr>
+          <td style="text-align: center;"><em class="emphasis">Месяц</em></td>
+          <td>---</td>
+          <td>---</td>
+         </tr>
+
+         <tr>
+          <td><em>F</em> и <em>M</em></td>
+          <td>
+           Текстовое представление месяца, например January или Sept 
+          </td>
+          <td>
+           С <em>January</em> по <em>December</em> либо
+           с <em>Jan</em> по <em>Dec</em>
+          </td>
+         </tr>
+
+         <tr>
+          <td><em>m</em> и <em>n</em></td>
+          <td>
+           Числовое представление месяца с первым нулем или без него
+          </td>
+          <td>
+           С <em>01</em> по <em>12</em> либо
+           с <em>1</em> по <em>12</em>
+          </td>
+         </tr>
+
+         <tr>
+          <td style="text-align: center;"><em class="emphasis">Год</em></td>
+          <td>---</td>
+          <td>---</td>
+         </tr>
+
+         <tr>
+          <td><em>Y</em></td>
+          <td>
+           Полное числовое представление года, 4 цифры
+          </td>
+          <td>Примеры: <em>1999</em> или <em>2003</em></td>
+         </tr>
+
+         <tr>
+          <td><em>y</em></td>
+          <td>
+           2 цифры в представлении года
+          </td>
+          <td>Примеры: <em>99</em> или <em>03</em></td>
+         </tr>
+
+         <tr>
+          <td style="text-align: center;"><em class="emphasis">Время</em></td>
+          <td>---</td>
+          <td>---</td>
+         </tr>
+
+         <tr>
+          <td><em>a</em> и <em>A</em></td>
+          <td>
+           До полудня и После полудня
+          </td>
+          <td><em>am</em> или <em>pm</em></td>
+         </tr>
+
+         <tr>
+          <td><em>g</em> и <em>h</em></td>
+          <td>
+           12-ти часовой формат времени с первым нулем или без него
+          </td>
+          <td>
+           С <em>1</em> по <em>12</em> либо
+           с <em>01</em> по <em>12</em>
+          </td>
+         </tr>
+
+         <tr>
+          <td><em>G</em> и <em>H</em></td>
+          <td>
+           24-х часовой формат времени с нулем в начале или без него
+          </td>
+          <td>
+           С <em>0</em> по <em>23</em> или
+           с <em>00</em> по <em>23</em>
+          </td>
+         </tr>
+
+         <tr>
+          <td><em>i</em></td>
+          <td>
+           Минуты с нулем в начале
+          </td>
+          <td>
+           С <em>00</em> по <em>59</em>
+          </td>
+         </tr>
+
+         <tr>
+          <td><em>s</em></td>
+          <td>Секунды с нулем в начале</td>
+          <td>
+           От <em>00</em> до <em>59</em>
+          </td>
+         </tr>
+
+         <tr>
+          <td><em>u</em></td>
+          <td>Микросекунды (до 6 цифр)</td>
+          <td>Примеры: <em>45</em>, <em>654321</em></td>
+         </tr>
+
+         <tr>
+          <td style="text-align: center;"><em class="emphasis">Временная зона</em></td>
+          <td>---</td>
+          <td>---</td>
+         </tr>
+
+         <tr>
+          <td>
+           <em>e</em>, <em>O</em>,
+           <em>P</em> и <em>T</em>
+          </td>
+          <td>
+           Идентификатор временной зоны, либо разница в часах относительно 
+           UTC, либо разница относительно UTC с запятой между часами и минутами, 
+           либо аббревиатура временной зоны
+          </td>
+          <td>Примеры: <em>UTC</em>, <em>GMT</em>,
+           <em>Atlantic/Azores</em> или 
+           <em>+0200</em> или <em>+02:00</em> или
+           <em>EST</em>, <em>MDT</em>
+          </td>
+         </tr>
+
+         <tr>
+          <td style="text-align: center;"><em class="emphasis">Дата/Время полностью</em></td>
+          <td>---</td>
+          <td>---</td>
+         </tr>
+
+         <tr>
+          <td><em>U</em></td>
+          <td>
+           Количество секунд с начала Эпохи Unix (January 1 1970 00:00:00 GMT)
+          </td>
+          <td>Пример: <em>1292177455</em></td>
+         </tr>
+
+         <tr>
+          <td style="text-align: center;"><em class="emphasis">Пробел и Разделители</em></td>
+          <td>---</td>
+          <td>---</td>
+         </tr>
+
+         <tr>
+          <td><em> </em> (пробел)</td>
+          <td>Один пробел или один отступ табулатуры</td>
+          <td>Пример: <em> </em></td>
+         </tr>
+
+         <tr>
+          <td><em>#</em></td>
+          <td>
+           Один из следующих символов: <em>;</em>,
+           <em>:</em>, <em>/</em>, <em>.</em>,
+           <em>,</em>, <em>-</em>, <em>(</em> или
+           <em>)</em>
+          </td>
+          <td>Пример: <em>/</em></td>
+         </tr>
+
+         <tr>
+          <td>
+           <em>;</em>,
+           <em>:</em>, <em>/</em>, <em>.</em>,
+           <em>,</em>, <em>-</em>, <em>(</em> или
+           <em>)</em>
+          </td>
+          <td>Символ разделитель.</td>
+          <td>Пример: <em>-</em></td>
+         </tr>
+
+         <tr>
+          <td><em>?</em></td>
+          <td>Один случайный (любой) символ</td>
+          <td>
+           Пример: <em>^</em> (Будьте внимательны: в UTF-8
+           кодировке вам может потребоваться более одного <em>?</em>, 
+           так как там один символ может занимать более одного байта. В таких 
+           случаях может помочь использование <em>*</em>.
+          </td>
+         </tr>
+
+         <tr>
+          <td><em>*</em></td>
+          <td>
+           Любое количество любых символов до следующего разделителя
+          </td>
+          <td>
+           Пример: <em>*</em> в <em>Y-*-d</em> для 
+           строки <em>2009-aWord-08</em> будет соответствовать 
+           <em>aWord</em>
+          </td>
+         </tr>
+
+         <tr>
+          <td><em>!</em></td>
+          <td>
+           Приводит значения всех полей (год, месяц, день, час, минута, 
+           секунда, временная зона) ко времени начала Эпохи Unix. 
+          </td>
+          <td>
+           Без <em>!,</em> все поля будут соответствовать 
+           текущему времени.
+          </td>
+         </tr>
+
+         <tr>
+          <td><em>|</em></td>
+          <td>
+           Приводит значения незаданных полей (год, месяц, день, час, минута, 
+           секунда, временная зона) ко времени начала Эпохи Unix. 
+          </td>
+          <td>
+           <em>Y-m-d|</em> установит год, месяц и день в соответствии 
+           с данными в строке, а часы, минуты и секунды установит в 0.
+          </td>
+         </tr>
+
+         <tr>
+          <td><em>+</em></td>
+          <td>
+           Если задан этот спецификатор, данные, завершающие строку (нуль байт 
+           например) не будут вызывать ошибку, только предупреждение
+          </td>
+          <td>
+           Используйте <span class="methodname"><a href="datetime.getlasterrors.html" class="methodname">DateTime::getLastErrors()</a></span> 
+           для определения, были ли в строке завершающие символы.
+          </td>
+         </tr>
+
+        </tbody>
+       
+      </table>
+
+     </p>
+     <p class="para">
+      Наличие в строке формата неразпознаваемых символов отсутствующих 
+      в списке выше приведет к ошибке разбора строки, в этом случае 
+      сообщение об ошибке будет добавлено в возвращаемую структуру. 
+      Получить это сообщение можно с помощью функции 
+      <span class="methodname"><a href="datetime.getlasterrors.html" class="methodname">DateTime::getLastErrors()</a></span>.
+     </p>       
+     <p class="para">
+      Если <code class="parameter">format</code> не содержит символ 
+      <em>!</em>, то значения полей, не заданных в строке 
+      формата, будут установлены в соответствии с текущим временем.
+     </p>
+     <p class="para">
+      Если <code class="parameter">format</code> содержит символ 
+      <em>!</em>, то значения полей, не заданных в строке 
+      формата (равно как и значения полей слева от 
+      <em>!</em>) будут установлены в соответствии со 
+      значениями полей начала Эпохи Unix.
+     </p>
+     <p class="para">
+      Начало эпохи Unix 1970-01-01 00:00:00 UTC.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">time</code></dt>
+
+    <dd>
+
+     <p class="para">
+      Строка, представляющая время.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">timezone</code></dt>
+
+    <dd>
+
+     <p class="para">
+      Объект класса <a href="class.datetimezone.html" class="classname">DateTimeZone</a>, представляющий 
+      ожидаемую временную зону.
+     </p>
+     <p class="para">
+      Если <code class="parameter">timezone</code> не указан и
+      <code class="parameter">time</code> не содержит веремнную зону,
+      то будет использована текущая временная зона.
+     </p>
+     <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+      <p class="para">
+       Параметр <code class="parameter">timezone</code> и
+       текущая временная зона будут проигнорированы,
+       если параметр <code class="parameter">time</code> также
+       содержит метку времени UNIX (т.е. timestamp вида <em>946684800</em>)
+       или же указанную временную зону (т.е. <em>2010-01-28T15:00:00+02:00</em>).
+      </p>
+     </p></blockquote>     
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-datetime.createfromformat-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает созданный экземпляр класса DateTime или <strong><code>FALSE</code></strong> в случае возникновения ошибки.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-datetime.createfromformat-examples">
+  <h3 class="title">Примеры</h3>
+  <div class="example" id="example-2305">
+   <p><strong>Пример #1 Пример использования <span class="function"><strong>DateTime::createFromFormat()</strong></span></strong></p>
+   <div class="example-contents"><p>Объектно-ориентированный стиль</p></div>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$date&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">DateTime</span><span style="color: #007700">::</span><span style="color: #0000BB">createFromFormat</span><span style="color: #007700">(</span><span style="color: #DD0000">'j-M-Y'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'15-Feb-2009'</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">$date</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #DD0000">'Y-m-d'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>Процедурный стиль</p></div>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$date&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">date_create_from_format</span><span style="color: #007700">(</span><span style="color: #DD0000">'j-M-Y'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'15-Feb-2009'</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">date_format</span><span style="color: #007700">(</span><span style="color: #0000BB">$date</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'Y-m-d'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>Результат выполнения данных примеров:</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>
+2009-02-15
+</pre></div>
+   </div>
+  </div>
+  <div class="example" id="example-2306">
+   <p><strong>Пример #2 Хитрости при использовании <span class="function"><strong>DateTime::createFromFormat()</strong></span></strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">'Текущее&nbsp;время:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">'Y-m-d&nbsp;H:i:s'</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$format&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'Y-m-d'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$date&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">DateTime</span><span style="color: #007700">::</span><span style="color: #0000BB">createFromFormat</span><span style="color: #007700">(</span><span style="color: #0000BB">$format</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'2009-02-15'</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #DD0000">"Формат:&nbsp;</span><span style="color: #0000BB">$format</span><span style="color: #DD0000">;&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$date</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #DD0000">'Y-m-d&nbsp;H:i:s'</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$format&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'Y-m-d&nbsp;H:i:s'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$date&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">DateTime</span><span style="color: #007700">::</span><span style="color: #0000BB">createFromFormat</span><span style="color: #007700">(</span><span style="color: #0000BB">$format</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'2009-02-15&nbsp;15:16:17'</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #DD0000">"Формат:&nbsp;</span><span style="color: #0000BB">$format</span><span style="color: #DD0000">;&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$date</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #DD0000">'Y-m-d&nbsp;H:i:s'</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$format&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'Y-m-!d&nbsp;H:i:s'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$date&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">DateTime</span><span style="color: #007700">::</span><span style="color: #0000BB">createFromFormat</span><span style="color: #007700">(</span><span style="color: #0000BB">$format</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'2009-02-15&nbsp;15:16:17'</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #DD0000">"Формат:&nbsp;</span><span style="color: #0000BB">$format</span><span style="color: #DD0000">;&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$date</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #DD0000">'Y-m-d&nbsp;H:i:s'</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$format&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'!d'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$date&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">DateTime</span><span style="color: #007700">::</span><span style="color: #0000BB">createFromFormat</span><span style="color: #007700">(</span><span style="color: #0000BB">$format</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'15'</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #DD0000">"Формат:&nbsp;</span><span style="color: #0000BB">$format</span><span style="color: #DD0000">;&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$date</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #DD0000">'Y-m-d&nbsp;H:i:s'</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>Результатом выполнения данного примера
+будет что-то подобное:</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>
+Текущее время: 2010-04-23 10:29:35
+Формат: Y-m-d; 2009-02-15 10:29:35
+Формат: Y-m-d H:i:s; 2009-02-15 15:16:17
+Формат: Y-m-!d H:i:s; 1970-01-15 15:16:17
+Формат: !d; 1970-01-15 00:00:00
+</pre></div>
+   </div>
+  </div>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-datetime.createfromformat-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <ul class="simplelist">
+   <li class="member"><span class="function"><a href="datetime.construct.html" class="function" rel="rdfs-seeAlso">DateTime::__construct()</a> - Конструктор класса DateTime</span></li>
+   <li class="member"><span class="function"><a href="datetime.getlasterrors.html" class="function" rel="rdfs-seeAlso">DateTime::getLastErrors()</a> - Возвращает предупреждения и ошибки</span></li>
+   <li class="member"><span class="function"><a href="function.checkdate.html" class="function" rel="rdfs-seeAlso">checkdate()</a> - Проверяет корректность даты по григорианскому календарю</span></li>
+   <li class="member"><span class="function"><a href="function.strptime.html" class="function" rel="rdfs-seeAlso">strptime()</a> - Разбирает строку даты/времени сгенерированную функцией 
+     strftime</span></li>
+  </ul>
+ </div>
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="datetime.construct.html">DateTime::__construct</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="datetime.getlasterrors.html">DateTime::getLastErrors</a></div>
+ <div class="up"><a href="class.datetime.html">DateTime</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

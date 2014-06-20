@@ -1,0 +1,173 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Отправляет YAML-представление значения в файл</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="ref.yaml.html">Yaml Функции</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.yaml-emit.html">yaml_emit</a></div>
+ <div class="up"><a href="ref.yaml.html">Yaml Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.yaml-emit-file" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">yaml_emit_file</h1>
+  <p class="verinfo">(PECL yaml &gt;= 0.5.0)</p><p class="refpurpose"><span class="refname">yaml_emit_file</span> &mdash; <span class="dc-title">Отправляет YAML-представление значения в файл</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.yaml-emit-file-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><strong>yaml_emit_file</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
+   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$data</code></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$encoding</code><span class="initializer"> = YAML_ANY_ENCODING</span></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$linebreak</code><span class="initializer"> = YAML_ANY_BREAK</span></span>
+   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$callbacks</code></span>
+  ]]] )</div>
+
+  <p class="para rdfs-comment">
+   Генерирует YAML-представление из данных <code class="parameter">data</code> и отправляет
+   в <code class="parameter">filename</code>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.yaml-emit-file-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">filename</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Путь к файлу.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">data</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Параметр <code class="parameter">data</code> будет кодирован. Допускается любой тип данных кроме
+       <span class="type"><a href="language.types.resource.html" class="type resource">resource</a></span>.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">encoding</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Кодировка вывода выбирается из
+       <strong><code>YAML_ANY_ENCODING</code></strong>,
+       <strong><code>YAML_UTF8_ENCODING</code></strong>,
+       <strong><code>YAML_UTF16LE_ENCODING</code></strong>,
+       <strong><code>YAML_UTF16BE_ENCODING</code></strong>.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">linebreak</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Символ конца строки вывода выбирается из
+       <strong><code>YAML_ANY_BREAK</code></strong>,
+       <strong><code>YAML_CR_BREAK</code></strong>,
+       <strong><code>YAML_LN_BREAK</code></strong>,
+       <strong><code>YAML_CRLN_BREAK</code></strong>.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">callbacks</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Обработчики контента для вывода YAML узлов. Ассоциативный массив
+       <span class="type"><a href="language.types.array.html" class="type array">array</a></span> объектов класса =&gt; <span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span>.
+       Дополнительная информация приведена в <a href="yaml.callbacks.emit.html" class="link">emit callbacks</a>.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.yaml-emit-file-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает <strong><code>TRUE</code></strong> в случае успеха.
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 changelog" id="refsect1-function.yaml-emit-file-changelog">
+  <h3 class="title">Список изменений</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Версия</th>
+       <th>Описание</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>1.1.0</td>
+       <td>
+        Добавлен аргумент <code class="parameter">callbacks</code>.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.yaml-emit-file-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.yaml-emit.html" class="function" rel="rdfs-seeAlso">yaml_emit()</a> - Returns the YAML representation of a value</span></li>
+    <li class="member"><span class="function"><a href="function.yaml-parse.html" class="function" rel="rdfs-seeAlso">yaml_parse()</a> - Parse a YAML stream</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="ref.yaml.html">Yaml Функции</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.yaml-emit.html">yaml_emit</a></div>
+ <div class="up"><a href="ref.yaml.html">Yaml Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

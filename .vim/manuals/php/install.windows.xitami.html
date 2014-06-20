@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Xitami на Microsoft Windows</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="install.windows.sambar.html">Sambar Server под Microsoft Windows</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="install.windows.building.html">Сборка из исходников</a></div>
+ <div class="up"><a href="install.windows.html">Установка в системах Windows</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="install.windows.xitami" class="sect1">
+    <h2 class="title">Xitami на Microsoft Windows</h2>
+    <p class="para">
+     Этот раздел содержит заметки и трюки, специфичные для
+     <a href="http://www.xitami.com/" class="link external">&raquo;&nbsp;Xitami</a> на платформе Windows.
+    </p>
+    <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+     <p class="para">
+     Вам необходимо сначала прочитать <a href="install.windows.manual.html" class="link">инструкцию
+     по установке</a>!
+     </p>
+    </p></blockquote>
+    <p class="simpara">
+     Этот перечень действий описывает как установить PHP CGI библиотеку так,
+     чтобы она работала с Xitami под Windows.
+    </p>
+    
+    <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+     <strong>Важно для пользоватей CGI</strong><br />
+     <p class="para">
+      Прочтите <a href="faq.installation.html#faq.installation.forceredirect" class="link">faq
+      про cgi.force_redirec</a> для получения важных подробностей.  Эту директиву требуется
+      установить в <em>0</em>.
+      Если вы хотите использовать <em>$_SERVER[&#039;PHP_SELF&#039;]</em>, то необходимо включить
+      <a href="ini.core.html#ini.cgi.fix-pathinfo" class="link">cgi.fix_pathinfo</a>
+      директиву.
+     </p>
+    </p></blockquote>
+    <div class="warning"><strong class="warning">Внимание</strong><p class="para">Используя установку CGI, ваш сервер
+открыт перед несколькими возможными уязвимостями. Пожалуйста, ознакомьтесь с разделом
+<a href="security.cgi-bin.html" class="link">&quot;Безопасность CGI&quot;</a> чтобы узнать,
+как можно защитить себя от таких атак.</p></div>
+    <p class="para">
+     <ul class="itemizedlist">
+      <li class="listitem">
+       <p class="para">
+        Убедитесь, что веб-сервер работает, и ваш браузер попадет
+        в консоль администратора Xitami.
+        (обычно <em>http://127.0.0.1/admin</em>),
+        и нажмите Конфигурация (Configuration).
+       </p>
+      </li>
+      <li class="listitem">
+       <p class="para">
+        Перейдите в раздел &quot;фильтры&quot; и поместите расширение, которое
+        должно обрабатывать PHP (то есть .php)
+        в поле расширения файлов (.xxx).
+       </p>
+      </li>
+      <li class="listitem">
+       <p class="para">
+        В фильтр команды или сценария поместите путь и имя вашего исполняемого PHP CGI файла, т.е.
+        <var class="filename">C:\php\php.exe</var>
+        для PHP 4 или <var class="filename">C:\php\php-cgi.exe</var> для PHP 5.
+       </p>
+      </li>
+      <li class="listitem">
+       <p class="para">
+        Нажмите иконку &quot;Сохранить&quot;.
+       </p>
+      </li>
+      <li class="listitem">
+       <p class="para">
+        Перезапустите сервер, чтобы изменения вступили в силу.
+       </p>
+      </li>
+     </ul>
+    </p>
+   </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="install.windows.sambar.html">Sambar Server под Microsoft Windows</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="install.windows.building.html">Сборка из исходников</a></div>
+ <div class="up"><a href="install.windows.html">Установка в системах Windows</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

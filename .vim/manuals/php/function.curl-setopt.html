@@ -1,0 +1,1670 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Устанавливает параметр для сеанса CURL</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.curl-setopt-array.html">curl_setopt_array</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.curl-share-close.html">curl_share_close</a></div>
+ <div class="up"><a href="ref.curl.html">cURL</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.curl-setopt" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">curl_setopt</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.2, PHP 5)</p><p class="refpurpose"><span class="refname">curl_setopt</span> &mdash; <span class="dc-title">Устанавливает параметр для сеанса CURL</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.curl-setopt-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><strong>curl_setopt</strong></span>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$ch</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$option</code></span>
+   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Устанавливает параметр для указанного сеанса cURL.
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 parameters" id="refsect1-function.curl-setopt-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    <dt>
+<code class="parameter">ch</code>
+</dt>
+<dd>
+<p class="para">Дескриптор cURL, полученный из <span class="function"><a href="function.curl-init.html" class="function">curl_init()</a></span>.</p></dd>
+
+    
+     <dt>
+<code class="parameter">option</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Устанавливаемый параметр <em>CURLOPT_XXX</em>.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">value</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Значение параметра <code class="parameter">option</code>.
+      </p>
+      <p class="para">
+       Для следующих значений параметра <code class="parameter">option</code>,
+       параметр <code class="parameter">value</code> должен быть типа
+       <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>:
+       <table class="doctable informaltable">
+        
+         <thead>
+          <tr>
+           <th>Параметр</th>
+           <th>Устанавливаемое значение <code class="parameter">value</code></th>
+           <th>Замечания</th>
+          </tr>
+
+         </thead>
+
+         <tbody class="tbody">
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_AUTOREFERER</code></strong></td>
+           <td style="vertical-align: top;">
+            <strong><code>TRUE</code></strong> для автоматической установки поля <em>Referer:</em>
+            в запросах, перенаправленных заголовком <em>Location:</em>.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_BINARYTRANSFER</code></strong></td>
+           <td style="vertical-align: top;">
+            <strong><code>TRUE</code></strong> для возврата необработанного ответа при использовании
+            константы <strong><code>CURLOPT_RETURNTRANSFER</code></strong>.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_COOKIESESSION</code></strong></td>
+           <td style="vertical-align: top;">
+            <strong><code>TRUE</code></strong> для указания текущему сеансу начать новую &quot;сессию&quot; cookies.
+            Это заставит libcurl проигнорировать все &quot;сессионные&quot; cookies,
+            которые она должна была бы загрузить, полученные из предыдущей
+            сессии. По умолчанию, libcurl всегда сохраняет и загружает
+            все cookies, вне зависимости от того, являются ли они &quot;сессионными&quot;
+            или нет. &quot;Сессионные&quot; cookies - это cookies без срока истечения,
+            котоыре должны существовать только для текущей &quot;сессии&quot;.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_CERTINFO</code></strong></td>
+           <td style="vertical-align: top;">
+            <strong><code>TRUE</code></strong> для вывода информации о сертификате SSL в поток <em>STDERR</em>
+            при безопасных соединениях.
+           </td>
+           <td style="vertical-align: top;">
+            Доступна, начиная с версии PHP 5.3.2. Для корректной работы требует
+            включенной опции <strong><code>CURLOPT_VERBOSE</code></strong>.
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_CRLF</code></strong></td>
+           <td style="vertical-align: top;">
+            <strong><code>TRUE</code></strong> для преобразования концов строк Unix в CRLF.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_DNS_USE_GLOBAL_CACHE</code></strong></td>
+           <td style="vertical-align: top;">
+            <strong><code>TRUE</code></strong> для использования глобального кэша DNS. Этот параметр не
+            является потокобезопасным и по умолчанию включен.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_FAILONERROR</code></strong></td>
+           <td style="vertical-align: top;">
+            <strong><code>TRUE</code></strong> для тихого окончания работы, если полученный HTTP-код
+            больше или равен 400. Поведение по умолчанию возвращает страницу
+            как обычно, игнорируя код.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_FILETIME</code></strong></td>
+           <td style="vertical-align: top;">
+            <strong><code>TRUE</code></strong> для попытки получения даты модификации удаленного
+            документа. Это значение может быть получено с помощью
+            параметра <code class="parameter">CURLINFO_FILETIME</code> из
+            функции <span class="function"><a href="function.curl-getinfo.html" class="function">curl_getinfo()</a></span>.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_FOLLOWLOCATION</code></strong></td>
+           <td style="vertical-align: top;">
+            <strong><code>TRUE</code></strong> для следования любому заголовку
+            <em>&quot;Location: &quot;</em>, отправленному сервером в своем
+            ответе (учтите, что это происходит рекурсивно, PHP будет следовать
+            за всеми посылаемыми заголовками <em>&quot;Location: &quot;</em>,
+            за исключением случая, когда установлена константа
+            <strong><code>CURLOPT_MAXREDIRS</code></strong>).
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_FORBID_REUSE</code></strong></td>
+           <td style="vertical-align: top;">
+            <strong><code>TRUE</code></strong> для принудительного закрытия соединения после
+            завершения его обработки так, чтобы его нельзя было использовать
+            повторно.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_FRESH_CONNECT</code></strong></td>
+           <td style="vertical-align: top;">
+            <strong><code>TRUE</code></strong> для принудительного использования нового соединения
+            вместо закэшированного.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_FTP_USE_EPRT</code></strong></td>
+           <td style="vertical-align: top;">
+            <strong><code>TRUE</code></strong> для использования EPRT (и LPRT) при активных FTP
+            загрузках. Используйте <strong><code>FALSE</code></strong> для того, чтобы отключить EPRT и LPRT
+            и использовать только PORT.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_FTP_USE_EPSV</code></strong></td>
+           <td style="vertical-align: top;">
+            <strong><code>TRUE</code></strong> для первоначальной пробы команды EPSV при FTP
+            передачах. Если команда не удалась, будет произведен обратный
+            откат к PASV. Установите в <strong><code>FALSE</code></strong> для отключения EPSV.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_FTP_CREATE_MISSING_DIRS</code></strong></td>
+           <td style="vertical-align: top;">
+            <strong><code>TRUE</code></strong> для создания отсутствующих директорий, если FTP-операция
+            обнаруживает несуществующий путь.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_FTPAPPEND</code></strong></td>
+           <td style="vertical-align: top;">
+            <strong><code>TRUE</code></strong> для записи удаленного файла в конец, вместо
+            перезаписывания его поверх существующего файла.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_FTPASCII</code></strong></td>
+           <td style="vertical-align: top;">
+            Псевдоним <strong><code>CURLOPT_TRANSFERTEXT</code></strong>.
+            Используйте его вместо этого.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_FTPLISTONLY</code></strong></td>
+           <td style="vertical-align: top;">
+            <strong><code>TRUE</code></strong> для возврата только списка имен из FTP директории.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_HEADER</code></strong></td>
+           <td style="vertical-align: top;">
+            <strong><code>TRUE</code></strong> для включения заголовков в вывод.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td><strong><code>CURLINFO_HEADER_OUT</code></strong></td>
+           <td style="vertical-align: top;">
+            <strong><code>TRUE</code></strong> для отслеживания строки запроса дескриптора.
+           </td>
+           <td style="vertical-align: top;">
+            Доступен, начиная с версии PHP 5.1.3. Префикс <strong><code>CURLINFO_</code></strong>
+            употреблен специально.
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_HTTPGET</code></strong></td>
+           <td style="vertical-align: top;">
+            <strong><code>TRUE</code></strong> для сброса метода HTTP-запроса в метод GET.
+            Так как GET используется по умолчанию, этот параметр необходим только
+            в случае, если метод запроса был ранее изменен.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_HTTPPROXYTUNNEL</code></strong></td>
+           <td style="vertical-align: top;">
+            <strong><code>TRUE</code></strong> для туннелирования через указанный HTTP-прокси.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_MUTE</code></strong></td>
+           <td style="vertical-align: top;">
+            <strong><code>TRUE</code></strong> для полного отключения сообщений функций cURL.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_NETRC</code></strong></td>
+           <td style="vertical-align: top;">
+            <strong><code>TRUE</code></strong> для считывания файла <var class="filename">~/.netrc</var>
+            на предмет логина и пароля для удаленного сайта, с которым
+            устанавливается соединение.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_NOBODY</code></strong></td>
+           <td style="vertical-align: top;">
+            <strong><code>TRUE</code></strong> для исключения тела ответа из вывода.
+            Метод запроса устанавливается в HEAD. Смена этого параметра в <strong><code>FALSE</code></strong>
+            не меняет его обратно в GET.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_NOPROGRESS</code></strong></td>
+           <td style="vertical-align: top;"><p class="para">
+            <strong><code>TRUE</code></strong> для отмены индиктора прогресса при передачах cURL.
+            <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+             <p class="para">
+              PHP автоматически устанавливает этот параметр в <strong><code>TRUE</code></strong>, меняйте
+              его только для отладочных целей.
+             </p>
+            </p></blockquote>
+            </p></td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_NOSIGNAL</code></strong></td>
+           <td style="vertical-align: top;">
+            <strong><code>TRUE</code></strong> для игнорирования любой функции cURL, посылающей сигналы
+            PHP процессу. Этот параметр включен по умолчанию в многопоточных
+            SAPIs для корректной работы таймаут параметров.
+           </td>
+           <td style="vertical-align: top;">
+            Добавлен в cURL 7.10.
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_POST</code></strong></td>
+           <td style="vertical-align: top;">
+            <strong><code>TRUE</code></strong> для использования обычного HTTP POST. Данный метод POST
+            использует обычный <em>application/x-www-form-urlencoded</em>,
+            обычно используемый в HTML-формах.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_PUT</code></strong></td>
+           <td style="vertical-align: top;">
+            <strong><code>TRUE</code></strong> для загрузки файла методом HTTP PUT. Используемый файл
+            должен быть установлен с помощью параметров
+            <strong><code>CURLOPT_INFILE</code></strong> и
+            <strong><code>CURLOPT_INFILESIZE</code></strong>.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_RETURNTRANSFER</code></strong></td>
+           <td style="vertical-align: top;">
+            <strong><code>TRUE</code></strong> для возврата результата передачи в качестве
+            строки из <span class="function"><a href="function.curl-exec.html" class="function">curl_exec()</a></span> вместо прямого
+            вывода в браузер.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_SSL_VERIFYPEER</code></strong></td>
+           <td style="vertical-align: top;">
+            <strong><code>FALSE</code></strong> для остановки cURL от проверки сертификата узла сети.
+            Альтернативные сверяемые сертификаты могут быть указаны с помощью
+            параметра <strong><code>CURLOPT_CAINFO</code></strong> или директории с
+            сертификатами, указываемой параметром <strong><code>CURLOPT_CAPATH</code></strong>.
+           </td>
+           <td style="vertical-align: top;">
+            По умолчанию равно <strong><code>TRUE</code></strong> начиная с версии cURL 7.10.
+            Дистрибутив по умолчанию устанавливается начиная с версии cURL 7.10.
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_TRANSFERTEXT</code></strong></td>
+           <td style="vertical-align: top;">
+            <strong><code>TRUE</code></strong> для использования ASCII режима при FTP передачах.
+            При использовании LDAP данные возвращаются простым
+            текстом вместо HTML. В Windows системах поток <em>STDOUT</em>
+            не устанавливается в бинарный режим.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_UNRESTRICTED_AUTH</code></strong></td>
+           <td style="vertical-align: top;">
+            <strong><code>TRUE</code></strong> для продолжения посылки логина и пароля при редиректах
+            (при использовании <strong><code>CURLOPT_FOLLOWLOCATION</code></strong>),
+            даже при изменении имени хоста.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_UPLOAD</code></strong></td>
+           <td style="vertical-align: top;">
+            <strong><code>TRUE</code></strong> для подготовки к загрузке файла на сервер.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_VERBOSE</code></strong></td>
+           <td style="vertical-align: top;">
+            <strong><code>TRUE</code></strong> для вывода дополнительной информации. Записывает вывод в
+            поток <em>STDERR</em>, или файл, указанный параметром
+            <strong><code>CURLOPT_STDERR</code></strong>.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+         </tbody>
+        
+       </table>
+
+      </p>
+      <p class="para">
+      Для следующих значений параметра <code class="parameter">option</code>,
+      параметр <code class="parameter">value</code> должен быть типа
+      <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>:
+       <table class="doctable informaltable">
+        
+         <thead>
+          <tr>
+           <th>Параметр</th>
+           <th>Устанавливаемое значение <code class="parameter">value</code></th>
+           <th>Замечания</th>
+          </tr>
+
+         </thead>
+
+         <tbody class="tbody">
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_BUFFERSIZE</code></strong></td>
+           <td style="vertical-align: top;">
+            Размер буфера, используемого при каждом чтении. Однако, нет никакой
+            гарантии что данный запрос будет завершен.
+           </td>
+           <td style="vertical-align: top;">
+            Добавлен в версии cURL 7.10.
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_CLOSEPOLICY</code></strong></td>
+           <td style="vertical-align: top;">
+            Либо
+            <code class="parameter">CURLCLOSEPOLICY_LEAST_RECENTLY_USED</code>, либо
+            <code class="parameter">CURLCLOSEPOLICY_OLDEST</code>.
+            Есть еще три дополнительные константы <em>CURLCLOSEPOLICY_</em>,
+            но cURL на данный момент их не поддерживает.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td><strong><code>CURLOPT_CONNECTTIMEOUT</code></strong></td>
+           <td style="vertical-align: top;">
+            Количество секунд ожидания при попытке соединения. Используйте
+            0 для бесконечного ожидания.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_CONNECTTIMEOUT_MS</code></strong></td>
+           <td style="vertical-align: top;">
+            Количество миллисекунд ожидания при попытке соединения. Используйте
+            0 для бесконечного ожидания.
+            
+            Если библиотека libcurl скомпилирована с использованием стандартного системного преобразователя имен, то
+            соединение будет по-прежнему использовать полносекундное ожидание в качестве тайм-аута с
+            минимально допустимым тайм-аутом в 1 секунду.
+           </td>
+           <td style="vertical-align: top;">
+            Добавлен в версии cURL 7.16.2. Доступно, начиная с версии PHP 5.2.3.
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_DNS_CACHE_TIMEOUT</code></strong></td>
+           <td style="vertical-align: top;">
+            Количество секунд, в течение которых в памяти хранятся DNS-записи.
+            По умолчанию этот параметр равен 120 (2 минуты).
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_FTPSSLAUTH</code></strong></td>
+           <td style="vertical-align: top;">
+            Метод FTP аутентификации (в активном режиме):
+            <em>CURLFTPAUTH_SSL</em> (сначала проверяется SSL),
+            <em>CURLFTPAUTH_TLS</em> (сначала проверяется TLS) или
+            <em>CURLFTPAUTH_DEFAULT</em> (cURL решает сама).
+           </td>
+           <td style="vertical-align: top;">
+            Добавлен в версии cURL 7.12.2.
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_HTTP_VERSION</code></strong></td>
+           <td style="vertical-align: top;">
+            <code class="parameter">CURL_HTTP_VERSION_NONE</code> (по умолчанию,
+            CURL сама выбирает используемую версию),
+            <code class="parameter">CURL_HTTP_VERSION_1_0</code> (принудительное использование HTTP/1.0),
+            or <code class="parameter">CURL_HTTP_VERSION_1_1</code> (принудительное использование HTTP/1.1).
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_HTTPAUTH</code></strong></td>
+           <td style="vertical-align: top;">
+            <p class="para">
+             Используемые HTTP методы авторизации. Используемые параметры:
+             <code class="parameter">CURLAUTH_BASIC</code>,
+             <code class="parameter">CURLAUTH_DIGEST</code>,
+             <code class="parameter">CURLAUTH_GSSNEGOTIATE</code>,
+             <code class="parameter">CURLAUTH_NTLM</code>,
+             <code class="parameter">CURLAUTH_ANY</code>, and
+             <code class="parameter">CURLAUTH_ANYSAFE</code>.
+            </p>
+            <p class="para">
+             Можно использовать побитовый оператор <em>|</em> (или)
+             для комбинации нескольких методов вместе. В этом случае
+             cURL опросит сервер на предмет поддерживаемых методов
+             авторизации и выберет лучший из них.
+            </p>
+            <p class="para">
+             <code class="parameter">CURLAUTH_ANY</code> - это псевдоним
+             <em>CURLAUTH_BASIC | CURLAUTH_DIGEST | CURLAUTH_GSSNEGOTIATE | CURLAUTH_NTLM</em>.
+            </p>
+            <p class="para">
+             <code class="parameter">CURLAUTH_ANYSAFE</code> - это псевдоним
+             <em>CURLAUTH_DIGEST | CURLAUTH_GSSNEGOTIATE | CURLAUTH_NTLM</em>.
+            </p>
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_INFILESIZE</code></strong></td>
+           <td style="vertical-align: top;">
+            Ожидаемый размер файла, в байтах, при загрузке файла на удаленный сервер.
+            Учтите, что использование этой опции не остановит дальнейшую
+            посылку данных, превышающих это значение, так как посылаемые
+            данные зависят от результата
+            <strong><code>CURLOPT_READFUNCTION</code></strong>.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_LOW_SPEED_LIMIT</code></strong></td>
+           <td style="vertical-align: top;">
+            Верхний порог скорости передачи данных, в байтах в секунду.
+            Проверка происходит в течение
+            <strong><code>CURLOPT_LOW_SPEED_TIME</code></strong> секунд, после чего
+            PHP считает передачу слишком медленной и прерывает ее.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_LOW_SPEED_TIME</code></strong></td>
+           <td style="vertical-align: top;">
+            Максимальное количество секунд, в течение которых скорость передачи
+            не должна превышать <strong><code>CURLOPT_LOW_SPEED_LIMIT</code></strong>, иначе
+            PHP пометит передачу как слишком медленную и прекратит ее.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_MAXCONNECTS</code></strong></td>
+           <td style="vertical-align: top;">
+            Максимальное количество постоянных соединений.
+            При достижении лимита для определения закрываемого соединения
+            используется параметр <strong><code>CURLOPT_CLOSEPOLICY</code></strong>.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_MAXREDIRS</code></strong></td>
+           <td style="vertical-align: top;">
+            Максимальное количество принимаемых редиректов.
+            Используйте этот параметр вместе с параметром
+            <strong><code>CURLOPT_FOLLOWLOCATION</code></strong>.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_PORT</code></strong></td>
+           <td style="vertical-align: top;">
+            Альтернативный порт соединения.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_PROTOCOLS</code></strong></td>
+           <td style="vertical-align: top;">
+            <p class="para">
+             Битовая маска из значений <strong><code>CURLPROTO_*</code></strong>.
+             Данная маска ограничивает используемые libcurl протоколы.
+             Это позволяет иметь libcurl, работающую с большим количеством
+             протоколов, и ограничивать работу определенных передач только
+             для некоторого их набора. По умолчанию, libcurl использует
+             все поддерживаемые протоколы.
+             Смотрите также параметр <strong><code>CURLOPT_REDIR_PROTOCOLS</code></strong>.
+            </p>
+            <p class="para">
+             Корректные значения протоколов:
+             <code class="parameter">CURLPROTO_HTTP</code>,
+             <code class="parameter">CURLPROTO_HTTPS</code>,
+             <code class="parameter">CURLPROTO_FTP</code>,
+             <code class="parameter">CURLPROTO_FTPS</code>,
+             <code class="parameter">CURLPROTO_SCP</code>,
+             <code class="parameter">CURLPROTO_SFTP</code>,
+             <code class="parameter">CURLPROTO_TELNET</code>,
+             <code class="parameter">CURLPROTO_LDAP</code>,
+             <code class="parameter">CURLPROTO_LDAPS</code>,
+             <code class="parameter">CURLPROTO_DICT</code>,
+             <code class="parameter">CURLPROTO_FILE</code>,
+             <code class="parameter">CURLPROTO_TFTP</code>,
+             <code class="parameter">CURLPROTO_ALL</code>
+            </p>
+           </td>
+           <td style="vertical-align: top;">
+            Добавлен в версии cURL 7.19.4.
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_PROXYAUTH</code></strong></td>
+           <td style="vertical-align: top;">
+            Методы авторизации HTTP, используемые при соединении с
+            прокси-сервером. Используйте те же самые битовые маски,
+            которые были описаны у параметра
+            <strong><code>CURLOPT_HTTPAUTH</code></strong>.
+            В данный момент для авторизации прокси поддерживаются только
+            <code class="parameter">CURLAUTH_BASIC</code> и
+            <code class="parameter">CURLAUTH_NTLM</code>.
+           </td>
+           <td style="vertical-align: top;">
+            Добавлен в версии cURL 7.10.7.
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_PROXYPORT</code></strong></td>
+           <td style="vertical-align: top;">
+            Номер порта прокси-сервера, к которому осуществляется
+            соединение. Этот номер также может быть установлен
+            с помощью параметра <strong><code>CURLOPT_PROXY</code></strong>.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_PROXYTYPE</code></strong></td>
+           <td style="vertical-align: top;">
+            Либо <code class="parameter">CURLPROXY_HTTP</code> (по умолчанию), либо
+            <code class="parameter">CURLPROXY_SOCKS5</code>.
+           </td>
+           <td style="vertical-align: top;">
+            Добавлен в версии cURL 7.10.
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_REDIR_PROTOCOLS</code></strong></td>
+           <td style="vertical-align: top;">
+            Битовая маска из значений <strong><code>CURLPROTO_*</code></strong>.
+            Данная битовая масска ограничивает протоколы используемые
+            libcurl при редиректе (при включенном параметре
+            <strong><code>CURLOPT_FOLLOWLOCATION</code></strong>).
+            Это позволяет ограничить набор используемых протоколов
+            при редиректах для некоторых передач.
+            По умолчанию, libcurl поддерживает все протоколы, кроме
+            FILE и SCP. В версиях, предшествовавших 7.19.4,
+            перенаправление использовалось для всех протоколов
+            без исключения.
+            Смотрите также описание параметра
+            <strong><code>CURLOPT_PROTOCOLS</code></strong> для списка констант
+            со значениями протоколов.
+           </td>
+           <td style="vertical-align: top;">
+            Добавлен в версии cURL 7.19.4.
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_RESUME_FROM</code></strong></td>
+           <td style="vertical-align: top;">
+            Смещение начала передачи, в байтах.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_SSL_VERIFYHOST</code></strong></td>
+           <td style="vertical-align: top;">
+            Используйте 1 для проверки существования общего имени в сертификате
+            SSL. Используйте 2 для проверки существования общего
+            имени и также его совпадения с указанным хостом. В боевом окружении
+            значение этого параметра должно быть 2 (установлено по умолчанию).
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_SSLVERSION</code></strong></td>
+           <td style="vertical-align: top;">
+            Используемая версия SSL (2 или 3). По умолчанию, PHP
+            попытается определить ее сам, хотя в некоторых случаях
+            ее нужно устанавливать вручную.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_TIMECONDITION</code></strong></td>
+           <td style="vertical-align: top;">
+            Способ трактовки параметра <strong><code>CURLOPT_TIMEVALUE</code></strong>.
+            Используйте <code class="parameter">CURL_TIMECOND_IFMODSINCE</code> для
+            возвращения страницы, только если она была изменена со времени,
+            указанного в параметре <strong><code>CURLOPT_TIMEVALUE</code></strong>.
+            Если страница не была изменена, вернется заголовок
+            <em>&quot;304 Not Modified&quot;</em>, подразумевая, что
+            параметр<strong><code>CURLOPT_HEADER</code></strong> установлен в <strong><code>TRUE</code></strong>.
+            Используйте <code class="parameter">CURL_TIMECOND_IFUNMODSINCE</code>
+            для обратного эффекта. По умолчанию используется
+            <code class="parameter">CURL_TIMECOND_IFMODSINCE</code>.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_TIMEOUT</code></strong></td>
+           <td style="vertical-align: top;">
+            Максимально позволенное количество секунд для выполнения
+            cURL-функций.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_TIMEOUT_MS</code></strong></td>
+           <td style="vertical-align: top;">
+            Максимально позволенное количество миллисекунд для выполнения
+            cURL-функций.
+            
+            Если libcurl собрана с использованием обычного системного
+            распознавателя имен, то этот промежуток соединения все еще
+            будет использовать секундное округление таймаутов,
+            с минимально разрешенным таймаутом в одну секунду.
+           </td>
+           <td style="vertical-align: top;">
+            Добавлен в версии cURL 7.16.2. Доступен, начиная с версии PHP 5.2.3.
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_TIMEVALUE</code></strong></td>
+           <td style="vertical-align: top;">
+            Количество секунд, начиная с 1 января 1970 года. Это время
+            будет использовано параметром
+            <strong><code>CURLOPT_TIMECONDITION</code></strong>. По умолчанию,
+            используется параметр
+            <code class="parameter">CURL_TIMECOND_IFMODSINCE</code>.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_MAX_RECV_SPEED_LARGE</code></strong></td>
+           <td style="vertical-align: top;">
+            Если скорость скачки превысит это значение (указанное в байтах
+            в секунду) в среднем в течение всей передачи, то скачка будет
+            приостановлена для поддержания средней скорости меньше либо равной
+            данному параметру. По умолчанию скорость не ограничивается.
+           </td>
+           <td style="vertical-align: top;">
+            Добавлен в версии cURL 7.15.5. Доступен, начиная с версии PHP 5.4.0.
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_MAX_SEND_SPEED_LARGE</code></strong></td>
+           <td style="vertical-align: top;">
+            Если загрузка на сервер превысит это значение (указанное в байтах
+            в секунду) в среднем в течение всей передачи, то загрузка будет
+            приостановлена для поддержания средней скорости меньше либо равной
+            данному параметру. По умолчанию скорость не ограничивается.
+           </td>
+           <td style="vertical-align: top;">
+            Добавлен в версии cURL 7.15.5. Доступен, начиная с версии PHP 5.4.0.
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_SSH_AUTH_TYPES</code></strong></td>
+           <td style="vertical-align: top;">
+            Битовая маска, состоящая из одной или более констант:
+            <strong><code>CURLSSH_AUTH_PUBLICKEY</code></strong>, 
+            <strong><code>CURLSSH_AUTH_PASSWORD</code></strong>, 
+            <strong><code>CURLSSH_AUTH_HOST</code></strong>, 
+            <strong><code>CURLSSH_AUTH_KEYBOARD</code></strong>. Установите
+            <strong><code>CURLSSH_AUTH_ANY</code></strong> для того, чтобы libcurl выбрал одну из них самостоятельно.
+           </td>
+           <td style="vertical-align: top;">
+            Добавлено в cURL 7.16.1. 
+           </td>
+          </tr>
+
+         </tbody>
+        
+       </table>
+
+      </p>
+      <p class="para">
+       Для следующих значений параметра <code class="parameter">option</code>,
+       параметр <code class="parameter">value</code> должен быть типа
+       <span class="type"><a href="language.types.string.html" class="type string">string</a></span>:
+       <table class="doctable informaltable">
+        
+         <thead>
+          <tr>
+           <th>Параметр</th>
+           <th>Устанавливаемое значение <code class="parameter">value</code></th>
+           <th>Замечания</th>
+          </tr>
+
+         </thead>
+
+         <tbody class="tbody">
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_CAINFO</code></strong></td>
+           <td style="vertical-align: top;">
+            Имя файла, содержащего один или более сертификатов, с которыми
+            будут сверяться узлы. Этот параметр имеет смысл только при
+            использовании совместно с <strong><code>CURLOPT_SSL_VERIFYPEER</code></strong>.
+           </td>
+           <td style="vertical-align: top;">
+            Требует абсолютный путь.
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_CAPATH</code></strong></td>
+           <td style="vertical-align: top;">
+            Директория, содержащая несколько CA сертификатов.
+            Используйте этот параметр совместно с
+            <strong><code>CURLOPT_SSL_VERIFYPEER</code></strong>.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_COOKIE</code></strong></td>
+           <td style="vertical-align: top;">
+            Содержимое заголовка <em>&quot;Cookie: &quot;</em>,
+            используемого в HTTP-запросе.
+            Обратите внимание, что несколько cookies разделяются
+            точкой с запятой с последующим пробелом
+            (например, &quot;<em>fruit=apple; colour=red</em>&quot;)
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_COOKIEFILE</code></strong></td>
+           <td style="vertical-align: top;">
+            Имя файла, содержащего cookies. Данный файл должен быть
+            в формате Netscape или просто заголовками HTTP, записанными
+            в файл.
+            Если в качестве имени файла передана пустая строка, то cookies
+            сохраняться не будут, но их обработка все еще будет включена.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_COOKIEJAR</code></strong></td>
+           <td style="vertical-align: top;">
+            Имя файла, в котором будут сохранены все внутрение cookies
+            текущей передачи после закрытия дескриптора, например,
+            после вызова curl_close.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_CUSTOMREQUEST</code></strong></td>
+           <td style="vertical-align: top;"><p class="para">
+            Собственный метод запроса, используемый вместо
+            <em>&quot;GET&quot;</em> или <em>&quot;HEAD&quot;</em>
+            при выполнении HTTP-запроса. Это полезно при запросах
+            <em>&quot;DELETE&quot;</em> или других, более редких HTTP-запросах.
+            Корректными значениями будут слова наподобие <em>&quot;GET&quot;</em>,
+            <em>&quot;POST&quot;</em>, <em>&quot;CONNECT&quot;</em> и так далее;
+            т.е. не вводите здесь всю строку с HTTP-запросом. Например,
+            указание <em>&quot;GET /index.html HTTP/1.0\r\n\r\n&quot;</em>
+            будет неправильным.
+            <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+             <p class="para">
+              Не используйте эту возможность пока не убедитесь, что
+              сервер поддерживает данный тип запроса.
+             </p>
+            </p></blockquote>
+            </p></td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_EGDSOCKET</code></strong></td>
+           <td style="vertical-align: top;">
+            Наподобие <strong><code>CURLOPT_RANDOM_FILE</code></strong>, за исключением
+            того, что имя файла устанавливается в сокет Entropy
+            Gathering Daemon.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_ENCODING</code></strong></td>
+           <td style="vertical-align: top;">
+            Содержимое заголовка <em>&quot;Accept-Encoding: &quot;</em>.
+            Это позволяет декодировать запрос. Поддерживаемыми
+            кодировками являются <em>&quot;identity&quot;</em>,
+            <em>&quot;deflate&quot;</em> и <em>&quot;gzip&quot;</em>.
+            Если передана пустая строка, <em>&quot;&quot;</em>,
+            посылается заголовок, содержащий все поддерживаемые
+            типы кодировок.
+           </td>
+           <td style="vertical-align: top;">
+            Добавлен в версии cURL 7.10.
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_FTPPORT</code></strong></td>
+           <td style="vertical-align: top;">
+            Значение, которое будет использоваться для определения
+            IP-адреса для команды &quot;PORT&quot; FTP-протокола. Команда &quot;PORT&quot;
+            сообщает серверу, с каким IP-адресом он должен устанавливать
+            соединение. Это может быть IP-адрес, имя хоста, имя сетевого
+            интерфейса (под Unix), или просто &#039;-&#039; для использования системного
+            IP-адреса по умолчанию.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_INTERFACE</code></strong></td>
+           <td style="vertical-align: top;">
+            Имя используемого сетевого интерфейса. Может быть
+            именем интерфейса, IP адресом или именем хоста.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_KEYPASSWD</code></strong></td>
+           <td style="vertical-align: top;">
+            Пароль, который требуется для использования приватного ключа <strong><code>CURLOPT_SSLKEY</code></strong> 
+            или <strong><code>CURLOPT_SSH_PRIVATE_KEYFILE</code></strong>. 
+           </td>
+           <td style="vertical-align: top;">
+            Добавлено в cURL 7.16.1. 
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_KRB4LEVEL</code></strong></td>
+           <td style="vertical-align: top;">
+            Уровень безопасности KRB4 (Kerberos 4). Любое из следующих
+            значений (в порядке от слабого к самому сильному) корректно:
+            <em>&quot;clear&quot;</em>,
+            <em>&quot;safe&quot;</em>,
+            <em>&quot;confidential&quot;</em>,
+            <em>&quot;private&quot;.</em>.
+            Если указанная строка отличается от данных значений,
+            будет использовано значение <em>&quot;private&quot;</em>.
+            Установка этого параметра в <strong><code>NULL</code></strong> полностью отключит
+            безопасность KRB4. На данный момент безопасность KRB4
+            работает только с FTP транзакциями.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_POSTFIELDS</code></strong></td>
+           <td style="vertical-align: top;">
+            <span class="simpara">
+             Все данные, передаваемые в HTTP POST-запросе.
+             Для передачи файла, укажите перед именем файла <em>@</em>, а
+             также используйте полный путь к файлу. Тип файла также может
+             быть указан с помощью формата &#039;<em>;type=mimetype</em>&#039;,
+             следующим за именем файла. Этот параметр может быть передан
+             как в качестве url-закодированной строки, наподобие
+             &#039;<em>para1=val1&amp;para2=val2&amp;...</em>&#039;, так и
+             в виде массива, ключами которого будут имена полей, а значениями
+             - их содержимое.
+             Если <code class="parameter">value</code> является массивом,
+             заголовок <em>Content-Type</em> будет установлен в
+             значение <em>multipart/form-data</em>.
+            </span>
+            <span class="simpara">
+             Начиная с версии PHP 5.2.0, при передаче файлов с префиксом
+             <em>@</em>, <code class="parameter">value</code> должен быть
+             массивом.
+            </span>
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_PROXY</code></strong></td>
+           <td style="vertical-align: top;">
+            HTTP-прокси, через который будут направляться запросы.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_PROXYUSERPWD</code></strong></td>
+           <td style="vertical-align: top;">
+            Логин и пароль, записанные в виде
+            <em>&quot;[username]:[password]&quot;</em>, используемые при
+            соединении через прокси.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_RANDOM_FILE</code></strong></td>
+           <td style="vertical-align: top;">
+            Имя файла, используемого для инициализации генератора
+            случайных чисел для SSL.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_RANGE</code></strong></td>
+           <td style="vertical-align: top;">
+            Диапазон данных, которые нужно загрузить, в формате
+            <em>&quot;X-Y&quot;</em>, причем либо X, либо Y могут быть
+            опущены. Протокол HTTP также поддерживает передачу
+            нескольких диапазонов, разделенных запятыми, они задаются
+            в формате <em>&quot;X-Y,N-M&quot;</em>.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_REFERER</code></strong></td>
+           <td style="vertical-align: top;">
+            Содержимое заголовка <em>&quot;Referer: &quot;</em>, который будет
+            использован в HTTP-запросе.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_SSH_HOST_PUBLIC_KEY_MD5</code></strong></td>
+           <td style="vertical-align: top;">
+            Строка, содержащая 32 шестнадцатеричных цифры. Строка должна являться
+            контрольной суммой по алгоритму MD5 публичного ключа удаленного компьютера и libcurl будет сбрасывать
+            соединение к удаленному хосту до тех пор, пока контрольная сумма не будет соответствовать публичному ключу.
+            Эта опция предназначена только для передачи данных с помощью SCP и SFTP.
+           </td>
+           <td style="vertical-align: top;">
+            Добавлено в cURL 7.17.1. 
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_SSH_PUBLIC_KEYFILE</code></strong></td>
+           <td style="vertical-align: top;">
+            Имя файла для вашего публичного ключа. Если не задано, то libcurl использует по
+            умолчанию файл $HOME/.ssh/id_dsa.pub, если переменная окружения HOME установлена и
+            файл &quot;id_dsa.pub&quot; в текущей директории, если переменная HOME не установлена.
+           </td>
+           <td style="vertical-align: top;">
+            Добавлено в cURL 7.16.1. 
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_SSH_PRIVATE_KEYFILE</code></strong></td>
+           <td style="vertical-align: top;">
+            Имя файла для вашего приватного ключа. Если не задано, то libcurl использует по
+            умолчанию файл $HOME/.ssh/id_dsa, если переменная окружения HOME установлена и
+            файл &quot;id_dsa&quot; в текущей директории, если переменная HOME не установлена.
+            Если файл защищен паролем, установите пароль с помощью
+            <strong><code>CURLOPT_KEYPASSWD</code></strong>.
+           </td>
+           <td style="vertical-align: top;">
+            Добавлено в cURL 7.16.1. 
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_SSL_CIPHER_LIST</code></strong></td>
+           <td style="vertical-align: top;">
+            Список шифров, используемый в SSL-передачах. Например,
+            <em>RC4-SHA</em> и <em>TLSv1</em> являются
+            корректными списками шифров.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_SSLCERT</code></strong></td>
+           <td style="vertical-align: top;">
+            Имя файла с корректно отформатированным PEM-сертификатом.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_SSLCERTPASSWD</code></strong></td>
+           <td style="vertical-align: top;">
+            Пароль, необходимый для использования сертификата
+            <strong><code>CURLOPT_SSLCERT</code></strong>.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_SSLCERTTYPE</code></strong></td>
+           <td style="vertical-align: top;">
+            Формат сертификата. Поддерживаются форматы
+            <em>&quot;PEM&quot;</em> (по умолчанию), <em>&quot;DER&quot;</em>
+            и <em>&quot;ENG&quot;</em>.
+           </td>
+           <td style="vertical-align: top;">
+            Добавлен в версии cURL 7.9.3.
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_SSLENGINE</code></strong></td>
+           <td style="vertical-align: top;">
+            Идентификатор механизма шифрования для закрытого ключа SSL,
+            указанного в параметре <strong><code>CURLOPT_SSLKEY</code></strong>.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_SSLENGINE_DEFAULT</code></strong></td>
+           <td style="vertical-align: top;">
+            Идентификатор механизма шифрования, используемого для
+            ассиметричных операций шифрования.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_SSLKEY</code></strong></td>
+           <td style="vertical-align: top;">
+            Имя файла с закрытым ключом SSL.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_SSLKEYPASSWD</code></strong></td>
+           <td style="vertical-align: top;"><p class="para">
+            Тайный пароль, необходимый для использования закрытого
+            ключа SSL, указанного параметром
+            <strong><code>CURLOPT_SSLKEY</code></strong>.
+            <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+             <p class="para">
+              Так как этот параметр содержит ценный пароль, помните,
+              что данный PHP-скрипт нужно хранить в безопасном месте.
+             </p>
+            </p></blockquote>
+            </p></td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_SSLKEYTYPE</code></strong></td>
+           <td style="vertical-align: top;">
+            Тип закрытого ключа SSL, указанного в параметре
+            <strong><code>CURLOPT_SSLKEY</code></strong>. Поддерживаются следующие
+            типы ключей:
+            <em>&quot;PEM&quot;</em> (по умолчанию), <em>&quot;DER&quot;</em>
+            и <em>&quot;ENG&quot;</em>.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_URL</code></strong></td>
+           <td style="vertical-align: top;">
+            Загружаемый URL. Данный параметр может быть также установлен
+            при инициализации сенса с помощью <span class="function"><a href="function.curl-init.html" class="function">curl_init()</a></span>.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_USERAGENT</code></strong></td>
+           <td style="vertical-align: top;">
+            Содержимое заголовка <em>&quot;User-Agent: &quot;</em>, посылаемого
+            в HTTP-запросе.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_USERPWD</code></strong></td>
+           <td style="vertical-align: top;">
+            Логин и пароль, используемые при соединении,
+            указанные в формате
+            <em>&quot;[username]:[password]&quot;</em>.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+         </tbody>
+        
+       </table>
+
+      </p>
+      <p class="para">
+       Для следующих значений параметра <code class="parameter">option</code>,
+       параметр <code class="parameter">value</code> должен быть массивом:
+       <table class="doctable informaltable">
+        
+         <thead>
+          <tr>
+           <th>Параметр</th>
+           <th>Устанавливаемое значение <code class="parameter">value</code></th>
+           <th>Замечания</th>
+          </tr>
+
+         </thead>
+
+         <tbody class="tbody">
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_HTTP200ALIASES</code></strong></td>
+           <td style="vertical-align: top;">
+            Массив HTTP 200 ответов, которые будут трактоваться
+            корректными ответами, а не ошибочными.
+           </td>
+           <td style="vertical-align: top;">
+            Добавлен в версии cURL 7.10.3.
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_HTTPHEADER</code></strong></td>
+           <td style="vertical-align: top;">
+            Массив устанавливаемых HTTP-заголовков, в формате
+            <code class="code">
+             array(&#039;Content-type: text/plain&#039;, &#039;Content-length: 100&#039;)
+            </code>
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_POSTQUOTE</code></strong></td>
+           <td style="vertical-align: top;">
+            Массив FTP-команд, выполняемых на сервере, после выполнения
+            FTP-запроса.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_QUOTE</code></strong></td>
+           <td style="vertical-align: top;">
+            Массив FTP-команд, выполняемых на сервере, перед выполнением
+            FTP-запроса.
+           </td>
+           <td style="vertical-align: top;">
+           </td>
+          </tr>
+
+         </tbody>
+        
+       </table>
+
+      </p>
+      <p class="para">
+       Для следующих значений параметра <code class="parameter">option</code>,
+       параметр <code class="parameter">value</code> должен быть потоковым
+       дескриптором (возвращаемым, например, функцией <span class="function"><a href="function.fopen.html" class="function">fopen()</a></span>):
+       <table class="doctable informaltable">
+        
+         <thead>
+          <tr>
+           <th>Параметр</th>
+           <th>Устанавливаемое значение <code class="parameter">value</code></th>
+          </tr>
+
+         </thead>
+
+         <tbody class="tbody">
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_FILE</code></strong></td>
+           <td style="vertical-align: top;">
+            Файл, в который будет записан результат передачи. По умолчанию
+            используется поток вывода <em>STDOUT</em> (окно браузера).
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_INFILE</code></strong></td>
+           <td style="vertical-align: top;">
+            Файл, из которого должно идти чтение данных, при загрузке на сервер.
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_STDERR</code></strong></td>
+           <td style="vertical-align: top;">
+            Альтернативное файл для вывода ошибок, используемый вместо потока ошибок
+            <em>STDERR</em>.
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_WRITEHEADER</code></strong></td>
+           <td style="vertical-align: top;">
+            Файл, в который будут записаны заголовки текущей операции.
+           </td>
+          </tr>
+
+         </tbody>
+        
+       </table>
+
+      </p>
+      <p class="para">
+       Для следующих значений параметра <code class="parameter">option</code>,
+       параметр <code class="parameter">value</code> должен быть корректной
+       строкой, указывающей имя callback-функции:
+       <table class="doctable informaltable">
+        
+         <thead>
+          <tr>
+           <th>Параметр</th>
+           <th>Устанавливаемое значение <code class="parameter">value</code></th>
+          </tr>
+
+         </thead>
+
+         <tbody class="tbody">
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_HEADERFUNCTION</code></strong></td>
+           <td style="vertical-align: top;">
+            Имя callback-функции, принимающей два параметра.
+            Первым параметром является дескриптор cURL, вторым параметром
+            является строка с записываемыми заголовками. Заголовки должны
+            быть записаны с помощью данной callback-функции. Должна возвратить
+            количество записанных байт.
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_PASSWDFUNCTION</code></strong></td>
+           <td style="vertical-align: top;">
+            Имя callback-функции, принимающей три параметра.
+            Первым параметром является дескриптор cURL, вторым параметром
+            является строка с запросом пароля, третьим параметром является
+            максимальная длина пароля. Должна возвратить строку, содержащую пароль.
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_PROGRESSFUNCTION</code></strong></td>
+           <td style="vertical-align: top;">
+            Имя callback-функции, принимающей три параметра.
+            Первым параметром является дескриптор cURL, вторым параметром
+            является дескриптор файла, а третьим параметром - его длина.
+            Должна возвратить строку с данными.
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_READFUNCTION</code></strong></td>
+           <td style="vertical-align: top;">
+            Имя callback-функции, принимающей три параметра.
+            Первым параметром является дескриптор cURL,
+            вторым параметром является ресурс потока, переданный
+            cURL через опцию <strong><code>CURLOPT_INFILE</code></strong>,
+            а третьим параемтром является максимально разрешенное
+            количество данных для чтения.
+            Callback-функция должна возвратить строку, с длиной
+            не превышающей запрошенного количества данных, обычно
+            с помощью чтения из переданного потокового ресурса.
+            Должна возвратить пустую строку для сигнала о конце файла
+            <em>EOF</em>.
+           </td>
+          </tr>
+
+          <tr>
+           <td style="vertical-align: top;"><strong><code>CURLOPT_WRITEFUNCTION</code></strong></td>
+           <td style="vertical-align: top;">
+            Имя callback-функции, принимающей два параметра.
+            Первым параметром является дескриптор cURL, а
+            вторым параметром является строка с записываемыми данными.
+            Данные должны быть сохранены с помощью данной функции.
+            Она должна возвратить точное количество записанных байт, иначе
+            закачка будет прервана с ошибкой.
+           </td>
+          </tr>
+
+         </tbody>
+        
+       </table>
+
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 returnvalues" id="refsect1-function.curl-setopt-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает <strong><code>TRUE</code></strong> в случае успешного завершения  или <strong><code>FALSE</code></strong> в случае возникновения ошибки.
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 changelog" id="refsect1-function.curl-setopt-changelog">
+  <h3 class="title">Список изменений</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Версия</th>
+       <th>Описание</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.2.10</td>
+       <td>
+        Добавлены параметры <strong><code>CURLOPT_PROTOCOLS</code></strong> и
+        <strong><code>CURLOPT_REDIR_PROTOCOLS</code></strong>.
+       </td>
+      </tr>
+
+      <tr>
+       <td>5.1.0</td>
+       <td>
+        Добавлены параметры <strong><code>CURLOPT_AUTOREFERER</code></strong>,
+        <strong><code>CURLOPT_BINARYTRANSFER</code></strong>,
+        <strong><code>CURLOPT_FTPSSLAUTH</code></strong>,
+        <strong><code>CURLOPT_PROXYAUTH</code></strong> и
+        <strong><code>CURLOPT_TIMECONDITION</code></strong>.
+       </td>
+      </tr>
+
+      <tr>
+       <td>5.0.0</td>
+       <td>
+        Добавлены параметры <strong><code>CURLOPT_FTP_USE_EPRT</code></strong>,
+        <strong><code>CURLOPT_NOSIGNAL</code></strong>,
+        <strong><code>CURLOPT_UNRESTRICTED_AUTH</code></strong>,
+        <strong><code>CURLOPT_BUFFERSIZE</code></strong>,
+        <strong><code>CURLOPT_HTTPAUTH</code></strong>,
+        <strong><code>CURLOPT_PROXYPORT</code></strong>,
+        <strong><code>CURLOPT_PROXYTYPE</code></strong>,
+        <strong><code>CURLOPT_SSLCERTTYPE</code></strong> и
+        <strong><code>CURLOPT_HTTP200ALIASES</code></strong>.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 examples" id="refsect1-function.curl-setopt-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-4258">
+    <p><strong>Пример #1 Инициализация сеанса CURL и загрузка web-страницы</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;создание&nbsp;нового&nbsp;ресурса&nbsp;cURL<br /></span><span style="color: #0000BB">$ch&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">curl_init</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">//&nbsp;установка&nbsp;URL&nbsp;и&nbsp;других&nbsp;необходимых&nbsp;параметров<br /></span><span style="color: #0000BB">curl_setopt</span><span style="color: #007700">(</span><span style="color: #0000BB">$ch</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">CURLOPT_URL</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"http://www.example.com/"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">curl_setopt</span><span style="color: #007700">(</span><span style="color: #0000BB">$ch</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">CURLOPT_HEADER</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;загрузка&nbsp;страницы&nbsp;и&nbsp;выдача&nbsp;её&nbsp;браузеру<br /></span><span style="color: #0000BB">curl_exec</span><span style="color: #007700">(</span><span style="color: #0000BB">$ch</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;завершение&nbsp;сеанса&nbsp;и&nbsp;освобождение&nbsp;ресурсов<br /></span><span style="color: #0000BB">curl_close</span><span style="color: #007700">(</span><span style="color: #0000BB">$ch</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+  <p class="para">
+   <div class="example" id="example-4259">
+    <p><strong>Пример #2 Закачка файла</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">/*&nbsp;http://localhost/upload.php:<br />print_r($_POST);<br />print_r($_FILES);<br />*/<br /><br /></span><span style="color: #0000BB">$ch&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">curl_init</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">$data&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'name'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Foo'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'file'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'@/home/user/test.png'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">curl_setopt</span><span style="color: #007700">(</span><span style="color: #0000BB">$ch</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">CURLOPT_URL</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'http://localhost/upload.php'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">curl_setopt</span><span style="color: #007700">(</span><span style="color: #0000BB">$ch</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">CURLOPT_POST</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">curl_setopt</span><span style="color: #007700">(</span><span style="color: #0000BB">$ch</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">CURLOPT_POSTFIELDS</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$data</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">curl_exec</span><span style="color: #007700">(</span><span style="color: #0000BB">$ch</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>Результат выполнения данного примера:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+Array
+(
+    [name] =&gt; Foo
+)
+Array
+(
+    [file] =&gt; Array
+        (
+            [name] =&gt; test.png
+            [type] =&gt; image/png
+            [tmp_name] =&gt; /tmp/phpcpjNeQ
+            [error] =&gt; 0
+            [size] =&gt; 279
+        )
+
+)
+
+</pre></div>
+    </div>
+   </div>
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 notes" id="refsect1-function.curl-setopt-notes">
+  <h3 class="title">Примечания</h3>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <p class="para">
+    Передача массива в <strong><code>CURLOPT_POSTFIELDS</code></strong>
+    закодирует данные в виде <em class="emphasis">multipart/form-data</em>,
+    тогда как передача URL-кодированной строки закодирует данные в виде
+    <em class="emphasis">application/x-www-form-urlencoded</em>.
+   </p>
+  </p></blockquote>
+ </div>
+
+ 
+ <div class="refsect1 seealso" id="refsect1-function.curl-setopt-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.curl-setopt-array.html" class="function" rel="rdfs-seeAlso">curl_setopt_array()</a> - Устанавливает несколько параметров для сеанса cURL</span></li>
+   </ul>
+  </p>
+ </div>
+
+ 
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.curl-setopt-array.html">curl_setopt_array</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.curl-share-close.html">curl_share_close</a></div>
+ <div class="up"><a href="ref.curl.html">cURL</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

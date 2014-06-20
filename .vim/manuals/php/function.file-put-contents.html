@@ -1,0 +1,273 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Пишет строку в файл</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.file-get-contents.html">file_get_contents</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.file.html">file</a></div>
+ <div class="up"><a href="ref.filesystem.html">Файловая система</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.file-put-contents" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">file_put_contents</h1>
+  <p class="verinfo">(PHP 5)</p><p class="refpurpose"><span class="refname">file_put_contents</span> &mdash; <span class="dc-title">Пишет строку в файл</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.file-put-contents-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">int</span> <span class="methodname"><strong>file_put_contents</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
+   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$data</code></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
+   [, <span class="methodparam"><span class="type">resource</span> <code class="parameter">$context</code></span>
+  ]] )</div>
+
+  <p class="para rdfs-comment">
+   Функция идентична последовательным успешным вызовам функций
+   <span class="function"><a href="function.fopen.html" class="function">fopen()</a></span>, <span class="function"><a href="function.fwrite.html" class="function">fwrite()</a></span> и
+   <span class="function"><a href="function.fclose.html" class="function">fclose()</a></span>.
+  </p>
+  <p class="para">
+   Если <code class="parameter">filename</code> не существует, файл будет
+   создан. Иначе, существующий файл будет перезаписан, за исключением
+   случая, если указан флаг <strong><code>FILE_APPEND</code></strong>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.file-put-contents-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">filename</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Путь к записываемому файлу.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">data</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Записываемые данные. Может быть <span class="type"><a href="language.types.string.html" class="type string">string</a></span>,
+       <span class="type"><a href="language.types.array.html" class="type array">array</a></span> или ресурсом <span class="type"><span class="type stream">stream</span></span>.
+      </p>
+      <p class="para">
+       Если <code class="parameter">data</code> является ресурсом <span class="type"><span class="type stream">stream</span></span>,
+       оставшийся буфер этого потока будет скопирован в указанный
+       файл. Это похоже на использование функции <span class="function"><a href="function.stream-copy-to-stream.html" class="function">stream_copy_to_stream()</a></span>.
+      </p>
+      <p class="para">
+       Также вы можете передать одномерный массив в качестве параметра
+       <code class="parameter">data</code>. Это будет эквивалентно вызову
+       <em>file_put_contents($filename, implode(&#039;&#039;, $array))</em>.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">flags</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Значением параметра <code class="parameter">flags</code> может быть
+       любая комбинация следующих флагов, соединенных бинарным
+       оператором ИЛИ (<em>|</em>).
+      </p>
+      <p class="para">
+       <table class="doctable table">
+        <caption><strong>Доступные флаги</strong></caption>
+        
+         <thead>
+          <tr>
+           <th>Флаг</th>
+           <th>Описание</th>
+          </tr>
+
+         </thead>
+
+         <tbody class="tbody">
+          <tr>
+           <td>
+            <strong><code>FILE_USE_INCLUDE_PATH</code></strong>
+           </td>
+           <td>
+            Ищет <code class="parameter">filename</code> в подключаемых директориях.
+            Подробнее смотрите директиву <a href="ini.core.html#ini.include-path" class="link">include_path</a>.
+           </td>
+          </tr>
+
+          <tr>
+           <td>
+            <strong><code>FILE_APPEND</code></strong>
+           </td>
+           <td>
+            Если файл <code class="parameter">filename</code> уже существует, данные
+            будут дописаны в конец файла вместо того, чтобы его перезаписать.
+           </td>
+          </tr>
+
+          <tr>
+           <td>
+            <strong><code>LOCK_EX</code></strong>
+           </td>
+           <td>
+            Получить эксклюзивную блокировку на файл на время записи.
+           </td>
+          </tr>
+
+          
+         </tbody>
+        
+       </table>
+
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">context</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Корректный ресурс контекста, созданный с помощью функции
+       <span class="function"><a href="function.stream-context-create.html" class="function">stream_context_create()</a></span>.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.file-put-contents-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Функция возвращает количество записанных байт в файл, или
+   <strong><code>FALSE</code></strong> в случае ошибки.
+  </p>
+  <div class="warning"><strong class="warning">Внимание</strong><p class="simpara">Эта функция
+может возвращать как boolean <strong><code>FALSE</code></strong>, так и не-boolean значение,
+которое приводится к <strong><code>FALSE</code></strong>. За более подробной информацией обратитесь к разделу
+<a href="language.types.boolean.html" class="link">Булев тип</a>. Используйте <a href="language.operators.comparison.html" class="link">оператор ===</a> для проверки значения,
+возвращаемого этой функцией.</p></div>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.file-put-contents-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-2419">
+    <p><strong>Пример #1 Пример простого использования</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$file&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'people.txt'</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;Открываем&nbsp;файл&nbsp;для&nbsp;получения&nbsp;существующего&nbsp;содержимого<br /></span><span style="color: #0000BB">$current&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">file_get_contents</span><span style="color: #007700">(</span><span style="color: #0000BB">$file</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">//&nbsp;Добавляем&nbsp;нового&nbsp;человека&nbsp;в&nbsp;файл<br /></span><span style="color: #0000BB">$current&nbsp;</span><span style="color: #007700">.=&nbsp;</span><span style="color: #DD0000">"John&nbsp;Smith\n"</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;Пишем&nbsp;содержимое&nbsp;обратно&nbsp;в&nbsp;файл<br /></span><span style="color: #0000BB">file_put_contents</span><span style="color: #007700">(</span><span style="color: #0000BB">$file</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$current</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+   <div class="example" id="example-2420">
+    <p><strong>Пример #2 Использование флагов</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$file&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'people.txt'</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;Новый&nbsp;человек,&nbsp;которого&nbsp;нужно&nbsp;добавить&nbsp;в&nbsp;файл<br /></span><span style="color: #0000BB">$person&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"John&nbsp;Smith\n"</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;Пишем&nbsp;содержимое&nbsp;в&nbsp;файл,<br />//&nbsp;используя&nbsp;флаг&nbsp;FILE_APPEND&nbsp;flag&nbsp;для&nbsp;дописывания&nbsp;содержимого&nbsp;в&nbsp;конец&nbsp;файла<br />//&nbsp;и&nbsp;флаг&nbsp;LOCK_EX&nbsp;для&nbsp;предотвращения&nbsp;записи&nbsp;данного&nbsp;файла&nbsp;кем-нибудь&nbsp;другим&nbsp;в&nbsp;данное&nbsp;время<br /></span><span style="color: #0000BB">file_put_contents</span><span style="color: #007700">(</span><span style="color: #0000BB">$file</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$person</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">FILE_APPEND&nbsp;</span><span style="color: #007700">|&nbsp;</span><span style="color: #0000BB">LOCK_EX</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.file-put-contents-changelog">
+  <h3 class="title">Список изменений</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Версия</th>
+       <th>Описание</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.0.0</td>
+       <td>
+        Добавлена поддержка контекста
+       </td>
+      </tr>
+
+      <tr>
+       <td>5.1.0</td>
+       <td>
+        Добавлена поддержка <strong><code>LOCK_EX</code></strong> и возможность
+        передачи потокового ресурса в параметр <code class="parameter">data</code>
+       </td>
+      </tr>
+
+      
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.file-put-contents-notes">
+  <h3 class="title">Примечания</h3>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: <span class="simpara">Эта функция безопасна
+для обработки данных в двоичной форме.</span></p></blockquote>
+  <div class="tip"><strong class="tip">Подсказка</strong><p class="simpara">Для этой функции вы можете использовать URL
+в качестве имени файла, если была включена опция <a href="filesystem.configuration.html#ini.allow-url-fopen" class="link">fopen wrappers</a>. Смотрите более
+подробную информацию об определении имени файла в описании функции
+<span class="function"><a href="function.fopen.html" class="function">fopen()</a></span>. Смотрите также список поддерживаемых оберток URL, их возможности, замечания по использованию и список
+предопределенных констант в <a href="wrappers.html" class="xref">Поддерживаемые протоколы и обработчики (wrappers)</a>.</p></div>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.file-put-contents-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.fopen.html" class="function" rel="rdfs-seeAlso">fopen()</a> - Открывает файл или URL</span></li>
+    <li class="member"><span class="function"><a href="function.fwrite.html" class="function" rel="rdfs-seeAlso">fwrite()</a> - Бинарно-безопасная запись в файл</span></li>
+    <li class="member"><span class="function"><a href="function.file-get-contents.html" class="function" rel="rdfs-seeAlso">file_get_contents()</a> - Читает содержимое файла в строку</span></li>
+    <li class="member"><span class="function"><a href="function.stream-context-create.html" class="function" rel="rdfs-seeAlso">stream_context_create()</a> - Создаёт контекст потока</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.file-get-contents.html">file_get_contents</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.file.html">file</a></div>
+ <div class="up"><a href="ref.filesystem.html">Файловая система</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

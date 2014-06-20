@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Поддерживаемые типы данных</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="oci8.dtrace.html">OCI8 and DTrace Dynamic Tracing</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="ref.oci8.html">OCI8 (Oracle)</a></div>
+ <div class="up"><a href="book.oci8.html">OCI8</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="oci8.datatypes" class="chapter">
+ <h1>Поддерживаемые типы данных</h1>
+
+ <table class="doctable table">
+  <caption><strong>Данный драйвер поддерживает следующие типы данных при использовании
+   функции <span class="function"><a href="function.oci-bind-by-name.html" class="function">oci_bind_by_name()</a></span> для связки параметров:</strong></caption>
+  
+   <thead>
+    <tr>
+     <th>Тип</th>
+     <th>Отображение</th>
+    </tr>
+
+   </thead>
+
+   <tbody class="tbody">
+    <tr>
+     <td><strong><code>SQLT_NTY</code></strong></td>
+     <td>Связывает оригинальный тип коллекции из объекта коллекции
+      PHP, например, создаваемых функцией <span class="function"><a href="function.oci-new-collection.html" class="function">oci_new_collection()</a></span>.</td>
+    </tr>
+
+    <tr>
+     <td><strong><code>SQLT_BFILEE</code></strong></td>
+     <td>Связывает оригинальный дескриптор, например, полученный
+      с помощью функции <span class="function"><a href="function.oci-new-descriptor.html" class="function">oci_new_descriptor()</a></span>.</td>
+    </tr>
+
+    <tr>
+     <td><strong><code>SQLT_CFILEE</code></strong></td>
+     <td>Связывает оригинальный дескриптор, например, полученный
+      с помощью функции <span class="function"><a href="function.oci-new-descriptor.html" class="function">oci_new_descriptor()</a></span>.</td>
+    </tr>
+
+    <tr>
+     <td><strong><code>SQLT_CLOB</code></strong></td>
+     <td>Связывает оригинальный дескриптор, например, полученный
+      с помощью функции <span class="function"><a href="function.oci-new-descriptor.html" class="function">oci_new_descriptor()</a></span>.</td>
+    </tr>
+
+    <tr>
+     <td><strong><code>SQLT_BLOB</code></strong></td>
+     <td>Связывает оригинальный дескриптор, например, полученный
+      с помощью функции <span class="function"><a href="function.oci-new-descriptor.html" class="function">oci_new_descriptor()</a></span>.</td>
+    </tr>
+
+    <tr>
+     <td><strong><code>SQLT_RDD</code></strong></td>
+     <td>Связывает оригинальный дескриптор, например, полученный
+      с помощью функции <span class="function"><a href="function.oci-new-descriptor.html" class="function">oci_new_descriptor()</a></span>.</td>
+    </tr>
+
+    <tr>
+     <td><strong><code>SQLT_NUM</code></strong></td>
+     <td>Конвертирует параметр PHP в тип long языка &#039;C&#039;,
+      и привязывает к этому значению.</td>
+    </tr>
+
+    <tr>
+     <td><strong><code>SQLT_RSET</code></strong></td>
+     <td>Связывает оригинальный дескриптор выражения, например, полученный
+      из функции <span class="function"><a href="function.oci-parse.html" class="function">oci_parse()</a></span> или из других запросов
+      OCI.</td>
+    </tr>
+
+    <tr>
+     <td><strong><code>SQLT_CHR</code></strong> и любой другой тип</td>
+     <td>Преобразует параметр PHP к строковому типу и привязывает его
+      в виде строки.</td>
+    </tr>
+
+   </tbody>
+  
+ </table>
+
+
+ <table class="doctable table">
+  <caption><strong>Поддерживаются следующие типы при извлечении столбцов из набора данных:</strong></caption>
+  
+   <thead>
+    <tr>
+     <th>Тип</th>
+     <th>Отображение</th>
+    </tr>
+
+   </thead>
+
+   <tbody class="tbody">
+    <tr>
+     <td><strong><code>SQLT_RSET</code></strong></td>
+     <td>Создает ресурс выражения oci для представления курсора.</td>
+    </tr>
+
+    <tr>
+     <td><strong><code>SQLT_RDD</code></strong></td>
+     <td>Создает объект ROWID.</td>
+    </tr>
+
+    <tr>
+     <td><strong><code>SQLT_BLOB</code></strong></td>
+     <td>Создает объект LOB.</td>
+    </tr>
+
+    <tr>
+     <td><strong><code>SQLT_CLOB</code></strong></td>
+     <td>Создает объект LOB.</td>
+    </tr>
+
+    <tr>
+     <td><strong><code>SQLT_BFILE</code></strong></td>
+     <td>Создает объект LOB.</td>
+    </tr>
+
+    <tr>
+     <td><strong><code>SQLT_LNG</code></strong></td>
+     <td>Связывает в виде SQLT_CHR, возвращается в виде строки</td>
+    </tr>
+
+    <tr>
+     <td><strong><code>SQLT_LBI</code></strong></td>
+     <td>Связывает в виде <strong><code>SQLT_BIN</code></strong>, возвращается в виде строки</td>
+    </tr>
+
+    <tr>
+     <td>Любой другой тип</td>
+     <td>Связывает в виде <strong><code>SQLT_CHR</code></strong>, возвращается в виде строки</td>
+    </tr>
+
+   </tbody>
+  
+ </table>
+
+</div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="oci8.dtrace.html">OCI8 and DTrace Dynamic Tracing</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="ref.oci8.html">OCI8 (Oracle)</a></div>
+ <div class="up"><a href="book.oci8.html">OCI8</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

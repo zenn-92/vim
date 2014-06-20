@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Устанавливает значение переменной среды</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.phpversion.html">phpversion</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.restore-include-path.html">restore_include_path</a></div>
+ <div class="up"><a href="ref.info.html">PHP опции/Информационные Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.putenv" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">putenv</h1>
+  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">putenv</span> &mdash; <span class="dc-title">Устанавливает значение переменной среды</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.putenv-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><strong>putenv</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$setting</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Добавляет <code class="parameter">setting</code> в среду сервера. Переменная будет
+   существовать только на время выполнения текущего запроса. По его завершении
+   переменная вернется в изначальное состояние.
+  </p>
+  <p class="para">
+   Изменение множества переменных среды потенциально небезопасно.
+   Директива <em>safe_mode_allowed_env_vars</em> содержит список 
+   разделенных запятой префиксов. В Безопасном Режиме пользователь может
+   менять значения только тех переменных, имена которых начинаются с
+   перечисленных префиксов. По умолчанию, пользователи могут менять только
+   те переменные, что начинаются с <em>PHP_</em> (например,
+   <em>PHP_FOO=BAR</em>). Замечание: Если эта директива пустая, PHP
+   позволит пользователям менять ЛЮБЫЕ переменные!
+  </p>
+  <p class="para">
+   Директива <em>safe_mode_protected_env_vars</em> содержит список
+   разделенных запятой имен переменных среды, которые пользователю запрещено
+   изменять функцией <span class="function"><strong>putenv()</strong></span>. Эти переменные будут защищены,
+   даже если <em>safe_mode_allowed_env_vars</em> разрешает их изменение.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.putenv-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">setting</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Установка вида <em>&quot;FOO=BAR&quot;</em>
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.putenv-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает <strong><code>TRUE</code></strong> в случае успешного завершения  или <strong><code>FALSE</code></strong> в случае возникновения ошибки.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.putenv-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-514">
+    <p><strong>Пример #1 Установка значения переменной среды</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />putenv</span><span style="color: #007700">(</span><span style="color: #DD0000">"UNIQID=</span><span style="color: #0000BB">$uniqid</span><span style="color: #DD0000">"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.putenv-notes">
+  <h3 class="title">Примечания</h3>
+  <div class="warning"><strong class="warning">Внимание</strong>
+   <p class="para">
+    Директивы <em>safe_mode_allowed_env_vars</em> и
+    <em>safe_mode_protected_env_vars</em> работают только в
+    <a href="features.safe-mode.html" class="link">Безопасном режиме</a>.
+   </p>
+  </div>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.putenv-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.getenv.html" class="function" rel="rdfs-seeAlso">getenv()</a> - Получение значения переменной окружения</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.phpversion.html">phpversion</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.restore-include-path.html">restore_include_path</a></div>
+ <div class="up"><a href="ref.info.html">PHP опции/Информационные Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

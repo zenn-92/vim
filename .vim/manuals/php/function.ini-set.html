@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Установка значения настройки конфигурации</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.ini-restore.html">ini_restore</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.magic-quotes-runtime.html">magic_quotes_runtime</a></div>
+ <div class="up"><a href="ref.info.html">PHP опции/Информационные Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.ini-set" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">ini_set</h1>
+  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">ini_set</span> &mdash; <span class="dc-title">
+   Установка значения настройки конфигурации
+  </span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.ini-set-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">string</span> <span class="methodname"><strong>ini_set</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$varname</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$newvalue</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Устанавливает значение заданной настройки конфигурации. Настройка будет
+   хранить установленное значение пока выполняется скрипт. После завершения работы
+   скрипта значение настройки вернется к исходному.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.ini-set-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">varname</code></dt>
+
+     <dd>
+
+      <p class="para">
+      </p>
+      <p class="para">
+       Не все доступные настройки можно изменять функцией
+       <span class="function"><strong>ini_set()</strong></span>. Список доступных настроек приведен в
+       <a href="ini.list.html" class="link">приложении</a>.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">newvalue</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Новое значение настройки.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.ini-set-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   В случае успеха возвращает старое значение, в случае неудачи возвращает <strong><code>FALSE</code></strong>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.ini-set-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-500">
+    <p><strong>Пример #1 Установка значения ini настройки</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">ini_get</span><span style="color: #007700">(</span><span style="color: #DD0000">'display_errors'</span><span style="color: #007700">);<br /><br />if&nbsp;(!</span><span style="color: #0000BB">ini_get</span><span style="color: #007700">(</span><span style="color: #DD0000">'display_errors'</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">ini_set</span><span style="color: #007700">(</span><span style="color: #DD0000">'display_errors'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'1'</span><span style="color: #007700">);<br />}<br /><br />echo&nbsp;</span><span style="color: #0000BB">ini_get</span><span style="color: #007700">(</span><span style="color: #DD0000">'display_errors'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.ini-set-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.get-cfg-var.html" class="function" rel="rdfs-seeAlso">get_cfg_var()</a> - Извлекает значение настройки конфигурации PHP</span></li>
+    <li class="member"><span class="function"><a href="function.ini-get.html" class="function" rel="rdfs-seeAlso">ini_get()</a> - Получает значение настройки конфигурации</span></li>
+    <li class="member"><span class="function"><a href="function.ini-get-all.html" class="function" rel="rdfs-seeAlso">ini_get_all()</a> - Получение всех настроек конфигурации</span></li>
+    <li class="member"><span class="function"><a href="function.ini-restore.html" class="function" rel="rdfs-seeAlso">ini_restore()</a> - Восстанавливает значение настройки конфигурации</span></li>
+    <li class="member">
+     <a href="configuration.changes.html" class="link">Как менять настройки
+     конфигурации</a>
+    </li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.ini-restore.html">ini_restore</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.magic-quotes-runtime.html">magic_quotes_runtime</a></div>
+ <div class="up"><a href="ref.info.html">PHP опции/Информационные Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Другие изменения</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="migration54.ini.html">Изменения в обработке INI-файлов</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="migration53.html">Переход c PHP 5.2.x на PHP 5.3.x</a></div>
+ <div class="up"><a href="migration54.html">Переход с PHP 5.3.x на PHP 5.4.x</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="migration54.other" class="section">
+  <h2 class="title">Другие изменения</h2>
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara">
+     Кодировкой по умолчанию для функций <span class="function"><a href="function.htmlspecialchars.html" class="function">htmlspecialchars()</a></span>
+     и <span class="function"><a href="function.htmlentities.html" class="function">htmlentities()</a></span> сейчас является <em>UTF-8</em>,
+     вместо прежней <em>ISO-8859-1</em>. Обратите внимание, что изменения кодировки вывода
+     с помощью конфигурационной опции <a href="ini.core.html#ini.default-charset" class="link">default_charset</a>
+     не действует на вышеупомянутые функции до тех пор, пока вы
+     не передадите &quot;&quot; (пустую строку) в качестве параметра кодировки в вызовы функций
+     <span class="function"><a href="function.htmlspecialchars.html" class="function">htmlspecialchars()</a></span>/<span class="function"><a href="function.htmlentities.html" class="function">htmlentities()</a></span>.
+     В целом, мы не рекомендуем так делать, потому что вы должны иметь возможность
+     изменить кодировку вывода без воздействия на кодировку во время исполнения, используемую
+     этими функциями. Самый безопасный подход - явно установить кодировку при каждом
+     вызове функций <span class="function"><a href="function.htmlspecialchars.html" class="function">htmlspecialchars()</a></span> и
+     <span class="function"><a href="function.htmlentities.html" class="function">htmlentities()</a></span>.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <strong><code>E_ALL</code></strong> теперь включает ошибки уровня <strong><code>E_STRICT</code></strong> в конфигурационной
+     директиве <a href="errorfunc.configuration.html#ini.error-reporting" class="link">error_reporting</a>.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     У <a href="book.snmp.html" class="link">SNMP</a> теперь есть объектно-ориентированный API.
+    </span>
+    <span class="simpara">
+      Функции теперь возвращают <strong><code>FALSE</code></strong> на каждую ошибку, включая относящиеся к SNMP.
+      (Нет такого экземпляра, конец MIB и т.д.). Таким образом, в частности, изменяется предыдущее
+      поведение функций get/walk, которые возвращали пустую строку при ошибках, относящихся к SNMP.
+    </span>
+    <span class="simpara">
+      Теперь поддерживаются множественные запросы OID get/getnext/set.
+    </span>
+    <span class="simpara">
+     Исключен код совместимости с UCD-SNMP, учитывая что обновление до net-snmp v5.3+, Net-SNMP v5.4+ является
+     необходимым для версии под Windows.
+    </span>
+    <span class="simpara">
+     Ради добавления поддержки IPv6 разрешение DNS имен в удаленном SNMP агенте теперь
+     выполнено с помощью расширения, а не через библиотеку Net-SNMP.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <a href="book.openssl.html" class="link">OpenSSL</a> теперь поддерживает AES.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <a href="features.commandline.html" class="link">CLI SAPI</a> теперь больше не прерывает работу
+     при фатальных ошибках, когда используется интерактивный режим с поддержкой readline.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     Переменная <a href="language.variables.superglobals.html" class="link">$_SERVER[&#039;REQUEST_TIME_FLOAT&#039;]</a>
+     была добавлена и содержит время с точностью до микросекунд.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     Добавлены новые хэш-алгоритмы: fnv132, fnv164, joaat
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     Теперь работает задание смещений в строке последовательно, например: $a[0][0], где $a - строка.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     Преобразование массивов из <span class="type"><a href="class.simplexmlelement.html" class="type SimpleXMLElement">SimpleXMLElement</a></span> теперь всегда содержит все узлы вместо
+     только первого подходящего узла. Теперь выводятся все потомки <span class="type"><a href="class.simplexmlelement.html" class="type SimpleXMLElement">SimpleXMLElement</a></span>
+     при использовании функций <span class="function"><a href="function.var-dump.html" class="function">var_dump()</a></span>, <span class="function"><a href="function.var-export.html" class="function">var_export()</a></span> и
+     <span class="function"><a href="function.print-r.html" class="function">print_r()</a></span>.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     Стало актуальным требование присутствия аргументов абстрактного конструктора класса <a href="language.oop5.decon.html" class="link">__construct</a>
+     в базовом классе при наследовании.
+    </span>
+   </li>
+  </ul>
+ </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="migration54.ini.html">Изменения в обработке INI-файлов</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="migration53.html">Переход c PHP 5.2.x на PHP 5.3.x</a></div>
+ <div class="up"><a href="migration54.html">Переход с PHP 5.3.x на PHP 5.4.x</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Создание цвета для изображения</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.imagecolorallocate.html">imagecolorallocate</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.imagecolorat.html">imagecolorat</a></div>
+ <div class="up"><a href="ref.image.html">GD и функции для работы с изображениями Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.imagecolorallocatealpha" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">imagecolorallocatealpha</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.2, PHP 5)</p><p class="refpurpose"><span class="refname">imagecolorallocatealpha</span> &mdash; <span class="dc-title">Создание цвета для изображения</span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-function.imagecolorallocatealpha-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">int</span> <span class="methodname"><strong>imagecolorallocatealpha</strong></span>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$image</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$red</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$green</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$blue</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$alpha</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   <span class="function"><strong>imagecolorallocatealpha()</strong></span> работает аналогично функции
+   <span class="function"><a href="function.imagecolorallocate.html" class="function">imagecolorallocate()</a></span>, но еще добавляет к цвету параметр
+   <code class="parameter">alpha</code>, отвечающий за прозрачность.
+  </p>
+ </div>
+
+ <div class="refsect1 parameters" id="refsect1-function.imagecolorallocatealpha-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    <dt>
+<code class="parameter">
+image</code></dt>
+<dd>
+<p class="para">Ресурс изображения, полученный одной из функций создания изображений,
+например, такой как <span class="function"><a href="function.imagecreatetruecolor.html" class="function">imagecreatetruecolor()</a></span>.</p></dd>
+
+    
+     <dt>
+<code class="parameter">red</code></dt>
+
+     <dd>
+
+      <p class="para">Значение красного компонента цвета.</p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">green</code></dt>
+
+     <dd>
+
+      <p class="para">Значение зеленого компонента цвета.</p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">blue</code></dt>
+
+     <dd>
+
+      <p class="para">Значение синего компонента цвета.</p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">alpha</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Значение в диапазоне от <em>0</em> до <em>127</em>.
+       <em>0</em> означает непрозрачный цвет,
+       <em>127</em> означает полную прозрачность.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+   Параметры цветов могут быть либо целочисленными в диапазоне от 0 до 255 либо
+   шестнадцатиричными в диапазоне от 0x00 до 0xFF.
+  </p>
+ </div>
+
+ <div class="refsect1 returnvalues" id="refsect1-function.imagecolorallocatealpha-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Идентификатор цвета или <strong><code>FALSE</code></strong> в случае неудачи при создании цвета.
+  </p>
+  <div class="warning"><strong class="warning">Внимание</strong><p class="simpara">Эта функция
+может возвращать как boolean <strong><code>FALSE</code></strong>, так и не-boolean значение,
+которое приводится к <strong><code>FALSE</code></strong>. За более подробной информацией обратитесь к разделу
+<a href="language.types.boolean.html" class="link">Булев тип</a>. Используйте <a href="language.operators.comparison.html" class="link">оператор ===</a> для проверки значения,
+возвращаемого этой функцией.</p></div>
+ </div>
+
+ <div class="refsect1 changelog" id="refsect1-function.imagecolorallocatealpha-changelog">
+  <h3 class="title">Список изменений</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Версия</th>
+       <th>Описание</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.1.3</td>
+       <td>
+        Возвращает <strong><code>FALSE</code></strong>, если создать цвет не удалось.
+        Раньше в этом случае фунция возвращала <em>-1</em>.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+ <div class="refsect1 examples" id="refsect1-function.imagecolorallocatealpha-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-3234">
+    <p><strong>Пример #1 Пример использования <span class="function"><strong>imagecolorallocatealpha()</strong></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$size&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">300</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$image</span><span style="color: #007700">=</span><span style="color: #0000BB">imagecreatetruecolor</span><span style="color: #007700">(</span><span style="color: #0000BB">$size</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$size</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;создадим&nbsp;белый&nbsp;фон&nbsp;с&nbsp;черной&nbsp;рамкой<br /></span><span style="color: #0000BB">$back&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecolorallocate</span><span style="color: #007700">(</span><span style="color: #0000BB">$image</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">255</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">255</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">255</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$border&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecolorallocate</span><span style="color: #007700">(</span><span style="color: #0000BB">$image</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">imagefilledrectangle</span><span style="color: #007700">(</span><span style="color: #0000BB">$image</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$size&nbsp;</span><span style="color: #007700">-&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$size&nbsp;</span><span style="color: #007700">-&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$back</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">imagerectangle</span><span style="color: #007700">(</span><span style="color: #0000BB">$image</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$size&nbsp;</span><span style="color: #007700">-&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$size&nbsp;</span><span style="color: #007700">-&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$border</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$yellow_x&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">100</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$yellow_y&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">75</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$red_x&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">120</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$red_y&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">165</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$blue_x&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">187</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$blue_y&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">125</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$radius&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">150</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;создание&nbsp;цветов&nbsp;с&nbsp;альфа&nbsp;компонентом<br /></span><span style="color: #0000BB">$yellow&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecolorallocatealpha</span><span style="color: #007700">(</span><span style="color: #0000BB">$image</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">255</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">255</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">75</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$red&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecolorallocatealpha</span><span style="color: #007700">(</span><span style="color: #0000BB">$image</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">255</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">75</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$blue&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecolorallocatealpha</span><span style="color: #007700">(</span><span style="color: #0000BB">$image</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">255</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">75</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;рисование&nbsp;3х&nbsp;пересекающихся&nbsp;окружностей<br /></span><span style="color: #0000BB">imagefilledellipse</span><span style="color: #007700">(</span><span style="color: #0000BB">$image</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$yellow_x</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$yellow_y</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$radius</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$radius</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$yellow</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">imagefilledellipse</span><span style="color: #007700">(</span><span style="color: #0000BB">$image</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$red_x</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$red_y</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$radius</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$radius</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$red</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">imagefilledellipse</span><span style="color: #007700">(</span><span style="color: #0000BB">$image</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$blue_x</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$blue_y</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$radius</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$radius</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$blue</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;не&nbsp;забудьте&nbsp;вывести&nbsp;правильный&nbsp;заголовок!<br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'Content-Type:&nbsp;image/png'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;и&nbsp;наконец,&nbsp;вывод&nbsp;<br /></span><span style="color: #0000BB">imagepng</span><span style="color: #007700">(</span><span style="color: #0000BB">$image</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$image</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>Результатом выполнения данного примера
+будет что-то подобное:</p></div>
+    <div class="mediaobject">
+     
+     <div class="imageobject">
+      <img src="images/21009b70229598c6a80eef8b45bf282b-imagecolorallocatealpha.png" alt="Вывод примера: Пример использования imagecolorallocatealpha()" width="300" height="300" />
+     </div>
+    </div>
+   </div>
+  </p>
+ </div>
+
+ <div class="refsect1 notes" id="refsect1-function.imagecolorallocatealpha-notes">
+  <h3 class="title">Примечания</h3>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: <span class="simpara">Эта функция нуждается в GD версии 2.0.1 или выше.</span></p></blockquote>
+ </div>
+
+ <div class="refsect1 seealso" id="refsect1-function.imagecolorallocatealpha-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.imagecolorallocate.html" class="function" rel="rdfs-seeAlso">imagecolorallocate()</a> - Создание цвета для изображения</span></li>
+    <li class="member"><span class="function"><a href="function.imagecolordeallocate.html" class="function" rel="rdfs-seeAlso">imagecolordeallocate()</a> - Разрыв ассоциации переменной с цветом для заданного изображения</span></li>
+   </ul>
+  </p>
+ </div>
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.imagecolorallocate.html">imagecolorallocate</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.imagecolorat.html">imagecolorat</a></div>
+ <div class="up"><a href="ref.image.html">GD и функции для работы с изображениями Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Определяет, зарегистрирована ли глобальная переменная в сессии</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.session-id.html">session_id</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.session-module-name.html">session_module_name</a></div>
+ <div class="up"><a href="ref.session.html">Функции для работы с сессиями</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.session-is-registered" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">session_is_registered</h1>
+  <p class="verinfo">(PHP 4, PHP 5 &lt; 5.4.0)</p><p class="refpurpose"><span class="refname">session_is_registered</span> &mdash; <span class="dc-title">Определяет, зарегистрирована ли глобальная переменная в сессии</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.session-is-registered-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><strong>session_is_registered</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Определяет, зарегистрирована ли глобальная переменная в сессии.
+  </p>
+  <div class="warning"><strong class="warning">Внимание</strong><p class="simpara">Данная функция была
+помечена <em class="emphasis">УСТАРЕВШЕЙ</em> начиная с версии PHP 5.3.0 и
+была <em class="emphasis">УДАЛЕНА</em> в версии PHP 5.4.0.</p></div>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.session-is-registered-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">name</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Имя переменной.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.session-is-registered-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   <span class="function"><strong>session_is_registered()</strong></span> возвращает <strong><code>TRUE</code></strong> если
+   глобальная переменная с именем <code class="parameter">name</code> зарегистрирована
+   в текущей сессии, либо <strong><code>FALSE</code></strong> в противном случае.
+  </p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.session-is-registered-notes">
+  <h3 class="title">Примечания</h3>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <p class="para">
+    Если применяется <var class="varname"><var class="varname"><a href="reserved.variables.session.html" class="classname">$_SESSION</a></var></var> (или <var class="varname"><var class="varname">$HTTP_SESSION_VARS</var></var>
+    для PHP 4.0.6 и более ранних), следует использовать <span class="function"><a href="function.isset.html" class="function">isset()</a></span> для проверки
+    регистрации переменных в <var class="varname"><var class="varname"><a href="reserved.variables.session.html" class="classname">$_SESSION</a></var></var>.
+   </p>
+  </p></blockquote>
+  <div class="caution"><strong class="caution">Предостережение</strong>
+   <p class="para">
+    Если используется <var class="varname"><var class="varname"><a href="reserved.variables.session.html" class="classname">$_SESSION</a></var></var>
+    (или <var class="varname"><var class="varname">$HTTP_SESSION_VARS</var></var>), не следует использовать
+    <span class="function"><a href="function.session-register.html" class="function">session_register()</a></span>,
+    <span class="function"><strong>session_is_registered()</strong></span> и
+    <span class="function"><a href="function.session-unregister.html" class="function">session_unregister()</a></span>.
+   </p>
+  </div>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.session-id.html">session_id</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.session-module-name.html">session_module_name</a></div>
+ <div class="up"><a href="ref.session.html">Функции для работы с сессиями</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

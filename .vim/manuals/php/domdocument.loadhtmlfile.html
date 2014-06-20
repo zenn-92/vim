@@ -1,0 +1,162 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Загрузка HTML из файла</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="domdocument.loadhtml.html">DOMDocument::loadHTML</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="domdocument.loadxml.html">DOMDocument::loadXML</a></div>
+ <div class="up"><a href="class.domdocument.html">DOMDocument</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="domdocument.loadhtmlfile" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">DOMDocument::loadHTMLFile</h1>
+  <p class="verinfo">(PHP 5)</p><p class="refpurpose"><span class="refname">DOMDocument::loadHTMLFile</span> &mdash; <span class="dc-title">
+   Загрузка HTML из файла
+  </span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-domdocument.loadhtmlfile-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><strong>DOMDocument::loadHTMLFile</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$options</code><span class="initializer"> = 0</span></span>
+  ] )</div>
+
+  <p class="para rdfs-comment">
+   Функция разбирает HTML документ из файла <code class="parameter">filename</code>.
+   В отличие от загрузки XML, HTML документ не обязан быть правильно построенным.
+  </p>
+ </div>
+
+ <div class="refsect1 parameters" id="refsect1-domdocument.loadhtmlfile-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">filename</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Путь к HTML файлу.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">options</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Начиная с версии PHP 5.1.0 и Libxml 2.6.0, можно также использовать
+       параметр <code class="parameter">options</code> для передачи <a href="libxml.constants.html" class="link">дополнительных параметров Libxml</a>.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+ <div class="refsect1 returnvalues" id="refsect1-domdocument.loadhtmlfile-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает <strong><code>TRUE</code></strong> в случае успешного завершения  или <strong><code>FALSE</code></strong> в случае возникновения ошибки. Если вызвана статически, возвращает объект класса
+   <a href="class.domdocument.html" class="classname">DOMDocument</a> или <strong><code>FALSE</code></strong> в случае возникновения ошибки.
+  </p>
+ </div>
+
+ <div class="refsect1 errors" id="refsect1-domdocument.loadhtmlfile-errors">
+  <h3 class="title">Ошибки</h3>
+  <p class="para">
+   Если через аргумент <code class="parameter">filename</code> передана пустая
+   строка или файл ничего не содержит, будет сгенерировано предупреждение.
+   Это предупреждение генерируется не libxml, поэтому оно не может быть 
+   обработано <a href="function.libxml-use-internal-errors.html" class="link">обработчиками ошибок
+   библиотеки libxml</a>.
+  </p>
+  <p class="para">Этот метод
+<em class="emphasis">может</em> быть вызван статически, но при этом будет сгенерирована ошибка
+уровня <strong><code>E_STRICT</code></strong>.</p>
+  <p class="para">
+Несмотря на то, что некорректный HTML обычно успешно загружается, данная функция
+может генерировать ошибки уровня <strong><code>E_WARNING</code></strong> при обнаружении
+плохой разметки. Для обработки данных ошибок можно воспользоваться
+<a href="function.libxml-use-internal-errors.html" class="link">функциями обработки
+ошибок libxml</a>.</p>
+ </div>
+
+ <div class="refsect1 examples" id="refsect1-domdocument.loadhtmlfile-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-5439">
+    <p><strong>Пример #1 Создание документа</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$doc&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DOMDocument</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$doc</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">loadHTMLFile</span><span style="color: #007700">(</span><span style="color: #DD0000">"filename.html"</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">$doc</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">saveHTML</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-domdocument.loadhtmlfile-changelog">
+  <h3 class="title">Список изменений</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Версия</th>
+       <th>Описание</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.1.0</td>
+       <td>
+        Добавлен параметр <code class="parameter">options</code>.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-domdocument.loadhtmlfile-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="methodname"><a href="domdocument.loadhtml.html" class="methodname" rel="rdfs-seeAlso">DOMDocument::loadHTML()</a> - Загрузка HTML из строки</span></li>
+    <li class="member"><span class="methodname"><a href="domdocument.savehtml.html" class="methodname" rel="rdfs-seeAlso">DOMDocument::saveHTML()</a> - Сохраняет документ из внутреннего представления в строку, используя HTML 
+   форматирование</span></li>
+    <li class="member"><span class="methodname"><a href="domdocument.savehtmlfile.html" class="methodname" rel="rdfs-seeAlso">DOMDocument::saveHTMLFile()</a> - Сохраняет документ из внутреннего представления в файл, используя HTML
+   форматирование</span></li>
+   </ul>
+  </p>
+ </div>
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="domdocument.loadhtml.html">DOMDocument::loadHTML</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="domdocument.loadxml.html">DOMDocument::loadXML</a></div>
+ <div class="up"><a href="class.domdocument.html">DOMDocument</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

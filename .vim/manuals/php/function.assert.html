@@ -1,0 +1,216 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Проверка утверждения (равен ли результат FALSE)</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.assert-options.html">assert_options</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.cli-get-process-title.html">cli_get_process_title</a></div>
+ <div class="up"><a href="ref.info.html">PHP опции/Информационные Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.assert" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">assert</h1>
+  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">assert</span> &mdash; <span class="dc-title">Проверка утверждения (равен ли результат <strong><code>FALSE</code></strong>)</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.assert-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><strong>assert</strong></span>
+    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$assertion</code></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$description</code></span>
+  ] )</div>
+
+  <p class="para rdfs-comment">
+   <span class="function"><strong>assert()</strong></span> проверит заданное утверждение
+   <code class="parameter">assertion</code> и совершит соответствующее действие, если 
+   результатом проверки окажется <strong><code>FALSE</code></strong>.
+  </p>
+  <p class="para">
+   Если <code class="parameter">assertion</code> задается в виде строки, оно будет
+   рассматриваться функцией <span class="function"><strong>assert()</strong></span> как PHP код. Представление
+   <code class="parameter">assertion</code> в виде строки имеет свои преимущества.
+   Во-первых, выключение проверки утверждений снижает накладные расходы. Во-вторых,
+   сообщения о провале проверки будут содержать само утверждение
+   <code class="parameter">assertion</code>. То есть, если передать в качестве
+   <code class="parameter">assertion</code> какое-либо условное выражение, это условие
+   невозможно будет получить в явном виде, в котором оно передавалось в проверяющую
+   функцию, которую вы возможно определили с помощью
+   <span class="function"><a href="function.assert-options.html" class="function">assert_options()</a></span>. Это условное выражение будет вычислено и
+   преобразовано в строку до вызова проверяющей функции, соответственно логическое
+   <strong><code>FALSE</code></strong> будет фигурировать в сообщении как пустая строка.
+  </p>
+  <p class="para">
+   Утверждения должны использоваться только в целях отладки. Их можно использовать
+   для тестирования каких-то условий, которые в штатных ситуациях всегда принимают
+   значение <strong><code>TRUE</code></strong>, обратное должно указывать на программные ошибки. Также их можно
+   использовать, чтобы удостовериться в наличии каких-либо расширений или системных
+   ограничений.
+  </p>
+  <p class="para">
+   Утверждения не должны использоваться в обычных операциях, таких как проверка
+   входных параметров. Скрипт должен корректно выполняться, если отключить проверку
+   утверждений.
+  </p>
+  <p class="para">
+   Поведение функции <span class="function"><strong>assert()</strong></span> можно изменять с помощью функции
+   <span class="function"><a href="function.assert-options.html" class="function">assert_options()</a></span> или заданием .ini-настроек.
+  </p>
+  <p class="para">
+   Функция <span class="function"><a href="function.assert-options.html" class="function">assert_options()</a></span> и директива
+   <strong><code>ASSERT_CALLBACK</code></strong> позволяют задать callback-функцию,
+   которая будет вызываться при провале проверки утверждения.
+  </p>
+  <p class="para">
+   Возможность вызывать callback-функции из <span class="function"><strong>assert()</strong></span> может
+   быть полезна для создания автоматизированных тестовых пакетов. Посредством этих
+   функций можно извлекать код, переданный на проверку вместе с информацией о том, 
+   где эта проверка была осуществлена. Подобную информацию можно получить и другими
+   методами, однако использование утверждений быстрей и проще.
+  </p>
+  <p class="para">
+   Callback-функция должна принимать три аргумента. Первый аргумент должен содержать
+   файл, в котором утверждение не прошло проверку. Второй аргумент отвечает за
+   номер строки в этом файле. В третьем аргументе будет передаваться выражение,
+   содержащее ошибку (если таких несколько, строковые значение, вроде 1 или &quot;два&quot;
+   не будут передаваться через этот аргумент). Пользователи PHP версий 5.4.8 и
+   выше могут задать четвертый необязательный аргумент
+   <code class="parameter">description</code>, который будет также передан в функцию
+   <span class="function"><strong>assert()</strong></span>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.assert-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">assertion</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Утверждение.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">description</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Дополнительное описание, которое будет включено в сообщение об ошибке,
+       если проверка <code class="parameter">assertion</code> завершится неудачей.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.assert-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   <strong><code>FALSE</code></strong> в случае провала проверки, <strong><code>TRUE</code></strong> в остальных случаях.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.assert-changelog">
+  <h3 class="title">Список изменений</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Версия</th>
+       <th>Описание</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.4.8</td>
+       <td>
+        Добавлен аргумент <code class="parameter">description</code>. Также
+        <code class="parameter">description</code> передается четвертым аргументом в
+        callback-функцию в режиме <strong><code>ASSERT_CALLBACK</code></strong>.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.assert-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-475">
+    <p><strong>Пример #1 
+     Обработка ошибочного утверждения пользовательским обработчиком
+    </strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Активируем&nbsp;проверку&nbsp;утверждений&nbsp;и&nbsp;сделаем&nbsp;его&nbsp;фоновым<br /></span><span style="color: #0000BB">assert_options</span><span style="color: #007700">(</span><span style="color: #0000BB">ASSERT_ACTIVE</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">assert_options</span><span style="color: #007700">(</span><span style="color: #0000BB">ASSERT_WARNING</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">assert_options</span><span style="color: #007700">(</span><span style="color: #0000BB">ASSERT_QUIET_EVAL</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Создадим&nbsp;функцию&nbsp;обработчик<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">my_assert_handler</span><span style="color: #007700">(</span><span style="color: #0000BB">$file</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$line</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$code</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"&lt;hr&gt;Проверка&nbsp;утвеждения&nbsp;провалена:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Файл&nbsp;'</span><span style="color: #0000BB">$file</span><span style="color: #DD0000">'&lt;br&nbsp;/&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Строка&nbsp;'</span><span style="color: #0000BB">$line</span><span style="color: #DD0000">'&lt;br&nbsp;/&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Код&nbsp;'</span><span style="color: #0000BB">$code</span><span style="color: #DD0000">'&lt;br&nbsp;/&gt;&lt;hr&nbsp;/&gt;"</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;Зададим&nbsp;callback-функцию<br /></span><span style="color: #0000BB">assert_options</span><span style="color: #007700">(</span><span style="color: #0000BB">ASSERT_CALLBACK</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'my_assert_handler'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Создадим&nbsp;заведомо&nbsp;неверную&nbsp;команду<br /></span><span style="color: #0000BB">assert</span><span style="color: #007700">(</span><span style="color: #DD0000">'mysql_query("")'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+  <p class="para">
+   <div class="example" id="example-476">
+    <p><strong>Пример #2 Использование пользовательского обработчика для вывода описания ошибки</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Активируем&nbsp;утверждение&nbsp;и&nbsp;переводим&nbsp;в&nbsp;тихий&nbsp;режим<br /></span><span style="color: #0000BB">assert_options</span><span style="color: #007700">(</span><span style="color: #0000BB">ASSERT_ACTIVE</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">assert_options</span><span style="color: #007700">(</span><span style="color: #0000BB">ASSERT_WARNING</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">assert_options</span><span style="color: #007700">(</span><span style="color: #0000BB">ASSERT_QUIET_EVAL</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Создаем&nbsp;обработчик<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">my_assert_handler</span><span style="color: #007700">(</span><span style="color: #0000BB">$file</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$line</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$code</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$desc&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Проверка&nbsp;завершилась&nbsp;неудачей&nbsp;в&nbsp;</span><span style="color: #0000BB">$file</span><span style="color: #DD0000">:</span><span style="color: #0000BB">$line</span><span style="color: #DD0000">:&nbsp;</span><span style="color: #0000BB">$code</span><span style="color: #DD0000">"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #0000BB">$desc</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">":&nbsp;</span><span style="color: #0000BB">$desc</span><span style="color: #DD0000">"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;Задаем&nbsp;callback-функцию<br /></span><span style="color: #0000BB">assert_options</span><span style="color: #007700">(</span><span style="color: #0000BB">ASSERT_CALLBACK</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'my_assert_handler'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Спровоцируем&nbsp;ошибку&nbsp;для&nbsp;проверки<br /></span><span style="color: #0000BB">assert</span><span style="color: #007700">(</span><span style="color: #DD0000">'2&nbsp;&lt;&nbsp;1'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">assert</span><span style="color: #007700">(</span><span style="color: #DD0000">'2&nbsp;&lt;&nbsp;1'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'Два&nbsp;меньше&nbsp;одного'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>Результат выполнения данного примера:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+Assertion failed at test.php:21: 2 &lt; 1
+Assertion failed at test.php:22: 2 &lt; 1: Два меньше одного
+</pre></div>
+    </div>
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.assert-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.assert-options.html" class="function" rel="rdfs-seeAlso">assert_options()</a> - Установка/получение различных установок проверки утверждений</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.assert-options.html">assert_options</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.cli-get-process-title.html">cli_get_process_title</a></div>
+ <div class="up"><a href="ref.info.html">PHP опции/Информационные Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

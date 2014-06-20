@@ -1,0 +1,176 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Помещает данные из файла в кэш страницы</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.eio-read.html">eio_read</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.eio-readdir.html">eio_readdir</a></div>
+ <div class="up"><a href="ref.eio.html">Eio Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.eio-readahead" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">eio_readahead</h1>
+  <p class="verinfo">(PECL eio &gt;= 0.0.1dev)</p><p class="refpurpose"><span class="refname">eio_readahead</span> &mdash; <span class="dc-title">
+   Помещает данные из файла в кэш страницы
+  </span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.eio-readahead-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">resource</span> <span class="methodname"><strong>eio_readahead</strong></span>
+    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$fd</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$pri</code><span class="initializer"> = EIO_PRI_DEFAULT</span></span>
+   [, <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$callback</code><span class="initializer"> = NULL</span></span>
+   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$data</code><span class="initializer"> = NULL</span></span>
+  ]]] )</div>
+
+  <p class="para rdfs-comment">
+  <span class="function"><strong>eio_readahead()</strong></span> заполняет кэш страницы данными из файла. Таким
+  образом, дальнейшие обращения к этому файлу не будут влиять на работу дисковой
+  подсистемы. Более детальную информацию можно получить на странице руководства
+  <em>READAHEAD(2)</em>.
+  </p>
+
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.eio-readahead-parameters">
+  <h3 class="title">Список параметров</h3>
+  <dl>
+
+   
+    <dt>
+<code class="parameter">fd</code></dt>
+
+    <dd>
+
+     <p class="para">
+      Поток, ресурс сокета или числовой файловый описатель.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">offset</code></dt>
+
+    <dd>
+
+     <p class="para">
+      Позиция в файле, с которой будут читаться данные.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">length</code></dt>
+
+    <dd>
+
+     <p class="para">
+      Количество считываемых байт.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">pri</code></dt>
+
+    <dd>
+
+    <p class="para">Приоритет запросов: <strong><code>EIO_PRI_DEFAULT</code></strong>, <strong><code>EIO_PRI_MIN</code></strong>, <strong><code>EIO_PRI_MAX</code></strong>, или <strong><code>NULL</code></strong>.
+Если передан <strong><code>NULL</code></strong>, то <code class="parameter">pri</code> устанавливается в
+<strong><code>EIO_PRI_DEFAULT</code></strong>.
+</p>
+
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">callback</code></dt>
+
+    <dd>
+
+     <p class="para">
+Функция <code class="parameter">callback</code> вызывается при завершении запроса.
+Она должна удовлетворять следующему прототипу: <div class="example-contents"><div class="phpcode"><code><span style="color: #000000">
+void&nbsp;callback(mixed&nbsp;$data,&nbsp;int&nbsp;$result[,&nbsp;resource&nbsp;$req]);</span>
+</code></div></div>
+
+<dl>
+
+
+<dt>
+<code class="parameter">data</code></dt>
+
+<dd>
+<p class="para">является пользовательскими данными, переданными в запросе.</p></dd>
+
+
+
+<dt>
+<code class="parameter">result</code></dt>
+
+<dd>
+<p class="para">содержит результирующее значение, зависящее от запроса; обычно это значение, возвращаемое соответствующим
+системным вызовом.</p></dd>
+
+
+
+<dt>
+<code class="parameter">req</code></dt>
+
+<dd>
+<p class="para">является опциональным запрашиваемым ресурсом, который может использоваться с такими функциями как <span class="function"><a href="function.eio-get-last-error.html" class="function">eio_get_last_error()</a></span></p></dd>
+
+
+</dl>
+
+</p>
+
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">data</code></dt>
+
+    <dd>
+
+     <p class="para">
+      Данные, которые необходимо передать функции
+      <code class="parameter">callback</code>.
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.eio-readahead-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   <span class="function"><strong>eio_readahead()</strong></span> возвращает ресурс запроса либо <strong><code>FALSE</code></strong> в
+   случае ошибки.
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.eio-read.html">eio_read</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.eio-readdir.html">eio_readdir</a></div>
+ <div class="up"><a href="ref.eio.html">Eio Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

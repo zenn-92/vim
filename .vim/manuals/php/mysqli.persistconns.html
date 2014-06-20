@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Расширение mysqli и постоянные соединения</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mysqli.resources.html">Типы ресурсов</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mysqli.constants.html">Предопределенные константы</a></div>
+ <div class="up"><a href="book.mysqli.html">mysqli</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="mysqli.persistconns" class="chapter">
+
+ <h1>Расширение mysqli и постоянные соединения</h1>
+
+
+ <p class="para">
+  Для расширения <em>mysqli</em> поддержка постоянных соединений была
+  внедрена в PHP 5.3. В PDO MYSQL и ext/mysql на тот момент она уже была. Идея
+  постоянных подключений состоит в том, чтобы соединение между клиентским процессом
+  и базой данных можно было использовать повторно, особенно когда требуется
+  создавать и закрывать соединения множество раз. Это бы позволило снизить
+  накладные расходы на создание новых подклюений каждый раз, когда они требуются,
+  за счет использования существующих кэшированных подключений, свободных для
+  повторного использования.
+ </p>
+ 
+ <p class="para">
+  В отличие от расширения mysql, в mysqli нет отдельной функции для создания
+  постоянных соединений. Чтобы открыть постоянное соединение, при создании
+  подключения к имени хоста нужно добавить префикс <em>p:</em>.
+ </p>
+
+ <p class="para">
+  При использовании постоянных соединений можно столкнуться с проблемой, которая
+  заключается в том, что клиенты могут оставлять такие подключения в
+  непредсказуемом состоянии. Например, клиент ставит блокировку
+  на таблицу, а затем аварийно завершает работу. То есть блокировка снята не
+  будет. Новый клиентский процесс, использующий это подключение повторно, получит
+  его "<span class="quote">как есть</span>", и вынужден будет провести какую-то очистку
+  подключения, прежде чем начать его использовать. Соответственно в задачи
+  программиста входит еще и проверка подобных ситуаций и внедрение кода,
+  осуществляющего такую очистку.
+ </p>
+
+ <p class="para">
+  Тем не менее, в <em>mysqli</em> эта проблема решена. В расширении
+  есть встроенный функционал, осуществляющий очистку соединений и
+  переводящий их в состояние пригодное для использования. Код очистки,
+  реализованный в <em>mysqli</em> включает следующие операции:
+ </p>
+
+ <ul class="itemizedlist">
+
+  <li class="listitem">
+   <p class="para">
+    Откат активных транзакций
+   </p>
+  </li>
+
+  <li class="listitem">
+   <p class="para">
+    Закрытие и удаление временных таблиц
+   </p>
+  </li>
+
+  <li class="listitem">
+   <p class="para">
+    Снятие блокировки с таблиц
+   </p>
+  </li>
+
+  <li class="listitem">
+   <p class="para">
+    Сброс переменных сессии
+   </p>
+  </li>
+
+  <li class="listitem">
+   <p class="para">
+    Закрытие подготовленных запросов (всегда происходит в PHP)
+   </p>
+  </li>
+
+  <li class="listitem">
+   <p class="para">
+    Закрытие обработчиков
+   </p>
+  </li>
+
+  <li class="listitem">
+   <p class="para">
+    Снятие блокировок, установленных функцией <span class="function"><strong>GET_LOCK()</strong></span>
+   </p>
+  </li>
+
+ </ul>
+
+ <p class="para">
+  Это позволяет быть уверенным в том, что возвращенные из пула соединения
+  готовы к использованию в клиентских процессах.
+ </p>
+
+ <p class="para">
+  Расширение <em>mysqli</em> делает очистку соединений автоматически
+  путем вызова C-API функции <em>mysql_change_user()</em>.
+ </p>
+
+ <p class="para">
+  Автоматическая очистка имеет свои достоинства и недостатки. Как плюс,
+  программисту больше не надо заботиться об очистке соединения, все делается
+  автоматически. Однако, это не лучшим образом влияет на производительность,
+  скрипт <em class="emphasis">потенциально</em> может работать медленней, так как
+  автоматическая чистка запускается каждый раз, когда соединение извлекается
+  из пула.
+ </p>
+
+ <p class="para">
+  Есть возможность отключить автоматическую очистку соединений, если скомпилировать
+  PHP с директивой <strong><code>MYSQLI_NO_CHANGE_USER_ON_PCONNECT</code></strong>.
+ </p>
+
+ <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+  <p class="para">
+   Постоянные соединения поддерживаются расширением <em>mysqli</em>
+   как при работе с родным MySQL драйвером, так и при работе с клиентской
+   библиотекой MySQL.
+  </p>
+ </p></blockquote>
+
+</div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mysqli.resources.html">Типы ресурсов</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mysqli.constants.html">Предопределенные константы</a></div>
+ <div class="up"><a href="book.mysqli.html">mysqli</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

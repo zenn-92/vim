@@ -1,0 +1,364 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The mysqli_stmt class</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mysqli.warning-count.html">mysqli::$warning_count</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mysqli-stmt.affected-rows.html">mysqli_stmt::$affected_rows</a></div>
+ <div class="up"><a href="book.mysqli.html">mysqli</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="class.mysqli-stmt" class="reference">
+ <h1 class="title">The mysqli_stmt class</h1>
+ 
+ 
+ <div class="partintro"><p class="verinfo">(PHP 5)</p>
+ 
+
+  <div class="section" id="mysqli-stmt.intro">
+   <h2 class="title">Введение</h2>
+   <p class="para">
+    Представляет подготовленное выражение.
+   </p>
+  </div>
+
+ 
+  <div class="section" id="mysqli-stmt.synopsis">
+   <h2 class="title">Обзор классов</h2>
+ 
+
+   <div class="classsynopsis">
+    <div class="ooclass"></div>
+ 
+
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <strong class="classname">mysqli_stmt</strong>
+     </span>
+     {</div>
+
+ 
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Свойства */</div>
+    <div class="fieldsynopsis"><span class="type">int</span> <var class="varname"><a href="mysqli-stmt.affected-rows.html">$<var class="varname">affected_rows</var></a></var>;</div>
+<div class="fieldsynopsis"><span class="type">int</span> <var class="varname"><a href="mysqli-stmt.errno.html">$<var class="varname">errno</var></a></var>;</div>
+<div class="fieldsynopsis"><span class="type">array</span> <var class="varname"><a href="mysqli-stmt.error-list.html">$<var class="varname">error_list</var></a></var>;</div>
+<div class="fieldsynopsis"><span class="type">string</span> <var class="varname"><a href="mysqli-stmt.error.html">$<var class="varname">error</var></a></var>;</div>
+<div class="fieldsynopsis"><span class="type">int</span> <var class="varname"><a href="mysqli-stmt.field-count.html">$<var class="varname">field_count</var></a></var>;</div>
+<div class="fieldsynopsis"><span class="type">int</span> <var class="varname"><a href="mysqli-stmt.insert-id.html">$<var class="varname">insert_id</var></a></var>;</div>
+<div class="fieldsynopsis"><span class="type">int</span> <var class="varname"><a href="mysqli-stmt.num-rows.html">$<var class="varname">num_rows</var></a></var>;</div>
+<div class="fieldsynopsis"><span class="type">int</span> <var class="varname"><a href="mysqli-stmt.param-count.html">$<var class="varname">param_count</var></a></var>;</div>
+<div class="fieldsynopsis"><span class="type">string</span> <var class="varname"><a href="mysqli-stmt.sqlstate.html">$<var class="varname">sqlstate</var></a></var>;</div>
+
+ 
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Методы */</div>
+    <div class="methodsynopsis dc-description">
+   <span class="type">int</span> <span class="methodname"><a href="mysqli-stmt.attr-get.html" class="methodname">attr_get</a></span>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$attr</code></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><a href="mysqli-stmt.attr-set.html" class="methodname">attr_set</a></span>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$attr</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><a href="mysqli-stmt.bind-param.html" class="methodname">bind_param</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$types</code></span>
+   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter reference">&$var1</code></span>
+   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter reference">&$...</code></span>
+  ] )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><a href="mysqli-stmt.bind-result.html" class="methodname">bind_result</a></span>
+    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter reference">&$var1</code></span>
+   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter reference">&$...</code></span>
+  ] )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><a href="mysqli-stmt.close.html" class="methodname">close</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">void</span> <span class="methodname"><a href="mysqli-stmt.data-seek.html" class="methodname">data_seek</a></span>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><a href="mysqli-stmt.execute.html" class="methodname">execute</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><a href="mysqli-stmt.fetch.html" class="methodname">fetch</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">void</span> <span class="methodname"><a href="mysqli-stmt.free-result.html" class="methodname">free_result</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">mysqli_result</span> <span class="methodname"><a href="mysqli-stmt.get-result.html" class="methodname">get_result</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">object</span> <span class="methodname"><a href="mysqli-stmt.get-warnings.html" class="methodname">get_warnings</a></span>
+    ( <span class="methodparam"><span class="type"><a href="class.mysqli-stmt.html" class="type mysqli_stmt">mysqli_stmt</a></span> <code class="parameter">$stmt</code></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">mixed</span> <span class="methodname"><a href="mysqli-stmt.prepare.html" class="methodname">prepare</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$query</code></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><a href="mysqli-stmt.reset.html" class="methodname">reset</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">mysqli_result</span> <span class="methodname"><a href="mysqli-stmt.result-metadata.html" class="methodname">result_metadata</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><a href="mysqli-stmt.send-long-data.html" class="methodname">send_long_data</a></span>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$param_nr</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><a href="mysqli-stmt.store-result.html" class="methodname">store_result</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+
+   }</div>
+
+ 
+  </div>
+ 
+ </div>
+ 
+ 
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>Содержание</h2><ul class="chunklist chunklist_reference"><li><a href="mysqli-stmt.affected-rows.html">mysqli_stmt::$affected_rows</a> — Возвращает общее количество строк, измененных, удаленных или
+            добавленных последним выполненным выражением</li><li><a href="mysqli-stmt.attr-get.html">mysqli_stmt::attr_get</a> — Получает текущее значение атрибута запроса</li><li><a href="mysqli-stmt.attr-set.html">mysqli_stmt::attr_set</a> — Изменяет поведение подготовленного запроса</li><li><a href="mysqli-stmt.bind-param.html">mysqli_stmt::bind_param</a> — Привязка переменных к параметрам подготавливаемого запроса</li><li><a href="mysqli-stmt.bind-result.html">mysqli_stmt::bind_result</a> — Привязка переменных к подготавленному запросу для размещения результата</li><li><a href="mysqli-stmt.close.html">mysqli_stmt::close</a> — Закрывает подготовленный запрос</li><li><a href="mysqli-stmt.data-seek.html">mysqli_stmt::data_seek</a> — Переход к заданной строке в результирующем наборе</li><li><a href="mysqli-stmt.errno.html">mysqli_stmt::$errno</a> — Возвращает код ошибки выполнения последнего запроса</li><li><a href="mysqli-stmt.error-list.html">mysqli_stmt::$error_list</a> — Возвращает список ошибок выполнения последнего запроса</li><li><a href="mysqli-stmt.error.html">mysqli_stmt::$error</a> — Возвращает строку с пояснением последней ошибки при выполнении запроса</li><li><a href="mysqli-stmt.execute.html">mysqli_stmt::execute</a> — Выполняет подготовленный запрос</li><li><a href="mysqli-stmt.fetch.html">mysqli_stmt::fetch</a> — Связывает результаты подготовленного выражения с переменными</li><li><a href="mysqli-stmt.field-count.html">mysqli_stmt::$field_count</a> — Возвращает число полей в заданном выражении</li><li><a href="mysqli-stmt.free-result.html">mysqli_stmt::free_result</a> — Освобождает память от результата запроса, указанного дескриптором</li><li><a href="mysqli-stmt.get-result.html">mysqli_stmt::get_result</a> — Получает результат из подготовленного запроса</li><li><a href="mysqli-stmt.get-warnings.html">mysqli_stmt::get_warnings</a> — Получает результат от SHOW WARNINGS</li><li><a href="mysqli-stmt.insert-id.html">mysqli_stmt::$insert_id</a> — Получает ID сгенерированный предыдущей операцией INSERT</li><li><a href="mysqli-stmt.more-results.html">mysqli_stmt::more_results</a> — Проверяет, есть ли еще наборы строк в результате мультизапроса</li><li><a href="mysqli-stmt.next-result.html">mysqli_stmt::next_result</a> — Читает следующий набор строк из мультизапроса</li><li><a href="mysqli-stmt.num-rows.html">mysqli_stmt::$num_rows</a> — Возвращает число строк в результате запроса</li><li><a href="mysqli-stmt.param-count.html">mysqli_stmt::$param_count</a> — Возвращает количество параметров в запросе</li><li><a href="mysqli-stmt.prepare.html">mysqli_stmt::prepare</a> — Подготовка SQL запроса к выполнению</li><li><a href="mysqli-stmt.reset.html">mysqli_stmt::reset</a> — Сбрасывает результаты выполнения подготовленного запроса</li><li><a href="mysqli-stmt.result-metadata.html">mysqli_stmt::result_metadata</a> — Возвращает метаданные результирующей таблицы подготавливаемого запроса</li><li><a href="mysqli-stmt.send-long-data.html">mysqli_stmt::send_long_data</a> — Отправка данных блоками</li><li><a href="mysqli-stmt.sqlstate.html">mysqli_stmt::$sqlstate</a> — Возвращает код SQLSTATE ошибки, вызванной в ходе выполнения последней операции
+   над запросом</li><li><a href="mysqli-stmt.store-result.html">mysqli_stmt::store_result</a> — Передает результирующий набор запроса на клиента</li></ul>
+</div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mysqli.warning-count.html">mysqli::$warning_count</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mysqli-stmt.affected-rows.html">mysqli_stmt::$affected_rows</a></div>
+ <div class="up"><a href="book.mysqli.html">mysqli</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

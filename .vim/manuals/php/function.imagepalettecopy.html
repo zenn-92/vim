@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Копирование палитры из одного изображения в другое</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.imageloadfont.html">imageloadfont</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.imagepalettetotruecolor.html">imagepalettetotruecolor</a></div>
+ <div class="up"><a href="ref.image.html">GD и функции для работы с изображениями Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.imagepalettecopy" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">imagepalettecopy</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.1, PHP 5)</p><p class="refpurpose"><span class="refname">imagepalettecopy</span> &mdash; <span class="dc-title">
+   Копирование палитры из одного изображения в другое
+  </span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-function.imagepalettecopy-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type"><span class="type void">void</span></span> <span class="methodname"><strong>imagepalettecopy</strong></span>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$destination</code></span>
+   , <span class="methodparam"><span class="type">resource</span> <code class="parameter">$source</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   <span class="function"><strong>imagepalettecopy()</strong></span> копирует палитру цветов из изображения
+   <code class="parameter">source</code> в изображение
+   <code class="parameter">destination</code>.
+  </p>
+ </div>
+
+ <div class="refsect1 parameters" id="refsect1-function.imagepalettecopy-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">destination</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Ресурс результирующего изображения.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">source</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Ресурс исходного изображения.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+ <div class="refsect1 returnvalues" id="refsect1-function.imagepalettecopy-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Эта функция не возвращает значения после выполнения.
+  </p>
+ </div>
+
+ <div class="refsect1 examples" id="refsect1-function.imagepalettecopy-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-3311">
+    <p><strong>Пример #1 Пример использования <span class="function"><strong>imagepalettecopy()</strong></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Создание&nbsp;двух&nbsp;палитровых&nbsp;изображений<br /></span><span style="color: #0000BB">$palette1&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecreate</span><span style="color: #007700">(</span><span style="color: #0000BB">100</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">100</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$palette2&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecreate</span><span style="color: #007700">(</span><span style="color: #0000BB">100</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">100</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Зеленый&nbsp;фон&nbsp;у&nbsp;первого&nbsp;изображения<br /></span><span style="color: #0000BB">$green&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecolorallocate</span><span style="color: #007700">(</span><span style="color: #0000BB">$palette1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">255</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Копирование&nbsp;палитры&nbsp;из&nbsp;1го&nbsp;во&nbsp;2е&nbsp;изображение<br /></span><span style="color: #0000BB">imagepalettecopy</span><span style="color: #007700">(</span><span style="color: #0000BB">$palette2</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$palette1</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Так&nbsp;как&nbsp;палитра&nbsp;скопирована&nbsp;с&nbsp;уже&nbsp;созданным&nbsp;зеленым&nbsp;цветом<br />//&nbsp;нет&nbsp;нужды&nbsp;использовать&nbsp;imagecolorallocate()&nbsp;дважды<br /></span><span style="color: #0000BB">imagefilledrectangle</span><span style="color: #007700">(</span><span style="color: #0000BB">$palette2</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">99</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">99</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$green</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Вывод&nbsp;изображения&nbsp;в&nbsp;броузер<br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'Content-type:&nbsp;image/png'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">imagepng</span><span style="color: #007700">(</span><span style="color: #0000BB">$palette2</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$palette1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$palette2</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.imageloadfont.html">imageloadfont</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.imagepalettetotruecolor.html">imagepalettetotruecolor</a></div>
+ <div class="up"><a href="ref.image.html">GD и функции для работы с изображениями Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

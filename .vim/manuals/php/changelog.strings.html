@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Список изменений</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.wordwrap.html">wordwrap</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="refs.basic.vartype.html">Расширения, относящиеся к переменным и типам</a></div>
+ <div class="up"><a href="book.strings.html">Строки</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="changelog.strings" class="appendix">
+ <h1>Список изменений</h1>
+
+ <p class="para">Следующие изменения были произведены с классами/функциями/методами данного расширения.</p>
+ <table class='doctable table' rules='groups'><thead><tr><th>Version</th><th>Function</th><th>Description</th></tr></thead><tbody class="gen-changelog v"><tr><td>5.4.1</td><td><a href='function.hex2bin.html'>hex2bin</a></td><td>Если строка имеет нечетную длину, выбрасывается предупреждение. ВPHP 5.4.0
+        такая строка принималась, а последний байт просто обрезался.</td></tr></tbody><tbody class="gen-changelog v5-4-1"><tr><td>5.4.0</td><td><a href='function.get-html-translation-table.html'>get_html_translation_table</a></td><td>Были добавлены константы ENT_HTML401, ENT_XML1,
+        ENT_XHTML и ENT_HTML5.</td></tr><tr><td>&nbsp;</td><td><a href='function.get-html-translation-table.html'>get_html_translation_table</a></td><td>Значение по умолчанию для параметра encoding было
+        изменено на UTF-8.</td></tr><tr><td>&nbsp;</td><td><a href='function.html-entity-decode.html'>html_entity_decode</a></td><td>Кодировка по умолчанию сменилась с ISO-8859-1 на UTF-8.</td></tr><tr><td>&nbsp;</td><td><a href='function.html-entity-decode.html'>html_entity_decode</a></td><td>Были добавлены константы ENT_HTML401, ENT_XML1,
+        ENT_XHTML и ENT_HTML5.</td></tr><tr><td>&nbsp;</td><td><a href='function.htmlentities.html'>htmlentities</a></td><td>Значение по умолчанию для параметра encoding было
+        изменено на UTF-8.</td></tr><tr><td>&nbsp;</td><td><a href='function.htmlentities.html'>htmlentities</a></td><td>The constants ENT_SUBSTITUTE, ENT_DISALLOWED,
+        ENT_HTML401, ENT_XML1,
+        ENT_XHTML и ENT_HTML5.</td></tr><tr><td>&nbsp;</td><td><a href='function.htmlspecialchars.html'>htmlspecialchars</a></td><td>Добавлены константы ENT_SUBSTITUTE, ENT_DISALLOWED,
+        ENT_HTML401, ENT_XML1,
+        ENT_XHTML и ENT_HTML5.</td></tr><tr><td>&nbsp;</td><td><a href='function.htmlspecialchars.html'>htmlspecialchars</a></td><td>Значение по умолчанию для параметра encoding было
+        изменено на UTF-8.</td></tr><tr><td>&nbsp;</td><td><a href='function.htmlspecialchars-decode.html'>htmlspecialchars_decode</a></td><td>Добавлены константы ENT_HTML401, ENT_XML1,
+        ENT_XHTML и ENT_HTML5.</td></tr><tr><td>&nbsp;</td><td><a href='function.number-format.html'>number_format</a></td><td>Функция поддерживает многобайтную строку в качестве параметров
+        dec_point и
+        thousands_sep. В предыдущих версиях
+        в качестве разделителя использовался
+        только первый байт из каждого параметра.</td></tr></tbody><tbody class="gen-changelog v5-4-0"><tr><td>5.3.4</td><td><a href='function.get-html-translation-table.html'>get_html_translation_table</a></td><td>Добавлен параметр encoding.</td></tr></tbody><tbody class="gen-changelog v5-3-4"><tr><td>5.3.2</td><td><a href='function.crypt.html'>crypt</a></td><td>Добавлено хэширование алгоритмами SHA-256 и SHA-512,
+        основанное на
+        реализации Ulrich Drepper.</td></tr><tr><td>&nbsp;</td><td><a href='function.crypt.html'>crypt</a></td><td>Исправлено поведение Blowfish при некорректных раундах: теперь
+        возвращается &quot;ошибочная&quot; строка (&quot;*0&quot; или &quot;*1&quot;) вместо отката
+        к использованию DES.</td></tr></tbody><tbody class="gen-changelog v5-3-2"><tr><td>5.3.0</td><td><a href='function.crypt.html'>crypt</a></td><td>PHP теперь использует собственную реализацию MD5, стандартного DES,
+        расширенного DES и Blowfish алгоритмов, которые будут использованы
+        в случае отсутствия их поддержки в системе.</td></tr><tr><td>&nbsp;</td><td><a href='function.htmlentities.html'>htmlentities</a></td><td>Добавлена константа ENT_IGNORE.</td></tr><tr><td>&nbsp;</td><td><a href='function.htmlspecialchars.html'>htmlspecialchars</a></td><td>Добавлена константа ENT_IGNORE.</td></tr><tr><td>&nbsp;</td><td><a href='function.nl2br.html'>nl2br</a></td><td>Добавлен необязательный параметр is_xhtml.</td></tr><tr><td>&nbsp;</td><td><a href='function.setlocale.html'>setlocale</a></td><td>Эта функция в настоящее время бросает уведомления E_DEPRECATED,
+        если строка передается в параметре category вместо одной из
+        констант LC_*.</td></tr><tr><td>&nbsp;</td><td><a href='function.stristr.html'>stristr</a></td><td>Добавлен необязательный параметр before_needle.</td></tr><tr><td>&nbsp;</td><td><a href='function.strlen.html'>strlen</a></td><td>Ранние версии этой функции рассматривали массивы как строку
+       Array, возвращая таким образом
+       5 в качестве длины этой строки, и
+       вызывали ошибку уровня E_NOTICE.</td></tr><tr><td>&nbsp;</td><td><a href='function.strstr.html'>strstr</a></td><td>Добавлен необязательный параметр before_needle.</td></tr></tbody><tbody class="gen-changelog v5-3-0"><tr><td>5.2.5</td><td><a href='function.addcslashes.html'>addcslashes</a></td><td>Добавлены экранирующие последовательности \v и \f.</td></tr></tbody><tbody class="gen-changelog v5-2-5"><tr><td>5.2.3</td><td><a href='function.htmlentities.html'>htmlentities</a></td><td>Добавлен параметр double_encode.</td></tr><tr><td>&nbsp;</td><td><a href='function.htmlspecialchars.html'>htmlspecialchars</a></td><td>Добавлен параметр double_encode.</td></tr></tbody><tbody class="gen-changelog v5-2-3"><tr><td>5.2.2 - 5.2.6</td><td><a href='function.substr.html'>substr</a></td><td>Если параметр start указывает на позицию
+        с отрицательной обрезкой, возвращается FALSE. Другие версии
+        возвращают строку с начала.</td></tr></tbody><tbody class="gen-changelog v5-2-2 - 5-2-6"><tr><td>5.1.0</td><td><a href='function.explode.html'>explode</a></td><td>Добавлена поддержка отрицательных значений limit</td></tr><tr><td>&nbsp;</td><td><a href='function.md5-file.html'>md5_file</a></td><td>Функция изменена для работы с потоковым API. Это означает, что ее
+        можно использовать с обертками, например, так:
+        md5_file('http://example.com/..')</td></tr><tr><td>&nbsp;</td><td><a href='function.sha1-file.html'>sha1_file</a></td><td>Функция теперь работает с потоковым API. Это означает, что ее
+        можно использовать с обертками, например,
+        sha1_file('http://example.com/..')</td></tr><tr><td>&nbsp;</td><td><a href='function.str-word-count.html'>str_word_count</a></td><td>Добавлен параметр charlist</td></tr><tr><td>&nbsp;</td><td><a href='function.substr-compare.html'>substr_compare</a></td><td>Добавлена возможность использования отрицательных значений в offset.</td></tr><tr><td>&nbsp;</td><td><a href='function.substr-count.html'>substr_count</a></td><td>Добавлены параметры offset
+        и length</td></tr></tbody><tbody class="gen-changelog v5-1-0"><tr><td>5.0.0</td><td><a href='function.html-entity-decode.html'>html_entity_decode</a></td><td>Добавлена поддержка многобайтных кодировок.</td></tr><tr><td>&nbsp;</td><td><a href='function.md5.html'>md5</a></td><td>Добавлен параметр raw_output.</td></tr><tr><td>&nbsp;</td><td><a href='function.md5-file.html'>md5_file</a></td><td>Добавлен параметр raw_output</td></tr><tr><td>&nbsp;</td><td><a href='function.sha1.html'>sha1</a></td><td>Добавлен параметр raw_output.</td></tr><tr><td>&nbsp;</td><td><a href='function.sha1-file.html'>sha1_file</a></td><td>Добавлен параметр raw_output</td></tr><tr><td>&nbsp;</td><td><a href='function.str-ireplace.html'>str_ireplace</a></td><td>Добавлен параметр count.</td></tr><tr><td>&nbsp;</td><td><a href='function.str-replace.html'>str_replace</a></td><td>Добавлен параметр count.</td></tr><tr><td>&nbsp;</td><td><a href='function.strip-tags.html'>strip_tags</a></td><td>strip_tags теперь безопасна для обработки
+        бинарных данных</td></tr><tr><td>&nbsp;</td><td><a href='function.strrpos.html'>strrpos</a></td><td>Параметр needle может быть строкой из
+        более чем одного символа.</td></tr><tr><td>&nbsp;</td><td><a href='function.strrpos.html'>strrpos</a></td><td>Добавлен параметр offset.</td></tr></tbody><tbody class="gen-changelog v5-0-0"><tr><td>4.3.3</td><td><a href='function.str-replace.html'>str_replace</a></td><td>Поведение этой функции изменилось.
+        В старых версиях существовала ошибка при одновременной
+        передаче массивов в аргументах search и
+        replace. Ошибка заключается в том, что
+        пустые элементы массива search пропускались
+        без перемещения к следующему элементу массива
+        replace. Эта ошибка была исправлена
+        в PHP 4.3.3. Если ваши скрипты использовали эту
+        ошибку, то в них нужно удалить пустые элементы из массива
+        search перед вызовом этой функции.</td></tr><tr><td>&nbsp;</td><td><a href='function.substr-replace.html'>substr_replace</a></td><td>Все параметры теперь могут являться массивами.</td></tr></tbody><tbody class="gen-changelog v4-3-3"><tr><td>4.3.0</td><td><a href='function.implode.html'>implode</a></td><td>Параметр glue стал необязательным</td></tr><tr><td>&nbsp;</td><td><a href='function.setlocale.html'>setlocale</a></td><td>Доступна передача нескольких локалей.</td></tr><tr><td>&nbsp;</td><td><a href='function.str-rot13.html'>str_rot13</a></td><td>В функции была исправлена ошибка, которая заключалась в том,
+        что str также изменялась, как
+        при передаче по ссылке.</td></tr><tr><td>&nbsp;</td><td><a href='function.strcspn.html'>strcspn</a></td><td>Добавлены параметры start и length</td></tr><tr><td>&nbsp;</td><td><a href='function.strip-tags.html'>strip_tags</a></td><td>Комментарии HTML теперь всегда удаляются</td></tr><tr><td>&nbsp;</td><td><a href='function.stristr.html'>stristr</a></td><td>stristr теперь бинарно-безопасна.</td></tr><tr><td>&nbsp;</td><td><a href='function.strrchr.html'>strrchr</a></td><td>Эта функция теперь бинарно-безопасна.</td></tr><tr><td>&nbsp;</td><td><a href='function.strspn.html'>strspn</a></td><td>Добавлены параметры start и length</td></tr><tr><td>&nbsp;</td><td><a href='function.strstr.html'>strstr</a></td><td>strstr теперь бинарно безопасна.</td></tr></tbody><tbody class="gen-changelog v4-3-0"><tr><td>4.2.3</td><td><a href='function.strcoll.html'>strcoll</a></td><td>Теперь эта функция работает и на win32.</td></tr></tbody><tbody class="gen-changelog v4-2-3"><tr><td>4.2.0</td><td><a href='function.setlocale.html'>setlocale</a></td><td>Передача category в виде строки больше
+        не поддерживается, рекомендуется использовать перечисленные выше
+        константы. Передача этих констант как строк (в кавычках) вызовет
+        вывод предупреждения.</td></tr></tbody><tbody class="gen-changelog v4-2-0"><tr><td>4.1.0</td><td><a href='function.htmlentities.html'>htmlentities</a></td><td>Добавлен параметр encoding.</td></tr><tr><td>&nbsp;</td><td><a href='function.htmlspecialchars.html'>htmlspecialchars</a></td><td>Добавлен параметр charset.</td></tr><tr><td>&nbsp;</td><td><a href='function.ltrim.html'>ltrim</a></td><td>Добавлен параметр charlist.</td></tr><tr><td>&nbsp;</td><td><a href='function.rtrim.html'>rtrim</a></td><td>Добавлен параметр charlist.</td></tr><tr><td>&nbsp;</td><td><a href='function.trim.html'>trim</a></td><td>Добавлен необязательный параметр charlist.</td></tr></tbody><tbody class="gen-changelog v4-1-0"><tr><td>4.0.6</td><td><a href='function.sprintf.html'>sprintf</a></td><td>Добавлена поддержка нумерации/изменения порядка аргументов</td></tr></tbody><tbody class="gen-changelog v4-0-6"><tr><td>4.0.5</td><td><a href='function.nl2br.html'>nl2br</a></td><td>nl2br теперь совместима с  XHTML. Все старые версии
+        возвращали string, в которой перед
+        переводами строк были вставлены '&lt;br&gt;' вместо '&lt;br /&gt;'.</td></tr><tr><td>&nbsp;</td><td><a href='function.str-replace.html'>str_replace</a></td><td>Большинство параметров теперь могут принимать тип array.</td></tr></tbody><tbody class="gen-changelog v4-0-5"><tr><td>4.0.3</td><td><a href='function.htmlentities.html'>htmlentities</a></td><td>Добавлен параметр flags.</td></tr><tr><td>&nbsp;</td><td><a href='function.parse-str.html'>parse_str</a></td><td>Добавлен параметр arr</td></tr><tr><td>&nbsp;</td><td><a href='function.wordwrap.html'>wordwrap</a></td><td>Добавлен необязательный параметр cut.</td></tr></tbody><tbody class="gen-changelog v4-0-3"><tr><td>4.0.1</td><td><a href='function.explode.html'>explode</a></td><td>Добавлен параметр limit</td></tr></tbody></table>
+</div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.wordwrap.html">wordwrap</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="refs.basic.vartype.html">Расширения, относящиеся к переменным и типам</a></div>
+ <div class="up"><a href="book.strings.html">Строки</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

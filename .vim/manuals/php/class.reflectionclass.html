@@ -1,0 +1,815 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Класс ReflectionClass</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="reflection.getmodifiernames.html">Reflection::getModifierNames</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="reflectionclass.construct.html">ReflectionClass::__construct</a></div>
+ <div class="up"><a href="book.reflection.html">Reflection</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="class.reflectionclass" class="reference">
+
+ <h1 class="title">Класс ReflectionClass</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(PHP 5)</p>
+
+
+  <div class="section" id="reflectionclass.intro">
+   <h2 class="title">Введение</h2>
+   <p class="para">
+    Класс <strong class="classname">ReflectionClass</strong> сообщает
+    информацию о классе.
+   </p>
+  </div>
+
+
+  <div class="section" id="reflectionclass.synopsis">
+   <h2 class="title">Обзор классов</h2>
+
+
+   <div class="classsynopsis">
+    <div class="ooclass"></div>
+
+
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <strong class="classname">ReflectionClass</strong>
+     </span>
+     
+     <span class="oointerface">implements 
+      <span class="interfacename"><a href="class.reflector.html" class="interfacename">Reflector</a></span>
+     </span>
+     {</div>
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Константы */</div>
+    <div class="fieldsynopsis">
+     <span class="modifier">const</span>
+     <span class="type">integer</span>
+      <var class="fieldsynopsis_varname"><a href="class.reflectionclass.html#reflectionclass.constants.is-implicit-abstract"><var class="varname">IS_IMPLICIT_ABSTRACT</var></a></var>
+     <span class="initializer"> = 16</span>
+    ;</div>
+
+    <div class="fieldsynopsis">
+     <span class="modifier">const</span>
+     <span class="type">integer</span>
+      <var class="fieldsynopsis_varname"><a href="class.reflectionclass.html#reflectionclass.constants.is-explicit-abstract"><var class="varname">IS_EXPLICIT_ABSTRACT</var></a></var>
+     <span class="initializer"> = 32</span>
+    ;</div>
+
+    <div class="fieldsynopsis">
+     <span class="modifier">const</span>
+     <span class="type">integer</span>
+      <var class="fieldsynopsis_varname"><a href="class.reflectionclass.html#reflectionclass.constants.is-final"><var class="varname">IS_FINAL</var></a></var>
+     <span class="initializer"> = 64</span>
+    ;</div>
+
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Свойства */</div>
+    <div class="fieldsynopsis">
+     <span class="modifier">public</span>
+      <var class="varname"><a href="class.reflectionclass.html#reflectionclass.props.name">$<var class="varname">name</var></a></var>
+    ;</div>
+
+
+    
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Методы */</div>
+    <div class="methodsynopsis dc-description">
+   <span class="methodname"><a href="reflectionclass.construct.html" class="methodname">__construct</a></span>
+    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$argument</code></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="modifier">static</span> <span class="type">string</span> <span class="methodname"><a href="reflectionclass.export.html" class="methodname">export</a></span>
+    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$argument</code></span>
+   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$return</code><span class="initializer"> = false</span></span>
+  ] )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">mixed</span> <span class="methodname"><a href="reflectionclass.getconstant.html" class="methodname">getConstant</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><a href="reflectionclass.getconstants.html" class="methodname">getConstants</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">ReflectionMethod</span>  <span class="methodname"><a href="reflectionclass.getconstructor.html" class="methodname">getConstructor</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><a href="reflectionclass.getdefaultproperties.html" class="methodname">getDefaultProperties</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">string</span> <span class="methodname"><a href="reflectionclass.getdoccomment.html" class="methodname">getDocComment</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">int</span> <span class="methodname"><a href="reflectionclass.getendline.html" class="methodname">getEndLine</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">ReflectionExtension</span> <span class="methodname"><a href="reflectionclass.getextension.html" class="methodname">getExtension</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">string</span> <span class="methodname"><a href="reflectionclass.getextensionname.html" class="methodname">getExtensionName</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">string</span> <span class="methodname"><a href="reflectionclass.getfilename.html" class="methodname">getFileName</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><a href="reflectionclass.getinterfacenames.html" class="methodname">getInterfaceNames</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><a href="reflectionclass.getinterfaces.html" class="methodname">getInterfaces</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">ReflectionMethod</span> <span class="methodname"><a href="reflectionclass.getmethod.html" class="methodname">getMethod</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><a href="reflectionclass.getmethods.html" class="methodname">getMethods</a></span>
+    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$filter</code></span>
+  ] )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">int</span> <span class="methodname"><a href="reflectionclass.getmodifiers.html" class="methodname">getModifiers</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">string</span> <span class="methodname"><a href="reflectionclass.getname.html" class="methodname">getName</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">string</span> <span class="methodname"><a href="reflectionclass.getnamespacename.html" class="methodname">getNamespaceName</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">object</span> <span class="methodname"><a href="reflectionclass.getparentclass.html" class="methodname">getParentClass</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><a href="reflectionclass.getproperties.html" class="methodname">getProperties</a></span>
+    ([ <span class="methodparam"><span class="type">int</span> <code class="parameter">$filter</code></span>
+  ] )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">ReflectionProperty</span> <span class="methodname"><a href="reflectionclass.getproperty.html" class="methodname">getProperty</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">string</span> <span class="methodname"><a href="reflectionclass.getshortname.html" class="methodname">getShortName</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">int</span> <span class="methodname"><a href="reflectionclass.getstartline.html" class="methodname">getStartLine</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><a href="reflectionclass.getstaticproperties.html" class="methodname">getStaticProperties</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">mixed</span> <span class="methodname"><a href="reflectionclass.getstaticpropertyvalue.html" class="methodname">getStaticPropertyValue</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><a href="reflectionclass.gettraitaliases.html" class="methodname">getTraitAliases</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><a href="reflectionclass.gettraitnames.html" class="methodname">getTraitNames</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><a href="reflectionclass.gettraits.html" class="methodname">getTraits</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="reflectionclass.hasconstant.html" class="methodname">hasConstant</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="reflectionclass.hasmethod.html" class="methodname">hasMethod</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="reflectionclass.hasproperty.html" class="methodname">hasProperty</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="reflectionclass.implementsinterface.html" class="methodname">implementsInterface</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$interface</code></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="reflectionclass.innamespace.html" class="methodname">inNamespace</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="reflectionclass.isabstract.html" class="methodname">isAbstract</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="reflectionclass.iscloneable.html" class="methodname">isCloneable</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="reflectionclass.isfinal.html" class="methodname">isFinal</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="reflectionclass.isinstance.html" class="methodname">isInstance</a></span>
+    ( <span class="methodparam"><span class="type">object</span> <code class="parameter">$object</code></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="reflectionclass.isinstantiable.html" class="methodname">isInstantiable</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="reflectionclass.isinterface.html" class="methodname">isInterface</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="reflectionclass.isinternal.html" class="methodname">isInternal</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="reflectionclass.isiterateable.html" class="methodname">isIterateable</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="reflectionclass.issubclassof.html" class="methodname">isSubclassOf</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$class</code></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="reflectionclass.istrait.html" class="methodname">isTrait</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="reflectionclass.isuserdefined.html" class="methodname">isUserDefined</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">object</span> <span class="methodname"><a href="reflectionclass.newinstance.html" class="methodname">newInstance</a></span>
+    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$args</code></span>
+   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$...</code></span>
+  ] )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">object</span> <span class="methodname"><a href="reflectionclass.newinstanceargs.html" class="methodname">newInstanceArgs</a></span>
+    ([ <span class="methodparam"><span class="type">array</span> <code class="parameter">$args</code></span>
+  ] )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">object</span> <span class="methodname"><a href="reflectionclass.newinstancewithoutconstructor.html" class="methodname">newInstanceWithoutConstructor</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">void</span> <span class="methodname"><a href="reflectionclass.setstaticpropertyvalue.html" class="methodname">setStaticPropertyValue</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$value</code></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">string</span> <span class="methodname"><a href="reflectionclass.tostring.html" class="methodname">__toString</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+
+   }</div>
+
+
+  </div>
+
+  
+
+  <div class="section" id="reflectionclass.props">
+   <h2 class="title">Свойства</h2>
+   <dl>
+
+    
+     <dt id="reflectionclass.props.name"><var class="varname"><var class="varname">name</var></var></dt>
+
+     <dd>
+
+      <p class="para">
+       Имя класса. Доступно только для чтения и выбрасывает
+       исключение <a href="class.reflectionexception.html" class="classname">ReflectionException</a> при попытке записи.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </div>
+
+
+  
+
+  <div class="section" id="reflectionclass.constants">
+   <h2 class="title">Предопределенные константы</h2>
+   <div class="section" id="reflectionclass.constants.modifiers">
+    <h2 class="title">Модификаторы ReflectionClass</h2>
+    <dl>
+
+
+     
+      <dt id="reflectionclass.constants.is-implicit-abstract"><strong><code>ReflectionClass::IS_IMPLICIT_ABSTRACT</code></strong></dt>
+
+      <dd>
+
+       <p class="para">
+        Указывает, что класс является <a href="language.oop5.abstract.html" class="link">
+        абстрактным</a>, потому что он содержит абстрактные методы.
+       </p>
+      </dd>
+
+     
+
+     
+      <dt id="reflectionclass.constants.is-explicit-abstract"><strong><code>ReflectionClass::IS_EXPLICIT_ABSTRACT</code></strong></dt>
+
+      <dd>
+
+       <p class="para">
+        Указывает, что класс является <a href="language.oop5.abstract.html" class="link">
+        абстрактным</a>, потому что так указано при его описании.
+       </p>
+      </dd>
+
+     
+
+     
+      <dt id="reflectionclass.constants.is-final"><strong><code>ReflectionClass::IS_FINAL</code></strong></dt>
+
+      <dd>
+
+       <p class="para">
+        Указывает, что класс является <a href="language.oop5.final.html" class="link">окончательным (final)</a>
+        class.
+       </p>
+      </dd>
+
+     
+
+    </dl>
+
+   </div>
+  </div>
+
+
+
+ </div>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>Содержание</h2><ul class="chunklist chunklist_reference"><li><a href="reflectionclass.construct.html">ReflectionClass::__construct</a> — Создаёт объект класса ReflectionClass</li><li><a href="reflectionclass.export.html">ReflectionClass::export</a> — Экспортирует класс</li><li><a href="reflectionclass.getconstant.html">ReflectionClass::getConstant</a> — Возвращает определенную константу</li><li><a href="reflectionclass.getconstants.html">ReflectionClass::getConstants</a> — Возвращает константы</li><li><a href="reflectionclass.getconstructor.html">ReflectionClass::getConstructor</a> — Возвращает конструктор класса</li><li><a href="reflectionclass.getdefaultproperties.html">ReflectionClass::getDefaultProperties</a> — Возвращает свойства по умолчанию</li><li><a href="reflectionclass.getdoccomment.html">ReflectionClass::getDocComment</a> — Возвращает doc-блоки комментариев</li><li><a href="reflectionclass.getendline.html">ReflectionClass::getEndLine</a> — Возвращает номер последней строки</li><li><a href="reflectionclass.getextension.html">ReflectionClass::getExtension</a> — Возвращает объект класса ReflectionExtension для расширения, определенного в классе</li><li><a href="reflectionclass.getextensionname.html">ReflectionClass::getExtensionName</a> — Возвращает имя расширения, определенного в классе</li><li><a href="reflectionclass.getfilename.html">ReflectionClass::getFileName</a> — Возвращает имя файла, в котором объявлен класс</li><li><a href="reflectionclass.getinterfacenames.html">ReflectionClass::getInterfaceNames</a> — Возвращает имена интерфейсов</li><li><a href="reflectionclass.getinterfaces.html">ReflectionClass::getInterfaces</a> — Возвращает интерфейсы</li><li><a href="reflectionclass.getmethod.html">ReflectionClass::getMethod</a> — Возвращает экземпляр ReflectionMethod для метода класса</li><li><a href="reflectionclass.getmethods.html">ReflectionClass::getMethods</a> — Возвращает список методов в виде массива</li><li><a href="reflectionclass.getmodifiers.html">ReflectionClass::getModifiers</a> — Возвращает информацию о модификаторах класса</li><li><a href="reflectionclass.getname.html">ReflectionClass::getName</a> — Возвращает имя класса</li><li><a href="reflectionclass.getnamespacename.html">ReflectionClass::getNamespaceName</a> — Возвращает название пространства имён</li><li><a href="reflectionclass.getparentclass.html">ReflectionClass::getParentClass</a> — Возвращает родительский класс</li><li><a href="reflectionclass.getproperties.html">ReflectionClass::getProperties</a> — Возвращает свойства</li><li><a href="reflectionclass.getproperty.html">ReflectionClass::getProperty</a> — Возвращает экземпляр ReflectionProperty для свойства класса</li><li><a href="reflectionclass.getshortname.html">ReflectionClass::getShortName</a> — Возвращает короткое имя</li><li><a href="reflectionclass.getstartline.html">ReflectionClass::getStartLine</a> — Возвращает номер начальной строки</li><li><a href="reflectionclass.getstaticproperties.html">ReflectionClass::getStaticProperties</a> — Возвращает static свойства</li><li><a href="reflectionclass.getstaticpropertyvalue.html">ReflectionClass::getStaticPropertyValue</a> — Возвращает значение static свойства</li><li><a href="reflectionclass.gettraitaliases.html">ReflectionClass::getTraitAliases</a> — Возвращает массив trait-псевдонимов</li><li><a href="reflectionclass.gettraitnames.html">ReflectionClass::getTraitNames</a> — Возвращает массив trait-имён, задействованных в этом классе</li><li><a href="reflectionclass.gettraits.html">ReflectionClass::getTraits</a> — Возвращает массив traits, задействованных в этом классе</li><li><a href="reflectionclass.hasconstant.html">ReflectionClass::hasConstant</a> — Проверяет, задана ли константа</li><li><a href="reflectionclass.hasmethod.html">ReflectionClass::hasMethod</a> — Проверяет, задан ли метод</li><li><a href="reflectionclass.hasproperty.html">ReflectionClass::hasProperty</a> — Проверяет, задано ли свойство</li><li><a href="reflectionclass.implementsinterface.html">ReflectionClass::implementsInterface</a> — Проверяет, реализуется ли интерфейс</li><li><a href="reflectionclass.innamespace.html">ReflectionClass::inNamespace</a> — Проверяет, определён ли класс в пространстве имён</li><li><a href="reflectionclass.isabstract.html">ReflectionClass::isAbstract</a> — Проверяет, является ли класс абстрактным</li><li><a href="reflectionclass.iscloneable.html">ReflectionClass::isCloneable</a> — Проверяет, можно ли клонировать этот класс</li><li><a href="reflectionclass.isfinal.html">ReflectionClass::isFinal</a> — Проверяет, является ли класс окончательным (final)</li><li><a href="reflectionclass.isinstance.html">ReflectionClass::isInstance</a> — Проверяет, принадлежит ли объект классу</li><li><a href="reflectionclass.isinstantiable.html">ReflectionClass::isInstantiable</a> — Проверяет, можно ли создать экземпляр класса</li><li><a href="reflectionclass.isinterface.html">ReflectionClass::isInterface</a> — Проверяет, является ли класс интерфейсом</li><li><a href="reflectionclass.isinternal.html">ReflectionClass::isInternal</a> — Проверяет, является ли класс встроенным в расширение или в ядро</li><li><a href="reflectionclass.isiterateable.html">ReflectionClass::isIterateable</a> — Проверяет, является ли класс итерируемым</li><li><a href="reflectionclass.issubclassof.html">ReflectionClass::isSubclassOf</a> — Проверяет, является ли класс подклассом</li><li><a href="reflectionclass.istrait.html">ReflectionClass::isTrait</a> — Проверяет, является ли класс trait</li><li><a href="reflectionclass.isuserdefined.html">ReflectionClass::isUserDefined</a> — Проверяет, является ли класс пользовательским</li><li><a href="reflectionclass.newinstance.html">ReflectionClass::newInstance</a> — Создаёт экземпляр класса с переданными аргументами</li><li><a href="reflectionclass.newinstanceargs.html">ReflectionClass::newInstanceArgs</a> — Создаёт экземпляр класса с переданными параметрами</li><li><a href="reflectionclass.newinstancewithoutconstructor.html">ReflectionClass::newInstanceWithoutConstructor</a> — Создаёт новый экземпляр класса без вызова конструктора</li><li><a href="reflectionclass.setstaticpropertyvalue.html">ReflectionClass::setStaticPropertyValue</a> — Устанавливает значение static-свойства</li><li><a href="reflectionclass.tostring.html">ReflectionClass::__toString</a> — Возвращает строковое представление объекта класса ReflectionClass</li></ul>
+</div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="reflection.getmodifiernames.html">Reflection::getModifierNames</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="reflectionclass.construct.html">ReflectionClass::__construct</a></div>
+ <div class="up"><a href="book.reflection.html">Reflection</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

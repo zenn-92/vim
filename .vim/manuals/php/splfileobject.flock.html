@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Портируемая блокировка файла</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="splfileobject.fgetss.html">SplFileObject::fgetss</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="splfileobject.fpassthru.html">SplFileObject::fpassthru</a></div>
+ <div class="up"><a href="class.splfileobject.html">SplFileObject</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="splfileobject.flock" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">SplFileObject::flock</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0)</p><p class="refpurpose"><span class="refname">SplFileObject::flock</span> &mdash; <span class="dc-title">Портируемая блокировка файла</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-splfileobject.flock-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><strong>SplFileObject::flock</strong></span>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$operation</code></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$wouldblock</code></span>
+  ] )</div>
+
+  <p class="para rdfs-comment">
+   Блокирует или разблокирует файл тем же портируемым способом, что и <span class="function"><a href="function.flock.html" class="function">flock()</a></span>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-splfileobject.flock-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">operation</code></dt>
+
+     <dd>
+
+      <p class="para">
+       <code class="parameter">operation</code> может принимать следующие значения:
+       <ul class="itemizedlist">
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code>LOCK_SH</code></strong> для получения разделяемой блокировки (чтение).
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code>LOCK_EX</code></strong> для получения эксклюзивной блокировки (запись).
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code>LOCK_UN</code></strong> для снятия блокировки (разделяемой или эксклюзивной).
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code>LOCK_NB</code></strong> чтобы не ждать, пока будет получена блокировка (не поддерживается в Windows).
+         </span>
+        </li>
+       </ul>
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">wouldblock</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Будет установлен <strong><code>TRUE</code></strong>, если блокировка будет блокирующей (код ошибки EWOULDBLOCK).
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-splfileobject.flock-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает <strong><code>TRUE</code></strong> в случае успешного завершения  или <strong><code>FALSE</code></strong> в случае возникновения ошибки.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-splfileobject.flock-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-4001">
+    <p><strong>Пример #1 Пример использования <span class="methodname"><strong>SplFileObject::flock()</strong></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$file&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">SplFileObject</span><span style="color: #007700">(</span><span style="color: #DD0000">"/tmp/lock.txt"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"w"</span><span style="color: #007700">);<br />if&nbsp;(</span><span style="color: #0000BB">$file</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">flock</span><span style="color: #007700">(</span><span style="color: #0000BB">LOCK_EX</span><span style="color: #007700">))&nbsp;{&nbsp;</span><span style="color: #FF8000">//&nbsp;выполняем&nbsp;эксклюзивную&nbsp;блокировку<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$file</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">ftruncate</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;очищаем&nbsp;файл<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$file</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fwrite</span><span style="color: #007700">(</span><span style="color: #DD0000">"Что-нибудь&nbsp;пишем&nbsp;сюда\n"</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$file</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">flock</span><span style="color: #007700">(</span><span style="color: #0000BB">LOCK_UN</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;снимаем&nbsp;блокировку&nbsp;&nbsp;&nbsp;<br /></span><span style="color: #007700">}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Не&nbsp;удалось&nbsp;получить&nbsp;блокировку!"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-splfileobject.flock-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.flock.html" class="function" rel="rdfs-seeAlso">flock()</a> - Портируемая консультативная блокировка файлов</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="splfileobject.fgetss.html">SplFileObject::fgetss</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="splfileobject.fpassthru.html">SplFileObject::fpassthru</a></div>
+ <div class="up"><a href="class.splfileobject.html">SplFileObject</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

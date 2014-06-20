@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Изменяет настройки потока</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="streamwrapper.stream-lock.html">streamWrapper::stream_lock</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="streamwrapper.stream-open.html">streamWrapper::stream_open</a></div>
+ <div class="up"><a href="class.streamwrapper.html">streamWrapper</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="streamwrapper.stream-metadata" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">streamWrapper::stream_metadata</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.4.0)</p><p class="refpurpose"><span class="refname">streamWrapper::stream_metadata</span> &mdash; <span class="dc-title">Изменяет настройки потока</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-streamwrapper.stream-metadata-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><strong>streamWrapper::stream_metadata</strong></span>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$path</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$option</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$var</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Этот метод вызывается для задания метаданных потока. Он работет, когда
+   над URL потока выполняется одна из следующих операций:
+  <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.touch.html" class="function">touch()</a></span></li>
+    <li class="member"><span class="function"><a href="function.chmod.html" class="function">chmod()</a></span></li>
+    <li class="member"><span class="function"><a href="function.chown.html" class="function">chown()</a></span></li>
+    <li class="member"><span class="function"><a href="function.chgrp.html" class="function">chgrp()</a></span></li>
+  </ul>
+  Следует помнить, что некоторые из этих операций могут быть
+  недоступны в Вашей системе.
+  </p>
+ <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+  <span class="simpara">Функция доступна, начиная с версии PHP 5.4.0.</span>
+ </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-streamwrapper.stream-metadata-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">path</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Путь к файлу или URL для задания метаданных. URL должен быть отделен символами
+       :// Другие форматы URL не поддерживаются.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">option</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Одно из значений:
+       <ul class="simplelist">
+        <li class="member"><strong><code>PHP_STREAM_META_TOUCH</code></strong>
+        (Метод вызывается в результате вызова <span class="function"><a href="function.touch.html" class="function">touch()</a></span>)</li>
+        <li class="member"><strong><code>PHP_STREAM_META_OWNER_NAME</code></strong>
+        (Метод вызывается в результате вызова <span class="function"><a href="function.chown.html" class="function">chown()</a></span>
+        со строковым аргументом)</li>
+        <li class="member"><strong><code>PHP_STREAM_META_OWNER</code></strong>
+        (Метод вызывается в результате вызова <span class="function"><a href="function.chown.html" class="function">chown()</a></span>)</li>
+        <li class="member"><strong><code>PHP_STREAM_META_GROUP_NAME</code></strong>
+        (Метод вызывается в результате вызова <span class="function"><a href="function.chgrp.html" class="function">chgrp()</a></span>)</li>
+        <li class="member"><strong><code>PHP_STREAM_META_GROUP</code></strong>
+        (Метод вызывается в результате вызова <span class="function"><a href="function.chgrp.html" class="function">chgrp()</a></span>)</li>
+        <li class="member"><strong><code>PHP_STREAM_META_ACCESS</code></strong>
+        (Метод вызывается в результате вызова <span class="function"><a href="function.chmod.html" class="function">chmod()</a></span>)</li>
+       </ul>
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">arg1</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Если <code class="parameter">option</code> принимает значение
+       <ul class="simplelist">
+        <li class="member">
+         <strong><code>PHP_STREAM_META_TOUCH</code></strong>:
+         Массив (<span class="type"><a href="language.types.array.html" class="type Array">Array</a></span>) состоящий из двух аргументов функции
+         <span class="function"><a href="function.touch.html" class="function">touch()</a></span>.
+        </li>
+        <li class="member">
+         <strong><code>PHP_STREAM_META_OWNER_NAME</code></strong> или
+         <strong><code>PHP_STREAM_META_GROUP_NAME</code></strong>:
+         Имя владельца/группы в виде строки (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>).
+        </li>
+        <li class="member">
+         <strong><code>PHP_STREAM_META_OWNER</code></strong> или
+         <strong><code>PHP_STREAM_META_GROUP</code></strong>:
+         Значение владельца/группу в виде числа (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>).
+        </li>
+        <li class="member">
+         <strong><code>PHP_STREAM_META_ACCESS</code></strong>: Аргумент функции
+         <span class="function"><a href="function.chmod.html" class="function">chmod()</a></span> в виде целого числа (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>).
+        </li>
+       </ul>
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-streamwrapper.stream-metadata-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает <strong><code>TRUE</code></strong> в случае успешного завершения  или <strong><code>FALSE</code></strong> в случае возникновения ошибки.
+   Если <code class="parameter">option</code> не реализован, метод должен вернуть <strong><code>FALSE</code></strong>.
+  </p>
+ </div>
+
+
+
+
+ <div class="refsect1 seealso" id="refsect1-streamwrapper.stream-metadata-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.touch.html" class="function" rel="rdfs-seeAlso">touch()</a> - Устанавливает время доступа и модификации файла</span></li>
+    <li class="member"><span class="function"><a href="function.chmod.html" class="function" rel="rdfs-seeAlso">chmod()</a> - Изменяет режим доступа к файлу</span></li>
+    <li class="member"><span class="function"><a href="function.chown.html" class="function" rel="rdfs-seeAlso">chown()</a> - Изменяет владельца файла</span></li>
+    <li class="member"><span class="function"><a href="function.chgrp.html" class="function" rel="rdfs-seeAlso">chgrp()</a> - Изменяет группу владельцев файла</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="streamwrapper.stream-lock.html">streamWrapper::stream_lock</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="streamwrapper.stream-open.html">streamWrapper::stream_open</a></div>
+ <div class="up"><a href="class.streamwrapper.html">streamWrapper</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

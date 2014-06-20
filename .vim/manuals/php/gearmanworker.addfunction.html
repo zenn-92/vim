@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Регистрация и добавление callback-функции</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="class.gearmanworker.html">GearmanWorker</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="gearmanworker.addoptions.html">GearmanWorker::addOptions</a></div>
+ <div class="up"><a href="class.gearmanworker.html">GearmanWorker</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="gearmanworker.addfunction" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">GearmanWorker::addFunction</h1>
+  <p class="verinfo">(PECL gearman &gt;= 0.5.0)</p><p class="refpurpose"><span class="refname">GearmanWorker::addFunction</span> &mdash; <span class="dc-title">Регистрация и добавление callback-функции</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-gearmanworker.addfunction-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><strong>GearmanWorker::addFunction</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$function_name</code></span>
+   , <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$function</code></span>
+   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter reference">&$context</code></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$timeout</code></span>
+  ]] )</div>
+
+  <p class="para rdfs-comment">
+   Регистрирует имя функции на сервере заданий и добавляет ссылку на эту функцию
+   для обратного вызова. Дополнительно можно задать контекс, который будет
+   использоваться во время обратного вызова, и таймаут.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-gearmanworker.addfunction-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">function_name</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Имя функции, которое необходимо зарегистрировать на сервере.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">function</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Функция, которая будет вызываться, когда сервер получит работу для
+       зарегистрированного имени.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">context</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Ссылка на контекстные данные приложения, к которым нужно обеспечить
+       доступ из функции.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">timeout</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Временной интервал в секундах
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-gearmanworker.addfunction-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает <strong><code>TRUE</code></strong> в случае успешного завершения  или <strong><code>FALSE</code></strong> в случае возникновения ошибки.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-gearmanworker.addfunction-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-4360">
+    <p><strong>Пример #1 
+     Простой обработчик использует контекстные данные приложения
+    </strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">#&nbsp;получаем&nbsp;обработчик&nbsp;gearman<br /></span><span style="color: #0000BB">$worker</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">GearmanWorker</span><span style="color: #007700">();&nbsp;<br /><br /></span><span style="color: #FF8000">#&nbsp;добавляем&nbsp;сервер&nbsp;по&nbsp;умолчанию&nbsp;(localhost)<br /></span><span style="color: #0000BB">$worker</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">addServer</span><span style="color: #007700">();&nbsp;<br /><br /></span><span style="color: #FF8000">#&nbsp;определяем&nbsp;переменную,&nbsp;в&nbsp;которой&nbsp;будут&nbsp;храниться&nbsp;данные&nbsp;приложения<br /></span><span style="color: #0000BB">$count</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;&nbsp;<br /><br /></span><span style="color: #FF8000">#&nbsp;добавляем&nbsp;функцию&nbsp;"reverse"&nbsp;<br /></span><span style="color: #0000BB">$worker</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">addFunction</span><span style="color: #007700">(</span><span style="color: #DD0000">"reverse"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"reverse_cb"</span><span style="color: #007700">,&nbsp;&amp;</span><span style="color: #0000BB">$count</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">#&nbsp;запускаем&nbsp;обработчик<br /></span><span style="color: #007700">while&nbsp;(</span><span style="color: #0000BB">$worker</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">work</span><span style="color: #007700">());<br /><br />function&nbsp;</span><span style="color: #0000BB">reverse_cb</span><span style="color: #007700">(</span><span style="color: #0000BB">$job</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$count</span><span style="color: #007700">)&nbsp;<br />{&nbsp;<br />&nbsp;&nbsp;</span><span style="color: #0000BB">$count</span><span style="color: #007700">++;&nbsp;<br />&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">"</span><span style="color: #0000BB">$count</span><span style="color: #DD0000">:&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">strrev</span><span style="color: #007700">(</span><span style="color: #0000BB">$job</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">workload</span><span style="color: #007700">());&nbsp;<br />}&nbsp;<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>
+     Если клиент пошлет два задания для функции reverse, то вывод будет следующим:
+    </p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+1: olleh
+2: dlrow
+</pre></div>
+    </div>
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-gearmanworker.addfunction-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="methodname"><a href="gearmanclient.do.html" class="methodname" rel="rdfs-seeAlso">GearmanClient::do()</a> - Выполняет одну задачу и возвращает результат [Устаревший метод]</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="class.gearmanworker.html">GearmanWorker</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="gearmanworker.addoptions.html">GearmanWorker::addOptions</a></div>
+ <div class="up"><a href="class.gearmanworker.html">GearmanWorker</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

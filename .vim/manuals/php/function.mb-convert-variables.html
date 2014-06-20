@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Преобразует символы в переменной(-ых) из одной кодировки в другую</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.mb-convert-kana.html">mb_convert_kana</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.mb-decode-mimeheader.html">mb_decode_mimeheader</a></div>
+ <div class="up"><a href="ref.mbstring.html">Функции для работы с Многобайтными строками</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.mb-convert-variables" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">mb_convert_variables</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5)</p><p class="refpurpose"><span class="refname">mb_convert_variables</span> &mdash; <span class="dc-title">
+   Преобразует символы в переменной(-ых) из одной кодировки в другую
+  </span></p>
+
+ </div>
+   
+ <div class="refsect1 description" id="refsect1-function.mb-convert-variables-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">string</span> <span class="methodname"><strong>mb_convert_variables</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$to_encoding</code></span>
+   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$from_encoding</code></span>
+   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter reference">&$vars</code></span>
+   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter reference">&$...</code></span>
+  ] )</div>
+
+  <p class="para rdfs-comment">
+   Конвертирует символы в переменных <code class="parameter">vars</code> из
+   кодировки <code class="parameter">from_encoding</code> в кодировку
+   <code class="parameter">to_encoding</code>. 
+  </p>
+  <p class="para">
+   <span class="function"><strong>mb_convert_variables()</strong></span> объединяет строки из массива
+   или объекта для определения их кодировки, так как в случае коротких строк
+   определить кодировку зачастую не удается. Вследствие этого, недопустимо 
+   помещать в один массив или объект строки в разных кодировках.
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 parameters" id="refsect1-function.mb-convert-variables-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">to_encoding</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Кодировка, в которую необходимо перекодировать строку <span class="type"><a href="language.types.string.html" class="type string">string</a></span>.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">from_encoding</code></dt>
+
+     <dd>
+
+      <p class="para">
+       <code class="parameter">from_encoding</code> задается в виде массива <span class="type"><a href="language.types.array.html" class="type array">array</a></span> 
+       или строки <span class="type"><a href="language.types.string.html" class="type string">string</a></span> с разделенными запятой кодировками. 
+       Функция попытается определить кодировку исходной
+       строки на основе списка возможных кодировок в аргументе
+       <code class="parameter">from-coding</code>. Если <code class="parameter">from_encoding</code> 
+       опущен, используется <em>detect_order</em>.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">vars</code></dt>
+
+     <dd>
+
+      <p class="para">
+       <code class="parameter">vars</code> - ссылка на переменную, содержимое которой 
+       необходимо преобразовать. Это может быть строка, массив или объект.
+       <span class="function"><strong>mb_convert_variables()</strong></span> принимает, что все эти аргументы 
+       имеют одинаковою кодировку.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">...</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Дополнительные <code class="parameter">vars</code>.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 returnvalues" id="refsect1-function.mb-convert-variables-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Исходную кодировку в случае успеха или <strong><code>FALSE</code></strong> в случае неудачи.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.mb-convert-variables-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-2753">
+    <p><strong>Пример #1 Пример использования <span class="function"><strong>mb_convert_variables()</strong></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;Преобразование&nbsp;переменных&nbsp;$post1,&nbsp;$post2&nbsp;во&nbsp;внутреннюю&nbsp;кодировку&nbsp;скрипта&nbsp;*/<br /></span><span style="color: #0000BB">$interenc&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mb_internal_encoding</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$inputenc&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mb_convert_variables</span><span style="color: #007700">(</span><span style="color: #0000BB">$interenc</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"ASCII,UTF-8,SJIS-win"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$post1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$post2</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.mb-convert-kana.html">mb_convert_kana</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.mb-decode-mimeheader.html">mb_decode_mimeheader</a></div>
+ <div class="up"><a href="ref.mbstring.html">Функции для работы с Многобайтными строками</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

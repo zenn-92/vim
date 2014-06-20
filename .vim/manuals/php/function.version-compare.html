@@ -1,0 +1,196 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Сравнивает две &quot;стандартизованные&quot; строки с номером версии</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.sys-get-temp-dir.html">sys_get_temp_dir</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.zend-logo-guid.html">zend_logo_guid</a></div>
+ <div class="up"><a href="ref.info.html">PHP опции/Информационные Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.version-compare" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">version_compare</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.1.0, PHP 5)</p><p class="refpurpose"><span class="refname">version_compare</span> &mdash; <span class="dc-title">
+   Сравнивает две &quot;стандартизованные&quot; строки с номером версии
+  </span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.version-compare-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <span class="methodname"><strong>version_compare</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$version1</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$version2</code></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$operator</code></span>
+  ] )</div>
+
+  <p class="para rdfs-comment">
+   <span class="function"><strong>version_compare()</strong></span> сравнивает две &quot;PHP-стандартизованные&quot;
+   строки с номерами версий. Это полезно, когда требуется написать программу
+   работающую только на некоторых версиях PHP.
+  </p>
+  <p class="para">
+   Функция сначала заменяет <em>_</em>, <em>-</em> и
+   <em>+</em> на точку <em>.</em> в строках версий, а
+   также добавляет точки <em>.</em> перед и после каждого символа, не
+   являющегося числом. Например, &#039;4.3.2RC1&#039; преобразуется в &#039;4.3.2.RC.1&#039;.
+   Затем она разделяет результат, как функция explode(&#039;.&#039;, $ver). После этого
+   сравнивает части строк слева направо. Если часть строки содержит специальные
+   символы версий, они обрабатываются следующим образом:
+   <em>any string not found in this list</em> &lt; 
+   <em>dev</em> &lt; <em>alpha</em> =
+   <em>a</em> &lt; <em>beta</em> =
+   <em>b</em> &lt; <em>RC</em> =  
+   <em>rc</em> &lt; <em>#</em> &lt;
+   <em>pl</em> = <em>p</em>. Таким образом можно сравнивать
+   не только версии разных уровней, вроде &#039;4.1&#039; и &#039;4.1.2&#039;, но и специфичные
+   версии, включающие статус разработки.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.version-compare-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">version1</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Старший номер версии.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">version2</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Младший номер версии.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">operator</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Если задать третий необязательный аргумент
+       <code class="parameter">operator</code>, можно проверять версии на
+       соответствие логическому выражению. Возможные операторы:
+       <em>&lt;</em>,
+       <em>lt</em>, <em>&lt;=</em>,
+       <em>le</em>, <em>&gt;</em>,
+       <em>gt</em>, <em>&gt;=</em>,
+       <em>ge</em>, <em>==</em>,
+       <em>=</em>, <em>eq</em>,
+       <em>!=</em>, <em>&lt;&gt;</em>,
+       <em>ne</em>. 
+      </p>
+      <p class="para">
+       Аргумент чувствителен к регистру, поэтому значения должны быть
+       в нижнем регистре.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.version-compare-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   По умолчанию, функция <span class="function"><strong>version_compare()</strong></span> возвращает 
+   <em>-1</em>, если первая версия меньше второй;
+   <em>0</em>, когда они равны;
+   <em>1</em>, если вторая меньше первой.
+  </p>
+  <p class="para">
+   При использовании аргумента <code class="parameter">operator</code> функция
+   вернет <strong><code>TRUE</code></strong>, если выражение в соответствии с оператором верно, и 
+   <strong><code>FALSE</code></strong> в остальных случаях.   
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.version-compare-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   В примере ниже используется константа <strong><code>PHP_VERSION</code></strong>,
+   она содержит номер версии PHP, который выполняет код.
+  </p>
+  <p class="para">
+   <div class="example" id="example-520">
+    <p><strong>Пример #1 Пример использования <span class="function"><strong>version_compare()</strong></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">version_compare</span><span style="color: #007700">(</span><span style="color: #0000BB">PHP_VERSION</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'6.0.0'</span><span style="color: #007700">)&nbsp;&gt;=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'Я&nbsp;использую&nbsp;PHP&nbsp;версии&nbsp;не&nbsp;ниже&nbsp;6.0.0,&nbsp;моя&nbsp;версия:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">PHP_VERSION&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />}<br /><br />if&nbsp;(</span><span style="color: #0000BB">version_compare</span><span style="color: #007700">(</span><span style="color: #0000BB">PHP_VERSION</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'5.3.0'</span><span style="color: #007700">)&nbsp;&gt;=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'Я&nbsp;использую&nbsp;PHP&nbsp;версии&nbsp;не&nbsp;ниже&nbsp;5.3.0,&nbsp;моя&nbsp;версия:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">PHP_VERSION&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />}<br /><br />if&nbsp;(</span><span style="color: #0000BB">version_compare</span><span style="color: #007700">(</span><span style="color: #0000BB">PHP_VERSION</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'5.0.0'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'&gt;='</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'Я&nbsp;использую&nbsp;PHP&nbsp;5,&nbsp;моя&nbsp;версия:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">PHP_VERSION&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />}<br /><br />if&nbsp;(</span><span style="color: #0000BB">version_compare</span><span style="color: #007700">(</span><span style="color: #0000BB">PHP_VERSION</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'5.0.0'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'&lt;'</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'Я&nbsp;использую&nbsp;PHP&nbsp;4,&nbsp;моя&nbsp;версия:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">PHP_VERSION&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.version-compare-notes">
+  <h3 class="title">Примечания</h3>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <p class="para">
+    Константа <strong><code>PHP_VERSION</code></strong> хранит номер текущей версии PHP.
+   </p>
+  </p></blockquote>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <p class="para">
+    Заметьте, что дорелизные версии, такие как 5.3.0-dev, считаются меньше,
+    чем финальные (вида 5.3.0).
+   </p>
+  </p></blockquote>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <p class="para">
+    Специальные слова вроде <em>alpha</em> и
+    <em>beta</em> чувствительны к регистру. Строки версий,
+    не придерживающиеся PHP стандарта, нужно приводить к нижнему регистру
+    функцией <span class="function"><a href="function.strtolower.html" class="function">strtolower()</a></span> до вызова
+    <span class="function"><strong>version_compare()</strong></span>.
+   </p>
+  </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.version-compare-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.phpversion.html" class="function" rel="rdfs-seeAlso">phpversion()</a> - Выдает текущую версию PHP</span></li>
+    <li class="member"><span class="function"><a href="function.php-uname.html" class="function" rel="rdfs-seeAlso">php_uname()</a> - Выдает информацию об операционной системе, на которой запущен PHP</span></li>
+    <li class="member"><span class="function"><a href="function.function-exists.html" class="function" rel="rdfs-seeAlso">function_exists()</a> - Возвращает TRUE, если указанная функция определена</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.sys-get-temp-dir.html">sys_get_temp_dir</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.zend-logo-guid.html">zend_logo_guid</a></div>
+ <div class="up"><a href="ref.info.html">PHP опции/Информационные Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

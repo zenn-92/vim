@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Теги PHP</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="language.basic-syntax.html">Основы синтаксиса</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="language.basic-syntax.phpmode.html">Изолирование от HTML</a></div>
+ <div class="up"><a href="language.basic-syntax.html">Основы синтаксиса</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="language.basic-syntax.phptags" class="sect1">
+   <h2 class="title">Теги PHP</h2>
+   <p class="para">
+    Когда PHP обрабатывает файл, он ищет открывающие и закрывающие теги,
+    такие как <em>&lt;?php</em> и <em>?&gt;</em>,
+    которые указывают PHP, когда начинать и заканчивать обработку кода
+    между ними. Подобный способ обработки позволяет PHP внедряться во
+    все виды различных документов, так как всё, что находится вне пары
+    открывающих и закрывающих тегов, будет проигнорировано парсером PHP.
+   </p>
+   <p class="para">
+    PHP также допускает короткие теги <em>&lt;?</em> и <em>?&gt;</em>,
+    однако использовать их нежелательно, так как они доступны только если включены с помощью конфигурационной директивы <var class="filename">php.ini</var>
+    <a href="ini.core.html#ini.short-open-tag" class="link">short_open_tag</a>, либо если PHP был сконфигурирован с опцией
+    <strong class="option unknown">--enable-short-tags</strong>
+.
+   </p>
+   <p class="para">
+    Если файл содержит только код PHP, предпочтительно опустить закрывающий тег в
+    конце файла. Это помогает избежать добавлени случайных символов пробела или перевода строки после
+    закрывающего тега PHP, которые могут послужить причиной нежелательных эффектов, так как PHP начинает
+    выводить данные в буфер при отсутствии намерения у программиста выводить какие-либо данные
+    в этой точке скрипта.
+    <div class="informalexample">
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"Hello&nbsp;world"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;...&nbsp;еще&nbsp;код<br /><br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"Последнее&nbsp;выражение"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;Скрипт&nbsp;заканчивается&nbsp;тут&nbsp;без&nbsp;закрывающего&nbsp;тега&nbsp;PHP</span>
+</span>
+</code></div>
+     </div>
+
+    </div>
+   </p>
+  </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="language.basic-syntax.html">Основы синтаксиса</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="language.basic-syntax.phpmode.html">Изолирование от HTML</a></div>
+ <div class="up"><a href="language.basic-syntax.html">Основы синтаксиса</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Поиск позиции последнего вхождения одной строки в другую</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.mb-strripos.html">mb_strripos</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.mb-strstr.html">mb_strstr</a></div>
+ <div class="up"><a href="ref.mbstring.html">Функции для работы с Многобайтными строками</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.mb-strrpos" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">mb_strrpos</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5)</p><p class="refpurpose"><span class="refname">mb_strrpos</span> &mdash; <span class="dc-title">
+   Поиск позиции последнего вхождения одной строки в другую
+  </span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.mb-strrpos-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">int</span> <span class="methodname"><strong>mb_strrpos</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$haystack</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$needle</code></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code><span class="initializer"> = 0</span></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$encoding</code></span>
+  ]] )</div>
+
+  <p class="para rdfs-comment">
+   Выполняет безопасную с точки зрения многобайтных кодировок операцию
+   <span class="function"><a href="function.strrpos.html" class="function">strrpos()</a></span> , основываясь на количестве символов. 
+   Позиция строки <code class="parameter">needle</code>
+   расчитывается с начала строки <code class="parameter">haystack</code>. Позиция 
+   первого символа 0. Второго символа 1. 
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.mb-strrpos-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">haystack</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Строка <span class="type"><a href="language.types.string.html" class="type string">string</a></span>, в которой производится поиск вхождения 
+       <code class="parameter">needle</code>.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">needle</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Строка <span class="type"><a href="language.types.string.html" class="type string">string</a></span>, поиск которой производится в строке 
+       <code class="parameter">haystack</code>.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">offset</code></dt>
+
+     <dd>
+
+      <span class="simpara">
+       Если аргумент задан, поиск вхождения будет начинаться с позиции offset
+       в строке <span class="type"><a href="language.types.string.html" class="type string">string</a></span>. Если передано отрицательное значение, 
+       операция поиска остановится на позиции строки <span class="type"><a href="language.types.string.html" class="type string">string</a></span> offset, 
+       отсчитываемой с конца строки.
+      </span>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">encoding</code></dt>
+
+     <dd>
+
+      <p class="para">Параметр <code class="parameter">encoding</code>
+представляет собой символьную кодировку. Если он опущен, вместо него будет использовано значение внутренней кодировки.</p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.mb-strrpos-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает позицию последнего вхождения строки <code class="parameter">needle</code>
+   в строке <code class="parameter">haystack</code> <span class="type"><a href="language.types.string.html" class="type string">string</a></span> либо <strong><code>FALSE</code></strong>, 
+   если <code class="parameter">needle</code> не найдена.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.mb-strrpos-changelog">
+  <h3 class="title">Список изменений</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Версия</th>
+       <th>Описание</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.2.0</td>
+       <td>
+        Добавлен необязательный аргумент <code class="parameter">offset</code>.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.mb-strrpos-notes">
+  <h3 class="title">Примечания</h3>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <span class="simpara">
+    Аргумент <code class="parameter">encoding</code> перемещен с третьего места в списке
+    на четвертое в PHP 5.2.0. Для обратной совместимости аргумент 
+    <code class="parameter">encoding</code> может быть задан как третий аргумент, однако
+    эта возможность считается устаревшей и вскоре будет удалена.
+   </span>
+  </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.mb-strrpos-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.mb-strpos.html" class="function" rel="rdfs-seeAlso">mb_strpos()</a> - Поиск позиции первого вхождения одной строки в другую</span></li>
+    <li class="member"><span class="function"><a href="function.mb-internal-encoding.html" class="function" rel="rdfs-seeAlso">mb_internal_encoding()</a> - Установка/получение внутренней кодировки скрипта</span></li>
+    <li class="member"><span class="function"><a href="function.strrpos.html" class="function" rel="rdfs-seeAlso">strrpos()</a> - Возвращает позицию последнего вхождения подстроки в строке</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.mb-strripos.html">mb_strripos</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.mb-strstr.html">mb_strstr</a></div>
+ <div class="up"><a href="ref.mbstring.html">Функции для работы с Многобайтными строками</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Введение</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="book.dbase.html">dBase</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="dbase.setup.html">Установка и настройка</a></div>
+ <div class="up"><a href="book.dbase.html">dBase</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="intro.dbase" class="preface">
+  <h1 class="title">Введение</h1>
+  <p class="para">
+   Эти функции позволяют получить доступ к записям, 
+   хранящимся в DBase-формате (DBF) баз данных.
+  </p>
+  <p class="para">
+   База данных dBase является просто последовательностью файлов с фиксированной длиной записи. 
+   Записи добавляются в конец файла и удаленные записи будут (физически)
+   хранится до вызова <span class="function"><a href="function.dbase-pack.html" class="function">dbase_pack()</a></span>.
+  </p>
+  <p class="para">
+   Доступные типы полей dBase:
+   <table class="doctable table">
+    <caption><strong>Типы полей</strong></caption>
+    
+     <thead>
+      <tr>
+       <th>Поле</th>
+       <th>dBase тип</th>
+       <th>Формат</th>
+       <th>Дополнительная информация</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td><em>M</em></td>
+       <td>Memo</td>
+       <td>n/a</td>
+       <td>Тип не поддерживается PHP, такое поле будет игнорироваться</td>
+      </tr>
+
+      <tr>
+       <td><em>D</em></td>
+       <td>Date</td>
+       <td><em>YYYYMMDD</em></td>
+       <td>Длина поля установлена в 8</td>
+      </tr>
+
+      <tr>
+       <td><em>N</em></td>
+       <td>Number</td>
+       <td>Число</td>
+       <td>
+        Вы должны указать длину и точность (количество цифр 
+        после десятичной точки)
+       </td>
+      </tr>
+
+      <tr>
+       <td><em>C</em></td>
+       <td>String</td>
+       <td>A string</td>
+       <td>Вы должны указать длину. При получении данных, строка
+       будет дополнена справа пробелами до заявленной длины.</td>
+      </tr>
+
+      <tr>
+       <td><em>L</em></td>
+       <td>Boolean</td>
+       <td><em>T</em> или <em>Y</em> соответствует <strong><code>TRUE</code></strong>, 
+       <em>F</em> или <em>N</em> соответствует <strong><code>FALSE</code></strong></td>
+       <td>Хранится и возвращается как целое число (1 или 0)</td>
+      </tr>
+
+      <tr>
+       <td><em>F</em></td>
+       <td>Float</td>
+       <td>Число с плавающей точкой</td>
+       <td>Поддержка этого типа поля была добавлена в PHP 5.2.0</td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <p class="para">
+    Это расширение было перемещено в репозиторий
+<a href="http://pecl.php.net/" class="link external">&raquo;&nbsp;PECL</a>
+и больше не поставляется с PHP 5.3.0.
+   </p>
+  </p></blockquote>
+  <div class="warning"><strong class="warning">Внимание</strong>
+   <p class="para">
+    Нет никакой поддержки для индексов или мемо-полей. Также нет
+    поддержки захвата записи (lock).  Два параллельных процесса веб-сервера 
+    изменив один файл DBase, весьма вероятно, разрушат вашу базу данных.
+   </p>
+   <p class="para">
+    Рекомендуется не использовать DBase файлы в качестве основной базы данных приложения.
+    Выберете любой SQL сервер, например: <a href="http://www.mysql.com/" class="link external">&raquo;&nbsp;MySQL</a> или <a href="http://www.postgresql.org/" class="link external">&raquo;&nbsp;Postgres</a>
+    поддерживаемые PHP. Поддержка dBase в PHP реализована для
+    импорта и экспорта данных в основную базу данных приложения, потому что формат файлов dBase 
+    обычно хорошо понимается Windows, известными электронными таблицами и вашим руководством.
+   </p>
+  </div>
+ </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="book.dbase.html">dBase</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="dbase.setup.html">Установка и настройка</a></div>
+ <div class="up"><a href="book.dbase.html">dBase</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

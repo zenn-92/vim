@@ -1,0 +1,940 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Список основных опций конфигурации</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="configure.html">Опции конфигурации</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="ini.html">Директивы php.ini</a></div>
+ <div class="up"><a href="configure.html">Опции конфигурации</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="configure.about" class="sect1">
+  <h2 class="title">Список основных опций конфигурации</h2>
+  <p class="para">
+   Ниже приведён частичный список опций конфигурации, используемых скриптами
+   <var class="filename">configure</var> при компиляции в Unix-подобных
+   окружениях. Большинство опций конфигурации приведено в соответствующих 
+   местах на страницах с описанием расширений, а не здесь. Чтобы получить полный
+   актуальный список опций конфигурации, запустите <strong class="command">./configure --help</strong>
+   в каталоге исходного кода PHP после запуска команды <strong class="command">autoconf</strong>
+   (см. также <a href="install.html" class="link">главу Установка</a>).
+   Вам также может быть интересно почитать документацию команды
+   <a href="http://www.airs.com/ian/configure/" class="link external">&raquo;&nbsp;GNU configure</a> для получения
+   информации о дополнительных опциях команды <strong class="command">configure</strong>, таких, как
+   <em>--prefix=PREFIX</em>.
+  </p>
+  
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <p class="para">
+    Эти настройки используются только во время компиляции. Если вы хотите изменить 
+    конфигурацию PHP во время выполнения, пожалуйста смотрите главу <a href="configuration.html" class="link">Конфигурация во время выполнения</a>.
+   </p>
+  </p></blockquote>
+
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara">
+     <a href="configure.about.html#configure.options.misc" class="link">Разное</a>
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <a href="configure.about.html#configure.options.php" class="link">Поведение PHP</a>
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <a href="configure.about.html#configure.options.servers" class="link">Сервер</a>
+    </span>
+   </li>
+  </ul>
+
+  <div class="sect2" id="configure.options">
+   <h3 class="title">Опции конфигурации в PHP</h3>
+   <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+    <p class="para">
+     Эти опции используются только в PHP 4.1.0, хотя некоторые их них
+     доступны также и в более поздних версиях. Если вы хотите скомпилировать более позднюю
+     версию, то некоторые опции возможно будут недоступны.
+    </p>
+   </p></blockquote>
+   
+
+
+
+ <div class="sect3" id="configure.options.misc">
+  <h4 class="title">Различные опции</h4>
+  <dl>
+
+   
+    <dt id="configure.enable-debug">
+     <strong class="option configure">--enable-debug</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Компилировать с информацией об отладке.
+     </p>
+    </dd>
+
+   
+   
+    <dt id="configure.with-layout">
+     <strong class="option configure">--with-layout=TYPE</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Устанавливает, каким образом установленные файлы будут расположены. TYPE принимает значения
+      PHP (по умолчанию) или GNU.
+     </p>
+    </dd>
+
+   
+   
+    <dt id="configure.with-pear">
+     <strong class="option configure">--with-pear=DIR</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Установить PEAR в DIR (по умолчанию PREFIX/lib/php).
+     </p>
+    </dd>
+
+   
+   
+    <dt id="configure.without-pear">
+     <strong class="option configure">--without-pear</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Не устанавливать PEAR.
+     </p>
+    </dd>
+
+   
+
+   
+    <dt id="configure.enable-sigchild">
+     <strong class="option configure">--enable-sigchild</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Включить собственный дескриптор SIGCHLD для PHP.
+     </p>
+    </dd>
+
+   
+   
+    <dt id="configure.disable-rpath">
+     <strong class="option configure">--disable-rpath</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Не передавать дополнительные пути для поиска библиотек времени исполнения.
+     </p>
+    </dd>
+
+   
+   
+    <dt id="configure.enable-libgcc">
+     <strong class="option configure">--enable-libgcc</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Явно использовать libgcc.
+     </p>
+    </dd>
+
+   
+   
+    <dt id="configure.enable-php-streams">
+     <strong class="option configure">--enable-php-streams</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Включить экспериментальный функционал потоков PHP. Используйте только в случае, если вы тестируете код!
+     </p>
+    </dd>
+
+   
+   
+    <dt id="configure.with-zlib-dir">
+     <strong class="option configure">--with-zlib-dir[=DIR]</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Определить местонахождение библиотеки zlib.
+     </p>
+    </dd>
+
+   
+
+   
+    <dt id="configure.enable-trans-sid">
+     <strong class="option configure">--enable-trans-sid</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Включить прозрачную передачу идентификатора сессии. Применимо только
+      к PHP 4.1.2 или ниже. Начиная с PHP 4.2.0, эта опция всегда включена.
+     </p>
+    </dd>
+
+   
+
+   
+    <dt id="configure.with-tsrm-pthreads">
+     <strong class="option configure">--with-tsrm-pthreads</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Использовать нити (threads) POSIX (по умолчанию).
+     </p>
+    </dd>
+
+   
+   
+    <dt id="configure.enable-shared">
+     <strong class="option configure">--enable-shared[=PKGS]</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Собирать общие библиотеки [по умолчанию=yes].
+     </p>
+    </dd>
+
+   
+   
+    <dt id="configure.enable-static">
+     <strong class="option configure">--enable-static[=PKGS]</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Собирать статические библиотеки [по умолчанию=yes].
+     </p>
+    </dd>
+
+   
+   
+    <dt id="configure.enable-fast-install">
+     <strong class="option configure">--enable-fast-install[=PKGS]</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Оптимизировать для быстрой установки [по умолчанию=yes].
+     </p>
+    </dd>
+
+   
+   
+    <dt id="configure.with-gnu-ld">
+     <strong class="option configure">--with-gnu-ld</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Предполагать, что компилятор С использует GNU ld [по умолчанию=no].
+     </p>
+    </dd>
+
+   
+   
+    <dt id="configure.disable-libtool-lock">
+     <strong class="option configure">--disable-libtool-lock</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Избегать блокирования (может испортить параллельные сборки).
+     </p>
+    </dd>
+
+   
+   
+    <dt id="configure.with-pic">
+     <strong class="option configure">--with-pic</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Пытаться использовать только PIC/не-PIC объекты [по умолчанию=use both (использовать оба)]
+     </p>
+    </dd>
+
+   
+
+   
+    <dt id="configure.enable-memory-limit">
+     <strong class="option configure">--enable-memory-limit</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Компилировать с поддержкой ограничения памяти.
+      (не доступно начиная с PHP 5.2.1 - всегда включено)
+     </p>
+    </dd>
+
+   
+   
+    <dt id="configure.disable-url-fopen-wrapper">
+     <strong class="option configure">--disable-url-fopen-wrapper</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Отключить обертку fopen с поддержкой URL, которая позволяет
+      получать доступ к файлам через HTTP или FTP.
+      (не доступно начиная с 5.2.5)
+     </p>
+    </dd>
+
+   
+   
+    <dt id="configure.enable-versioning.php4">
+     <strong class="option configure">--enable-versioning</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Экспортировать только необходимую информацию для отладки.
+      см. INSTALL для дополнительной иформации.
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+
+   
+
+
+
+ <div class="sect3" id="configure.options.php">
+  <h4 class="title">PHP опции</h4>
+  <dl>
+
+   
+    <dt id="configure.enable-maintainer-mode">
+     <strong class="option configure">--enable-maintainer-mode</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Включает правила сборки и зависимости, неиспользуемые (и иногда конфликтующие)
+      в обычном инсталляторе.
+     </p>
+    </dd>
+
+   
+   
+    <dt id="configure.with-config-file-path">
+     <strong class="option configure">--with-config-file-path=PATH</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Устанавливает путь для поиска <var class="filename">php.ini</var>, значение по умолчанию <em>PREFIX/lib</em>.
+     </p>
+    </dd>
+
+   
+   
+    <dt id="configure.enable-safe-mode">
+     <strong class="option configure">--enable-safe-mode</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Включает безопасный режим по умолчанию.
+     </p>
+     <div class="warning"><strong class="warning">Внимание</strong><p class="simpara">Данная возможность была
+помечена <em class="emphasis">УСТАРЕВШЕЙ</em> начиная с версии PHP 5.3.0 и
+была <em class="emphasis">УДАЛЕНА</em> в версии PHP 5.4.0.</p></div>
+    </dd>
+
+   
+   
+    <dt id="configure.with-exec-dir">
+     <strong class="option configure">--with-exec-dir[=DIR]</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Разрешает запуск исполняемых файлов только из директории DIR в безопасном режиме, по умолчанию <em>/usr/local/php/bin</em>.
+     </p>
+     <div class="warning"><strong class="warning">Внимание</strong><p class="simpara">Данная возможность была
+помечена <em class="emphasis">УСТАРЕВШЕЙ</em> начиная с версии PHP 5.3.0 и
+была <em class="emphasis">УДАЛЕНА</em> в версии PHP 5.4.0.</p></div>
+    </dd>
+
+   
+   
+    <dt id="configure.enable-magic-quotes">
+     <strong class="option configure">--enable-magic-quotes</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Включает автоматическое экранирование специальных символов по умолчанию.
+     </p>
+     <div class="warning"><strong class="warning">Внимание</strong><p class="simpara">Данная возможность была
+помечена <em class="emphasis">УСТАРЕВШЕЙ</em> начиная с версии PHP 5.3.0 и
+была <em class="emphasis">УДАЛЕНА</em> в версии PHP 5.4.0.</p></div>
+    </dd>
+
+   
+   
+    <dt id="configure.disable-short-tags">
+     <strong class="option configure">--disable-short-tags</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Запрещает использование краткой формы записи начального тега &lt;? по умолчанию.
+     </p>
+    </dd>
+
+   
+   
+    <dt id="configure.enable-zend-multibyte">
+     <strong class="option configure">--enable-zend-multibyte</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Включает поддержку многобайтового кода в синтаксическом и лексическом анализаторе языка при запуске.
+      Когда PHP скомпилирован с этой опцией, становится активной также директива
+      <a href="control-structures.declare.html#control-structures.declare.encoding" class="link">encoding</a>
+      в конструкции
+      <a href="control-structures.declare.html" class="link">declare</a>.
+     </p>
+     <div class="warning"><strong class="warning">Внимание</strong><p class="simpara">Данная возможность была
+помечена <em class="emphasis">УСТАРЕВШЕЙ</em> начиная с версии PHP 5.3.0 и
+была <em class="emphasis">УДАЛЕНА</em> в версии PHP 5.4.0.</p></div>
+    </dd>
+
+   
+   
+    <dt id="configure.with-libdir">
+     <strong class="option configure">--with-libdir</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Определяет каталог библиотек для сборки PHP в Unix системах.
+      Для 64-битных систем опция требует особого аргумента
+      <em>--with-libdir=lib64</em> для
+      директории <em>lib64</em>.
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+
+   
+
+
+
+ <div class="sect3" id="configure.options.servers">
+  <h4 class="title">SAPI опции</h4>
+  <p class="para">
+   Следующий список влючает доступные опции SAPI (<em>Server
+   Application Programming Interface</em>) для PHP.
+  </p>
+  <dl>
+
+   
+    <dt id="configure.with-aolserver">
+     <strong class="option configure">--with-aolserver=DIR</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Определяет путь к установленному AOLserver.
+     </p>
+    </dd>
+
+   
+   
+    <dt id="configure.with-apxs">
+     <strong class="option configure">--with-apxs[=FILE]</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Собирает динамический модуль для Apache. FILE - это опциональный путь к инструменту Apache
+      apxs; по умолчанию для apxs. Убедитесь в том, что вы указали версию apxs, которая действительно установлена
+      в вашей системе, а не ту, которая находится в исходниках Apache.
+     </p>
+    </dd>
+
+   
+   
+    <dt id="configure.with-apache">
+     <strong class="option configure">--with-apache[=DIR]</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Собирает статичный модуль для Apache. DIR - это верхний уровень директории сборки Apache,
+      по умолчанию <var class="filename">/usr/local/apache</var>.
+     </p>
+    </dd>
+
+   
+   
+    <dt id="configure.with-mod-charset">
+     <strong class="option configure">--with-mod_charset</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Включает таблицы перекодировки для модуля mod_charset (для русской версии Apache).
+     </p>
+    </dd>
+
+   
+   
+    <dt id="configure.with-apxs2">
+     <strong class="option configure">--with-apxs2[=FILE]</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Собирает динамический модуль для Apache 2.0. FILE - это опциональный путь к инструменту Apache
+      apxs; по умолчанию для apxs.
+     </p>
+    </dd>
+
+   
+
+   
+    <dt id="configure.with-caudium">
+     <strong class="option configure">--with-caudium=DIR</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Собирает PHP как Pike-модуль для использования с Caudium. DIR - это путь к папке
+      сервера Caudium, по умолчанию значение установлено в <var class="filename">/usr/local/caudium/server</var>.
+     </p>
+    </dd>
+
+   
+
+   
+    <dt id="configure.disable-cli">
+     <strong class="option configure">--disable-cli</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Доступно с версии PHP 4.3.0. Отключает сборку CLI-версии PHP (опция также вызывает <a href="configure.about.html#configure.without-pear" class="link">--without-pear</a>).
+      Больше информации можно получить в разделе
+      <a href="features.commandline.html" class="link">Использование PHP в командной строке</a>.
+     </p>
+    </dd>
+
+   
+
+   
+    <dt id="configure.enable-embed">
+     <strong class="option configure">--enable-embed[=TYPE]</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Включает сборку встроенной библиотеки SAPI. TYPE может принимать значение
+      <em>shared</em> или <em>static</em>, по умолчанию установлено
+      <em>shared</em>. Доступно с версии PHP 4.3.0.
+     </p>
+    </dd>
+
+   
+
+   
+    <dt id="configure.with-fhttpd">
+     <strong class="option configure">--with-fhttpd[=DIR]</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Сборка fhttpd модуля. DIR - путь к исходникам fhttpd, по умолчанию
+      <var class="filename">/usr/local/src/fhttpd</var>. Опция не доступна после версии PHP 4.3.0.
+     </p>
+    </dd>
+
+   
+   
+    <dt id="configure.with-isapi">
+     <strong class="option configure">--with-isapi=DIR</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Сборка PHP как модуля ISAPI для использования в Zeus.
+     </p>
+    </dd>
+
+   
+   
+    <dt id="configure.with-nsapi">
+     <strong class="option configure">--with-nsapi=DIR</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Указывает путь к установленному Netscape/iPlanet/SunONE веб-серверу.
+     </p>
+    </dd>
+
+   
+   
+    <dt id="configure.with-phttpd">
+     <strong class="option configure">--with-phttpd=DIR</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Нет информации.
+     </p>
+    </dd>
+
+   
+   
+    <dt id="configure.with-pi3web">
+     <strong class="option configure">--with-pi3web=DIR</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Сборка PHP как модуля для использования в Pi3Web.
+     </p>
+    </dd>
+
+   
+   
+    <dt id="configure.with-roxen">
+     <strong class="option configure">--with-roxen=DIR</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Сборка PHP как Pike-модуля. DIR - это базовая директория Roxen, обычно
+      <var class="filename">/usr/local/roxen/server</var>.
+     </p>
+    </dd>
+
+   
+   
+    <dt id="configure.enable-roxen-zts">
+     <strong class="option configure">--enable-roxen-zts</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Сборка модуля Roxen, используя Zend Thread Safety.
+     </p>
+    </dd>
+
+   
+   
+    <dt id="configure.with-servlet">
+     <strong class="option configure">--with-servlet[=DIR]</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Включает поддержку сервлетов. DIR - это базовая директория установки JSDK.
+      SAPI требует java-расширения, может быть собрана как доступная для dl.
+     </p>
+    </dd>
+
+   
+   
+    <dt id="configure.with-thttpd">
+     <strong class="option configure">--with-thttpd=SRCDIR</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Сборка PHP как thttpd-модуля.
+     </p>
+    </dd>
+
+   
+
+   
+    <dt id="configure.with-tux">
+     <strong class="option configure">--with-tux=MODULEDIR</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Сборка PHP как TUX-модуля (только для Linux).
+     </p>
+    </dd>
+
+   
+
+   
+    <dt id="configure.with-webjames">
+     <strong class="option configure">--with-webjames=SRCDIR</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Сборка PHP как WebJames-модуля (только для RISC OS)
+     </p>
+    </dd>
+
+   
+
+   
+    <dt id="configure.disable-cgi">
+     <strong class="option configure">--disable-cgi</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Отключает сборку CGI-версии PHP. Доступно с версии PHP 4.3.0.
+     </p>
+     <p class="para">
+      В PHP 5.3.0 этот аргумент включает FastCGI, который предварительно
+      должен быть включен аргументом <em>--enable-fastcgi</em>.
+     </p>
+    </dd>
+
+   
+
+   
+    <dt id="configure.enable-force-cgi-redirect">
+     <strong class="option configure">--enable-force-cgi-redirect</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Включает проверку безопасности для внутрисерверных переходов. Вам следует использовать её,
+      если вы запускаете CGI-версию с Apache.
+     </p>
+     <p class="para">
+      В PHP 5.3.0 эта опция включена по умолчанию и больше не нуждается в установке.
+      Для её отключения необходимо установить ini-директиве
+      <a href="ini.core.html#ini.cgi.force-redirect" class="link">cgi.force_redirect</a>
+      значение <em>0</em>.
+     </p>
+    </dd>
+
+   
+
+   
+    <dt id="configure.enable-discard-path">
+     <strong class="option configure">--enable-discard-path</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Если эта опция включена, PHP CGI может быть безопасно размещен вне веб-дерева,
+      и у пользователей не будет возможности обойти проверку <var class="filename">.htaccess</var>.
+     </p>
+     <p class="para">
+      В PHP 5.3.0 этот аргумент отклчен по умолчанию и более не доступен.
+      Для его включения необходимо установить ini-директиве cgi.discard_path
+      значение <em>1</em>.
+     </p>
+    </dd>
+
+   
+
+   
+    <dt id="configure.with-fastcgi">
+     <strong class="option configure">--with-fastcgi</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Сборка PHP как FastCGI-приложения. Не доступно с версии PHP 4.3.0,
+      вместо неё вам следует использовать <strong class="option configure">--enable-fastcgi</strong>
+.
+     </p>
+    </dd>
+
+   
+
+  
+
+   
+    <dt id="configure.enable-fastcgi">
+     <strong class="option configure">--enable-fastcgi</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Если эта опция включена, то CGI-модуль будет собран с поддержкой FastCGI.
+      Доступно с версии PHP 4.3.0
+     </p>
+     <p class="para">
+      В PHP 5.3.0 этот параметр больше не доступен. Используйте вместо него
+      <em>--enable-cgi</em>.
+     </p>
+    </dd>
+
+   
+
+   
+    <dt id="configure.disable-path-info-check">
+     <strong class="option configure">--disable-path-info-check</strong>
+
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Если опция указана, то пути, подобные <var class="filename">/info.php/test?a=b</var>
+      будут вызывать ошибки в работе. Доступно с версии PHP 4.3.0.
+      Для более детальной информации см.
+      <a href="http://httpd.apache.org/docs/current/mod/core.html#acceptpathinfo" class="link external">&raquo;&nbsp;Руководство Apache</a>.
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+
+  </div>
+ </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="configure.html">Опции конфигурации</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="ini.html">Директивы php.ini</a></div>
+ <div class="up"><a href="configure.html">Опции конфигурации</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

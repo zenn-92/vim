@@ -1,0 +1,510 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>MySQL Functions (PDO_MYSQL)</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="ref.pdo-informix.connection.html">PDO_INFORMIX DSN</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="ref.pdo-mysql.connection.html">PDO_MYSQL DSN</a></div>
+ <div class="up"><a href="pdo.drivers.html">PDO Драйверы</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="ref.pdo-mysql" class="reference">
+  
+  <h1 class="title">MySQL Functions (PDO_MYSQL)</h1>
+  
+  <div class="partintro">
+
+   <div class="section" id="pdo-mysql.intro">
+   <h2 class="title">Введение</h2>
+    <p class="para">
+     PDO_MYSQL is a driver that implements the <a href="intro.pdo.html" class="link">PHP
+     Data Objects (PDO) interface</a>
+     to enable access from PHP to MySQL 3.x, 4.x and 5.x databases.
+    </p>
+    <p class="para">
+     PDO_MYSQL will take advantage of native prepared statement support
+     present in MySQL 4.1 and higher.  If you&#039;re using an older version of the
+     mysql client libraries, PDO will emulate them for you.
+    </p>
+    <div class="warning"><strong class="warning">Внимание</strong>
+     <p class="para">
+      Beware: Some MySQL table types (storage engines) do not support transactions.  When
+      writing transactional database code using a table type that does not support
+      transactions, MySQL will pretend that a transaction was initiated successfully.
+      In addition, any DDL queries issued will implicitly
+      commit any pending transactions.
+     </p>
+    </div>
+   </div>
+   
+
+
+
+<div class="section" id="ref.pdo-mysql.installation">
+ <h2 class="title">Установка</h2>
+ <p class="para">
+  Используйте <strong class="option configure">--with-pdo-mysql[=DIR]</strong>
+ для установки
+  расширения PDO MySQL, где необязательный параметр <em>[=DIR]</em>
+  указывает директорию, где установлена MySQL. Если
+  <a href="book.mysqlnd.html" class="link">mysqlnd</a> передается в параметре
+  <em>[=DIR]</em>, то будет использован родной драйвер MySQL.
+ </p>
+ <p class="para">
+  Дополнительный параметр <strong class="option configure">--with-mysql-sock[=DIR]</strong>
+ указывает
+  расположение unix-сокета MySQL для всех MySQL расширений, включая PDO_MYSQL.
+  Если параметр не указан, поиск производится в директориях по умолчанию.
+ </p>
+ <p class="para">
+  Дополнительный параметр <strong class="option configure">--with-zlib-dir[=DIR]</strong>
+
+  используется как префикс пути к libz.
+ </p>
+ <p class="para">
+  <div class="example-contents screen">
+<div class="cdata"><pre>
+$ ./configure --with-pdo-mysql --with-mysql-sock=/var/mysql/mysql.sock
+</pre></div>
+  </div>
+ </p>
+ <p class="para">
+  Поддержка SSL включается, используя соответствующую <a href="ref.pdo-mysql.html#pdo-mysql.constants" class="link">константу PDO_MySQL</a>,
+  которая эквивалентна вызову <a href="http://dev.mysql.com/doc/mysql/en/mysql-ssl-set.html" class="link external">&raquo;&nbsp;MySQL C API функции mysql_ssl_set()</a>.
+  К тому же SSL не может быть включен с помощью <strong class="classname">PDO::setAttribute</strong>, потому что соединение
+  уже существует. Смотрите документацию MySQL о <a href="http://dev.mysql.com/doc/mysql/en/configuring-for-ssl.html" class="link external">&raquo;&nbsp;подключении к
+  MySQL с SSL</a>.
+ </p>
+
+ <table class="doctable table">
+  <caption><strong>Список изменений</strong></caption>
+  
+   <thead>
+    <tr>
+     <th>Версия</th>
+     <th>Описание</th>
+    </tr>
+
+   </thead>
+
+   <tbody class="tbody">
+    <tr>
+     <td>5.4.0</td>
+     <td>
+      Клиентские библиотеки MySQL версии 4.1 и ниже больше не поддерживаются.
+     </td>
+    </tr>
+
+    <tr>
+     <td>5.3.9</td>
+     <td>
+      Добавлена поддержка SSL в mysqlnd с OpenSSL.
+     </td>
+    </tr>
+
+    <tr>
+     <td>5.3.7</td>
+     <td>
+      Добавлена поддержка SSL в libmysql с OpenSSL.
+     </td>
+    </tr>
+
+   </tbody>
+  
+ </table>
+
+
+</div>
+
+
+
+   
+
+
+
+<div class="section" id="pdo-mysql.constants">
+ <h2 class="title">Предопределенные константы</h2>
+ <p class="simpara">Перечисленные ниже константы определены
+данным драйвером и будут доступны только в случае, если PHP был собран с поддержкой этого расширения или данное расширение
+было подгружено динамечески во время выполнения. Вдобавок, эти драйверо-зависимые константы должны быть использованы только
+совместно с этим драйвером. Использование атрибутов, специфичных для некоторого драйвера с другим драйвером может вызвать
+неожиданное поведенние. Если ваш код выполняется с несколькими драйверами, то можно использовать функцию
+<span class="function"><a href="pdo.getattribute.html" class="function">PDO::getAttribute()</a></span> для получения атрибута <strong><code>PDO_ATTR_DRIVER_NAME</code></strong>
+для проверки драйвера.</p>
+ <dl>
+
+  
+   <dt id="pdo.constants.mysql-attr-use-buffered-query">
+    <strong><code>PDO::MYSQL_ATTR_USE_BUFFERED_QUERY</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Если этот аттрибут установлен в <strong><code>TRUE</code></strong> в
+     <a href="class.pdostatement.html" class="classname">PDOStatement</a>, MySQL драйвер
+     будет использовать буферизованные версии MySQL API.
+     Если вы пишете переносимый на другие библиотеки код,
+     вы должны использовать <span class="function"><a href="pdostatement.fetchall.html" class="function">PDOStatement::fetchAll()</a></span>.
+    </span>
+    <p class="para">
+     <div class="example" id="example-1000"><p><strong>Пример #1 Буферизация запросов в MySQL</strong></p>
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">$db</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getAttribute</span><span style="color: #007700">(</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">ATTR_DRIVER_NAME</span><span style="color: #007700">)&nbsp;==&nbsp;</span><span style="color: #DD0000">'mysql'</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$stmt&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$db</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #DD0000">'select&nbsp;*&nbsp;from&nbsp;foo'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">MYSQL_ATTR_USE_BUFFERED_QUERY&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">));<br />}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">"my&nbsp;application&nbsp;only&nbsp;works&nbsp;with&nbsp;mysql;&nbsp;I&nbsp;should&nbsp;use&nbsp;\$stmt-&gt;fetchAll()&nbsp;instead"</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+      </div>
+
+     </div>
+    </p>
+   </dd>
+
+  
+  
+   <dt id="pdo.constants.mysql-attr-local-infile">
+    <strong><code>PDO::MYSQL_ATTR_LOCAL_INFILE</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <p class="para">
+     Включить <em>LOAD LOCAL INFILE</em>.
+    </p>
+    <p class="para">
+     Обратите внимание, что эта константа может быть использована только
+     в массиве <code class="parameter">driver_options</code> при создании
+     дескриптора новой базы данных.
+    </p>
+   </dd>
+
+  
+  
+   <dt id="pdo.constants.mysql-attr-init-command">
+    <strong><code>PDO::MYSQL_ATTR_INIT_COMMAND</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <p class="para">
+     Команда, которую необходимо выполнить при подключении к MySQL серверу.
+     Также будет автоматически выполнена при переподключении.
+    </p>
+    <p class="para">
+     Обратите внимание, что эта константа может быть использована только
+     в массиве <code class="parameter">driver_options</code> при создании
+     дескриптора новой базы данных.
+    </p>
+   </dd>
+
+  
+  
+   <dt id="pdo.constants.mysql-attr-read-default-file">
+    <strong><code>PDO::MYSQL_ATTR_READ_DEFAULT_FILE</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <p class="para">
+     Чтение именованных параметров из файла <var class="filename">my.cnf</var>.
+     Эта опция не доступна, если используется mysqlnd, потому что
+     mysqlnd не читает файлы конфигурации MySQL.
+    </p>
+   </dd>
+
+  
+  
+   <dt id="pdo.constants.mysql-attr-read-default-group">
+    <strong><code>PDO::MYSQL_ATTR_READ_DEFAULT_GROUP</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <p class="para">
+     Чтение именованной группы параметров из файла <var class="filename">my.cnf</var>
+     или из файла, определенного в константе <strong><code>MYSQL_READ_DEFAULT_FILE</code></strong>.
+     Эта опция не доступна, если используется mysqlnd, потому что
+     mysqlnd не читает файлы конфигурации MySQL.
+    </p>
+   </dd>
+
+  
+  
+   <dt id="pdo.constants.mysql-attr-max-buffer-size">
+    <strong><code>PDO::MYSQL_ATTR_MAX_BUFFER_SIZE</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <p class="para">
+     Максимальный размер буфера. По умолчанию равен 1 Мб.
+     Эта константа не поддерживается при компиляции вместе
+     с mysqlnd.
+    </p>
+   </dd>
+
+  
+  
+   <dt id="pdo.constants.mysql-attr-direct-query">
+    <strong><code>PDO::MYSQL_ATTR_DIRECT_QUERY</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <p class="para">
+     Выполнять прямые запросы, не использовать
+     подготовленные конструкции.
+    </p>
+   </dd>
+
+  
+  
+   <dt id="pdo.constants.mysql-attr-found-rows">
+    <strong><code>PDO::MYSQL_ATTR_FOUND_ROWS</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <p class="para">
+     Возвращает количество найденных (совпавших) строк
+     (не количество измененных строк).
+    </p>
+   </dd>
+
+  
+  
+   <dt id="pdo.constants.mysql-attr-ignore-space">
+    <strong><code>PDO::MYSQL_ATTR_IGNORE_SPACE</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <p class="para">
+     Разрешает пробелы после имен функций.
+     Делает все имена функций зарезервированными словами.
+    </p>
+   </dd>
+
+  
+  
+   <dt id="pdo.constants.mysql-attr-compress">
+    <strong><code>PDO::MYSQL_ATTR_COMPRESS</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <p class="para">
+     Включить сжатие сетевого соединения.
+     Эта константа не поддерживается при компиляции вместе
+     с mysqlnd.
+    </p>
+   </dd>
+
+  
+
+  
+   <dt id="pdo.constants.mysql-attr-ssl-ca">
+    <strong><code>PDO::MYSQL_ATTR_SSL_CA</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <p class="para">
+     Путь к файлу сертификата SSL.
+    </p>
+    <p class="para">
+     Существует, начиная с PHP  5.3.7.
+    </p>
+   </dd>
+
+  
+
+  
+   <dt id="pdo.constants.mysql-attr-ssl-capath">
+    <strong><code>PDO::MYSQL_ATTR_SSL_CAPATH</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <p class="para">
+     Путь к директории, которая содержит SSL сертификаты доверенных центров (CA),
+     хранящиеся в формате PEM.
+    </p>
+    <p class="para">
+     Существует, начиная с PHP  5.3.7.
+    </p>
+   </dd>
+
+  
+
+  
+   <dt id="pdo.constants.mysql-attr-ssl-cert">
+    <strong><code>PDO::MYSQL_ATTR_SSL_CERT</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <p class="para">
+     Путь к файлу с SSL сертификатом.
+    </p>
+    <p class="para">
+     Существует, начиная с PHP  5.3.7.
+    </p>
+   </dd>
+
+  
+
+  
+   <dt id="pdo.constants.mysql-attr-cipher">
+    <strong><code>PDO::MYSQL_ATTR_CIPHER</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <p class="para">
+     Список из одного или более допустимых шифров для использования в SSL шифровании в формате,
+     который понимает OpenSSL. Например: <em>DHE-RSA-AES256-SHA:AES128-SHA</em>
+    </p>
+    <p class="para">
+     Существует, начиная с PHP  5.3.7.
+    </p>
+   </dd>
+
+  
+
+  
+   <dt id="pdo.constants.mysql-attr-key">
+    <strong><code>PDO::MYSQL_ATTR_KEY</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <p class="para">
+     Путь к файлу с ключем SSL.
+    </p>
+    <p class="para">
+     Существует, начиная с PHP  5.3.7.
+    </p>
+   </dd>
+
+  
+
+ </dl>
+
+</div>
+
+
+
+   
+
+<div class="section" id="pdo-mysql.configuration">
+ <h2 class="title">Настройка во время выполнения</h2>
+ <p class="simpara">
+Поведение этих функций зависит от установок в <var class="filename">php.ini</var>.
+</p>
+ <p class="para">
+  <table class="doctable table">
+   <caption><strong>PDO_MYSQL Configuration Options</strong></caption>
+   
+    <thead>
+     <tr>
+      <th>Имя</th>
+      <th>По умолчанию</th>
+      <th>Меняемо</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td><a href="ref.pdo-mysql.html#ini.pdo-mysql.default-socket" class="link">pdo_mysql.default_socket</a></td>
+      <td>&quot;/tmp/mysql.sock&quot;</td>
+      <td>PHP_INI_SYSTEM</td>
+     </tr>
+
+     <tr>
+      <td><a href="ref.pdo-mysql.html#ini.pdo-mysql.debug" class="link">pdo_mysql.debug</a></td>
+      <td>NULL</td>
+      <td>PHP_INI_SYSTEM</td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+  Для подробного описания констант
+PHP_INI_*, обратитесь к разделу <a href="configuration.changes.modes.html" class="xref">Где могут быть установлены параметры конфигурации</a>.
+ </p>
+
+ <p class="para">Краткое разъяснение конфигурационных
+директив.</p>
+
+ <p class="para">
+  <dl>
+
+   
+    <dt id="ini.pdo-mysql.default-socket">
+     <code class="parameter">pdo_mysql.default_socket</code>
+     <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Sets a Unix domain socket. This value can either be set at compile time if 
+      a domain socket is found at configure. This ini setting is Unix only.
+     </p>
+    </dd>
+
+   
+   
+    <dt id="ini.pdo-mysql.debug">
+     <code class="parameter">pdo_mysql.debug</code>
+     <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Enables debugging for PDO_MYSQL. This setting is only available when PDO_MYSQL is 
+      compiled against mysqlnd and in PDO debug mode.
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </p>
+</div>
+
+
+
+  </div>
+
+  
+
+ <h2>Содержание</h2><ul class="chunklist chunklist_reference"><li><a href="ref.pdo-mysql.connection.html">PDO_MYSQL DSN</a> — Connecting to MySQL databases</li></ul>
+</div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="ref.pdo-informix.connection.html">PDO_INFORMIX DSN</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="ref.pdo-mysql.connection.html">PDO_MYSQL DSN</a></div>
+ <div class="up"><a href="pdo.drivers.html">PDO Драйверы</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Декодирует поле MIME-заголовка</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.iconv-mime-decode-headers.html">iconv_mime_decode_headers</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.iconv-mime-encode.html">iconv_mime_encode</a></div>
+ <div class="up"><a href="ref.iconv.html">iconv</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.iconv-mime-decode" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">iconv_mime_decode</h1>
+  <p class="verinfo">(PHP 5)</p><p class="refpurpose"><span class="refname">iconv_mime_decode</span> &mdash; <span class="dc-title">Декодирует поле <em>MIME</em>-заголовка</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.iconv-mime-decode-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">string</span> <span class="methodname"><strong>iconv_mime_decode</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$encoded_header</code></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code><span class="initializer"> = 0</span></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$charset</code><span class="initializer"> = ini_get(&quot;iconv.internal_encoding&quot;)</span></span>
+  ]] )</div>
+
+  <p class="para rdfs-comment">
+   Декодирует поле <em>MIME</em>-заголовка.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.iconv-mime-decode-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">encoded_header</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Закодированный заголовок в виде строки.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">mode</code></dt>
+
+     <dd>
+
+      <p class="para">
+       <code class="parameter">mode</code> задает режим поведения функции в случае, когда
+       <span class="function"><strong>iconv_mime_decode()</strong></span> определит, что 
+       <em>MIME</em>-заголовок имеет недопустимую структуру. Режим
+       задается комбинацией следующих битовых масок.
+       <table class="doctable table">
+        <caption><strong>Битовые маски, применяемые в <span class="function"><strong>iconv_mime_decode()</strong></span></strong></caption>
+        
+         <thead>
+          <tr>
+           <th>Значение</th>
+           <th>Константа</th>
+           <th>Описание</th>
+          </tr>
+
+         </thead>
+
+         <tbody class="tbody">
+          <tr>
+           <td>1</td>
+           <td>ICONV_MIME_DECODE_STRICT</td>
+           <td>
+            Если задано, заголовок декодируется в полном соответствии со 
+            стандартом <a href="http://www.faqs.org/rfcs/rfc2047" class="link external">&raquo;&nbsp;RFC2047</a>.
+            Эта опция отключена по умолчанию, так как существует множество
+            почтовых программ, которые не следуют спецификации и формируют 
+            некорректные с точки зрения стандарта <em>MIME</em>-заголовки.
+           </td>
+          </tr>
+
+          <tr>
+           <td>2</td>
+           <td>ICONV_MIME_DECODE_CONTINUE_ON_ERROR</td>
+           <td>
+            Если задано, <span class="function"><a href="function.iconv-mime-decode-headers.html" class="function">iconv_mime_decode_headers()</a></span> будет
+            пытаться пропускать грамматические ошибки и продолжать обработку 
+            заголовка.
+           </td>
+          </tr>
+
+         </tbody>
+        
+       </table>
+
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">charset</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Необязательный аргумент <code class="parameter">charset</code> задает набор символов,
+       в котором будет представлен результат. Если аргумент опущен, будет
+       использоваться <a href="iconv.configuration.html" class="link">iconv.internal_encoding</a>.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.iconv-mime-decode-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает декодированный <em>MIME</em>-заголовок в случае успеха
+   или <strong><code>FALSE</code></strong> в случае ошибки.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.iconv-mime-decode-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-2527">
+    <p><strong>Пример #1 Пример использования <span class="function"><strong>iconv_mime_decode()</strong></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Выдаст&nbsp;в&nbsp;результате&nbsp;"Subject:&nbsp;Prüfung&nbsp;Prüfung"<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">iconv_mime_decode</span><span style="color: #007700">(</span><span style="color: #DD0000">"Subject:&nbsp;=?UTF-8?B?UHLDvGZ1bmcgUHLDvGZ1bmc=?="</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"ISO-8859-1"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.iconv-mime-decode-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.iconv-mime-decode-headers.html" class="function" rel="rdfs-seeAlso">iconv_mime_decode_headers()</a> - Декодирует несколько полей заголовка MIME</span></li>
+    <li class="member"><span class="function"><a href="function.mb-decode-mimeheader.html" class="function" rel="rdfs-seeAlso">mb_decode_mimeheader()</a> - Декодирует строку в MIME-заголовке</span></li>
+    <li class="member"><span class="function"><a href="function.imap-mime-header-decode.html" class="function" rel="rdfs-seeAlso">imap_mime_header_decode()</a> - Decode MIME header elements</span></li>
+    <li class="member"><span class="function"><a href="function.imap-base64.html" class="function" rel="rdfs-seeAlso">imap_base64()</a> - Decode BASE64 encoded text</span></li>
+    <li class="member"><span class="function"><a href="function.imap-qprint.html" class="function" rel="rdfs-seeAlso">imap_qprint()</a> - Convert a quoted-printable string to an 8 bit string</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.iconv-mime-decode-headers.html">iconv_mime_decode_headers</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.iconv-mime-encode.html">iconv_mime_encode</a></div>
+ <div class="up"><a href="ref.iconv.html">iconv</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

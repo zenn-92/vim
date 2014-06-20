@@ -1,0 +1,162 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Числа с плавающей точкой</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="language.types.integer.html">Целые числа</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="language.types.string.html">Строки</a></div>
+ <div class="up"><a href="language.types.html">Типы</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="language.types.float" class="sect1">
+ <h2 class="title">Числа с плавающей точкой</h2>
+
+ <p class="para">
+  Числа с плавающей точкой (также известные как &quot;float&quot;, &quot;double&quot;, или &quot;real&quot;)
+  могут быть определены следующими синтаксисами:
+ </p>
+
+ <div class="informalexample">
+  <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1.234</span><span style="color: #007700">;&nbsp;<br /></span><span style="color: #0000BB">$b&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1.2e3</span><span style="color: #007700">;&nbsp;<br /></span><span style="color: #0000BB">$c&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">7E-10</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+  </div>
+
+ </div>
+
+ <p class="para">
+  Формально:
+ </p>
+
+ <div class="informalexample">
+  <div class="example-contents">
+<div class="cdata"><pre>
+LNUM          [0-9]+
+DNUM          ([0-9]*[\.]{LNUM}) | ({LNUM}[\.][0-9]*)
+EXPONENT_DNUM [+-]?(({LNUM} | {DNUM}) [eE][+-]? {LNUM})
+</pre></div>
+  </div>
+
+ </div>
+
+ <p class="para">
+  Размер числа с плавающей точкой зависит от платформы, хотя максимум, как правило
+  составляет ~1.8e308 с точностью около 14 десятичных цифр (64-битный IEEE формат).
+ </p>
+
+ <div class="warning"><strong class="warning">Внимание</strong>
+  <h1 class="title">Точность чисел с плавающей точкой</h1>
+
+  <p class="para">
+   Числа с плавающей точкой имеют ограниченную точность. Хотя это
+   зависит от операционной системы, в PHP обычно используется формат
+   двойной точности IEEE 754, дающий максимальную относительную ошибку
+   округления порядка 1.11e-16.
+   Неэлементарные арифметические операции могут давать большие ошибки,
+   и, разумеется, необходимо принимать во внимание распространение ошибок
+   при совместном использовании нескольких операций.
+  </p>
+
+  <p class="para">
+   Кроме того, рациональные числа, которые могут быть точно представлены
+   в виде чисел с плавающей точкой с основанием 10, например,
+   <em>0.1</em> или <em>0.7</em>, не имеют
+   точного внутреннего представления в качестве чисел с плавающей точкой
+   с основанием 2, вне зависимости от размера мантиссы.
+   Поэтому они и не могут быть преобразованы в их внутреннюю двоичную форму
+   без небольшой потери точности. Это может привести к неожиданным результатам:
+   например, <em>floor((0.1+0.7)*10)</em> скорее всего вернет
+   <em>7</em> вместо ожидаемого <em>8</em>, так как
+   результат внутреннего представления будет чем-то вроде
+   <em>7.9999999999999991118...</em>.
+  </p>
+
+  <p class="para">
+   Так что никогда не доверяйте точности чисел с плавающей точкой до последней цифры,
+   и не проверяйте напрямую их равенство.
+   Если вам действительно необходима высокая точность, используйте
+   <a href="ref.bc.html" class="link">математические функции произвольной точности</a> и
+   <a href="ref.gmp.html" class="link">gmp</a>-функции.
+  </p>
+
+  <p class="para">
+   &quot;Простое&quot; объяснение можно найти в <a href="http://floating-point-gui.de/" class="link external">&raquo;&nbsp;руководстве
+   по числам с плавающей точкой</a>, которое также называется
+   &quot;Why don’t my numbers add up?&quot; (&quot;Почему мои числа не складываются?&quot;)
+  </p>
+ </div>
+
+ <div class="sect2" id="language.types.float.casting">
+  <h3 class="title">Преобразование в число с плавающей точкой</h3>
+  
+  <p class="para">
+   Информацию о преобразовании строк в числа с плавающей точкой смотрите в разделе
+   <a href="language.types.string.html#language.types.string.conversion" class="link">Преобразование строк в числа</a>.
+   Для значений других типов преобразование будет сначала осуществлено в
+   в <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span> и затем в число с плавающей точкой.
+   Дополнительную информацию смотрите в разделе
+   <a href="language.types.integer.html#language.types.integer.casting" class="link">Преобразование к целому</a>.
+   Начиная с версии PHP 5, при преобразовании объекта к числу с плавающей точкой
+   выводится замечание об ошибке.
+  </p>
+
+ </div>
+ 
+ <div class="sect2" id="language.types.float.comparison">
+  <h3 class="title">Сравнение чисел с плавающей точкой</h3>
+
+  <p class="para">
+   Как указано выше, проверять числа с плавающей точкой на равенство
+   проблематично из-за их внутреннего представления. 
+   Тем не менее, существуют способы для их сравнения, которые работают
+   несмотря на все эти ограничения.
+  </p>
+
+  <p class="para">
+   Для сравнения чисел с плавающей точкой используется верхняя граница
+   относительной ошибки при округлении. Эта величина называется
+   машинной эпсилон или единица округления(unit roundoff) и 
+   представляет собой самую маленькую допустимую разницу при расчетах.
+  </p>
+  
+  <div class="informalexample">
+   <p class="simpara">
+    <var class="varname"><var class="varname">$a</var></var> и <var class="varname"><var class="varname">$b</var></var> равны до 5-ти 
+    знаков после запятой.
+   </p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1.23456789</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$b&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1.23456780</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$epsilon&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0.00001</span><span style="color: #007700">;<br /><br />if(</span><span style="color: #0000BB">abs</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">-</span><span style="color: #0000BB">$b</span><span style="color: #007700">)&nbsp;&lt;&nbsp;</span><span style="color: #0000BB">$epsilon</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"true"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+ </div> 
+
+ <div class="sect2" id="language.types.float.nan">
+  <h3 class="title">NaN</h3>
+  <p class="para">
+   Некоторые числовые операции могут возвращать значение, представляемое
+   константой <strong><code>NAN</code></strong>. Данный результат означает неопределенное
+   или непредставимое значение в операциях с плавающей точкой. Любое строгое
+   или нестрогое сравнение данного значения с другим значением, включая его
+   самого, возвратит <strong><code>FALSE</code></strong>.
+  </p>
+  <p class="para">
+   Так как <strong><code>NAN</code></strong> представляет собой неограниченное количество
+   различных значений, то <strong><code>NAN</code></strong> не следует сравнивать с
+   другими значениями, включая ее саму. Вместо этого, для определения ее наличия
+   необходимо использовать функцию <span class="function"><a href="function.is-nan.html" class="function">is_nan()</a></span>.
+  </p>
+ </div>
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="language.types.integer.html">Целые числа</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="language.types.string.html">Строки</a></div>
+ <div class="up"><a href="language.types.html">Типы</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

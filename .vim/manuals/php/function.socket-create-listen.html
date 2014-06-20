@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Открывает сокет на указанном порту для принятия соединений</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.socket-connect.html">socket_connect</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.socket-create-pair.html">socket_create_pair</a></div>
+ <div class="up"><a href="ref.sockets.html">Сокетные Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.socket-create-listen" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">socket_create_listen</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.1.0, PHP 5)</p><p class="refpurpose"><span class="refname">socket_create_listen</span> &mdash; <span class="dc-title">Открывает сокет на указанном порту для принятия соединений</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.socket-create-listen-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">resource</span> <span class="methodname"><strong>socket_create_listen</strong></span>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$port</code></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$backlog</code><span class="initializer"> = 128</span></span>
+  ] )</div>
+
+  <p class="para rdfs-comment">
+   <span class="function"><strong>socket_create_listen()</strong></span> создаёт новый ресурс сокета
+   типа <strong><code>AF_INET</code></strong>, слушающий на <em class="emphasis">всех</em>
+   локальных интерфейсах указанный порт в ожидании новых соединений.
+  </p>
+  <p class="para">
+   Эта функция предназначена для упрощения задачи создания нового сокета, который
+   только слушает порт для получения новых соединений.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.socket-create-listen-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">port</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Порт, который нужно слушать на всех интерфейсах.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">backlog</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Параметр <code class="parameter">backlog</code> определяет максимальную длину,
+       до которой может вырасти очередь ожидающих соединений.
+       <strong><code>SOMAXCONN</code></strong> может быть передан как параметр
+       <code class="parameter">backlog</code>, смотрите
+       <span class="function"><a href="function.socket-listen.html" class="function">socket_listen()</a></span> для более полной информации.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.socket-create-listen-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   <span class="function"><strong>socket_create_listen()</strong></span> возвращает новый ресурс сокета 
+   в случае успешного завершения или <strong><code>FALSE</code></strong> в случае ошибки. Код ошибки может быть получен
+   при помощи функции <span class="function"><a href="function.socket-last-error.html" class="function">socket_last_error()</a></span>. Этот код может быть передан
+   функции <span class="function"><a href="function.socket-strerror.html" class="function">socket_strerror()</a></span> для получения текстового описания
+   ошибки.
+  </p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.socket-create-listen-notes">
+  <h3 class="title">Примечания</h3>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <p class="para">
+    Если вы хотите создать сокет, который будет прослушивать только определённый 
+    интерфейс, вам нужно использовать функции <span class="function"><a href="function.socket-create.html" class="function">socket_create()</a></span>,
+    <span class="function"><a href="function.socket-bind.html" class="function">socket_bind()</a></span> и <span class="function"><a href="function.socket-listen.html" class="function">socket_listen()</a></span>.
+   </p>
+  </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.socket-create-listen-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.socket-create.html" class="function" rel="rdfs-seeAlso">socket_create()</a> - Create a socket (endpoint for communication)</span></li>
+    <li class="member"><span class="function"><a href="function.socket-create-pair.html" class="function" rel="rdfs-seeAlso">socket_create_pair()</a> - Создаёт пару неразличимых сокетов и сохраняет их в массиве</span></li>
+    <li class="member"><span class="function"><a href="function.socket-bind.html" class="function" rel="rdfs-seeAlso">socket_bind()</a> - Привязывает имя к сокету</span></li>
+    <li class="member"><span class="function"><a href="function.socket-listen.html" class="function" rel="rdfs-seeAlso">socket_listen()</a> - Listens for a connection on a socket</span></li>
+    <li class="member"><span class="function"><a href="function.socket-last-error.html" class="function" rel="rdfs-seeAlso">socket_last_error()</a> - Возвращает последнюю ошибку на сокете</span></li>
+    <li class="member"><span class="function"><a href="function.socket-strerror.html" class="function" rel="rdfs-seeAlso">socket_strerror()</a> - Возвращает строку, описывающую ошибку сокета</span></li>
+   </ul>
+  </p>
+ </div>
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.socket-connect.html">socket_connect</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.socket-create-pair.html">socket_create_pair</a></div>
+ <div class="up"><a href="ref.sockets.html">Сокетные Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

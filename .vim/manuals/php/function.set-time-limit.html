@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Ограничение времени выполнения скрипта</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.set-magic-quotes-runtime.html">set_magic_quotes_runtime</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.sys-get-temp-dir.html">sys_get_temp_dir</a></div>
+ <div class="up"><a href="ref.info.html">PHP опции/Информационные Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.set-time-limit" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">set_time_limit</h1>
+  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">set_time_limit</span> &mdash; <span class="dc-title">Ограничение времени выполнения скрипта</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.set-time-limit-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type"><span class="type void">void</span></span> <span class="methodname"><strong>set_time_limit</strong></span>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$seconds</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Задает время в секундах, в течение которого скрипт должен завершить работу.
+   Если скрипт не успевает, вызывается фатальная ошибка. По умолчанию дается
+   30 секунд, либо время, записанное в настройке
+   <em>max_execution_time</em> в <var class="filename">php.ini</var> (если такая настройка
+   установлена).
+  </p>
+  <p class="para">
+   При вызове <span class="function"><strong>set_time_limit()</strong></span> перезапускает счетчик с нуля.
+   Другими словами, если таймаут изначально был 30 секунд, и через 25 секунд
+   после запуска скрипта будет вызвана функция <em>set_time_limit(20)</em>,
+   то скрипт будет работать максимум 45 секунд.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.set-time-limit-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">seconds</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Максимальное время выполнения в секундах. Если задан ноль, время
+       выполнения неограничено.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.set-time-limit-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Эта функция не возвращает значения после выполнения.
+  </p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.set-time-limit-notes">
+  <h3 class="title">Примечания</h3>
+  <div class="warning"><strong class="warning">Внимание</strong>
+   <p class="para">
+    Эта функция не работает, если PHP работает в безопасном режиме (<a href="ini.sect.safe-mode.html#ini.safe-mode" class="link">безопасный режим</a>).
+    Обойти это ограничение можно только выключив безопасный режим или изменив
+    значение настройки в <var class="filename">php.ini</var>.
+   </p>
+  </div>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <p class="para">
+    Функция <span class="function"><strong>set_time_limit()</strong></span> и директива 
+    <a href="info.configuration.html#ini.max-execution-time" class="link">max_execution_time</a>
+    влияют на время выполнения только самого скрипта. Время затраченное на
+    различные действия вне скрипта, такие как системные вызовы функции
+    <span class="function"><a href="function.system.html" class="function">system()</a></span>, потоковые операции, запросы к базам данных
+    и т.п. не включаются в расчет времени выполнения скрипта. Это не относится
+    к Windows системам, где расчитывается абсолютное время выполнения.
+   </p>
+  </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.set-time-limit-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><a href="info.configuration.html#ini.max-execution-time" class="link">max_execution_time</a></li>
+    <li class="member"><a href="info.configuration.html#ini.max-input-time" class="link">max_input_time</a></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.set-magic-quotes-runtime.html">set_magic_quotes_runtime</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.sys-get-temp-dir.html">sys_get_temp_dir</a></div>
+ <div class="up"><a href="ref.info.html">PHP опции/Информационные Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

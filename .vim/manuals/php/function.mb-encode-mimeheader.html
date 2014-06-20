@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Кодирование строки для MIME-заголовка</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.mb-detect-order.html">mb_detect_order</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.mb-encode-numericentity.html">mb_encode_numericentity</a></div>
+ <div class="up"><a href="ref.mbstring.html">Функции для работы с Многобайтными строками</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.mb-encode-mimeheader" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">mb_encode_mimeheader</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5)</p><p class="refpurpose"><span class="refname">mb_encode_mimeheader</span> &mdash; <span class="dc-title">Кодирование строки для MIME-заголовка</span></p>
+
+ </div>
+   
+ <div class="refsect1 description" id="refsect1-function.mb-encode-mimeheader-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">string</span> <span class="methodname"><strong>mb_encode_mimeheader</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$str</code></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$charset</code></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$transfer_encoding</code></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$linefeed</code><span class="initializer"> = &quot;\r\n&quot;</span></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$indent</code><span class="initializer"> = 0</span></span>
+  ]]]] )</div>
+
+  <p class="para rdfs-comment">
+   Кодирует строку <span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">str</code> 
+   по схеме кодирования MIME-заголовка.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.mb-encode-mimeheader-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">str</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Кодируемая строка <span class="type"><a href="language.types.string.html" class="type string">string</a></span>.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">charset</code></dt>
+
+     <dd>
+
+      <p class="para">
+       <code class="parameter">charset</code> задает имя набора символов, в котором
+       представлена строка <code class="parameter">str</code>. По умолчанию значение 
+       определяется настройкой NLS (<em>mbstring.language</em>).
+       <span class="function"><a href="function.mb-internal-encoding.html" class="function">mb_internal_encoding()</a></span> должна быть установлена в 
+       ту же кодировку.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">transfer_encoding</code></dt>
+
+     <dd>
+
+      <p class="para">
+       <code class="parameter">transfer_encoding</code> задает схему MIME кодирования.
+       Это может быть либо <em>&quot;B&quot;</em> (Base64), либо 
+       <em>&quot;Q&quot;</em> (Quoted-Printable). По умолчанию
+       <em>&quot;B&quot;</em>.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">linefeed</code></dt>
+
+     <dd>
+
+      <p class="para">
+       <code class="parameter">linefeed</code> задает метку EOL (конец строки, 
+       end-of-line), с помощью которой 
+       <span class="function"><strong>mb_encode_mimeheader()</strong></span> осуществляет завершение строк
+       (<a href="http://www.faqs.org/rfcs/rfc2822" class="link external">&raquo;&nbsp;RFC</a> терм, разделение строк, длина 
+       которых превышает заданное значение. Это значение на данный момент жестко
+       закодировано и равно 74 символам). По умолчанию 
+       <em>&quot;\r\n&quot;</em> (CRLF).
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">indent</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Отступ первой строки (число символов в заголовке перед
+       <code class="parameter">str</code>).
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 returnvalues" id="refsect1-function.mb-encode-mimeheader-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Преобразованное значение строки <span class="type"><a href="language.types.string.html" class="type string">string</a></span>, представленное в ASCII.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.mb-encode-mimeheader-changelog">
+  <h3 class="title">Список изменений</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Версия</th>
+       <th>Описание</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.0.0</td>
+       <td>
+        Добавлен аргумент <code class="parameter">indent</code>.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.mb-encode-mimeheader-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-2758">
+    <p><strong>Пример #1 Пример использования <span class="function"><strong>mb_encode_mimeheader()</strong></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$name&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">""</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;kanji<br /></span><span style="color: #0000BB">$mbox&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"kru"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$doma&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"gtinn.mon"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$addr&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mb_encode_mimeheader</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"UTF-7"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Q"</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"&nbsp;&lt;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$mbox&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">"@"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$doma&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">"&gt;"</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">$addr</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.mb-encode-mimeheader-notes">
+  <h3 class="title">Примечания</h3>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <p class="para">
+    Эта функция не рассчитана на выполнение высокоуровневых разрывов строк 
+    (перенос слов целиком и т.п.). Такое поведение может привести к появлению 
+    неожидаемых пробелов в исходной строке.
+   </p>
+  </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.mb-encode-mimeheader-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.mb-decode-mimeheader.html" class="function" rel="rdfs-seeAlso">mb_decode_mimeheader()</a> - Декодирует строку в MIME-заголовке</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.mb-detect-order.html">mb_detect_order</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.mb-encode-numericentity.html">mb_encode_numericentity</a></div>
+ <div class="up"><a href="ref.mbstring.html">Функции для работы с Многобайтными строками</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

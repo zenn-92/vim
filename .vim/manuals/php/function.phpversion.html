@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Выдает текущую версию PHP</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.phpinfo.html">phpinfo</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.putenv.html">putenv</a></div>
+ <div class="up"><a href="ref.info.html">PHP опции/Информационные Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.phpversion" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">phpversion</h1>
+  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">phpversion</span> &mdash; <span class="dc-title">Выдает текущую версию PHP</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.phpversion-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">string</span> <span class="methodname"><strong>phpversion</strong></span>
+    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$extension</code></span>
+  ] )</div>
+
+  <p class="para rdfs-comment">
+   Возвращает строку с номером версии текущего PHP-анализатора или расширения.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.phpversion-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">extension</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Необязательное имя расширения.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.phpversion-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Если задан аргумент <code class="parameter">extension</code>,
+   <span class="function"><strong>phpversion()</strong></span> вернет версию этого расширения или 
+   <strong><code>FALSE</code></strong>, если информации о версии нет или расширение в данный момент
+   не подключено.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.phpversion-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-512">
+    <p><strong>Пример #1 Пример использования <span class="function"><strong>phpversion()</strong></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Выводит&nbsp;строку&nbsp;типа&nbsp;'Текущая&nbsp;версия&nbsp;PHP:&nbsp;4.1.1'<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">'Текущая&nbsp;версия&nbsp;PHP:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">phpversion</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">//&nbsp;Выводит&nbsp;строку&nbsp;типа&nbsp;'2.0'&nbsp;или&nbsp;ничего,&nbsp;если&nbsp;расширение&nbsp;не&nbsp;подключено<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">phpversion</span><span style="color: #007700">(</span><span style="color: #DD0000">'tidy'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+  <p class="para">
+   <div class="example" id="example-513">
+    <p><strong>Пример #2 Пример использования <strong><code>PHP_VERSION_ID</code></strong></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;PHP_VERSION_ID&nbsp;доступна&nbsp;в&nbsp;версиях&nbsp;PHP&nbsp;5.2.7&nbsp;и&nbsp;выше.&nbsp;Если<br />//&nbsp;наша&nbsp;версия&nbsp;ниже,&nbsp;можно&nbsp;ее&nbsp;сэмулировать<br /></span><span style="color: #007700">if&nbsp;(!</span><span style="color: #0000BB">defined</span><span style="color: #007700">(</span><span style="color: #DD0000">'PHP_VERSION_ID'</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$version&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">explode</span><span style="color: #007700">(</span><span style="color: #DD0000">'.'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">PHP_VERSION</span><span style="color: #007700">);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">define</span><span style="color: #007700">(</span><span style="color: #DD0000">'PHP_VERSION_ID'</span><span style="color: #007700">,&nbsp;(</span><span style="color: #0000BB">$version</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">]&nbsp;*&nbsp;</span><span style="color: #0000BB">10000&nbsp;</span><span style="color: #007700">+&nbsp;</span><span style="color: #0000BB">$version</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">]&nbsp;*&nbsp;</span><span style="color: #0000BB">100&nbsp;</span><span style="color: #007700">+&nbsp;</span><span style="color: #0000BB">$version</span><span style="color: #007700">[</span><span style="color: #0000BB">2</span><span style="color: #007700">]));<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;PHP_VERSION_ID&nbsp;определена&nbsp;как&nbsp;число.&nbsp;Чем&nbsp;больше&nbsp;число,&nbsp;тем&nbsp;новее<br />//&nbsp;PHP.&nbsp;Эта&nbsp;константа&nbsp;задается&nbsp;по&nbsp;той&nbsp;же&nbsp;схеме,&nbsp;что&nbsp;приведена&nbsp;выше:<br />//<br />//&nbsp;$version_id&nbsp;=&nbsp;$major_version&nbsp;*&nbsp;10000&nbsp;+&nbsp;$minor_version&nbsp;*&nbsp;100&nbsp;+&nbsp;$release_version;<br />//<br />//&nbsp;Теперь&nbsp;с&nbsp;PHP_VERSION_ID&nbsp;можно&nbsp;проверять,&nbsp;какой&nbsp;функционал&nbsp;есть&nbsp;в&nbsp;<br />//&nbsp;текущей&nbsp;версии&nbsp;PHP.&nbsp;Не&nbsp;обязательно&nbsp;пользоваться&nbsp;version_compare()<br />//&nbsp;каждый&nbsp;раз,&nbsp;когда&nbsp;требуется&nbsp;проверить,&nbsp;поддерживает&nbsp;ли&nbsp;PHP&nbsp;нужную<br />//&nbsp;нам&nbsp;функцию.&nbsp;<br />//<br />//&nbsp;Например,&nbsp;мы&nbsp;можем&nbsp;задать&nbsp;значения&nbsp;констант&nbsp;PHP_VERSION_*,<br />//&nbsp;которые&nbsp;недоступны&nbsp;в&nbsp;версиях&nbsp;ранее&nbsp;5.2.7<br /><br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">PHP_VERSION_ID&nbsp;</span><span style="color: #007700">&lt;&nbsp;</span><span style="color: #0000BB">50207</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">define</span><span style="color: #007700">(</span><span style="color: #DD0000">'PHP_MAJOR_VERSION'</span><span style="color: #007700">,&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$version</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">]);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">define</span><span style="color: #007700">(</span><span style="color: #DD0000">'PHP_MINOR_VERSION'</span><span style="color: #007700">,&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$version</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">]);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">define</span><span style="color: #007700">(</span><span style="color: #DD0000">'PHP_RELEASE_VERSION'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$version</span><span style="color: #007700">[</span><span style="color: #0000BB">2</span><span style="color: #007700">]);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;и&nbsp;так&nbsp;далее,&nbsp;...<br /></span><span style="color: #007700">}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.phpversion-notes">
+  <h3 class="title">Примечания</h3>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <p class="para">
+    Эта информация также доступна через предопределенную константу
+    <strong><code>PHP_VERSION</code></strong>. Более детальнцю информацию
+    можно получать с помощью констант <strong><code>PHP_VERSION_*</code></strong>.
+   </p>
+  </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.phpversion-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><a href="reserved.constants.html#reserved.constants.core" class="link">Константы PHP_VERSION</a></li>
+    <li class="member"><span class="function"><a href="function.version-compare.html" class="function" rel="rdfs-seeAlso">version_compare()</a> - Сравнивает две &quot;стандартизованные&quot; строки с номером версии</span></li>
+    <li class="member"><span class="function"><a href="function.phpinfo.html" class="function" rel="rdfs-seeAlso">phpinfo()</a> - Выводит информацию о текущей конфигурации PHP</span></li>
+    <li class="member"><span class="function"><a href="function.phpcredits.html" class="function" rel="rdfs-seeAlso">phpcredits()</a> - Выводит список разработчиков PHP</span></li>
+    <li class="member"><span class="function"><a href="function.php-logo-guid.html" class="function" rel="rdfs-seeAlso">php_logo_guid()</a> - Получение guid логотипа</span></li>
+    <li class="member"><span class="function"><a href="function.zend-version.html" class="function" rel="rdfs-seeAlso">zend_version()</a> - Получает версию Zend движка</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.phpinfo.html">phpinfo</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.putenv.html">putenv</a></div>
+ <div class="up"><a href="ref.info.html">PHP опции/Информационные Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

@@ -1,0 +1,363 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Предопределенные константы</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="inotify.resources.html">Типы ресурсов</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="ref.inotify.html">Inotify Функции</a></div>
+ <div class="up"><a href="book.inotify.html">Inotify</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="inotify.constants" class="appendix">
+  <h1>Предопределенные константы</h1>
+
+  <p class="simpara">
+Перечисленные ниже константы определены данным расширением и могут быть
+доступны только в том случае, если PHP был собран с
+поддержкой этого расширения или же в том случае, если
+данное расширение было подгружено во время выполнения.
+</p>
+  <dl>
+
+   <strong class="title">Константы Inotify используются с функцией <span class="function"><a href="function.inotify-add-watch.html" class="function">inotify_add_watch()</a></span> и/или возвращаются <span class="function"><a href="function.inotify-read.html" class="function">inotify_read()</a></span></strong>
+   
+    <dt id="constant.in-access">
+     <strong><code>IN_ACCESS</code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      К файлу произведен доступ (чтение) (*)
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.in-modify">
+     <strong><code>IN_MODIFY</code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Файл был изменен (*)
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.in-attrib">
+     <strong><code>IN_ATTRIB</code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Изменены метаданные (такие как permissions, mtime, и т.д.) (*)
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.in-close-write">
+     <strong><code>IN_CLOSE_WRITE</code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Файл, открытый для записи, был закрыт (*)
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.in-close-nowrite">
+     <strong><code>IN_CLOSE_NOWRITE</code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Файл, недоступный для записи, был закрыт (*)
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.in-open">
+     <strong><code>IN_OPEN</code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Файл был открыт (*)
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.in-moved-to">
+     <strong><code>IN_MOVED_TO</code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Файл перемещен в указанную директорию (*)
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.in-moved-from">
+     <strong><code>IN_MOVED_FROM</code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Файл перемещен из указанной директории (*)
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.in-create">
+     <strong><code>IN_CREATE</code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Файл или директория созданы в указанной директории (*)
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.in-delete">
+     <strong><code>IN_DELETE</code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Файл или директория удалена из указанной директории (*)
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.in-delete-self">
+     <strong><code>IN_DELETE_SELF</code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Указанный файл или директория удалены
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.in-move-self">
+     <strong><code>IN_MOVE_SELF</code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Указанный файл или директория перемещены
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.in-close">
+     <strong><code>IN_CLOSE</code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Эквивалентно IN_CLOSE_WRITE | IN_CLOSE_NOWRITE
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.in-move">
+     <strong><code>IN_MOVE</code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Эквивалентно IN_MOVED_FROM | IN_MOVED_TO
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.in-all-events">
+     <strong><code>IN_ALL_EVENTS</code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Битовая маска указанных выше констант
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.in-unmount">
+     <strong><code>IN_UNMOUNT</code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Файловая система, содержащая файл была размонтирована
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.in-q-overflow">
+     <strong><code>IN_Q_OVERFLOW</code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Очередь событий переполнена (wd(дескриптор наблюдения) равно -1 для этого события)
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.in-ignored">
+     <strong><code>IN_IGNORED</code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Наблюдение было отключено вручную (поясняется <span class="function"><a href="function.inotify-rm-watch.html" class="function">inotify_rm_watch()</a></span>) 
+      либо из-за отсутствия файла либо из-за размонтирования файловой системы.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.in-isdir">
+     <strong><code>IN_ISDIR</code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Объектом события является директория
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.in-onlydir">
+     <strong><code>IN_ONLYDIR</code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Использовать только указанную директорию в качестве конечного пути (Начиная с Linux 2.6.15)
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.in-dont-follow">
+     <strong><code>IN_DONT_FOLLOW</code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Не разыменовывать путь, если это символическая ссылка (Начиная с Linux 2.6.15)
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.in-mask-add">
+     <strong><code>IN_MASK_ADD</code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Добавить события в маску событий для этого пути, если она уже существует 
+      (вместо замещения маски).
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.in-oneshot">
+     <strong><code>IN_ONESHOT</code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Отслеживать путь для одного события, затем удалить его из списка наблюдения.
+     </span>
+    </dd>
+
+   
+  </dl>
+
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <span class="simpara">
+    События, помеченные звездочкой (*), могут происходить с файлами в наблюдаемых
+    директориях.
+   </span>
+  </p></blockquote>
+</div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="inotify.resources.html">Типы ресурсов</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="ref.inotify.html">Inotify Функции</a></div>
+ <div class="up"><a href="book.inotify.html">Inotify</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

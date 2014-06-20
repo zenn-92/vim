@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Интернет-сокеты: TCP, UDP, SSL и TLS</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="transports.html">Список поддерживаемых транспортных протоколов</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="transports.unix.html">Unix-сокеты: UNIX и UDG</a></div>
+ <div class="up"><a href="transports.html">Список поддерживаемых транспортных протоколов</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="transports.inet" class="section">
+  <h2 class="title">Интернет-сокеты: TCP, UDP, SSL и TLS</h2>
+  <p class="simpara">
+   PHP 4, PHP 5.
+   <em>ssl://</em> &amp; <em>tls://</em> начиная с версии PHP 4.3.0
+   <em>sslv2://</em> &amp; <em>sslv3://</em> начиная с версии PHP 5.0.2
+  </p>
+
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <span class="simpara">
+    Если транспортный протокол не указан, будет использован <em>tcp://</em>.
+   </span>
+  </p></blockquote>
+
+  <ul class="itemizedlist">
+   <li class="listitem"><span class="simpara"><em>127.0.0.1</em></span></li>
+   <li class="listitem"><span class="simpara"><em>fe80::1</em></span></li>
+   <li class="listitem"><span class="simpara"><em>www.example.com</em></span></li>
+   <li class="listitem"><span class="simpara"><em>tcp://127.0.0.1</em></span></li>
+   <li class="listitem"><span class="simpara"><em>tcp://fe80::1</em></span></li>
+   <li class="listitem"><span class="simpara"><em>tcp://www.example.com</em></span></li>
+   <li class="listitem"><span class="simpara"><em>udp://www.example.com</em></span></li>
+   <li class="listitem"><span class="simpara"><em>ssl://www.example.com</em></span></li>
+   <li class="listitem"><span class="simpara"><em>sslv2://www.example.com</em></span></li>
+   <li class="listitem"><span class="simpara"><em>sslv3://www.example.com</em></span></li>
+   <li class="listitem"><span class="simpara"><em>tls://www.example.com</em></span></li>
+  </ul>
+
+  <p class="simpara">
+   Интернет-сокеты требуют указания порта в дополнение к адресу. В
+   случае <span class="function"><a href="function.fsockopen.html" class="function">fsockopen()</a></span>, порт передается вторым параметром и
+   не затрагивает строку адреса. При работе с
+   <span class="function"><a href="function.stream-socket-client.html" class="function">stream_socket_client()</a></span> и другими близкими функциями, как
+   и в случае со стандартными URL, порт указывается в конце адреса, отделенный
+   двоеточием.
+  </p>
+
+  <ul class="itemizedlist">
+   <li class="listitem"><span class="simpara"><em>tcp://127.0.0.1:80</em></span></li>
+   <li class="listitem"><span class="simpara"><em>tcp://[fe80::1]:80</em></span></li>
+   <li class="listitem"><span class="simpara"><em>tcp://www.example.com:80</em></span></li>
+  </ul>
+
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <strong>IPv6 численные адреса с указанием порта</strong><br />
+   <span class="simpara">
+    Во втором примере выше, в то время как IPv4 и имя хоста
+    не изменились, за исключением добавления номера порта после
+    двоеточия, адрес IPv6 заключен в квадратные скобки:
+    <em>[fe80::1]</em>. Это сделано для того, чтобы отличить
+    двоеточие в адресе от двоеточия при указании порта.
+   </span>
+  </p></blockquote>
+
+  <p class="simpara">
+   Протоколы <em>ssl://</em> и <em>tls://</em>
+   (доступны, только если поддержка openssl включена в PHP) являются
+   расширениями <em>tcp://</em>, дополняющими его SSL-шифрованием.
+   Начиная с PHP 4.3.0, для работы с ssl-протоколами, PHP должен
+   быть статически собран с поддержкой OpenSSL, а с версии PHP 5.0.0
+   он также может быть представлен и как модуль.
+  </p>
+
+  <p class="simpara">
+   <em>ssl://</em> будет пытаться использовать соединение SSL V2
+   или SSL V3, в зависимости от возможностей и настроек удаленного хоста.
+   <em>sslv2://</em> и <em>sslv3://</em>
+   позволяют явно указать использование SSL V2 или SSL V3.
+  </p>
+ </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="transports.html">Список поддерживаемых транспортных протоколов</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="transports.unix.html">Unix-сокеты: UNIX и UDG</a></div>
+ <div class="up"><a href="transports.html">Список поддерживаемых транспортных протоколов</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

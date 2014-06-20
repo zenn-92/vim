@@ -1,0 +1,419 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Посылает cookie</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.pfsockopen.html">pfsockopen</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.setrawcookie.html">setrawcookie</a></div>
+ <div class="up"><a href="ref.network.html">Сетевые Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.setcookie" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">setcookie</h1>
+  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">setcookie</span> &mdash; <span class="dc-title">Посылает cookie</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.setcookie-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><strong>setcookie</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$value</code></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$expire</code><span class="initializer"> = 0</span></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$path</code></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$domain</code></span>
+   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$secure</code><span class="initializer"> = false</span></span>
+   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$httponly</code><span class="initializer"> = false</span></span>
+  ]]]]]] )</div>
+
+  <p class="para rdfs-comment">
+   <span class="function"><strong>setcookie()</strong></span> задает cookie, которое будет передано клиенту
+   вместе с другими HTTP заголовками. Как и любой другой заголовок, cookie должны
+   передаваться <em class="emphasis">до</em> того как будут выведены какие-либо другие
+   данные скрипта (это ограничение протокола). Это значит, что в скрипте вызовы
+   этой функции должны располагаться прежде остального вывода, включая вывод
+   тэгов <em>&lt;html&gt;</em> и <em>&lt;head&gt;</em>, а
+   также пустые строки и пробелы.
+  </p>
+  <p class="para">
+   После передачи клиенту cookie станут доступны через массивы 
+   <var class="varname"><var class="varname"><a href="reserved.variables.cookies.html" class="classname">$_COOKIE</a></var></var> и <var class="varname"><var class="varname">$HTTP_COOKIE_VARS</var></var> при следующей
+   закгрузке страницы. Следует иметь в виду, что <a href="language.variables.superglobals.html" class="link">суперглобальные переменные</a>,
+   такие как <var class="varname"><var class="varname"><a href="reserved.variables.cookies.html" class="classname">$_COOKIE</a></var></var>, стали доступны только в PHP 4.1.0.
+   Значения cookie также есть в <var class="varname"><var class="varname"><a href="reserved.variables.request.html" class="classname">$_REQUEST</a></var></var>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.setcookie-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   Все аргументы, за исключением <code class="parameter">name</code>, являются
+   необязательными. Если нужно пропустить какой-либо аргумент, можно вместо
+   него поставить пустую строку (<em class="emphasis">&quot;&quot;</em>). Это не
+   относится к аргументу <code class="parameter">expire</code>. Так как он принимает
+   значение типа integer, для его замены пустая строка не подходит. Используйте
+   вместо нее ноль (<em class="emphasis">0</em>).
+  </p>
+  <p class="para">
+   <a href="http://www.faqs.org/rfcs/rfc6265" class="link external">&raquo;&nbsp;RFC 6265</a> дает конкретные указания,
+   как нужно интерпретировать каждый из параметров
+   <span class="function"><strong>setcookie()</strong></span>.
+   <dl>
+
+    
+     <dt>
+<code class="parameter">name</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Наименование cookie.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">value</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Значение cookie. Это значение будет сохранено на клиентском компьютере;
+       не записывайте в cookie секретные данные. Значение присвоенное
+       cookie c именем <code class="parameter">name</code>, допустим,
+       <em>&#039;cookiename&#039;</em>, будет доступно через
+       <var class="varname"><var class="varname"><a href="reserved.variables.cookies.html" class="classname">$_COOKIE['cookiename']</a></var></var>.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">expire</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Время, когда срок действия cookie истекает. Это метка времени Unix, то есть
+       это количество секунд с начала эпохи. Другими словами, желательно задавать
+       это время с помощью функции <span class="function"><a href="function.time.html" class="function">time()</a></span>, прибавляя время
+       в секундах, через которое срок действия cookie должен истечь. Либо можно
+       воспользоваться функцией <span class="function"><a href="function.mktime.html" class="function">mktime()</a></span>. 
+       <em>time()+60*60*24*30</em> установит срок действия cookie 30
+       дней. Если задать 0 или пропустить этот аргумент, срок действия cookie
+       истечет с окончанием сессии (при закрытии броузера).
+      </p>
+      <p class="para">
+       <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+        <p class="para">
+         Можно заметить, что <code class="parameter">expire</code> принимает в качестве
+         значения метку времени Unix, а хранит его в формате
+         <em>Wdy, DD-Mon-YYYY HH:MM:SS GMT</em>. PHP делает внутреннее
+         преобразование автоматически.
+        </p>
+       </p></blockquote>
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">path</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Путь к директории на сервере, из которой будут доступны cookie. Если
+       задать <em>&#039;/&#039;</em>, cookie будут доступны во всем домене
+       <code class="parameter">domain</code>. Если задать <em>&#039;/foo/&#039;</em>,
+       cookie будут доступны только из директории <em>/foo/</em> и всех
+       ее поддиректорий (например, <em>/foo/bar/</em>) домена
+       <code class="parameter">domain</code>. По умолчанию значением является текущая
+       директория, в которой cookie устанавливается.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">domain</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Домен, которому доступны cookie. Задание домена
+       <em>&#039;www.example.com&#039;</em> сделает cookie доступными в поддомене
+       <em>www</em> и поддоменах более высоких порядков. Cookie доступные
+       низким уровням, таким как <em>&#039;example.com&#039;</em>, будут
+       доступны во всех поддоменах высших уровней, с том числе
+       <em>&#039;www.example.com&#039;</em>. Старые броузеры, следующие
+       устаревшим нормативам <a href="http://www.faqs.org/rfcs/rfc2109" class="link external">&raquo;&nbsp;RFC 2109</a>,
+       могут требовать <em>.</em> перед доменом, чтобы включались
+       все поддомены.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">secure</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Указывает на то, что значение cookie должно передаваться от клиента
+       по защищенному HTTPS соединению. Если задано <strong><code>TRUE</code></strong>, cookie от клиента
+       будет передано на сервер, только если установлено защищенное соединение.
+       При передаче cookie от сервера клиенту следить за тем, чтобы cookie
+       этого типа передавались по защищенному каналу, должен программист
+       веб-сервера (стоит обратить внимание на
+       <var class="varname"><var class="varname"><a href="reserved.variables.server.html" class="classname">$_SERVER["HTTPS"]</a></var></var>).
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">httponly</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Если задано <strong><code>TRUE</code></strong>, cookie будут доступны только через HTTP протокол.
+       То есть cookie в этом случае не будут доступны скриптовым языкам, вроде
+       JavaScript. Эта возможность была предложена в качестве меры, эффективно
+       снижающей количество краж личных данных посредством XSS атак (несмотря
+       на то, что поддерживается не всеми броузерами). Стоит однако же отметить, что
+       вокруг этой возможности часто возникают споры о ее эффективности и
+       целесообразности. Аргумент добавлен в PHP 5.2.0. Может принимать
+       значения <strong><code>TRUE</code></strong> или <strong><code>FALSE</code></strong>.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.setcookie-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Если перед вызовом функции клиенту уже передавался какой-либо вывод (тэги,
+   пустые строки, пробелы, текст и т.п.),
+   <span class="function"><strong>setcookie()</strong></span> вызовет отказ и вернет <strong><code>FALSE</code></strong>. Если 
+   <span class="function"><strong>setcookie()</strong></span> успешно отработает, то вернет <strong><code>TRUE</code></strong>.
+   Это, однако, не означает, что клиентское приложение (броузер) правильно приняло
+   и обработало cookie.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.setcookie-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   Ниже представлено несколько примеров, как отправлять cookie:
+   <div class="example" id="example-4525">
+    <p><strong>Пример #1 Пример использования <span class="function"><strong>setcookie()</strong></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$value&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'что-то&nbsp;где-то'</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">setcookie</span><span style="color: #007700">(</span><span style="color: #DD0000">"TestCookie"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$value</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">setcookie</span><span style="color: #007700">(</span><span style="color: #DD0000">"TestCookie"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$value</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">time</span><span style="color: #007700">()+</span><span style="color: #0000BB">3600</span><span style="color: #007700">);&nbsp;&nbsp;</span><span style="color: #FF8000">/*&nbsp;срок&nbsp;действия&nbsp;1&nbsp;час&nbsp;*/<br /></span><span style="color: #0000BB">setcookie</span><span style="color: #007700">(</span><span style="color: #DD0000">"TestCookie"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$value</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">time</span><span style="color: #007700">()+</span><span style="color: #0000BB">3600</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"/~rasmus/"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"example.com"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+  <p class="para">
+   Стоит отметить, что значение cookie перед отправкой клиенту подвергается
+   URL-кодированию. При обратном получении значение cookie декодируется и
+   помещается в переменную, с тем же именем, что и имя cookie. Если вы не хотите,
+   чтобы значения кодировались, используйте функцию
+   <span class="function"><a href="function.setrawcookie.html" class="function">setrawcookie()</a></span> (работает в PHP 5). Посмотреть содержимое
+   наших тестовых cookie можно, запустив один из следующих примеров:
+  </p>
+  <p class="para">
+   <div class="informalexample">
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Вывести&nbsp;одно&nbsp;конкретное&nbsp;значение&nbsp;cookie<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$_COOKIE</span><span style="color: #007700">[</span><span style="color: #DD0000">"TestCookie"</span><span style="color: #007700">];<br />echo&nbsp;</span><span style="color: #0000BB">$HTTP_COOKIE_VARS</span><span style="color: #007700">[</span><span style="color: #DD0000">"TestCookie"</span><span style="color: #007700">];<br /><br /></span><span style="color: #FF8000">//&nbsp;В&nbsp;целях&nbsp;тестирования&nbsp;и&nbsp;отладки&nbsp;может&nbsp;пригодиться&nbsp;вывод&nbsp;всех&nbsp;cookie<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$_COOKIE</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+  <p class="para">
+   <div class="example" id="example-4526">
+    <p><strong>Пример #2 Пример удаления cookie посредством <span class="function"><strong>setcookie()</strong></span></strong></p>
+    <div class="example-contents"><p>
+     Чтобы удалить cookie достаточно в качестве срока действия указать какое-либо
+     время в прошлом. Это запустит механизм броузера, удаляющий истекшие cookie.
+     В примерах ниже показано, как удалить cookie, заданные в предыдущих примерах:
+    </p></div>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;установка&nbsp;даты&nbsp;истечения&nbsp;срока&nbsp;действия&nbsp;на&nbsp;час&nbsp;назад<br /></span><span style="color: #0000BB">setcookie&nbsp;</span><span style="color: #007700">(</span><span style="color: #DD0000">"TestCookie"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">""</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">time</span><span style="color: #007700">()&nbsp;-&nbsp;</span><span style="color: #0000BB">3600</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">setcookie&nbsp;</span><span style="color: #007700">(</span><span style="color: #DD0000">"TestCookie"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">""</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">time</span><span style="color: #007700">()&nbsp;-&nbsp;</span><span style="color: #0000BB">3600</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"/~rasmus/"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"example.com"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+  <p class="para">
+   <div class="example" id="example-4527">
+    <p><strong>Пример #3 <span class="function"><strong>setcookie()</strong></span> и массивы</strong></p>
+    <div class="example-contents"><p>
+     Имеется возможность помещать в cookie массивы. Для этого каждому cookie нужно
+     дать имя в соответствии с правилами именования массивов. Такая возможность
+     позволяет поместить столько значений, сколько имеется элементов в массиве.
+     При обратном получении все эти значения будут помещены в массив с
+     именем этого cookie:
+    </p></div>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;отправка&nbsp;cookie<br /></span><span style="color: #0000BB">setcookie</span><span style="color: #007700">(</span><span style="color: #DD0000">"cookie[three]"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"cookiethree"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">setcookie</span><span style="color: #007700">(</span><span style="color: #DD0000">"cookie[two]"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"cookietwo"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">setcookie</span><span style="color: #007700">(</span><span style="color: #DD0000">"cookie[one]"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"cookieone"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;после&nbsp;перезагрузки&nbsp;страницы,&nbsp;выведем&nbsp;cookie<br /></span><span style="color: #007700">if&nbsp;(isset(</span><span style="color: #0000BB">$_COOKIE</span><span style="color: #007700">[</span><span style="color: #DD0000">'cookie'</span><span style="color: #007700">]))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach&nbsp;(</span><span style="color: #0000BB">$_COOKIE</span><span style="color: #007700">[</span><span style="color: #DD0000">'cookie'</span><span style="color: #007700">]&nbsp;as&nbsp;</span><span style="color: #0000BB">$name&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$value</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$name&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">htmlspecialchars</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$value&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">htmlspecialchars</span><span style="color: #007700">(</span><span style="color: #0000BB">$value</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"</span><span style="color: #0000BB">$name</span><span style="color: #DD0000">&nbsp;:&nbsp;</span><span style="color: #0000BB">$value</span><span style="color: #DD0000">&nbsp;&lt;br&nbsp;/&gt;\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>Результат выполнения данного примера:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+three : cookiethree
+two : cookietwo
+one : cookieone
+</pre></div>
+    </div>
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.setcookie-changelog">
+  <h3 class="title">Список изменений</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Версия</th>
+       <th>Описание</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.2.0</td>
+       <td>
+        Добавлен параметр <code class="parameter">httponly</code>.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.setcookie-notes">
+  <h3 class="title">Примечания</h3>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <p class="para">
+    Чтобы иметь возможность отправлять вывод скрипта до вызова этой функции,
+    можно воспользоваться буферизацией. В этом случае весь вывод скрипта помещается
+    в буфер на сервере и остается там, пока вы явно не отправите его броузеру.
+    Управление буферизацией осуществляется функциями
+    <span class="function"><a href="function.ob-start.html" class="function">ob_start()</a></span> и <span class="function"><a href="function.ob-end-flush.html" class="function">ob_end_flush()</a></span> в скрипте,
+    либо можно задать директиву <em>output_buffering</em> в файле
+    <var class="filename">php.ini</var> или конфигурационных файлах сервера.
+   </p>
+  </p></blockquote>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <p class="para">
+    Если PHP директива <a href="ini.core.html#ini.register-globals" class="link">register_globals</a>
+    включена (задано значение <em>on</em>), значения cookie помимо всего
+    прочего будут помещаться в переменные. Для примеров выше будет существовать
+    переменная <var class="varname"><var class="varname">$TestCookie</var></var>. Тем не менее, рекомендуется
+    использовать <var class="varname"><var class="varname"><a href="reserved.variables.cookies.html" class="classname">$_COOKIE</a></var></var>.
+   </p>
+  </p></blockquote>
+  <p class="para">
+   Общие замечания:
+   <ul class="itemizedlist">
+    <li class="listitem">
+     <span class="simpara">
+      Cookie станут видимыми только после перезагрузки страницы, для которой
+      они должны быть видны. Для проверки, правильно ли cookie установились,
+      проверьте их при следующей загрузке страницы до истечения срока их
+      действия. Срок действия cookie задается в параметре
+      <code class="parameter">expire</code>. Удобно проверять существование cookie простым
+      вызовом <em>print_r($_COOKIE);</em>.
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      При удалении cookie должны быть заданы те же параметры, что и при
+      установке. Если в качестве значения задать пустую строку или <strong><code>FALSE</code></strong>,
+      а остальные параметры задать соответственно предыдущему вызову,
+      установившему cookie, тогда cookie c заданным именем будет удалено с
+      клиентской машины. Внутренне это выглядит так: cookie присваивается значение
+      &#039;deleted&#039;, а срок действия переносится на год в прошлое.
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      Так как установка значения <strong><code>FALSE</code></strong> приведет к удалению cookie, не следует
+      задавать cookie значения булевого типа. Вместо этого можно использовать
+      <em class="emphasis">0</em> для <strong><code>FALSE</code></strong> и <em class="emphasis">1</em> для <strong><code>TRUE</code></strong>.
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      Cookie можно именовать, как массивы, и они будут доступны в PHP скрипте,
+      как массивы, но на пользовательской машине они будут храниться в виде
+      отдельных записей. Для задания cookie c множеством имен и значений желательно
+      использовать функцию <span class="function"><a href="function.explode.html" class="function">explode()</a></span>. Не рекомендуется для этих
+      целей использовать функцию <span class="function"><a href="function.serialize.html" class="function">serialize()</a></span>, так как это
+      негативно сказывается на безопасности скрипта.
+     </span>
+    </li>
+   </ul>
+  </p>
+  <p class="simpara">
+   При многократных вызовах <span class="function"><strong>setcookie()</strong></span> функции
+   выполняются в том порядке, в котором вызывались.
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.setcookie-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.header.html" class="function" rel="rdfs-seeAlso">header()</a> - Отправка HTTP заголовка</span></li>
+    <li class="member"><span class="function"><a href="function.setrawcookie.html" class="function" rel="rdfs-seeAlso">setrawcookie()</a> - Посылает cookie не преобразовывая значение</span></li>
+    <li class="member"><a href="features.cookies.html" class="link">раздел cookies</a></li>
+    <li class="member"><a href="http://www.faqs.org/rfcs/rfc6265" class="link external">&raquo;&nbsp;RFC 6265</a></li>
+    <li class="member"><a href="http://www.faqs.org/rfcs/rfc2109" class="link external">&raquo;&nbsp;RFC 2109</a></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.pfsockopen.html">pfsockopen</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.setrawcookie.html">setrawcookie</a></div>
+ <div class="up"><a href="ref.network.html">Сетевые Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

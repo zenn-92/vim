@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Получение части строки</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.mb-split.html">mb_split</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.mb-strimwidth.html">mb_strimwidth</a></div>
+ <div class="up"><a href="ref.mbstring.html">Функции для работы с Многобайтными строками</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.mb-strcut" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">mb_strcut</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5)</p><p class="refpurpose"><span class="refname">mb_strcut</span> &mdash; <span class="dc-title">Получение части строки</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.mb-strcut-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">string</span> <span class="methodname"><strong>mb_strcut</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$str</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$start</code></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$encoding</code></span>
+  ]] )</div>
+
+  <p class="para rdfs-comment">
+   <span class="function"><strong>mb_strcut()</strong></span> вычленияет подстроку из строки также, как 
+   <span class="function"><a href="function.mb-substr.html" class="function">mb_substr()</a></span>, но оперирует байтами вместо символов. Если
+   начало вырезаемой части попадает между байтами одного символа, функция вырежет
+   подстроку, начиная с первого байта этого символа. Это существенное отличие от 
+   <span class="function"><a href="function.substr.html" class="function">substr()</a></span>, которая просто вырежет подстроку, начиная с 
+   середины символа, и нарушит тем самым последовательность байт в строке.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.mb-strcut-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">str</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Исходная строка <span class="type"><a href="language.types.string.html" class="type string">string</a></span>.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">start</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Позиция начала подстроки в байтах <em class="emphasis">bytes</em>.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">length</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Длина подстроки в байтах <em class="emphasis">bytes</em>.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">encoding</code></dt>
+
+     <dd>
+
+      <p class="para">Параметр <code class="parameter">encoding</code>
+представляет собой символьную кодировку. Если он опущен, вместо него будет использовано значение внутренней кодировки.</p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.mb-strcut-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   <span class="function"><strong>mb_strcut()</strong></span> возвращает часть строки
+   <code class="parameter">str</code>, заданную аргументами
+   <code class="parameter">start</code> и <code class="parameter">length</code>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.mb-strcut-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.mb-substr.html" class="function" rel="rdfs-seeAlso">mb_substr()</a> - Возвращает часть строки</span></li>
+    <li class="member"><span class="function"><a href="function.mb-internal-encoding.html" class="function" rel="rdfs-seeAlso">mb_internal_encoding()</a> - Установка/получение внутренней кодировки скрипта</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.mb-split.html">mb_split</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.mb-strimwidth.html">mb_strimwidth</a></div>
+ <div class="up"><a href="ref.mbstring.html">Функции для работы с Многобайтными строками</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

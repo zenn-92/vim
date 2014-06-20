@@ -1,0 +1,242 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Открывает соединение к системному журналу</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.long2ip.html">long2ip</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.pfsockopen.html">pfsockopen</a></div>
+ <div class="up"><a href="ref.network.html">Сетевые Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.openlog" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">openlog</h1>
+  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">openlog</span> &mdash; <span class="dc-title">Открывает соединение к системному журналу</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.openlog-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><strong>openlog</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$ident</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$option</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$facility</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Функция <span class="function"><strong>openlog()</strong></span> открывает для программы соединение к системному журналу.  
+  </p>
+  <p class="para"> 
+   Использование <span class="function"><strong>openlog()</strong></span> не является обязательным. Эта функция при необходимости будет вызвана  функцией <span class="function"><a href="function.syslog.html" class="function">syslog()</a></span> автоматически, при этом параметр <code class="parameter">ident</code> будет по умолчанию равен <strong><code>FALSE</code></strong>.
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 parameters" id="refsect1-function.openlog-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">ident</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Строка <code class="parameter">ident</code> добавляется к каждому сообщению. 
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">option</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Аргумент <code class="parameter">option</code> используется для указания используемых опций журналирования при создании записи журнала.
+       <table class="doctable table">
+        <caption><strong>Опции <span class="function"><strong>openlog()</strong></span></strong></caption>
+        
+         <thead>
+          <tr>
+           <th>Constant</th>
+           <th>Description</th>
+          </tr>
+
+         </thead>
+
+         <tbody class="tbody">
+          <tr>
+           <td><strong><code>LOG_CONS</code></strong></td>
+           <td>
+            если при отправке данных системному журналу происходит ошибка, перевести вывод непосредственно в системную консоль
+           </td>
+          </tr>
+
+          <tr>
+           <td><strong><code>LOG_NDELAY</code></strong></td>
+           <td>
+            открыть соединение с журналом без задержки
+           </td>
+          </tr>
+
+          <tr>
+           <td><strong><code>LOG_ODELAY</code></strong></td>
+           <td>
+            (по умолчанию) отложить открытие соединения до вывода первого сообщения в журнал
+           </td>
+          </tr>
+
+          <tr>
+           <td><strong><code>LOG_PERROR</code></strong></td>
+           <td>выводить вместе со стандартной ошибкой сообщение журнала</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>LOG_PID</code></strong></td>
+           <td>добавить PID к каждому сообщению</td>
+          </tr>
+
+         </tbody>
+        
+       </table>
+
+       Можно использовать одну или сразу несколько опций. При использовании нескольких опций необходимо разделять их <em>OR</em>, к примеру, для открытия соединения без задержки, записи в консоль и включения PID в каждое из сообщений, необходима следующая комбинация опций: <em>LOG_CONS | LOG_NDELAY | LOG_PID</em>
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">facility</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Параметр <code class="parameter">facility</code> используется для определения типа программы создавшей сообщение журнала. Это позволяет определить (в конфигурации syslog) как будут обработаны сообщения журнала, поступающие из разных объектов.
+       <table class="doctable table">
+        <caption><strong><span class="function"><strong>openlog()</strong></span> Facilities</strong></caption>
+        
+         <thead>
+          <tr>
+           <th>Константа</th>
+           <th>Описание</th>
+          </tr>
+
+         </thead>
+
+         <tbody class="tbody">
+          <tr>
+           <td><strong><code>LOG_AUTH</code></strong></td>
+           <td>
+            сообщения по безопасности/авторизации (необходимо взамен 
+            использовать <strong><code>LOG_AUTHPRIV</code></strong>
+            в системах, где эта константа предопределена)
+           </td>
+          </tr>
+
+          <tr>
+           <td><strong><code>LOG_AUTHPRIV</code></strong></td>
+           <td>сообщения по безопасности/авторизации (частное)</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>LOG_CRON</code></strong></td>
+           <td>планировщик задач (cron и at)</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>LOG_DAEMON</code></strong></td>
+           <td>другие системные службы</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>LOG_KERN</code></strong></td>
+           <td>сообщения ядра</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>LOG_LOCAL0</code></strong> ... <strong><code>LOG_LOCAL7</code></strong></td>
+           <td>зарезервированы для локального использования, не доступны в Windows</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>LOG_LPR</code></strong></td>
+           <td>подсистема печати LPR</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>LOG_MAIL</code></strong></td>
+           <td>почтовая подсистема</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>LOG_NEWS</code></strong></td>
+           <td>подсистема новостей USENET</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>LOG_SYSLOG</code></strong></td>
+           <td>внутренние сообщения syslogd</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>LOG_USER</code></strong></td>
+           <td>общие сообщения на уровне пользователя</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>LOG_UUCP</code></strong></td>
+           <td>подсистема UUCP</td>
+          </tr>
+
+         </tbody>
+        
+       </table>
+
+      </p>
+      <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+       <p class="para">
+        <strong><code>LOG_USER</code></strong> единственный верный тип журналирования в операционных системах Windows
+       </p>
+      </p></blockquote>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 returnvalues" id="refsect1-function.openlog-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает <strong><code>TRUE</code></strong> в случае успешного завершения  или <strong><code>FALSE</code></strong> в случае возникновения ошибки.
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 seealso" id="refsect1-function.openlog-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.syslog.html" class="function" rel="rdfs-seeAlso">syslog()</a> - Генерирует сообщение для системного журнала</span></li>
+    <li class="member"><span class="function"><a href="function.closelog.html" class="function" rel="rdfs-seeAlso">closelog()</a> - Завершает соединение с системным журналом</span></li>
+   </ul>
+  </p>
+ </div>
+
+ 
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.long2ip.html">long2ip</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.pfsockopen.html">pfsockopen</a></div>
+ <div class="up"><a href="ref.network.html">Сетевые Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

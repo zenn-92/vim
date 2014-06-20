@@ -1,0 +1,194 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Копирует часть изображения с наложением в градациях серого</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.imagecopymerge.html">imagecopymerge</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.imagecopyresampled.html">imagecopyresampled</a></div>
+ <div class="up"><a href="ref.image.html">GD и функции для работы с изображениями Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.imagecopymergegray" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">imagecopymergegray</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5)</p><p class="refpurpose"><span class="refname">imagecopymergegray</span> &mdash; <span class="dc-title">Копирует часть изображения с наложением в градациях серого</span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-function.imagecopymergegray-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><strong>imagecopymergegray</strong></span>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$dst_im</code></span>
+   , <span class="methodparam"><span class="type">resource</span> <code class="parameter">$src_im</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$dst_x</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$dst_y</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$src_x</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$src_y</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$src_w</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$src_h</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$pct</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Копирует часть <code class="parameter">src_im</code> и помещает скопированное на
+   <code class="parameter">dst_im</code>, начиная с координат
+   <code class="parameter">src_x</code>, <code class="parameter">src_y </code> с шириной
+   <code class="parameter">src_w</code> и высотой <code class="parameter">src_h</code>.
+   Скопированная часть помещается на координаты
+   <code class="parameter">dst_x</code> и <code class="parameter">dst_y</code>.
+  </p>
+  <p class="para">
+   Функция работает аналогично <span class="function"><a href="function.imagecopymerge.html" class="function">imagecopymerge()</a></span> за исключением
+   того, что при наложении она сохраняет насыщенность цвета исходного изображения
+   путем преобразования цветов пикселей конечного изображения в градации серого
+   перед копированием.
+  </p>
+ </div>
+
+ <div class="refsect1 parameters" id="refsect1-function.imagecopymergegray-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">dst_im</code></dt>
+
+     <dd>
+
+      <p class="para">Ресурс целевого изображения.</p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">src_im</code></dt>
+
+     <dd>
+
+      <p class="para">Ресурс исходного изображения.</p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">dst_x</code></dt>
+
+     <dd>
+
+      <p class="para">
+       x-координата результирующего изображения.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">dst_y</code></dt>
+
+     <dd>
+
+      <p class="para">
+       y-координата результирующего изображения.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">src_x</code></dt>
+
+     <dd>
+
+      <p class="para">
+       x-координата исходного изображения.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">src_y</code></dt>
+
+     <dd>
+
+      <p class="para">
+       y-координата исходного изображения.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">src_w</code></dt>
+
+     <dd>
+
+      <p class="para">Ширина исходного изображения.</p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">src_h</code></dt>
+
+     <dd>
+
+      <p class="para">Высота исходного изображения.</p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">pct</code></dt>
+
+     <dd>
+
+      <p class="para">
+        Результирующее изображение <code class="parameter">src_im</code> будет преобразовано
+        к изображению в градациях серого в соответствии со значением параметра
+        <code class="parameter">pct</code>. 0 означает отсутствие цветов кроме серого,
+        100 - без изменений. Когда <code class="parameter">pct</code> = 100 поведение
+        функции идентично <span class="function"><a href="function.imagecopy.html" class="function">imagecopy()</a></span> для палитровых изображений,
+        несмотря на то что в этой функции реализована прозрачность для
+        truecolor-изображений.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+ <div class="refsect1 returnvalues" id="refsect1-function.imagecopymergegray-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает <strong><code>TRUE</code></strong> в случае успешного завершения  или <strong><code>FALSE</code></strong> в случае возникновения ошибки.
+  </p>
+ </div>
+
+ <div class="refsect1 examples" id="refsect1-function.imagecopymergegray-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-3254">
+    <p><strong>Пример #1 Пример использования <span class="function"><strong>imagecopymergegray()</strong></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Создание&nbsp;изображений<br /></span><span style="color: #0000BB">$dest&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecreatefromgif</span><span style="color: #007700">(</span><span style="color: #DD0000">'php.gif'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$src&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecreatefromgif</span><span style="color: #007700">(</span><span style="color: #DD0000">'php.gif'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Копирование&nbsp;и&nbsp;наложение&nbsp;-&nbsp;Серый&nbsp;=&nbsp;20%<br /></span><span style="color: #0000BB">imagecopymergegray</span><span style="color: #007700">(</span><span style="color: #0000BB">$dest</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$src</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">10</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">10</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">100</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">47</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">20</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Вывод&nbsp;и&nbsp;освобождение&nbsp;памяти<br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'Content-Type:&nbsp;image/gif'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">imagegif</span><span style="color: #007700">(</span><span style="color: #0000BB">$dest</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$dest</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$src</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.imagecopymerge.html">imagecopymerge</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.imagecopyresampled.html">imagecopyresampled</a></div>
+ <div class="up"><a href="ref.image.html">GD и функции для работы с изображениями Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

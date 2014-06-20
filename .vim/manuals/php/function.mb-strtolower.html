@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Приведение строки к нижнему регистру</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.mb-strstr.html">mb_strstr</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.mb-strtoupper.html">mb_strtoupper</a></div>
+ <div class="up"><a href="ref.mbstring.html">Функции для работы с Многобайтными строками</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.mb-strtolower" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">mb_strtolower</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5)</p><p class="refpurpose"><span class="refname">mb_strtolower</span> &mdash; <span class="dc-title">Приведение строки к нижнему регистру</span></p>
+
+ </div>
+   
+ <div class="refsect1 description" id="refsect1-function.mb-strtolower-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">string</span> <span class="methodname"><strong>mb_strtolower</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$str</code></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$encoding</code><span class="initializer"> = mb_internal_encoding()</span></span>
+  ] )</div>
+
+  <p class="para rdfs-comment">
+   Возвращает строку <code class="parameter">str</code>, буквенные символы в которой
+   приведены к нижнему регистру.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.mb-strtolower-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">str</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Исходная строка <span class="type"><a href="language.types.string.html" class="type string">string</a></span>.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">encoding</code></dt>
+
+     <dd>
+
+      <p class="para">Параметр <code class="parameter">encoding</code>
+представляет собой символьную кодировку. Если он опущен, вместо него будет использовано значение внутренней кодировки.</p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.mb-strtolower-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   <code class="parameter">str</code>, буквы в которой приведены к нижнему регистру.
+  </p>
+ </div>
+
+
+ <div class="refsect1 unicode" id="refsect1-function.mb-strtolower-unicode">
+  <h3 class="title">Юникод</h3>
+  <p class="para">
+   За дополнительной информацией о свойствах Юникода обращайтесь в <a href="http://www.unicode.org/unicode/reports/tr21/" class="link external">&raquo;&nbsp;http://www.unicode.org/unicode/reports/tr21/</a>.
+  </p>
+  <p class="para">
+   В отличие от <span class="function"><a href="function.strtolower.html" class="function">strtolower()</a></span>, то что символ является буквой
+   определяется на основании свойств символа Юникода. Таким образом на поведение
+   функции не влияют региональные настройки системы, а также функция может 
+   преобразовывать символы, имеющие буквенные особенности, такие как 
+   А-умляут (Ä).
+  </p>
+</div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.mb-strtolower-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-2769">
+    <p><strong>Пример #1 Пример использования <span class="function"><strong>mb_strtolower()</strong></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$str&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"У&nbsp;Мэри&nbsp;Был&nbsp;Маленький&nbsp;Ягненок&nbsp;и&nbsp;Она&nbsp;Его&nbsp;Очень&nbsp;ЛЮБИЛА"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$str&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mb_strtolower</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">$str</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;Выведет&nbsp;у&nbsp;мэри&nbsp;был&nbsp;маленький&nbsp;ягненок&nbsp;и&nbsp;она&nbsp;его&nbsp;очень&nbsp;любила<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+
+  <p class="para">
+   <div class="example" id="example-2770">
+    <p><strong>Пример #2 Пример использовани <span class="function"><strong>mb_strtolower()</strong></span> с нелатинскими буквами</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$str&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"Τάχιστη&nbsp;αλώπηξ&nbsp;βαφής&nbsp;ψημένη&nbsp;γη,&nbsp;δρασκελίζει&nbsp;υπέρ&nbsp;νωθρού&nbsp;κυνός"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$str&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mb_strtolower</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'UTF-8'</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">$str</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;Выведет&nbsp;τάχιστη&nbsp;αλώπηξ&nbsp;βαφής&nbsp;ψημένη&nbsp;γη,&nbsp;δρασκελίζει&nbsp;υπέρ&nbsp;νωθρού&nbsp;κυνός<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.mb-strtolower-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.mb-strtoupper.html" class="function" rel="rdfs-seeAlso">mb_strtoupper()</a> - Приведение строки к верхнему регистру</span></li>
+    <li class="member"><span class="function"><a href="function.mb-convert-case.html" class="function" rel="rdfs-seeAlso">mb_convert_case()</a> - Производит смену регистра символов в строке</span></li>
+    <li class="member"><span class="function"><a href="function.strtolower.html" class="function" rel="rdfs-seeAlso">strtolower()</a> - Преобразует строку в нижний регистр</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.mb-strstr.html">mb_strstr</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.mb-strtoupper.html">mb_strtoupper</a></div>
+ <div class="up"><a href="ref.mbstring.html">Функции для работы с Многобайтными строками</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

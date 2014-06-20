@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Получение части строки</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.iconv-strrpos.html">iconv_strrpos</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.iconv.html">iconv</a></div>
+ <div class="up"><a href="ref.iconv.html">iconv</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.iconv-substr" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">iconv_substr</h1>
+  <p class="verinfo">(PHP 5)</p><p class="refpurpose"><span class="refname">iconv_substr</span> &mdash; <span class="dc-title">Получение части строки</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.iconv-substr-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">string</span> <span class="methodname"><strong>iconv_substr</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$str</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code><span class="initializer"> = iconv_strlen($str, $charset)</span></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$charset</code><span class="initializer"> = ini_get(&quot;iconv.internal_encoding&quot;)</span></span>
+  ]] )</div>
+
+  <p class="para rdfs-comment">
+   Получает часть строки <code class="parameter">str</code>, определенную
+   параметрами <code class="parameter">offset</code> и <code class="parameter">length</code>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.iconv-substr-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">str</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Изначальная строка.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">offset</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Если <code class="parameter">offset</code> неотрицателен, 
+       <span class="function"><strong>iconv_substr()</strong></span> получает часть строки 
+       <code class="parameter">str</code> начиная с символа с порядковым номером
+       <code class="parameter">offset</code> (нумерация начинается с нуля).
+      </p>
+      <p class="para">
+       Если <code class="parameter">offset</code> отрицателен,
+       <span class="function"><strong>iconv_substr()</strong></span> получает часть строки
+       начиная с позиции, отстоящую от конца строки 
+       <code class="parameter">str</code> на <code class="parameter">offset</code> 
+       символов.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">length</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Если <code class="parameter">length</code> задан и положителен, возвращаемое
+       значение содержит не более <code class="parameter">length</code> символов,
+       начиная с <code class="parameter">offset</code> (зависит от длины строки 
+       <code class="parameter">string</code>).
+      </p>
+      <p class="para">
+       Если указан отрицательный <code class="parameter">length</code>,
+       <span class="function"><strong>iconv_substr()</strong></span> получает часть строки
+       <code class="parameter">str</code> начиная с <code class="parameter">offset</code>
+       символа и до символа, отстоящего от конца строки на 
+       <code class="parameter">length</code> символов.
+       В случае, если <code class="parameter">offset</code> также отрицателен,
+       стартовая позиция вычисляется заранее в соответствии с 
+       вышеописанным правилом.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">charset</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Если параметр <code class="parameter">charset</code> не указан,
+       предполагается, что строка <code class="parameter">string</code> 
+       имеет кодировку
+       <a href="iconv.configuration.html" class="link">iconv.internal_encoding</a>.
+      </p>
+      <p class="para">
+       Обратите внимание, что и <code class="parameter">offset</code>,
+       и <code class="parameter">length</code> основываются на размере символа,
+       рассчитанного исходя из кодировки текста,
+       в то время как схожая функция <span class="function"><a href="function.substr.html" class="function">substr()</a></span> 
+       всегда рассматривает их побайтовое смещение.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.iconv-substr-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает часть строки <code class="parameter">str</code>, определенную
+   параметрами <code class="parameter">offset</code> и <code class="parameter">length</code>.
+  </p>
+  <p class="para">
+   Если строка <code class="parameter">str</code> имеет меньшую длину, чем 
+   параметр <code class="parameter">offset</code>, будет возвращено 
+   <strong><code>FALSE</code></strong>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.iconv-substr-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.substr.html" class="function" rel="rdfs-seeAlso">substr()</a> - Возвращает подстроку</span></li>
+    <li class="member"><span class="function"><a href="function.mb-substr.html" class="function" rel="rdfs-seeAlso">mb_substr()</a> - Возвращает часть строки</span></li>
+    <li class="member"><span class="function"><a href="function.mb-strcut.html" class="function" rel="rdfs-seeAlso">mb_strcut()</a> - Получение части строки</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.iconv-strrpos.html">iconv_strrpos</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.iconv.html">iconv</a></div>
+ <div class="up"><a href="ref.iconv.html">iconv</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

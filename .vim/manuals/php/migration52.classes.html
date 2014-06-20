@@ -1,0 +1,207 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Новые классы</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="migration52.new-extensions.html">Новые расширения</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="migration52.global-constants.html">Новые глобальные константы</a></div>
+ <div class="up"><a href="migration52.html">Переход с PHP 5.1.x на PHP 5.2.x</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="migration52.classes" class="section">
+  <h2 class="title">Новые классы</h2>
+  <p class="para">
+   Следующие классы были добавлены в PHP 5.2.0:
+  </p>
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara">
+     <a href="ref.datetime.html" class="link">DateTime</a>
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <a href="ref.datetime.html" class="link">DateTimeZone</a>
+    </span>
+   </li>
+   
+   <li class="listitem">
+    <span class="simpara">
+     RegexIterator - extends <a href="class.filteriterator.html" class="classname">FilterIterator</a>;
+     implements <a href="class.iterator.html" class="classname">Iterator</a>, <a href="class.traversable.html" class="classname">Traversable</a>,
+     <a href="class.outeriterator.html" class="classname">OuterIterator</a>
+    </span>
+    <span class="simpara">
+     Константы:
+    </span>
+    <ul class="itemizedlist">
+     <li class="listitem">
+      <span class="simpara">
+       <strong><code>RegexIterator::ALL_MATCHES</code></strong>
+      </span>
+     </li>
+     <li class="listitem">
+      <span class="simpara">
+       <strong><code>RegexIterator::GET_MATCH</code></strong>
+      </span>
+     </li>
+     <li class="listitem">
+      <span class="simpara">
+       <strong><code>RegexIterator::MATCH</code></strong>
+      </span>
+     </li>
+     <li class="listitem">
+      <span class="simpara">
+       <strong><code>RegexIterator::REPLACE</code></strong>
+      </span>
+     </li>
+     <li class="listitem">
+      <span class="simpara">
+       <strong><code>RegexIterator::SPLIT</code></strong>
+      </span>
+     </li>
+     <li class="listitem">
+      <span class="simpara">
+       <strong><code>RegexIterator::USE_KEY</code></strong>
+      </span>
+     </li>
+    </ul>
+    <span class="simpara">
+     Свойства:
+    </span>
+    <ul class="itemizedlist">
+     <li class="listitem">
+      <span class="simpara">
+       public <span class="property">replacement</span>
+      </span>
+     </li>
+    </ul>
+    <span class="simpara">
+     Методы:
+    </span>
+    <ul class="itemizedlist">
+     <li class="listitem">
+      <span class="simpara">
+       RegexIterator::__construct(Iterator it, string regex [, int mode [, int flags [, int preg_flags]]])
+       - Создает <em>RegexIterator</em> из другого итератора и регулярного
+       выражения.
+      </span>
+     </li>
+     <li class="listitem">
+      <span class="simpara">
+       bool RegexIterator::accept()
+       - Проверяет (string)current() на соответствие регулярному выражению.
+      </span>
+     </li>
+     <li class="listitem">
+      <span class="simpara">
+       bool RegexIterator::getFlags()
+       - Возвращает текущие флаги.
+      </span>
+     </li>
+     <li class="listitem">
+      <span class="simpara">
+       bool RegexIterator::getMode()
+       - Возвращает текущий режим работы.
+      </span>
+     </li>
+     <li class="listitem">
+      <span class="simpara">
+       bool RegexIterator::getPregFlags()
+       - Фозвращает текущие флаги PREG (или <strong><code>NULL</code></strong>, если они не используются)
+      </span>
+     </li>
+     <li class="listitem">
+      <span class="simpara">
+       bool RegexIterator::setFlags(int new_flags)
+       - Устанавливает флаги.
+      </span>
+     </li>
+     <li class="listitem">
+      <span class="simpara">
+       bool RegexIterator::setMode(int new_mode)
+       - Устанавливает новый режим работы.
+      </span>
+     </li>
+     <li class="listitem">
+      <span class="simpara">
+       bool RegexIterator::setPregFlags(int new_flags)
+       - Устанавливает флаги PREG.
+      </span>
+     </li>
+    </ul>
+   </li>
+   
+   <li class="listitem">
+    <span class="simpara">
+     RecursiveRegexIterator
+    </span>
+    <span class="simpara">
+     Константы:
+    </span>
+    <ul class="itemizedlist">
+     <li class="listitem">
+      <span class="simpara">
+       <strong><code>RecursiveRegexIterator::ALL_MATCHES</code></strong>
+      </span>
+     </li>
+     <li class="listitem">
+      <span class="simpara">
+       <strong><code>RecursiveRegexIterator::GET_MATCH</code></strong>
+      </span>
+     </li>
+     <li class="listitem">
+      <span class="simpara">
+       <strong><code>RecursiveRegexIterator::MATCH</code></strong>
+      </span>
+     </li>
+     <li class="listitem">
+      <span class="simpara">
+       <strong><code>RecursiveRegexIterator::REPLACE</code></strong>
+      </span>
+     </li>
+     <li class="listitem">
+      <span class="simpara">
+       <strong><code>RecursiveRegexIterator::SPLIT</code></strong>
+      </span>
+     </li>
+     <li class="listitem">
+      <span class="simpara">
+       <strong><code>RecursiveRegexIterator::USE_KEY</code></strong>
+      </span>
+     </li>
+    </ul>
+    <span class="simpara">
+     Методы:
+    </span>
+    <ul class="itemizedlist">
+     <li class="listitem">
+      <span class="simpara">
+       RecursiveRegexIterator::__construct(RecursiveIterator it, string regex [, int mode [, int flags [, int preg_flags]]])
+       - Создает <em>RecursiveRegexIterator</em> из другого рекурсивного итератора
+       и регулярного выражения.
+      </span>
+     </li>
+     <li class="listitem">
+      <span class="simpara">
+       RecursiveRegexIterator RecursiveRegexIterator::getChildren()
+       - Возвращает внутренний итератор потомков, содержащихся в текущем <em>RecursiveRegexIterator</em>.
+      </span>
+     </li>
+     <li class="listitem">
+      <span class="simpara">
+       bool RecursiveRegexIterator::hasChildren()
+       - Проверяет, есть ли у текущего элемента внутреннего итератора потомки.
+      </span>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="migration52.new-extensions.html">Новые расширения</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="migration52.global-constants.html">Новые глобальные константы</a></div>
+ <div class="up"><a href="migration52.html">Переход с PHP 5.1.x на PHP 5.2.x</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

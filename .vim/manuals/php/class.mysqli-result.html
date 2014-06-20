@@ -1,0 +1,272 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>The mysqli_result class</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mysqli-stmt.store-result.html">mysqli_stmt::store_result</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mysqli-result.current-field.html">mysqli_result::$current_field</a></div>
+ <div class="up"><a href="book.mysqli.html">mysqli</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="class.mysqli-result" class="reference">
+ <h1 class="title">The mysqli_result class</h1>
+ 
+ 
+ <div class="partintro"><p class="verinfo">(PHP 5)</p>
+ 
+
+  <div class="section" id="mysqli-result.intro">
+   <h2 class="title">Введение</h2>
+   <p class="para">
+    Представляет результирующий набор, полученный из запроса в базу данных.
+   </p>
+   
+   <p class="para">
+    <em class="emphasis">Список изменений</em>
+   </p>
+
+   <table class="doctable table">
+    <caption><strong>Список изменений</strong></caption>
+    
+     <thead>
+      <tr>
+       <th>Версия</th>
+       <th>Описание</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.4.0</td>
+       <td>
+        Добавлена поддержка <a href="class.iterator.html" class="classname">Iterator</a>, так как <strong class="classname">mysqli_result</strong>
+        теперь реализует <a href="class.traversable.html" class="classname">Traversable</a>.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+  
+   
+  </div>
+
+ 
+  <div class="section" id="mysqli-result.synopsis">
+   <h2 class="title">Обзор классов</h2>
+ 
+
+   <div class="classsynopsis">
+    <div class="ooclass"></div>
+ 
+
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <strong class="classname">mysqli_result</strong>
+     </span>
+
+     <span class="oointerface">implements 
+      <span class="interfacename"><a href="class.traversable.html" class="interfacename">Traversable</a></span>
+     </span>
+
+     {</div>
+
+ 
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Свойства */</div>
+    <div class="fieldsynopsis">
+   <span class="type">int</span> <var class="varname"><a href="mysqli-result.current-field.html">$<var class="varname">current_field</var></a></var>
+  ;</div>
+<div class="fieldsynopsis"><span class="type">int</span> <var class="varname"><a href="mysqli-result.field-count.html">$<var class="varname">field_count</var></a></var>;</div>
+<div class="fieldsynopsis"><span class="type">array</span> <var class="varname"><a href="mysqli-result.lengths.html">$<var class="varname">lengths</var></a></var>;</div>
+<div class="fieldsynopsis"><span class="type">int</span> <var class="varname"><a href="mysqli-result.num-rows.html">$<var class="varname">num_rows</var></a></var>;</div>
+
+ 
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Методы */</div>
+    <div class="methodsynopsis dc-description">
+            <span class="type">bool</span> <span class="methodname"><a href="mysqli-result.data-seek.html" class="methodname">data_seek</a></span>
+             ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code></span>
+         )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">mixed</span> <span class="methodname"><a href="mysqli-result.fetch-all.html" class="methodname">fetch_all</a></span>
+    ([ <span class="methodparam"><span class="type">int</span> <code class="parameter">$resulttype</code><span class="initializer"> = MYSQLI_NUM</span></span>
+  ] )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">mixed</span> <span class="methodname"><a href="mysqli-result.fetch-array.html" class="methodname">fetch_array</a></span>
+    ([ <span class="methodparam"><span class="type">int</span> <code class="parameter">$resulttype</code><span class="initializer"> = MYSQLI_BOTH</span></span>
+  ] )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">array</span> <span class="methodname"><a href="mysqli-result.fetch-assoc.html" class="methodname">fetch_assoc</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">object</span> <span class="methodname"><a href="mysqli-result.fetch-field-direct.html" class="methodname">fetch_field_direct</a></span>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$fieldnr</code></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">object</span> <span class="methodname"><a href="mysqli-result.fetch-field.html" class="methodname">fetch_field</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">array</span> <span class="methodname"><a href="mysqli-result.fetch-fields.html" class="methodname">fetch_fields</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">object</span> <span class="methodname"><a href="mysqli-result.fetch-object.html" class="methodname">fetch_object</a></span>
+    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$class_name</code></span>
+   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$params</code></span>
+  ]] )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">mixed</span> <span class="methodname"><a href="mysqli-result.fetch-row.html" class="methodname">fetch_row</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><a href="mysqli-result.field-seek.html" class="methodname">field_seek</a></span>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$fieldnr</code></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">void</span> <span class="methodname"><a href="mysqli-result.free.html" class="methodname">free</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+
+   }</div>
+
+ 
+  </div>
+ 
+ </div>
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>Содержание</h2><ul class="chunklist chunklist_reference"><li><a href="mysqli-result.current-field.html">mysqli_result::$current_field</a> — Получает смещение указателя по отношению к текущему полю</li><li><a href="mysqli-result.data-seek.html">mysqli_result::data_seek</a> — Перемещает указатель результата на выбранную строку</li><li><a href="mysqli-result.fetch-all.html">mysqli_result::fetch_all</a> — Выбирает все строки из результирующего набора и помещает их в
+   ассоциативный массив, обычный массив или в оба</li><li><a href="mysqli-result.fetch-array.html">mysqli_result::fetch_array</a> — Выбирает одну строку из результирующего набора и помещает ее в ассоциативный
+   массив, обычный массив или в оба</li><li><a href="mysqli-result.fetch-assoc.html">mysqli_result::fetch_assoc</a> — Извлекает результирующий ряд в виде ассоциативного массива</li><li><a href="mysqli-result.fetch-field-direct.html">mysqli_result::fetch_field_direct</a> — Получение метаданных конкретного поля</li><li><a href="mysqli-result.fetch-field.html">mysqli_result::fetch_field</a> — Возвращает следующее поле результирующего набора</li><li><a href="mysqli-result.fetch-fields.html">mysqli_result::fetch_fields</a> — Возвращает массив объектов, представляющих поля результирующего набора</li><li><a href="mysqli-result.fetch-object.html">mysqli_result::fetch_object</a> — Возвращает текущую строку результирующего набора в виде объекта</li><li><a href="mysqli-result.fetch-row.html">mysqli_result::fetch_row</a> — Получение строки результирующей таблицы в виде массива</li><li><a href="mysqli-result.field-count.html">mysqli_result::$field_count</a> — Получение количества полей в результирующем наборе</li><li><a href="mysqli-result.field-seek.html">mysqli_result::field_seek</a> — Установить указатель поля на определенное смещение</li><li><a href="mysqli-result.free.html">mysqli_result::free</a> — Освобождает память занятую результатами запроса</li><li><a href="mysqli-result.lengths.html">mysqli_result::$lengths</a> — Возвращает длины полей текущей строки результирующего набора</li><li><a href="mysqli-result.num-rows.html">mysqli_result::$num_rows</a> — Получает число рядов в результирующей выборке</li></ul>
+</div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mysqli-stmt.store-result.html">mysqli_stmt::store_result</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mysqli-result.current-field.html">mysqli_result::$current_field</a></div>
+ <div class="up"><a href="book.mysqli.html">mysqli</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

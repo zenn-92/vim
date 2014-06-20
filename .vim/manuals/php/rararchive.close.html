@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Закрывает RAR архив и освобождает все ресурсы</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="class.rararchive.html">RarArchive</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="rararchive.getcomment.html">RarArchive::getComment</a></div>
+ <div class="up"><a href="class.rararchive.html">RarArchive</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="rararchive.close" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">RarArchive::close</h1>
+  <h1 class="refname">rar_close</h1>
+  <p class="verinfo">(PECL rar &gt;= 2.0.0)</p><p class="refpurpose"><span class="refname">RarArchive::close</span> -- <span class="refname">rar_close</span> &mdash; <span class="dc-title">Закрывает RAR архив и освобождает все ресурсы</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-rararchive.close-description">
+  <h3 class="title">Описание</h3>
+  <p class="para">Объектно-ориентированный стиль (method):</p>
+   <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><strong>RarArchive::close</strong></span>
+    ( <span class="methodparam">void</span>
+    )</div>
+
+  <p class="para rdfs-comment">Процедурный стиль:</p>
+  <div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><strong>rar_close</strong></span>
+    ( <span class="methodparam"><span class="type"><a href="class.rararchive.html" class="type RarArchive">RarArchive</a></span> <code class="parameter">$rarfile</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Закрывает RAR архив и освобождает все ресурсы связанные с ним.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-rararchive.close-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">rarfile</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Объект <span class="type"><a href="class.rararchive.html" class="type RarArchive">RarArchive</a></span> открытый с помощью <span class="function"><a href="rararchive.open.html" class="function">rar_open()</a></span>.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-rararchive.close-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает <strong><code>TRUE</code></strong> в случае успешного завершения  или <strong><code>FALSE</code></strong> в случае возникновения ошибки.
+  </p>
+ </div>
+
+ 
+  <div class="refsect1 changelog" id="refsect1-rararchive.close-changelog">
+  <h3 class="title">Список изменений</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Версия</th>
+       <th>Описание</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>2.0.0</td>
+       <td>
+        Элементы архива возвращаемые <span class="methodname"><a href="rararchive.getentry.html" class="methodname">RarArchive::getEntry()</a></span>
+        и <span class="methodname"><a href="rararchive.getentries.html" class="methodname">RarArchive::getEntries()</a></span> теперь
+        недействительны после вызова данного метода. Это означает,
+        что нет гарантии правильной работы всех методов
+        этих элементов.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-rararchive.close-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-758">
+    <p><strong>Пример #1 Объектно-ориентированный стиль</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$rar_arch&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">RarArchive</span><span style="color: #007700">::</span><span style="color: #0000BB">open</span><span style="color: #007700">(</span><span style="color: #DD0000">'latest_winrar.rar'</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">$rar_arch</span><span style="color: #007700">.</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$rar_arch</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">close</span><span style="color: #007700">();<br />echo&nbsp;</span><span style="color: #0000BB">$rar_arch</span><span style="color: #007700">.</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+     </div>
+
+     <div class="example-contents"><p>Результатом выполнения данного примера
+будет что-то подобное:</p></div>
+     <div class="example-contents screen">
+<div class="cdata"><pre>
+RAR Archive &quot;D:\php_rar\trunk\tests\latest_winrar.rar&quot;
+RAR Archive &quot;D:\php_rar\trunk\tests\latest_winrar.rar&quot; (closed)
+</pre></div>
+    </div>
+   </div>
+  </p>
+  <p class="para">
+   <div class="example" id="example-759">
+    <p><strong>Пример #2 Процедурный стиль</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$rar_arch&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">rar_open</span><span style="color: #007700">(</span><span style="color: #DD0000">'latest_winrar.rar'</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">$rar_arch</span><span style="color: #007700">.</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">rar_close</span><span style="color: #007700">(</span><span style="color: #0000BB">$rar_arch</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">$rar_arch</span><span style="color: #007700">.</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+     </div>
+
+   </div>
+  </p>
+ </div>
+
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="class.rararchive.html">RarArchive</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="rararchive.getcomment.html">RarArchive::getComment</a></div>
+ <div class="up"><a href="class.rararchive.html">RarArchive</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

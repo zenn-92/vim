@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Реализация по умолчанию метода __autoload()</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.spl-autoload-unregister.html">spl_autoload_unregister</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.spl-classes.html">spl_classes</a></div>
+ <div class="up"><a href="ref.spl.html">SPL Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.spl-autoload" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">spl_autoload</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.2)</p><p class="refpurpose"><span class="refname">spl_autoload</span> &mdash; <span class="dc-title">
+   Реализация по умолчанию метода __autoload()
+  </span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-function.spl-autoload-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type"><span class="type void">void</span></span> <span class="methodname"><strong>spl_autoload</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$class_name</code></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$file_extensions</code><span class="initializer"> = spl_autoload_extensions()</span></span>
+  ] )</div>
+
+  <p class="para rdfs-comment">
+   Эта фунция представляет из себя базовую реализацию метода
+   <span class="function"><a href="function.autoload.html" class="function">__autoload()</a></span>. Если пользователь не определил свою реализацию,
+   и <span class="function"><a href="function.spl-autoload-register.html" class="function">spl_autoload_register()</a></span> вызывается без параметров, то при
+   каждом последующем вызове <span class="function"><a href="function.autoload.html" class="function">__autoload()</a></span> будет работать
+   именно эта функция. 
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.spl-autoload-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">class_name</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Имя класса (и пространства имен) в нижнем регистре, описание которого
+       требуется загрузить.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">file_extensions</code></dt>
+
+     <dd>
+
+      <p class="para">
+       По умолчанию фунция будет искать файлы с расширениями .inc and .php. по
+       всем include-путям, где может располагаться искомое описание класса.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.spl-autoload-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Эта функция не возвращает значения после выполнения.
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.spl-autoload-unregister.html">spl_autoload_unregister</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.spl-classes.html">spl_classes</a></div>
+ <div class="up"><a href="ref.spl.html">SPL Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

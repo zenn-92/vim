@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Закрывает курсор, переводя запрос в состояние готовности к повторному запуску</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="pdostatement.bindvalue.html">PDOStatement::bindValue</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="pdostatement.columncount.html">PDOStatement::columnCount</a></div>
+ <div class="up"><a href="class.pdostatement.html">PDOStatement</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="pdostatement.closecursor" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">PDOStatement::closeCursor</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PECL pdo &gt;= 0.9.0)</p><p class="refpurpose"><span class="refname">PDOStatement::closeCursor</span> &mdash; <span class="dc-title">
+   Закрывает курсор, переводя запрос в состояние готовности к повторному запуску
+  </span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-pdostatement.closecursor-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><strong>PDOStatement::closeCursor</strong></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+
+
+  <p class="para rdfs-comment">
+   <span class="function"><strong>PDOStatement::closeCursor()</strong></span> освобождает соединение с сервером,
+   давая возможность запускать другие SQL запросы. Метод оставляет запрос в состоянии
+   готовности к повторному запуску.
+  </p>
+  <p class="para">
+   Этот метод полезен при использовании драйверов баз данных, которые не
+   позволяют запустить PDOStatement, пока предыдущий объект PDOStatement не выберет
+   все данные из результирующего набора. Если это ограничение распространяется
+   на ваш драйвер, будет вызвана ошибка нарушиения последовательности запросов
+   (out-of-sequence error).
+  </p>
+  <p class="para">
+   <span class="function"><strong>PDOStatement::closeCursor()</strong></span> может быть реализован как
+   дополнительный метод конкретного драйвера (позволяющий добиться максимальной
+   эффективности работы), либо как внутренний метод PDO, если такой функции в
+   драйвере нет. Реализация внутреннего метода PDO семантически схожа с приведенной
+   ниже:
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">do&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;(</span><span style="color: #0000BB">$stmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetch</span><span style="color: #007700">())<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(!</span><span style="color: #0000BB">$stmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">nextRowset</span><span style="color: #007700">())<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br />}&nbsp;while&nbsp;(</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </p>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-pdostatement.closecursor-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает <strong><code>TRUE</code></strong> в случае успешного завершения  или <strong><code>FALSE</code></strong> в случае возникновения ошибки.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-pdostatement.closecursor-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-962">
+    <p><strong>Пример #1 
+     Пример использования <span class="function"><strong>PDOStatement::closeCursor()</strong></span>
+    </strong></p>
+    <div class="example-contents"><p>
+     В приведенном примере, объект PDOStatement <var class="varname"><var class="varname">$stmt</var></var>
+     возвращает несколько строк, однако приложение считывает только первую из них,
+     оставляя объект PDOStatement в состоянии, когда есть еще невыбранные строки.
+     Чтобы быть уверенным в том, что приложение будет работать со всеми драйверами
+     баз данных, автор добавил вызов метода
+     <span class="function"><strong>PDOStatement::closeCursor()</strong></span> объекта
+     <var class="varname"><var class="varname">$stmt</var></var> перед тем как запустить другой запрос
+     PDOStatement <var class="varname"><var class="varname">$otherStmt</var></var>.
+    </p></div>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;Создание&nbsp;объекта&nbsp;PDOStatement&nbsp;*/<br /></span><span style="color: #0000BB">$stmt&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #DD0000">'SELECT&nbsp;foo&nbsp;FROM&nbsp;bar'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Создание&nbsp;другого&nbsp;объекта&nbsp;PDOStatement&nbsp;*/<br /></span><span style="color: #0000BB">$otherStmt&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #DD0000">'SELECT&nbsp;foobaz&nbsp;FROM&nbsp;foobar'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;запуск&nbsp;первого&nbsp;запроса&nbsp;*/<br /></span><span style="color: #0000BB">$stmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">/*&nbsp;выборка&nbsp;только&nbsp;первой&nbsp;строки&nbsp;результирующего&nbsp;набора&nbsp;первого&nbsp;запроса&nbsp;*/<br /></span><span style="color: #0000BB">$stmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetch</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">/*&nbsp;следующий&nbsp;вызов&nbsp;closeCursor()&nbsp;может&nbsp;быть&nbsp;обязательным&nbsp;для&nbsp;некоторых&nbsp;драйверов&nbsp;*/<br /></span><span style="color: #0000BB">$stmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">closeCursor</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">/*&nbsp;теперь&nbsp;можно&nbsp;запускать&nbsp;второй&nbsp;запрос&nbsp;*/<br /></span><span style="color: #0000BB">$otherStmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-pdostatement.closecursor-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="pdostatement.execute.html" class="function" rel="rdfs-seeAlso">PDOStatement::execute()</a> - Запускает подготовленный запрос на выполнение</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="pdostatement.bindvalue.html">PDOStatement::bindValue</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="pdostatement.columncount.html">PDOStatement::columnCount</a></div>
+ <div class="up"><a href="class.pdostatement.html">PDOStatement</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

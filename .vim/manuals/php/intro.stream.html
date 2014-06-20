@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Введение</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="book.stream.html">Потоки</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="stream.setup.html">Установка и настройка</a></div>
+ <div class="up"><a href="book.stream.html">Потоки</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="intro.stream" class="preface">
+   <h1 class="title">Введение</h1>
+   <p class="simpara">
+    Потоки были впервые введены в PHP 4.3.0, как инструмент для
+    работы с файлами, сетевого обмена, сжатия данных и выполнения
+    других операций с помощью одного общего набора функций. Выражаясь
+    простыми понятиями, поток (<em>stream</em>) - это ресурс
+    (<em>resource</em>), который ведет себя, как источник
+    непрерывной последовательности данных. То есть из потока можно
+    последовательно читать данные, равно как и записывать в него. Также
+    возможно перемещаться (<span class="function"><a href="function.fseek.html" class="function">fseek()</a></span>) в разные
+    позиции внутри потока.
+   </p>
+   <p class="simpara">
+    Обертка (<em>wrapper</em>) - дополнительный код, который
+    объясняет потоку особенности работы со специфичными протоколами
+    или кодировками. Например, обертка <em>http</em> знает, как
+    преобразовать URL в <em>HTTP/1.0</em>-запрос для файла на
+    удаленном сервере. Существует множество оберток, как встроенных в PHP
+    изначально (см. <a href="wrappers.html" class="xref">Поддерживаемые протоколы и обработчики (wrappers)</a>), так и дополнительных.
+    Дополнительные обертки можно добавлять либо отдельным скриптом с помощью функции
+    <span class="function"><a href="function.stream-wrapper-register.html" class="function">stream_wrapper_register()</a></span>, либо напрямую из расширения,
+    используя API <a href="internals2.streams.html" class="xref">Working with streams</a>. Добавлять можно
+    произвольное количество оберток, что делает возможности работы с потоками
+    практически безграничными. Посмотреть список зарегистрированных на данный
+    момент оберток можно с помощью функции
+    <span class="function"><a href="function.stream-get-wrappers.html" class="function">stream_get_wrappers()</a></span>.
+   </p>
+   <p class="para">
+    Ссылка на поток записывается в следующем виде:
+    <code class="parameter">scheme</code>://<code class="parameter">target</code>
+    <ul class="itemizedlist">
+     <li class="listitem">
+      <span class="simpara">
+       <code class="parameter">scheme</code>(строка) - Название обертки.
+       Например, file, http, https, ftp, ftps, compress.zlib, compress.bz2,
+       php. Список встроенных оберток можно посмотреть здесь
+       <a href="wrappers.html" class="xref">Поддерживаемые протоколы и обработчики (wrappers)</a>. На случай, если название обертки не указать,
+       каждая функция, работающая с потоком, имеет свои умолчания (обычно это
+       <em>file</em>://).
+      </span>
+     </li>
+     <li class="listitem">
+      <span class="simpara">
+       <code class="parameter">target</code> - Зависит от того, какая обертка используется.
+       Для потоков связанных с файловой системой это обычно путь и имя файла. Для
+       сетевых потоков это, как правило, имя хоста (зачастую с добавлением к нему пути).
+       Описания целей для встроенных оберток приведены в <a href="wrappers.html" class="xref">Поддерживаемые протоколы и обработчики (wrappers)</a>.
+      </span>
+     </li>
+    </ul>
+   </p>
+   <p class="para">
+    <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+     <p class="para">
+      Информация об использовании потоков внутри исходного кода PHP приведена в
+      <a href="internals2.ze1.streams.html" class="link">Streams API for PHP Extension Authors reference</a>.
+     </p>
+    </p></blockquote>
+   </p>
+  </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="book.stream.html">Потоки</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="stream.setup.html">Установка и настройка</a></div>
+ <div class="up"><a href="book.stream.html">Потоки</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

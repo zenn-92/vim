@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Возвращает метаданные результирующей таблицы подготавливаемого запроса</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mysqli-stmt.reset.html">mysqli_stmt::reset</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mysqli-stmt.send-long-data.html">mysqli_stmt::send_long_data</a></div>
+ <div class="up"><a href="class.mysqli-stmt.html">mysqli_stmt</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="mysqli-stmt.result-metadata" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">mysqli_stmt::result_metadata</h1>
+  <h1 class="refname">mysqli_stmt_result_metadata</h1>
+  <p class="verinfo">(PHP 5)</p><p class="refpurpose"><span class="refname">mysqli_stmt::result_metadata</span> -- <span class="refname">mysqli_stmt_result_metadata</span> &mdash; <span class="dc-title">
+   Возвращает метаданные результирующей таблицы подготавливаемого запроса
+  </span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-mysqli-stmt.result-metadata-description">
+  <h3 class="title">Описание</h3>
+  <p class="para">Объектно-ориентированный стиль</p>
+  <div class="methodsynopsis dc-description">
+   <span class="type"><a href="class.mysqli-result.html" class="type mysqli_result">mysqli_result</a></span> <span class="methodname"><strong>mysqli_stmt::result_metadata</strong></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+
+  <p class="para rdfs-comment">Процедурный стиль</p>
+  <div class="methodsynopsis dc-description">
+   <span class="type"><a href="class.mysqli-result.html" class="type mysqli_result">mysqli_result</a></span> <span class="methodname"><strong>mysqli_stmt_result_metadata</strong></span>
+    ( <span class="methodparam"><span class="type"><a href="class.mysqli-stmt.html" class="type mysqli_stmt">mysqli_stmt</a></span> <code class="parameter">$stmt</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Если запрос, переданный в <span class="function"><a href="mysqli.prepare.html" class="function">mysqli_prepare()</a></span>, генерирует
+   результирующую таблицу, <span class="function"><strong>mysqli_stmt_result_metadata()</strong></span>
+   возвращает объект, с помощью которого можно получить описание этого
+   результирующего набора. В частности, можно получить количество полей и
+   описание каждого отдельного поля.
+  </p>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <p class="para">
+    Полученный объектный указатель можно передавать в качестве аргумента в
+    функции обработки метаданных результирующих таблиц, как например:
+    <ul class="itemizedlist">
+     <li class="listitem"><p class="para"><span class="function"><a href="mysqli-result.field-count.html" class="function">mysqli_num_fields()</a></span></p></li>
+     <li class="listitem"><p class="para"><span class="function"><a href="mysqli-result.fetch-field.html" class="function">mysqli_fetch_field()</a></span></p></li>
+     <li class="listitem"><p class="para"><span class="function"><a href="mysqli-result.fetch-field-direct.html" class="function">mysqli_fetch_field_direct()</a></span></p></li>
+     <li class="listitem"><p class="para"><span class="function"><a href="mysqli-result.fetch-fields.html" class="function">mysqli_fetch_fields()</a></span></p></li>
+     <li class="listitem"><p class="para"><span class="function"><a href="mysqli.field-count.html" class="function">mysqli_field_count()</a></span></p></li>
+     <li class="listitem"><p class="para"><span class="function"><a href="mysqli-result.field-seek.html" class="function">mysqli_field_seek()</a></span></p></li>
+     <li class="listitem"><p class="para"><span class="function"><a href="mysqli-result.current-field.html" class="function">mysqli_field_tell()</a></span></p></li>
+     <li class="listitem"><p class="para"><span class="function"><a href="mysqli-result.free.html" class="function">mysqli_free_result()</a></span></p></li>
+    </ul>
+   </p>
+  </p></blockquote>
+  <p class="para">
+   После завершения работы с этим объектом, занимаемую им память необходимо
+   освободить. Сделать это можно, передав объектный указатель в функцию
+   <span class="function"><a href="mysqli-result.free.html" class="function">mysqli_free_result()</a></span>.
+  </p>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <p class="para">
+    Результирующий набор, возвращаемый из
+    <span class="function"><strong>mysqli_stmt_result_metadata()</strong></span>, содержит только метаданные.
+    В нем не будет строк выборки. Результаты запроса можно получить с помощью
+    функции <span class="function"><a href="mysqli-stmt.fetch.html" class="function">mysqli_stmt_fetch()</a></span>.
+   </p>
+  </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-mysqli-stmt.result-metadata-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    <dt>
+<code class="parameter">
+stmt</code></dt>
+<dd>
+<p class="para">Только для процедурного стиля: Идентификатор выражения, полученный с помощью
+<span class="function"><a href="mysqli.stmt-init.html" class="function">mysqli_stmt_init()</a></span>.</p></dd>
+
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-mysqli-stmt.result-metadata-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает объект или <strong><code>FALSE</code></strong> случае ошибки.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-mysqli-stmt.result-metadata-examples">
+  <h3 class="title">Примеры</h3>
+  <div class="example" id="example-1764">
+   <p><strong>Пример #1 Объектно-ориентированный стиль</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$mysqli&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">mysqli</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_user"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_password"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"test"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #DD0000">"DROP&nbsp;TABLE&nbsp;IF&nbsp;EXISTS&nbsp;friends"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #DD0000">"CREATE&nbsp;TABLE&nbsp;friends&nbsp;(id&nbsp;int,&nbsp;name&nbsp;varchar(20))"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #DD0000">"INSERT&nbsp;INTO&nbsp;friends&nbsp;VALUES&nbsp;(1,'Hartmut'),&nbsp;(2,&nbsp;'Ulf')"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$stmt&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #DD0000">"SELECT&nbsp;id,&nbsp;name&nbsp;FROM&nbsp;friends"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$stmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">/*&nbsp;получаем&nbsp;результирующий&nbsp;набор&nbsp;метаданных&nbsp;*/<br /></span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$stmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">result_metadata</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">/*&nbsp;извлекаем&nbsp;информацию&nbsp;о&nbsp;столбце&nbsp;из&nbsp;метаданных&nbsp;*/<br /></span><span style="color: #0000BB">$field&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$result</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetch_field</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Имя&nbsp;столбца:&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$field</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">name</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;закрываем&nbsp;результирующий&nbsp;набор&nbsp;*/<br /></span><span style="color: #0000BB">$result</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">close</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">/*&nbsp;закрываем&nbsp;подключение&nbsp;*/<br /></span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">close</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+  <div class="example" id="example-1765">
+   <p><strong>Пример #2 Процедурный стиль</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$link&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysqli_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_user"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_password"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"test"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">mysqli_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"DROP&nbsp;TABLE&nbsp;IF&nbsp;EXISTS&nbsp;friends"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">mysqli_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"CREATE&nbsp;TABLE&nbsp;friends&nbsp;(id&nbsp;int,&nbsp;name&nbsp;varchar(20))"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">mysqli_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"INSERT&nbsp;INTO&nbsp;friends&nbsp;VALUES&nbsp;(1,'Hartmut'),&nbsp;(2,&nbsp;'Ulf')"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$stmt&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysqli_prepare</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"SELECT&nbsp;id,&nbsp;name&nbsp;FROM&nbsp;friends"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">mysqli_stmt_execute</span><span style="color: #007700">(</span><span style="color: #0000BB">$stmt</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;получаем&nbsp;результирующий&nbsp;набор&nbsp;метаданных&nbsp;*/<br /></span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysqli_stmt_result_metadata</span><span style="color: #007700">(</span><span style="color: #0000BB">$stmt</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;извлекаем&nbsp;информацию&nbsp;о&nbsp;столбце&nbsp;из&nbsp;метаданных&nbsp;*/<br /></span><span style="color: #0000BB">$field&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysqli_fetch_field</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Имя&nbsp;столбца:&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$field</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">name</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;закрываем&nbsp;результирующий&nbsp;набор&nbsp;*/<br /></span><span style="color: #0000BB">mysqli_free_result</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;закрываем&nbsp;подключение&nbsp;*/<br /></span><span style="color: #0000BB">mysqli_close</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-mysqli-stmt.result-metadata-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="mysqli.prepare.html" class="function" rel="rdfs-seeAlso">mysqli_prepare()</a> - Подготавливает SQL выражение к выполнению</span></li>
+    <li class="member"><span class="function"><a href="mysqli-result.free.html" class="function" rel="rdfs-seeAlso">mysqli_free_result()</a> - Освобождает память занятую результатами запроса</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mysqli-stmt.reset.html">mysqli_stmt::reset</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mysqli-stmt.send-long-data.html">mysqli_stmt::send_long_data</a></div>
+ <div class="up"><a href="class.mysqli-stmt.html">mysqli_stmt</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

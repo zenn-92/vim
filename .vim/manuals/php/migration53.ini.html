@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Изменения в работе с INI-файлами</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="migration53.global-constants.html">Новые глобальные константы</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="migration53.other.html">Другие изменения</a></div>
+ <div class="up"><a href="migration53.html">Переход c PHP 5.2.x на PHP 5.3.x</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="migration53.ini" class="section">
+  <h2 class="title">Изменения в работе с INI-файлами</h2>
+  <p class="simpara">
+   В PHP 5.3.0 была значительно улучшена производительность при разборе INI-файлов
+   и добавлено несколько новых синтаксических возможностей.
+  </p>
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara">
+     Стандартные <var class="filename">php.ini</var> файлы были реорганизованы и переименованы.
+     <em>php.ini-development</em> содержит настройки, рекомендуемые для
+     использования при разработке. <em>php.ini-production</em>
+     содержит настройки, рекомендуемые при производственной эксплуатации.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     Теперь присутствует поддержка двух специальных секций:
+     <em>[PATH=/opt/httpd/www.example.com/]</em> и
+     <em>[HOST=www.example.com]</em>. Директивы, установленные в этих
+     секциях не могут быть переопределены в пользовательских INI-файлах или при
+     выполнении. Более детальную информацию об этих секциях можно найти
+     <a href="ini.sections.html" class="link">здесь</a>.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <a href="ini.core.html#ini.zend-extension-debug" class="link">zend_extension_debug</a>,
+     <a href="ini.core.html#ini.zend-extension-debug-ts" class="link">zend_extension_debug_ts</a>
+     и <a href="ini.core.html#ini.zend-extension-ts" class="link">zend_extension_ts</a> были удалены.
+     Используйте директиву <a href="ini.core.html#ini.zend-extension" class="link">zend_extension</a>
+     для загрузки всех расширений Zend.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     Директива <a href="ini.core.html#ini.zend.ze1-compatibility-mode" class="link">zend.ze1_compatibility_mode</a>
+     была удалена. Если эта INI-директива установлена в On, то при запуске
+     будет сгенерирована ошибка <strong><code>E_ERROR</code></strong>.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     Стало возможным использование полного пути для загрузки модулей, используя
+     директиву &quot;<a href="ini.core.html#ini.extension" class="link">extension</a>&quot;.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <em>&quot;ini-variables&quot;</em> могут быть использованы почти везде в
+     <var class="filename">php.ini</var> файле.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     В процессе исполнения скрипта возможно ужесточение ограничений, заданных
+     директивой <a href="ini.core.html#ini.open-basedir" class="link">open_basedir</a>, и область
+     действия самой директивы теперь PHP_INI_ALL.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     Стало возможным использовать буквенно-цифровые или переменные индексы в
+     массивах INI-опций.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     Функция <span class="function"><a href="function.get-cfg-var.html" class="function">get_cfg_var()</a></span> сейчас способна возвращать массив из INI-опций.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     Добавлены две новых почтовых директивы:
+     <a href="mail.configuration.html#ini.mail.add-x-header" class="link">mail.add_x_header</a> и
+     <a href="mail.configuration.html#ini.mail.log" class="link">mail.log</a>.
+    </span>
+   </li>
+  </ul>
+  <p class="simpara">
+   Были добавлены следующие INI-директивы:
+  </p>
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara">
+     <em>user_ini.filename</em> и
+     <em>user_ini.cache_ttl</em> для контроля
+     <a href="configuration.file.per-user.html" class="link">пользовательских INI-файлов</a>.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     Была добавлена директива <a href="ini.core.html#ini.exit-on-timeout" class="link">exit_on_timeout</a>.
+     Она служит для принудительного завершения дочерних процессов Apache 1.x в случае
+     таймаута при выполнении PHP-кода.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     Добавлена директива <em>mbstring.http_output_conv_mimetype</em>.
+     Она указывает шаблон регулярного выражения для типов контента, для которых активируется
+     функция <span class="function"><a href="function.mb-output-handler.html" class="function">mb_output_handler()</a></span>.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     Добавлена  <a href="ini.core.html#ini.request-order" class="link">request_order</a>.
+     Позволяет контролировать, какая внешняя переменная будет доступна в массиве
+     <var class="varname"><var class="varname"><a href="reserved.variables.request.html" class="classname">$_REQUEST</a></var></var>.
+    </span>
+   </li>
+  </ul>
+  <p class="simpara">
+   Следующие INI-директивы получили новые значения по умолчанию:
+  </p>
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara">
+     <a href="session.configuration.html#ini.session.use-only-cookies" class="link">session.use_only_cookies</a>
+     теперь установлена в <em>&quot;1&quot;</em> (включено) по умолчанию.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     <a href="oci8.configuration.html#ini.oci8.default-prefetch" class="link">oci8.default_prefetch</a> изменено с
+     <em>&quot;10&quot;</em> на <em>&quot;100&quot;</em>.
+    </span>
+   </li>
+  </ul>
+ </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="migration53.global-constants.html">Новые глобальные константы</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="migration53.other.html">Другие изменения</a></div>
+ <div class="up"><a href="migration53.html">Переход c PHP 5.2.x на PHP 5.3.x</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Может быть вызвана когда имеются запросы, ожидающие выполнения</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.eio-open.html">eio_open</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.eio-read.html">eio_read</a></div>
+ <div class="up"><a href="ref.eio.html">Eio Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.eio-poll" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">eio_poll</h1>
+  <p class="verinfo">(PECL eio &gt;= 0.0.1dev)</p><p class="refpurpose"><span class="refname">eio_poll</span> &mdash; <span class="dc-title">Может быть вызвана когда имеются запросы, ожидающие выполнения</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.eio-poll-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">int</span> <span class="methodname"><strong>eio_poll</strong></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+
+  <p class="para rdfs-comment">
+  <span class="function"><strong>eio_poll()</strong></span> может быть использована для реализации особых
+  циклов обработки запросов. При этом
+  <span class="function"><a href="function.eio-nreqs.html" class="function">eio_nreqs()</a></span> может быть использована для нахождения невыполненных
+  запросов.
+  </p>
+
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: <p class="para">Применяется только для пользовательской реализации цикла обработки запросов.</p></p></blockquote>
+
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.eio-poll-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">У этой функции нет параметров.</p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.eio-poll-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Если любой вызов запроса возвращает ненулевое значение, возвращается это значение.
+   Иначе возвращает <strong><code>0</code></strong>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.eio-poll-examples">
+  <h3 class="title">Примеры</h3>
+  <div class="example" id="example-3641">
+   <p><strong>Пример #1 Пример использования <span class="function"><strong>eio_poll()</strong></span></strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">res_cb</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$result</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #0000BB">eio_nop</span><span style="color: #007700">(</span><span style="color: #0000BB">EIO_PRI_DEFAULT</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"res_cb"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"1"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">eio_nop</span><span style="color: #007700">(</span><span style="color: #0000BB">EIO_PRI_DEFAULT</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"res_cb"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"2"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">eio_nop</span><span style="color: #007700">(</span><span style="color: #0000BB">EIO_PRI_DEFAULT</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"res_cb"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"3"</span><span style="color: #007700">);<br /><br />while&nbsp;(</span><span style="color: #0000BB">eio_nreqs</span><span style="color: #007700">())&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Некоторый&nbsp;специфичный&nbsp;IPC&nbsp;или&nbsp;что-то&nbsp;еще<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">eio_poll</span><span style="color: #007700">();<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>Результатом выполнения данного примера
+будет что-то подобное:</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>
+string(1) &quot;1&quot;
+int(0)
+string(1) &quot;3&quot;
+int(0)
+string(1) &quot;2&quot;
+int(0)
+</pre></div>
+   </div>
+  </div>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.eio-poll-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <ul class="simplelist">
+   <li class="member">eio_nreqs</li>
+  </ul>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.eio-open.html">eio_open</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.eio-read.html">eio_read</a></div>
+ <div class="up"><a href="ref.eio.html">Eio Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

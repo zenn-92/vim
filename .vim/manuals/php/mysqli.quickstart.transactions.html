@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>API поддержка транзакций</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mysqli.quickstart.multiple-statement.html">Множественные запросы</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mysqli.quickstart.metadata.html">Метаданные</a></div>
+ <div class="up"><a href="mysqli.quickstart.html">Краткое руководство</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="mysqli.quickstart.transactions" class="section">
+  <h2 class="title">API поддержка транзакций</h2>
+  <p class="para">
+   Поддержка транзакций в СУБД MySQL зависит от используемого движка хранилища
+   данных. Начиная с MySQL 5.5, по умолчанию используется движок InnoDB.
+   InnoDB полностью поддерживает ACID модель транзакций.
+  </p>
+  <p class="para">
+   Транзакциями можно управлять как средствами SQL, так и вызовами API функций.
+   Для включения и выключения режима автофиксации изменений рекомендуется
+   пользоваться API функциями.
+  </p>
+  <p class="para">
+   <div class="example" id="example-1691">
+    <p><strong>Пример #1 Установка режима автофиксации средствами SQL и функциями API</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$mysqli&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">mysqli</span><span style="color: #007700">(</span><span style="color: #DD0000">"example.com"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"user"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"password"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"database"</span><span style="color: #007700">);<br />if&nbsp;(</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connect_errno</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Не&nbsp;удалось&nbsp;подключиться&nbsp;к&nbsp;MySQL:&nbsp;("&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connect_errno&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">")&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connect_error</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #FF8000">/*&nbsp;Рекомендуется&nbsp;управлять&nbsp;настройками&nbsp;транзакций&nbsp;средствами&nbsp;API&nbsp;*/<br /></span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">autocommit</span><span style="color: #007700">(</span><span style="color: #0000BB">false</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Не&nbsp;будет&nbsp;распознаваться&nbsp;и&nbsp;учитываться&nbsp;плагинами&nbsp;репликации&nbsp;и&nbsp;балансировки&nbsp;нагрузки&nbsp;*/<br /></span><span style="color: #007700">if&nbsp;(!</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #DD0000">'SET&nbsp;AUTOCOMMIT&nbsp;=&nbsp;0'</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Не&nbsp;удалось&nbsp;выполнить&nbsp;запрос:&nbsp;("&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">errno&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">")&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">error</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+  <p class="para">
+   Дополнительные службы сервера, такие как плагины репликации и балансировки
+   нагрузки, могут отслеживать вызовы API функций. Плагин репликации может
+   сообщать балансировщику нагрузки о запущенной транзакции, если эта транзакция
+   обслуживается API функциями. Сервер не сможет распределять нагрузку между
+   репликами базы, если смена режима автофиксации, фиксация и откат транзакций
+   осуществляются SQL запросами.
+  </p>
+  <p class="para">
+   <div class="example" id="example-1692">
+    <p><strong>Пример #2 Фиксация и откат</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$mysqli&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">mysqli</span><span style="color: #007700">(</span><span style="color: #DD0000">"example.com"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"user"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"password"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"database"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">autocommit</span><span style="color: #007700">(</span><span style="color: #0000BB">false</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #DD0000">"INSERT&nbsp;INTO&nbsp;test(id)&nbsp;VALUES&nbsp;(1)"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">rollback</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #DD0000">"INSERT&nbsp;INTO&nbsp;test(id)&nbsp;VALUES&nbsp;(2)"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">commit</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+  <p class="para">
+   Следует заметить, что сервер MySQL не может откатить результаты всех запросов.
+   Некоторые изменения фиксируются неявно.
+  </p>
+  <p class="para">
+   <em class="emphasis">См. также</em>
+  </p>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="methodname"><a href="mysqli.autocommit.html" class="methodname">mysqli::autocommit()</a></span></li>
+    <li class="member"><span class="methodname"><strong>mysqli_result::commit()</strong></span></li>
+    <li class="member"><span class="methodname"><strong>mysqli_result::rollback()</strong></span></li>
+   </ul>
+  </p>
+ </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mysqli.quickstart.multiple-statement.html">Множественные запросы</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mysqli.quickstart.metadata.html">Метаданные</a></div>
+ <div class="up"><a href="mysqli.quickstart.html">Краткое руководство</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

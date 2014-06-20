@@ -1,0 +1,192 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Прикрепляет фильтр к потоку</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.stream-filter-append.html">stream_filter_append</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.stream-filter-register.html">stream_filter_register</a></div>
+ <div class="up"><a href="ref.stream.html">Функции для работы с потоками</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.stream-filter-prepend" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">stream_filter_prepend</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5)</p><p class="refpurpose"><span class="refname">stream_filter_prepend</span> &mdash; <span class="dc-title">Прикрепляет фильтр к потоку</span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-function.stream-filter-prepend-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">resource</span> <span class="methodname"><strong>stream_filter_prepend</strong></span>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$stream</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$filtername</code></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$read_write</code></span>
+   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$params</code></span>
+  ]] )</div>
+
+  <p class="para rdfs-comment">
+   Добавляет фильтр <code class="parameter">filtername</code> к списку фильтров,
+   прикреплённых к потоку <code class="parameter">stream</code>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.stream-filter-prepend-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">stream</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Целевой поток.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">filtername</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Название потока.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">read_write</code></dt>
+
+     <dd>
+
+      <p class="para">
+       По умолчанию, функция <span class="function"><strong>stream_filter_prepend()</strong></span> будет
+       прикреплять фильтр к <em>цепочке фильтров чтения</em>,
+       если файл был открыт для чтения (т. е. режим файла:
+       <em>r</em>, и/или <em>+</em>). Фильтр
+       также будет прикреплён к <em>цепочке фильтров записи</em>,
+       если файл был открыт для записи (т. е. режим файла:
+       <em>w</em>, <em>a</em>, и/или <em>+</em>).
+       Константы <strong><code>STREAM_FILTER_READ</code></strong>,
+       <strong><code>STREAM_FILTER_WRITE</code></strong>, и/или
+       <strong><code>STREAM_FILTER_ALL</code></strong> также могут быть переданы в параметре
+       <code class="parameter">read_write</code>, чтобы переопределить это поведение.
+       Смотрите функцию <span class="function"><a href="function.stream-filter-append.html" class="function">stream_filter_append()</a></span> для примера 
+       использования этого параметра.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">params</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Этот фильтр будет добавлен с указанными параметрами <code class="parameter">params</code>
+       к <em class="emphasis">началу</em> списка и, таким образом, будет 
+       вызван первым во время потоковых операций. Для того, чтобы добавить фильтр к концу 
+       списка, используйте <span class="function"><a href="function.stream-filter-append.html" class="function">stream_filter_append()</a></span>.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.stream-filter-prepend-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает ресурс, который может быть использован для того, чтобы обратиться к этому экземпляру
+   фильтра во время вызова <span class="function"><a href="function.stream-filter-remove.html" class="function">stream_filter_remove()</a></span>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.stream-filter-prepend-changelog">
+  <h3 class="title">Список изменений</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Версия</th>
+       <th>Описание</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.1.0</td>
+       <td>
+        До PHP 5.1.0 эта функция возвращает <strong><code>TRUE</code></strong> в случае успешного выполнения
+        или <strong><code>FALSE</code></strong> в случае возникновения ошибки.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.stream-filter-prepend-notes">
+  <h3 class="title">Примечания</h3>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <strong>При использовании пользовательских фильтров</strong><br />
+   <span class="simpara">
+    Сначала должна быть вызвана функция <span class="function"><a href="function.stream-filter-register.html" class="function">stream_filter_register()</a></span>
+    для того, чтобы зарегистрировать желаемый пользовательский фильтр на имя <code class="parameter">filtername</code>.
+   </span>
+  </p></blockquote>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <span class="simpara">
+    Потоковые данные читаются из ресурсов (и локальных, и удалённых) по кускам,
+    и любые невостребованные данные сохраняются во внутренних буферах. Когда новый фильтр
+    добавляется в начало потока, данные во внутренних буферах, 
+    который уже были обработаны через другие фильтры,
+    <em class="emphasis">не</em> будут обработаны через новый фильтр. 
+    Это отличается от поведения функции <span class="function"><a href="function.stream-filter-append.html" class="function">stream_filter_append()</a></span>.
+   </span>
+  </p></blockquote>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <span class="simpara">
+    Когда фильтр добавляется для чтения и записи, создаются два экземпляра
+    фильтра. Функция <span class="function"><a href="function.stream-filter-append.html" class="function">stream_filter_append()</a></span> должна быть вызвана дважды
+    с <strong><code>STREAM_FILTER_READ</code></strong> и
+    <strong><code>STREAM_FILTER_WRITE</code></strong> чтобы получить оба ресурса фильтра.
+   </span>
+  </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.stream-filter-prepend-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <ul class="simplelist">
+   <li class="member"><span class="function"><a href="function.stream-filter-register.html" class="function" rel="rdfs-seeAlso">stream_filter_register()</a> - Регистрирует потоковый фильтр, определённый пользователем</span></li>
+   <li class="member"><span class="function"><a href="function.stream-filter-append.html" class="function" rel="rdfs-seeAlso">stream_filter_append()</a> - Прикрепляет фильтр к потоку</span></li>
+  </ul>
+ </div>
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.stream-filter-append.html">stream_filter_append</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.stream-filter-register.html">stream_filter_register</a></div>
+ <div class="up"><a href="ref.stream.html">Функции для работы с потоками</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

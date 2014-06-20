@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Перемещение на заданную позицию в потоке</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="streamwrapper.stream-read.html">streamWrapper::stream_read</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="streamwrapper.stream-set-option.html">streamWrapper::stream_set_option</a></div>
+ <div class="up"><a href="class.streamwrapper.html">streamWrapper</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="streamwrapper.stream-seek" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">streamWrapper::stream_seek</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.2, PHP 5)</p><p class="refpurpose"><span class="refname">streamWrapper::stream_seek</span> &mdash; <span class="dc-title">Перемещение на заданную позицию в потоке</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-streamwrapper.stream-seek-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><strong>streamWrapper::stream_seek</strong></span>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$whence</code> <span class="initializer"> = SEEK_SET</span></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Этот метод вызывается в результате вызова функции <span class="function"><a href="function.fseek.html" class="function">fseek()</a></span>.
+  </p>
+  <p class="para">
+   Позицию чтения/записи в потоке необходимо обновлять в соответствии с
+   аргументами <code class="parameter">offset</code> и <code class="parameter">whence</code>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-streamwrapper.stream-seek-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">offset</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Смещение в потоке, на которое требуется переместиться.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">whence</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Возможные значения:
+       <ul class="simplelist">
+        <li class="member">
+         <strong><code>SEEK_SET</code></strong> - Переместиться на позицию
+         <code class="parameter">offset</code> байт от начала файла.
+        </li>
+        <li class="member">
+         <strong><code>SEEK_CUR</code></strong> - Переместиться на
+         <code class="parameter">offset</code> байт относительно текущей позиции.
+        </li>
+        <li class="member">
+         <strong><code>SEEK_END</code></strong> - Переместиться на позицию
+         <code class="parameter">offset</code> байт от конца файла.
+        </li>
+       </ul>
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-streamwrapper.stream-seek-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает <strong><code>TRUE</code></strong>, если позиция обновлена, <strong><code>FALSE</code></strong> в остальных случаях.
+  </p>
+ </div>
+
+
+
+
+ <div class="refsect1 notes" id="refsect1-streamwrapper.stream-seek-notes">
+  <h3 class="title">Примечания</h3>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <p class="para">
+    Если не реализован, в качестве возвращаемого значения принимается <strong><code>FALSE</code></strong>.
+   </p>
+  </p></blockquote>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <p class="para">
+    В случае успеха
+    <span class="methodname"><a href="streamwrapper.stream-tell.html" class="methodname">streamWrapper::stream_tell()</a></span> будет вызвана сразу
+    после того, как <span class="methodname"><strong>streamWrapper::stream_seek()</strong></span> отработает.
+    Если выполнение <span class="methodname"><a href="streamwrapper.stream-tell.html" class="methodname">streamWrapper::stream_tell()</a></span> завершится
+    неудачей, то в вызывающую функцию будет возвращено значение <strong><code>FALSE</code></strong>
+   </p>
+  </p></blockquote>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <p class="para">
+    Не все операции перемещения в потоке приведут к вызову этой функции. В PHP
+    по умолчанию включена буферизация потоков (см. также
+    <span class="function"><a href="function.stream-set-read-buffer.html" class="function">stream_set_read_buffer()</a></span>), поэтому перемещение
+    в потоке может означать лишь перемещение указателя в буфере.
+   </p>
+  </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-streamwrapper.stream-seek-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.fseek.html" class="function" rel="rdfs-seeAlso">fseek()</a> - Устанавливает смещение в файловом указателе</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="streamwrapper.stream-read.html">streamWrapper::stream_read</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="streamwrapper.stream-set-option.html">streamWrapper::stream_set_option</a></div>
+ <div class="up"><a href="class.streamwrapper.html">streamWrapper</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Установка/получение внутренней кодировки скрипта</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.mb-http-output.html">mb_http_output</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.mb-language.html">mb_language</a></div>
+ <div class="up"><a href="ref.mbstring.html">Функции для работы с Многобайтными строками</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.mb-internal-encoding" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">mb_internal_encoding</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5)</p><p class="refpurpose"><span class="refname">mb_internal_encoding</span> &mdash; <span class="dc-title">Установка/получение внутренней кодировки скрипта</span></p>
+
+ </div>
+   
+ <div class="refsect1 description" id="refsect1-function.mb-internal-encoding-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <span class="methodname"><strong>mb_internal_encoding</strong></span>
+    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$encoding</code><span class="initializer"> = mb_internal_encoding()</span></span>
+  ] )</div>
+
+  <p class="para rdfs-comment">
+   Установка/получение внутренней кодировки скрипта.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.mb-internal-encoding-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">encoding</code></dt>
+
+     <dd>
+
+      <p class="para">
+       <code class="parameter">encoding</code> - это имя кодировки, в которую будут
+       преобразовываться входные данные HTTP запроса, из которой будет
+       конвертироваться HTTP вывод, а также это кодировка по умолчанию для 
+       всех функций работающих со строками, определенными в модуле mbstring.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 returnvalues" id="refsect1-function.mb-internal-encoding-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Если аргумент <code class="parameter">encoding</code> задан, то Возвращает <strong><code>TRUE</code></strong> в случае успешного завершения  или <strong><code>FALSE</code></strong> в случае возникновения ошибки.
+   Если аргумент <code class="parameter">encoding</code> опущен, будет возвращено
+   имя текущей внутренней кодировки.
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 examples" id="refsect1-function.mb-internal-encoding-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-2764">
+    <p><strong>Пример #1 Пример использования <span class="function"><strong>mb_internal_encoding()</strong></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;Установка&nbsp;внутренней&nbsp;кодировки&nbsp;в&nbsp;UTF-8&nbsp;*/<br /></span><span style="color: #0000BB">mb_internal_encoding</span><span style="color: #007700">(</span><span style="color: #DD0000">"UTF-8"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Вывод&nbsp;на&nbsp;экран&nbsp;текущей&nbsp;внутренней&nbsp;кодировки&nbsp;*/<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">mb_internal_encoding</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+
+ 
+
+ <div class="refsect1 seealso" id="refsect1-function.mb-internal-encoding-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.mb-http-input.html" class="function" rel="rdfs-seeAlso">mb_http_input()</a> - Определение кодировки символов входных данных HTTP-запроса</span></li>
+    <li class="member"><span class="function"><a href="function.mb-http-output.html" class="function" rel="rdfs-seeAlso">mb_http_output()</a> - Установка/получение кодировки символов HTTP вывода</span></li>
+    <li class="member"><span class="function"><a href="function.mb-detect-order.html" class="function" rel="rdfs-seeAlso">mb_detect_order()</a> - Установка/получение списка кодировок для механизмов определения кодировки</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.mb-http-output.html">mb_http_output</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.mb-language.html">mb_language</a></div>
+ <div class="up"><a href="ref.mbstring.html">Функции для работы с Многобайтными строками</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

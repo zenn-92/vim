@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Подключения и Управление подключениями</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="pdo.constants.html">Предопределенные константы</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="pdo.transactions.html">Транзакции и автоматическая фиксация изменений</a></div>
+ <div class="up"><a href="book.pdo.html">PDO</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="pdo.connections" class="chapter">
+ <h1>Подключения и Управление подключениями</h1>
+
+ <p class="para">
+  Соединения устанавливаются автоматически при создании объекта PDO от
+  его базового класса. Не имеет значения, какой драйвер вы хотите использовать;
+  все что требуется, это имя базового класса. Конструктор класса принимает
+  аргументы для задания источника данных (DSN), а также необязательные
+  имя пользователя и пароль (если есть).
+ </p>
+ <p class="para">
+  <div class="example" id="example-923">
+   <p><strong>Пример #1 Подключение к MySQL</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$dbh&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">(</span><span style="color: #DD0000">'mysql:host=localhost;dbname=test'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$user</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$pass</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div> 
+   </div>
+
+  </div>
+ </p>
+ <p class="para">
+  В случае ошибки при подключении будет выброшено исключение
+  <em>PDOException</em>. Его можно перехватить и обработать, либо
+  оставить на откуп глобальному обработчику ошибок, который вы задали
+  функцией <span class="function"><a href="function.set-exception-handler.html" class="function">set_exception_handler()</a></span>.
+ </p>
+ <p class="para">
+  <div class="example" id="example-924"><p><strong>Пример #2 Обработка ошибок подключения</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">try&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$dbh&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">(</span><span style="color: #DD0000">'mysql:host=localhost;dbname=test'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$user</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$pass</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;foreach(</span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #DD0000">'SELECT&nbsp;*&nbsp;from&nbsp;FOO'</span><span style="color: #007700">)&nbsp;as&nbsp;</span><span style="color: #0000BB">$row</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$row</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$dbh&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br />}&nbsp;catch&nbsp;(</span><span style="color: #0000BB">PDOException&nbsp;$e</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;print&nbsp;</span><span style="color: #DD0000">"Error!:&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$e</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getMessage</span><span style="color: #007700">()&nbsp;.&nbsp;</span><span style="color: #DD0000">"&lt;br/&gt;"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;die();<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+ </p>
+ <div class="warning"><strong class="warning">Внимание</strong>
+  <p class="para">
+   Если ваше приложение не перехватывает исключение PDO конструктора, движок
+   zend выполнит стандартные операции для завершения работы скрипта и вывода
+   обратной трассировки. В этой трассировке будет содержаться детальная
+   информация о соединении с базой данных, включая имя пользователя и пароль.
+   Ответственность за перхват исключений лежит на вас. Перехватить исключение
+   можно явно (с помощью выражения <em>catch</em>), либо неявно, задав
+   глобальный обработчик ошибок функцией
+   <span class="function"><a href="function.set-exception-handler.html" class="function">set_exception_handler()</a></span>.
+  </p>
+ </div>
+ <p class="para">
+  При успешном подключении к базе данных в скрипт будет возвращен созданный
+  PDO объект. Соединение остается активным на протяжении всего времени жизни
+  объекта. Чтобы закрыть соединение, необходимо уничтожить объект путем удаления
+  всех ссылок на него (этого можно добиться, присваивая <strong><code>NULL</code></strong> всем переменным,
+  указывающим на объект). Если не сделать этого явно, PHP автоматически
+  закроет соединение по окончании работы скрипта.
+ </p>
+ <p class="para">
+  <div class="example" id="example-925">
+   <p><strong>Пример #3 Закрытие соединения</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$dbh&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">(</span><span style="color: #DD0000">'mysql:host=localhost;dbname=test'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$user</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$pass</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">//&nbsp;здесь&nbsp;мы&nbsp;каким-то&nbsp;образом&nbsp;используем&nbsp;соединение<br /><br /><br />//&nbsp;соединение&nbsp;больше&nbsp;не&nbsp;нужно,&nbsp;закрываем<br /></span><span style="color: #0000BB">$dbh&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+ </p>
+ <p class="para">
+  Во многих приложениях может оказаться полезным использование постоянных
+  соединений к базам данных. Постоянные соединения не закрываются при
+  завершении работы скрипта, они кэшируются и используются повторно,
+  когда другой скрипт запрашивает соединение с теми же учетными данными.
+  Постоянные соединения позволяют избежать создания новых подключений каждый
+  раз, когда требуется обмен данными с базой, что в результате дает прирост
+  скорости работы таких приложений.
+ </p>
+ <p class="para">
+  <div class="example" id="example-926">
+   <p><strong>Пример #4 Постоянные соединения</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$dbh&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">(</span><span style="color: #DD0000">'mysql:host=localhost;dbname=test'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$user</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$pass</span><span style="color: #007700">,&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">ATTR_PERSISTENT&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">true<br /></span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+ </p>
+ <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+  <p class="para">
+   Чтобы использовать постоянные соединения, необходимо добавить константу
+   <strong><code>PDO::ATTR_PERSISTENT</code></strong> в массив параметров драйвера,
+   который передается конструктору PDO. Если просто задать этот атрибут
+   функцией <span class="function"><a href="pdo.setattribute.html" class="function">PDO::setAttribute()</a></span> уже после создания объекта,
+   драйвер не будет использовать постоянные соединения.
+  </p>
+ </p></blockquote>
+ <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+  <p class="para">
+   Если вы используете PDO ODBC драйвер и ваши ODBC библиотеки поддерживают
+   объединение подключений в пул (ODBC Connection Pooling) (unixODBC и Windows
+   точно поддерживают, но могут быть и другие), то рекомендуется вместо постоянных
+   соединений пользоваться этим пулом. Пул подключений ODBC доступен всем модулям
+   текущего процесса; если PDO сам кэширует соединение, то это соединение
+   будет недоступно другим модулям и не попадет в пул. В результате каждый модуль
+   будет создавать дополнительные подключения для своих нужд.
+  </p>
+ </p></blockquote>
+</div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="pdo.constants.html">Предопределенные константы</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="pdo.transactions.html">Транзакции и автоматическая фиксация изменений</a></div>
+ <div class="up"><a href="book.pdo.html">PDO</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

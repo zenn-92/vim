@@ -1,0 +1,417 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Список изменений</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="indexes.examples.html">Список примеров</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href=""></a></div>
+ <div class="up"><a href="appendices.html">Appendices</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="doc.changelog" class="appendix">
+   <h1>Список изменений</h1>
+
+    <p class="para">Следующие изменения были произведены с функциями встроенных раширений.</p>
+    
+    <table class='doctable table' rules='groups'><thead><tr><th>Version</th><th>Function</th><th>Description</th></tr></thead><tbody class="gen-changelog v"><tr><td>5.6.0</td><td><a href='function.pg-lo-truncate.html'>pg_lo_truncate</a></td><td>Added truncate function. It supports PostgreSQL 9.3's 64bit large object. Both client and server must
+        support PostgreSQL 9.3 and PHP must be 64bit build to use 64bit large object.</td></tr></tbody><tbody class="gen-changelog v5-6-0"><tr><td>5.5.0/PECL 3.0.0</td><td><a href='intldateformatter.create.html'>IntlDateFormatter::create</a></td><td>An IntlCalendar object is allowed for
+         calendar.
+        
+        
+         Objects of type IntlTimeZone and
+         DateTimeZone are allowed for
+         timezone.
+        
+        
+         Invalid timezone identifiers (including empty strings) are no longer
+         allowed for timezone.
+        
+        
+         If NULL is given for timezone, the timezone
+         identifier given by date_default_timezone_get will
+         be used instead of ICUʼs default.</td></tr><tr><td>&nbsp;</td><td><a href='intldateformatter.format.html'>IntlDateFormatter::format</a></td><td>Support for providing IntlCalendar objects to the
+        value parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='intldateformatter.setcalendar.html'>IntlDateFormatter::setCalendar</a></td><td>It became possible to pass an IntlCalendar
+        object.</td></tr></tbody><tbody class="gen-changelog v5-5-0/PECL 3-0-0"><tr><td>5.5.0</td><td><a href='function.php-logo-guid.html'>php_logo_guid</a></td><td>php_logo_guid удалена из PHP.</td></tr><tr><td>&nbsp;</td><td><a href='function.zend-logo-guid.html'>zend_logo_guid</a></td><td>zend_logo_guid удалена из PHP.</td></tr><tr><td>&nbsp;</td><td><a href='mysqli.options.html'>mysqli::options</a></td><td>The MYSQLI_SERVER_PUBLIC_KEY option was added.</td></tr></tbody><tbody class="gen-changelog v5-5-0"><tr><td>5.4.8</td><td><a href='function.assert.html'>assert</a></td><td>Добавлен аргумент description. Также
+        description передается четвертым аргументом в
+        callback-функцию в режиме ASSERT_CALLBACK.</td></tr></tbody><tbody class="gen-changelog v5-4-8"><tr><td>5.4.7</td><td><a href='function.parse-url.html'>parse_url</a></td><td>Исправлено распознавание host, если в URL отсутствовал
+        компонент scheme и использовался ведущий разделитель
+        компонентов.</td></tr></tbody><tbody class="gen-changelog v5-4-7"><tr><td>5.4.1</td><td><a href='function.hex2bin.html'>hex2bin</a></td><td>Если строка имеет нечетную длину, выбрасывается предупреждение. ВPHP 5.4.0
+        такая строка принималась, а последний байт просто обрезался.</td></tr></tbody><tbody class="gen-changelog v5-4-1"><tr><td>5.4.0/PECL 2.0.0b1</td><td><a href='function.idn-to-ascii.html'>idn_to_ascii</a></td><td>Added the parameters variant and
+        idna_info; UTS #46 support.</td></tr><tr><td>&nbsp;</td><td><a href='function.idn-to-utf8.html'>idn_to_utf8</a></td><td>Added the parameters variant and
+        idna_info; UTS #46 support.</td></tr></tbody><tbody class="gen-changelog v5-4-0/PECL 2-0-0b1"><tr><td>5.4.0</td><td><a href='function.apache-child-terminate.html'>apache_child_terminate</a></td><td>Эта функция стала доступной в режиме FastCGI. Ранее она поддерживалась 
+        только при запуске PHP в качестве модуля для Apache.</td></tr><tr><td>&nbsp;</td><td><a href='function.apache-request-headers.html'>apache_request_headers</a></td><td>Данная функция стала доступной при использовании FastCGI. До этого
+        поддерживалась только в случае использования PHP как модуля Apache.</td></tr><tr><td>&nbsp;</td><td><a href='function.apache-response-headers.html'>apache_response_headers</a></td><td>Данная функция стала доступной при использовании FastCGI. Раньше она была
+        доступна только если PHP был установлен, как модуль Apache.</td></tr><tr><td>&nbsp;</td><td><a href='function.array-combine.html'>array_combine</a></td><td>Предыдущие версии выдавали E_WARNING и возвращали
+        FALSE для пустых массивов.</td></tr><tr><td>&nbsp;</td><td><a href='function.date-default-timezone-get.html'>date_default_timezone_get</a></td><td>Переменная окружения TZ больше не используется 
+        при угадывании временной зоны.</td></tr><tr><td>&nbsp;</td><td><a href='function.date-default-timezone-get.html'>date_default_timezone_get</a></td><td>Временная зона больше не угадывается с помощью информации, полученной
+        из операционной системы, так как данный метод нестабилен и на
+        него нельзя полагаться.</td></tr><tr><td>&nbsp;</td><td><a href='function.debug-backtrace.html'>debug_backtrace</a></td><td>Добавлен необязательный аргумент limit.</td></tr><tr><td>&nbsp;</td><td><a href='function.debug-print-backtrace.html'>debug_print_backtrace</a></td><td>Добавлен необязательный аргумент limit.</td></tr><tr><td>&nbsp;</td><td><a href='function.empty.html'>empty</a></td><td>Проверка нечислового индекса строки возвращает TRUE.</td></tr><tr><td>&nbsp;</td><td><a href='function.error-reporting.html'>error_reporting</a></td><td>E_STRICT стал частью
+        E_ALL.</td></tr><tr><td>&nbsp;</td><td><a href='function.get-html-translation-table.html'>get_html_translation_table</a></td><td>Были добавлены константы ENT_HTML401, ENT_XML1,
+        ENT_XHTML и ENT_HTML5.</td></tr><tr><td>&nbsp;</td><td><a href='function.get-html-translation-table.html'>get_html_translation_table</a></td><td>Значение по умолчанию для параметра encoding было
+        изменено на UTF-8.</td></tr><tr><td>&nbsp;</td><td><a href='function.get-magic-quotes-gpc.html'>get_magic_quotes_gpc</a></td><td>Всегда возвращает FALSE, так как функционал магических кавычек удален из PHP.</td></tr><tr><td>&nbsp;</td><td><a href='function.get-magic-quotes-runtime.html'>get_magic_quotes_runtime</a></td><td>Всегда возвращает FALSE, так как функционал магических кавычек удален из PHP.</td></tr><tr><td>&nbsp;</td><td><a href='function.getallheaders.html'>getallheaders</a></td><td>Эта функция стала доступной при использовании FastCGI. Ранее она была
+        доступна только если PHP был установлен, как модуль Apache.</td></tr><tr><td>&nbsp;</td><td><a href='function.gzencode.html'>gzencode</a></td><td>FORCE_DEFLATE теперь генерирует вывод, совместимый
+        с RFC 1950.</td></tr><tr><td>&nbsp;</td><td><a href='function.html-entity-decode.html'>html_entity_decode</a></td><td>Были добавлены константы ENT_HTML401, ENT_XML1,
+        ENT_XHTML и ENT_HTML5.</td></tr><tr><td>&nbsp;</td><td><a href='function.html-entity-decode.html'>html_entity_decode</a></td><td>Кодировка по умолчанию сменилась с ISO-8859-1 на UTF-8.</td></tr><tr><td>&nbsp;</td><td><a href='function.htmlentities.html'>htmlentities</a></td><td>Значение по умолчанию для параметра encoding было
+        изменено на UTF-8.</td></tr><tr><td>&nbsp;</td><td><a href='function.htmlentities.html'>htmlentities</a></td><td>The constants ENT_SUBSTITUTE, ENT_DISALLOWED,
+        ENT_HTML401, ENT_XML1,
+        ENT_XHTML и ENT_HTML5.</td></tr><tr><td>&nbsp;</td><td><a href='function.htmlspecialchars.html'>htmlspecialchars</a></td><td>Добавлены константы ENT_SUBSTITUTE, ENT_DISALLOWED,
+        ENT_HTML401, ENT_XML1,
+        ENT_XHTML и ENT_HTML5.</td></tr><tr><td>&nbsp;</td><td><a href='function.htmlspecialchars.html'>htmlspecialchars</a></td><td>Значение по умолчанию для параметра encoding было
+        изменено на UTF-8.</td></tr><tr><td>&nbsp;</td><td><a href='function.htmlspecialchars-decode.html'>htmlspecialchars_decode</a></td><td>Добавлены константы ENT_HTML401, ENT_XML1,
+        ENT_XHTML и ENT_HTML5.</td></tr><tr><td>&nbsp;</td><td><a href='function.http-build-query.html'>http_build_query</a></td><td>Добавлен параметр enc_type.</td></tr><tr><td>&nbsp;</td><td><a href='function.imagecolorset.html'>imagecolorset</a></td><td>Добавлен аргумент alpha.</td></tr><tr><td>&nbsp;</td><td><a href='function.isset.html'>isset</a></td><td>Проверка нечислового индекса строки теперь возвращает FALSE.</td></tr><tr><td>&nbsp;</td><td><a href='function.json-decode.html'>json_decode</a></td><td>Был добавлен параметр options.</td></tr><tr><td>&nbsp;</td><td><a href='function.json-encode.html'>json_encode</a></td><td>В options были добавлены константы JSON_PRETTY_PRINT, JSON_UNESCAPED_SLASHES, и JSON_UNESCAPED_UNICODE.</td></tr><tr><td>&nbsp;</td><td><a href='function.number-format.html'>number_format</a></td><td>Функция поддерживает многобайтную строку в качестве параметров
+        dec_point и
+        thousands_sep. В предыдущих версиях
+        в качестве разделителя использовался
+        только первый байт из каждого параметра.</td></tr><tr><td>&nbsp;</td><td><a href='function.ob-start.html'>ob_start</a></td><td>Параметр chunk_size, установленный в 1, теперь приводит к выводу по 1 байту
+        в выходной буфер.</td></tr><tr><td>&nbsp;</td><td><a href='function.openssl-decrypt.html'>openssl_decrypt</a></td><td>The raw_output was changed to options.</td></tr><tr><td>&nbsp;</td><td><a href='function.openssl-encrypt.html'>openssl_encrypt</a></td><td>The raw_output was changed to options.</td></tr><tr><td>&nbsp;</td><td><a href='function.preg-match-all.html'>preg_match_all</a></td><td>Параметр matches стал необязательным.</td></tr><tr><td>&nbsp;</td><td><a href='function.scandir.html'>scandir</a></td><td>Были добавлены sorting_order константы. 
+        Любое ненулевое значение задавало сортировку по убыванию в 
+        предыдущих версиях. Поэтому для всех версий PHP нужно
+        использовать 0 для сортировки по возрастанию и
+        1 для сортировки по убыванию. Опции для
+        режима SCANDIR_SORT_NONE не существовало 
+        до PHP 5.4.0.</td></tr><tr><td>&nbsp;</td><td><a href='function.session-set-save-handler.html'>session_set_save_handler</a></td><td>Added SessionHandlerInterface for implementing session handlers and
+       SessionHandler to expose internal PHP session handlers.</td></tr><tr><td>&nbsp;</td><td><a href='function.snmp-set-valueretrieval.html'>snmp_set_valueretrieval</a></td><td>Constants SNMP_VALUE_PLAIN or SNMP_VALUE_LIBRARY
+         may be combined with SNMP_VALUE_OBJECT
+         resulting different way of representing contents of value
+         array element in return value of GET-function. If no
+         SNMP_VALUE_{PLAIN,LIBRARY} constant is
+         accompanying SNMP_VALUE_OBJECT,
+         SNMP_VALUE_LIBRARY is used.
+        
+        
+         Prior to 5.4.0 SNMP_VALUE_OBJECT effecively meant
+         SNMP_VALUE_OBJECT|SNMP_VALUE_PLAIN.</td></tr><tr><td>&nbsp;</td><td><a href='function.sort.html'>sort</a></td><td>Добавлена поддержка SORT_NATURAL и
+       SORT_FLAG_CASE в параметре sort_flags</td></tr><tr><td>&nbsp;</td><td><a href='phar.setstub.html'>Phar::setStub</a></td><td>Added len parameter.</td></tr><tr><td>&nbsp;</td><td><a href='phardata.setstub.html'>PharData::setStub</a></td><td>Added len parameter.</td></tr><tr><td>&nbsp;</td><td><a href='soapclient.soapclient.html'>SoapClient::SoapClient</a></td><td>Новая опция keep_alive.</td></tr></tbody><tbody class="gen-changelog v5-4-0"><tr><td>5.4</td><td><a href='function.grapheme-substr.html'>grapheme_substr</a></td><td>If length is given and positive and the
+        argument string is shorter than the specified length, all the rest of
+        the string according to start parameter is
+        returned. Previously, FALSE was returned.</td></tr></tbody><tbody class="gen-changelog v5-4"><tr><td>5.3.9</td><td><a href='function.is-a.html'>is_a</a></td><td>Добавлен параметр allow_string</td></tr><tr><td>&nbsp;</td><td><a href='function.is-subclass-of.html'>is_subclass_of</a></td><td>Добавлен параметр allow_string</td></tr></tbody><tbody class="gen-changelog v5-3-9"><tr><td>5.3.7</td><td><a href='function.is-subclass-of.html'>is_subclass_of</a></td><td>Добавлена поддержка работы с интерфейсами для параметра
+        class_name</td></tr></tbody><tbody class="gen-changelog v5-3-7"><tr><td>5.3.6</td><td><a href='datetime.modify.html'>DateTime::modify</a></td><td>Стало возможным применять абсолютные значения объектов даты/времени. 
+       Раньше использовались только относительные значения полей даты/времени.</td></tr><tr><td>&nbsp;</td><td><a href='domdocument.savehtml.html'>DOMDocument::saveHTML</a></td><td>Добавлен аргумент node.</td></tr><tr><td>&nbsp;</td><td><a href='function.array-product.html'>array_product</a></td><td>Результатом произведения пустого массива теперь является 1, тогда как
+        ранее данная функция возвращала 0.</td></tr><tr><td>&nbsp;</td><td><a href='function.debug-backtrace.html'>debug_backtrace</a></td><td>Аргумент provide_object заменен на
+        options и добавлена дополнительная настройка
+        DEBUG_BACKTRACE_IGNORE_ARGS.</td></tr><tr><td>&nbsp;</td><td><a href='function.debug-print-backtrace.html'>debug_print_backtrace</a></td><td>Добавлен необязательный аргумент options.</td></tr><tr><td>&nbsp;</td><td><a href='function.preg-match.html'>preg_match</a></td><td>Возвращает FALSE если offset больше, чем длина
+        subject.</td></tr><tr><td>&nbsp;</td><td><a href='function.preg-match-all.html'>preg_match_all</a></td><td>Возвращает FALSE если offset
+        больше чем длина 
+        subject.</td></tr><tr><td>&nbsp;</td><td><a href='ref.pdo-mysql.connection.html'>PDO_MYSQL DSN</a></td><td>Prior to version 5.3.6, charset was ignored.</td></tr></tbody><tbody class="gen-changelog v5-3-6"><tr><td>5.3.4</td><td><a href='function.get-html-translation-table.html'>get_html_translation_table</a></td><td>Добавлен параметр encoding.</td></tr><tr><td>&nbsp;</td><td><a href='function.rawurlencode.html'>rawurlencode</a></td><td>Символы &quot;тильда&quot; больше не кодируются, когда rawurlencode 
+        используется с EBCDIC строками.</td></tr><tr><td>&nbsp;</td><td><a href='function.sleep.html'>sleep</a></td><td>До версии PHP 5.3.4 функция sleep в Windows
+        всегда возвращала NULL после завершения ожидания, независимо от
+        того было ли прервано выполнение функции или нет.</td></tr><tr><td>&nbsp;</td><td><a href='intldateformatter.format.html'>IntlDateFormatter::format</a></td><td>Support for providing DateTime objects to the
+        value parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='mysqli-driver.report-mode.html'>mysqli_driver::$report_mode</a></td><td>Изменен режим протоколирования. Если ранее режим задавался для процесса, то
+        теперь он задается для каждого запроса.</td></tr></tbody><tbody class="gen-changelog v5-3-4"><tr><td>5.3.3</td><td><a href='domxpath.evaluate.html'>DOMXPath::evaluate</a></td><td>Добавлен аргумент registerNodeNS.</td></tr><tr><td>&nbsp;</td><td><a href='domxpath.query.html'>DOMXPath::query</a></td><td>Добавлен аргумент registerNodeNS.</td></tr><tr><td>&nbsp;</td><td><a href='function.json-encode.html'>json_encode</a></td><td>Константа JSON_NUMERIC_CHECK была добавлена в option.</td></tr><tr><td>&nbsp;</td><td><a href='function.ldap-sasl-bind.html'>ldap_sasl_bind</a></td><td>Добавлена поддержка в Windows.</td></tr><tr><td>&nbsp;</td><td><a href='function.openssl-decrypt.html'>openssl_decrypt</a></td><td>The iv parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.openssl-encrypt.html'>openssl_encrypt</a></td><td>The iv parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.parse-url.html'>parse_url</a></td><td>Удалено E_WARNING, которое сообщало о невозможности разбора URL.</td></tr></tbody><tbody class="gen-changelog v5-3-3"><tr><td>5.3.2 (PECL OCI8 1.4)</td><td><a href='function.oci-set-prefetch.html'>oci_set_prefetch</a></td><td>До этой версии rows должен был быть &gt;= 1.</td></tr></tbody><tbody class="gen-changelog v5-3-2 (PECL OCI8 1-4)"><tr><td>5.3.2</td><td><a href='function.crypt.html'>crypt</a></td><td>Добавлено хэширование алгоритмами SHA-256 и SHA-512,
+        основанное на
+        реализации Ulrich Drepper.</td></tr><tr><td>&nbsp;</td><td><a href='function.crypt.html'>crypt</a></td><td>Исправлено поведение Blowfish при некорректных раундах: теперь
+        возвращается &quot;ошибочная&quot; строка (&quot;*0&quot; или &quot;*1&quot;) вместо отката
+        к использованию DES.</td></tr><tr><td>&nbsp;</td><td><a href='function.flock.html'>flock</a></td><td>Автоматическое снятие блокировки при закрытии было удалено.
+        Снятие блокировки теперь всегда должно осуществляться вручную.</td></tr><tr><td>&nbsp;</td><td><a href='function.gmp-init.html'>gmp_init</a></td><td>Диапазон возможных оснований системы счисления
+        base расширен с значений от 2 до 36, до
+        значений от 2 до 62 и от -2 до -36.</td></tr><tr><td>&nbsp;</td><td><a href='function.gmp-strval.html'>gmp_strval</a></td><td>Диапазон возможных систем счисления base расширен со значений 2 - 36, до
+        2 - 62 и -2 - -36.</td></tr><tr><td>&nbsp;</td><td><a href='function.imap-append.html'>imap_append</a></td><td>Добавлена поддержка INTERNALDATE для imap_append.</td></tr><tr><td>&nbsp;</td><td><a href='function.imap-open.html'>imap_open</a></td><td>params added</td></tr></tbody><tbody class="gen-changelog v5-3-2"><tr><td>5.3.1</td><td><a href='function.get-defined-constants.html'>get_defined_constants</a></td><td>Только для Windows: Константы ядра входят в категорию
+        Core. Раньше категория называлась
+        mhash.</td></tr><tr><td>&nbsp;</td><td><a href='function.ibase-query.html'>ibase_query</a></td><td>On success the function now returns TRUE if there were no 
+        affected rows, where it previously returned 0  
+        (a zero followed by an empty space).</td></tr><tr><td>&nbsp;</td><td><a href='function.rename.html'>rename</a></td><td>rename теперь может переименовывать файлы
+        между дисками в Windows.</td></tr></tbody><tbody class="gen-changelog v5-3-1"><tr><td>5.3.0 (PECL OCI8 1.3.4)</td><td><a href='function.oci-set-prefetch.html'>oci_set_prefetch</a></td><td>До этой версии предварительная выборка была ограничена к меньшему
+         из значений rows рядов и 1024
+         * rows байт. Теперь ограничение по размеру
+         байт снято.</td></tr></tbody><tbody class="gen-changelog v5-3-0 (PECL OCI8 1-3-4)"><tr><td>5.3.0</td><td><a href='datetime.construct.html'>DateTime::__construct</a></td><td>В случае задания параметру time неверного
+        формата даты/времени
+        выбрасывается исключение. Раньше скрипт выдавал ошибку.</td></tr><tr><td>&nbsp;</td><td><a href='datetime.modify.html'>DateTime::modify</a></td><td>Изменено
+значение успешной работы функции с NULL на DateTime.</td></tr><tr><td>&nbsp;</td><td><a href='datetime.setdate.html'>DateTime::setDate</a></td><td>Изменено
+значение успешной работы функции с NULL на DateTime.</td></tr><tr><td>&nbsp;</td><td><a href='datetime.setisodate.html'>DateTime::setISODate</a></td><td>Изменено
+значение успешной работы функции с NULL на DateTime.</td></tr><tr><td>&nbsp;</td><td><a href='datetime.settime.html'>DateTime::setTime</a></td><td>Изменено
+значение успешной работы функции с NULL на DateTime.</td></tr><tr><td>&nbsp;</td><td><a href='datetime.settimezone.html'>DateTime::setTimezone</a></td><td>Изменено
+значение успешной работы функции с NULL на DateTime.</td></tr><tr><td>&nbsp;</td><td><a href='datetimezone.gettransitions.html'>DateTimeZone::getTransitions</a></td><td>Были добавлены необязательные параметры timestamp_begin 
+        и timestamp_end.</td></tr><tr><td>&nbsp;</td><td><a href='datetimezone.listidentifiers.html'>DateTimeZone::listIdentifiers</a></td><td>Добавлены необязательные параметры what и
+        country.</td></tr><tr><td>&nbsp;</td><td><a href='directoryiterator.construct.html'>DirectoryIterator::__construct</a></td><td>Вызывается исключение UnexpectedValueException, если путь
+        path не может быть открыт.</td></tr><tr><td>&nbsp;</td><td><a href='function.acosh.html'>acosh</a></td><td>Функция стала доступна для всех платформ</td></tr><tr><td>&nbsp;</td><td><a href='function.array-reduce.html'>array_reduce</a></td><td>Параметр initial теперь позволяет 
+        передать mixed, ранее передавался только 
+        integer.</td></tr><tr><td>&nbsp;</td><td><a href='function.array-search.html'>array_search</a></td><td>Вместе со всеми внутренними функциями PHP начиная с 5.3.0,
+        array_search возвращает NULL, если
+        ей были переданы неверные параметры.</td></tr><tr><td>&nbsp;</td><td><a href='function.asinh.html'>asinh</a></td><td>Функция стала доступна для всех платформ</td></tr><tr><td>&nbsp;</td><td><a href='function.atanh.html'>atanh</a></td><td>Функция стала доступна для всех платформ</td></tr><tr><td>&nbsp;</td><td><a href='function.call-user-func.html'>call_user_func</a></td><td>Изменилась интерпретация объектно-ориентированных ключевых слов, таких
+        как parent и self.
+        Ранее, при их вызове с помощью синтаксиса двойного двоеточия
+        вызывалась ошибка уровня E_STRICT, т.к.
+        они интерпретировались как статические вызовы.</td></tr><tr><td>&nbsp;</td><td><a href='function.call-user-func-array.html'>call_user_func_array</a></td><td>Изменилась интерпретация объектно-ориентированных ключевых слов,
+        таких как parent и self.
+        Ранее их вызов с помощью синтаксиса двойного двоеточия вызывал
+        предупреждение уровня E_STRICT, так как они
+        расценивались как статические вызовы.</td></tr><tr><td>&nbsp;</td><td><a href='function.checkdnsrr.html'>checkdnsrr</a></td><td>Функция стала доступна на платформе Windows.</td></tr><tr><td>&nbsp;</td><td><a href='function.clearstatcache.html'>clearstatcache</a></td><td>Добавлены необязательные параметры clear_realpath_cache
+        и filename.</td></tr><tr><td>&nbsp;</td><td><a href='function.copy.html'>copy</a></td><td>Добавлена поддержка контекста.</td></tr><tr><td>&nbsp;</td><td><a href='function.crypt.html'>crypt</a></td><td>PHP теперь использует собственную реализацию MD5, стандартного DES,
+        расширенного DES и Blowfish алгоритмов, которые будут использованы
+        в случае отсутствия их поддержки в системе.</td></tr><tr><td>&nbsp;</td><td><a href='function.date-default-timezone-set.html'>date_default_timezone_set</a></td><td>Теперь выбрасывает E_WARNING вместо 
+        E_STRICT.</td></tr><tr><td>&nbsp;</td><td><a href='function.define-syslog-variables.html'>define_syslog_variables</a></td><td>Эта функция теперь передаёт напоминание E_DEPRECATED.</td></tr><tr><td>&nbsp;</td><td><a href='function.dl.html'>dl</a></td><td>dl выключен в некоторых SAPI в связи с нестабильностью
+        работы. Из SAPI, поддерживающих dl, остались только
+        CLI и Embed. Используйте вместо dl
+        Директивы загрузки расширений.</td></tr><tr><td>&nbsp;</td><td><a href='function.dns-get-record.html'>dns_get_record</a></td><td>Функция стала доступна на Windows платформах.</td></tr><tr><td>&nbsp;</td><td><a href='function.dns-get-record.html'>dns_get_record</a></td><td>До этого выпуска, если был задан параметр authns,
+        то и addtl также становился обязательным. Теперь
+        нет.</td></tr><tr><td>&nbsp;</td><td><a href='function.error-reporting.html'>error_reporting</a></td><td>Добавлены E_DEPRECATED и
+        E_USER_DEPRECATED.</td></tr><tr><td>&nbsp;</td><td><a href='function.exif-imagetype.html'>exif_imagetype</a></td><td>Добавлена поддержка иконок.</td></tr><tr><td>&nbsp;</td><td><a href='function.expm1.html'>expm1</a></td><td>Теперь функция доступна на всех платформах</td></tr><tr><td>&nbsp;</td><td><a href='function.fgetcsv.html'>fgetcsv</a></td><td>Добавлен параметр escape</td></tr><tr><td>&nbsp;</td><td><a href='function.fnmatch.html'>fnmatch</a></td><td>Данная функция стала доступной на платформе Windows.</td></tr><tr><td>&nbsp;</td><td><a href='function.func-get-arg.html'>func_get_arg</a></td><td>Эта функция теперь может быть использована в качестве параметра функции.</td></tr><tr><td>&nbsp;</td><td><a href='function.func-get-arg.html'>func_get_arg</a></td><td>Если эта функция вызвана в глобальной области видимости файла,
+        подключенного с помощью include
+        или require из функции вызывающего файла,
+        то теперь будет сгенерировано предупреждение и возвращено
+        значение FALSE.</td></tr><tr><td>&nbsp;</td><td><a href='function.func-get-args.html'>func_get_args</a></td><td>Если эта функция вызвана в глобальной области видимости файла,
+        подключенного с помощью include
+        или require из функции вызывающего файла,
+        то теперь будет сгенерировано предупреждение и возвращено
+        значение FALSE.</td></tr><tr><td>&nbsp;</td><td><a href='function.func-get-args.html'>func_get_args</a></td><td>Эта функция теперь может быть использована в качестве параметра функции.</td></tr><tr><td>&nbsp;</td><td><a href='function.func-num-args.html'>func_num_args</a></td><td>Эта функция теперь может быть использована в качестве параметра функции.</td></tr><tr><td>&nbsp;</td><td><a href='function.func-num-args.html'>func_num_args</a></td><td>Если эта функция вызвана в глобальной области видимости файла,
+        подключенного с помощью include
+        или require из функции вызывающего файла,
+        то теперь будет сгенерировано предупреждение и возвращено
+        значение -1.</td></tr><tr><td>&nbsp;</td><td><a href='function.gd-info.html'>gd_info</a></td><td>Атрибут JPG Support переименован в 
+        JPEG Support.</td></tr><tr><td>&nbsp;</td><td><a href='function.get-cfg-var.html'>get_cfg_var</a></td><td>get_cfg_var изменена, чтобы иметь возможность
+        возвращать ini настройки содержащие массивы.</td></tr><tr><td>&nbsp;</td><td><a href='function.get-class.html'>get_class</a></td><td>NULL стал значением по умолчанию для параметра object,
+        поэтому передача NULL в object теперь имеет
+        тот же самый эффект, как и отсутствие какой-либо передачи
+        вообще.</td></tr><tr><td>&nbsp;</td><td><a href='function.get-defined-constants.html'>get_defined_constants</a></td><td>Константы ядра входят в категорию Core.
+        Раньше категория называлась internal,а в Windows
+        системах - mhash.</td></tr><tr><td>&nbsp;</td><td><a href='function.get-object-vars.html'>get_object_vars</a></td><td>Функция теперь возвращает NULL, если
+        object не является объектом.
+        Ранее возвращался FALSE.</td></tr><tr><td>&nbsp;</td><td><a href='function.getimagesize.html'>getimagesize</a></td><td>Добавлена поддержка иконок.</td></tr><tr><td>&nbsp;</td><td><a href='function.getmxrr.html'>getmxrr</a></td><td>Функция стала доступна на платформе Windows.</td></tr><tr><td>&nbsp;</td><td><a href='function.getopt.html'>getopt</a></td><td>Функция больше не зависит от системы, теперь работает в и на Windows.</td></tr><tr><td>&nbsp;</td><td><a href='function.getopt.html'>getopt</a></td><td>Аргумент longopts доступен на всех системах.</td></tr><tr><td>&nbsp;</td><td><a href='function.getopt.html'>getopt</a></td><td>Добвалена поддержка необязательных значений параметров, (задаваемая &quot;::&quot;).</td></tr><tr><td>&nbsp;</td><td><a href='function.getopt.html'>getopt</a></td><td>Добавлена поддержка &quot;=&quot; в качестве разделителя параметр/значение.</td></tr><tr><td>&nbsp;</td><td><a href='function.htmlentities.html'>htmlentities</a></td><td>Добавлена константа ENT_IGNORE.</td></tr><tr><td>&nbsp;</td><td><a href='function.htmlspecialchars.html'>htmlspecialchars</a></td><td>Добавлена константа ENT_IGNORE.</td></tr><tr><td>&nbsp;</td><td><a href='function.imagecolorclosesthwb.html'>imagecolorclosesthwb</a></td><td>Функция теперь доступна в Windows</td></tr><tr><td>&nbsp;</td><td><a href='function.imagefilter.html'>imagefilter</a></td><td>Добавлена поддержка пикселирования (IMGFILTER_PIXELATE).</td></tr><tr><td>&nbsp;</td><td><a href='function.inet-ntop.html'>inet_ntop</a></td><td>Эта функция стала доступна на платформах Windows.</td></tr><tr><td>&nbsp;</td><td><a href='function.inet-pton.html'>inet_pton</a></td><td>Эта функция стала доступна на Windows платформах.</td></tr><tr><td>&nbsp;</td><td><a href='function.ini-get-all.html'>ini_get_all</a></td><td>Добавлен аргумент details.</td></tr><tr><td>&nbsp;</td><td><a href='function.is-a.html'>is_a</a></td><td>Данная функция больше не считается устаревшей, а значит,
+        не будет выводить предупреждения E_STRICT.</td></tr><tr><td>&nbsp;</td><td><a href='function.json-decode.html'>json_decode</a></td><td>Добавлен опциональный параметр depth. 
+        Глубина рекурсии по умолчанию увеличено с 128 до 512</td></tr><tr><td>&nbsp;</td><td><a href='function.json-encode.html'>json_encode</a></td><td>Был добавлен параметр options.</td></tr><tr><td>&nbsp;</td><td><a href='function.link.html'>link</a></td><td>Эта функция стала доступна на Windows системах (Vista, Server
+        2008 и выше).</td></tr><tr><td>&nbsp;</td><td><a href='function.linkinfo.html'>linkinfo</a></td><td>Эта функция теперь доступна и на Windows платформах (Vista, Server
+        2008 и выше).</td></tr><tr><td>&nbsp;</td><td><a href='function.log1p.html'>log1p</a></td><td>Теперь функция доступна на всех платформах</td></tr><tr><td>&nbsp;</td><td><a href='function.mb-get-info.html'>mb_get_info</a></td><td>Стал доступен элемент &quot;http_output_conv_mimetypes&quot;.</td></tr><tr><td>&nbsp;</td><td><a href='function.mcrypt-create-iv.html'>mcrypt_create_iv</a></td><td>It is no longer required to call srand first. This
+        is now done automatically.</td></tr><tr><td>&nbsp;</td><td><a href='function.mcrypt-create-iv.html'>mcrypt_create_iv</a></td><td>MCRYPT_DEV_RANDOM and
+        MCRYPT_DEV_URANDOM became available on Windows
+        platforms.</td></tr><tr><td>&nbsp;</td><td><a href='function.mktime.html'>mktime</a></td><td>mktime теперь выбрасывает ошибку уровня
+        E_DEPRECATED при использовании параметра
+        is_dst.</td></tr><tr><td>&nbsp;</td><td><a href='function.mysql-db-query.html'>mysql_db_query</a></td><td>Функция теперь выдает предупреждение уровня E_DEPRECATED.</td></tr><tr><td>&nbsp;</td><td><a href='function.mysql-escape-string.html'>mysql_escape_string</a></td><td>Данная функция теперь выдает предупреждение уровня E_DEPRECATED.</td></tr><tr><td>&nbsp;</td><td><a href='function.nl2br.html'>nl2br</a></td><td>Добавлен необязательный параметр is_xhtml.</td></tr><tr><td>&nbsp;</td><td><a href='function.parse-ini-file.html'>parse_ini_file</a></td><td>Добавлен необязательный параметр scanner_mode.
+         Одинарные кавычки теперь также могут быть использованы в присвоениях
+         переменных. Символ решетки (#) теперь больше
+         не может быть использован в качестве комментария и будет выбрасывать
+         предупреждение о том, что данная возможность считается устаревшей.</td></tr><tr><td>&nbsp;</td><td><a href='function.pg-lo-create.html'>pg_lo_create</a></td><td>Добавлен необязательный параметр object_id.</td></tr><tr><td>&nbsp;</td><td><a href='function.pg-lo-import.html'>pg_lo_import</a></td><td>Добавлен необязательный аргумент object_id.</td></tr><tr><td>&nbsp;</td><td><a href='function.preg-quote.html'>preg_quote</a></td><td>Символ - теперь экранируется</td></tr><tr><td>&nbsp;</td><td><a href='function.property-exists.html'>property_exists</a></td><td>Эта функция проверяет существование свойства вне зависимости от
+        его доступности.</td></tr><tr><td>&nbsp;</td><td><a href='function.rawurlencode.html'>rawurlencode</a></td><td>Теперь соответствует RFC 3986.</td></tr><tr><td>&nbsp;</td><td><a href='function.readlink.html'>readlink</a></td><td>Данная функция теперь доступна на платформах Windows (Vista, Server
+        2008 и выше).</td></tr><tr><td>&nbsp;</td><td><a href='function.realpath.html'>realpath</a></td><td>До этого релиза realpath не терпела
+        неудачу на системах *BSD в случае отсутствия лишь
+        последнего компонента пути path.
+        Теперь realpath не срабатывает также
+        и в этом случае.</td></tr><tr><td>&nbsp;</td><td><a href='function.register-tick-function.html'>register_tick_function</a></td><td>Тики теперь поддерживаются и на потоковых модулях веб-серверов.</td></tr><tr><td>&nbsp;</td><td><a href='function.round.html'>round</a></td><td>Был добавлен параметр mode.</td></tr><tr><td>&nbsp;</td><td><a href='function.session-start.html'>session_start</a></td><td>If a session fails to start, then FALSE is returned.
+        Previously TRUE was returned.</td></tr><tr><td>&nbsp;</td><td><a href='function.setlocale.html'>setlocale</a></td><td>Эта функция в настоящее время бросает уведомления E_DEPRECATED,
+        если строка передается в параметре category вместо одной из
+        констант LC_*.</td></tr><tr><td>&nbsp;</td><td><a href='function.shm-attach.html'>shm_attach</a></td><td>This function now returns a resource instead of an 
+         integer.</td></tr><tr><td>&nbsp;</td><td><a href='function.spl-autoload-register.html'>spl_autoload_register</a></td><td>Добавлена поддержка пространств имен.</td></tr><tr><td>&nbsp;</td><td><a href='function.spl-autoload-register.html'>spl_autoload_register</a></td><td>Добавлен аргумент prepend.</td></tr><tr><td>&nbsp;</td><td><a href='function.stream-context-create.html'>stream_context_create</a></td><td>Добавлен необязательный аргумент params.</td></tr><tr><td>&nbsp;</td><td><a href='function.stream-socket-pair.html'>stream_socket_pair</a></td><td>Теперь эта функция доступна на Windows платформах.</td></tr><tr><td>&nbsp;</td><td><a href='function.stristr.html'>stristr</a></td><td>Добавлен необязательный параметр before_needle.</td></tr><tr><td>&nbsp;</td><td><a href='function.strlen.html'>strlen</a></td><td>Ранние версии этой функции рассматривали массивы как строку
+       Array, возвращая таким образом
+       5 в качестве длины этой строки, и
+       вызывали ошибку уровня E_NOTICE.</td></tr><tr><td>&nbsp;</td><td><a href='function.strstr.html'>strstr</a></td><td>Добавлен необязательный параметр before_needle.</td></tr><tr><td>&nbsp;</td><td><a href='function.strtotime.html'>strtotime</a></td><td>До версии PHP 5.3.0 относительные форматы времени, передаваемые параметру
+        time функции strtotime, такие
+        как this week, previous week,
+        last week и next week обрабатывались
+        как 7-дневный период относительной текущей даты/времени, а не как
+        недельный период от понедельника (Monday) до воскресенья
+        (Sunday).</td></tr><tr><td>&nbsp;</td><td><a href='function.strtotime.html'>strtotime</a></td><td>До версии PHP 5.3.0 24:00 не являлся корректным
+        форматом, и при его использовании strtotime
+        возвращала FALSE.</td></tr><tr><td>&nbsp;</td><td><a href='function.sybase-connect.html'>sybase_connect</a></td><td>The new parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.symlink.html'>symlink</a></td><td>Эта функция теперь доступна на Windows платформах (Vista, Server
+        2008 и выше).</td></tr><tr><td>&nbsp;</td><td><a href='function.time-nanosleep.html'>time_nanosleep</a></td><td>Эта функция теперь доступна на платформах Windows.</td></tr><tr><td>&nbsp;</td><td><a href='function.time-sleep-until.html'>time_sleep_until</a></td><td>Эта функция теперь доступна на Windows платформах.</td></tr><tr><td>&nbsp;</td><td><a href='function.touch.html'>touch</a></td><td>Стало возможным изменять время модификации директории в
+        Windows.</td></tr><tr><td>&nbsp;</td><td><a href='mysqli.construct.html'>mysqli::__construct</a></td><td>Добавлена возможность устанавливать постоянные соединения.</td></tr><tr><td>&nbsp;</td><td><a href='mysqli.query.html'>mysqli::query</a></td><td>Добавлена возможность выполнять асинхронные запросы.</td></tr><tr><td>&nbsp;</td><td><a href='reflectionfunction.construct.html'>ReflectionFunction::__construct</a></td><td>name теперь может быть замыканием.</td></tr><tr><td>&nbsp;</td><td><a href='splobjectstorage.attach.html'>SplObjectStorage::attach</a></td><td>Добавлен аргумент data.</td></tr></tbody><tbody class="gen-changelog v5-3-0"><tr><td>5.2.15 &amp; 5.3.4</td><td><a href='function.mysqli-report.html'>mysqli_report</a></td><td>Изменение режима протоколирования. Теперь режим задается для каждого
+        запроса, в отличие от каждого процесса, как было ранее.</td></tr></tbody><tbody class="gen-changelog v5-2-15 &amp; 5-3-4"><tr><td>5.2.15</td><td><a href='mysqli-driver.report-mode.html'>mysqli_driver::$report_mode</a></td><td>Изменен режим протоколирования. Если ранее режим задавался для процесса, то
+        теперь он задается для каждого запроса.</td></tr></tbody><tbody class="gen-changelog v5-2-15"><tr><td>5.2.11</td><td><a href='function.get-defined-constants.html'>get_defined_constants</a></td><td>Значение аргумента categorize стало обрабатываться
+        подобающим образом. Раньше аргумент categorize
+        воспринимался, как выражение !is_null($categorize),
+        то есть любое значение отличное от NULL предписывало разделять константы
+        на категории.</td></tr></tbody><tbody class="gen-changelog v5-2-11"><tr><td>5.2.10</td><td><a href='function.array-rand.html'>array_rand</a></td><td>Возвращаемый массив ключей больше не возвращается в случайном
+        порядке.</td></tr><tr><td>&nbsp;</td><td><a href='function.array-unique.html'>array_unique</a></td><td>Значение по умолчанию параметра sort_flags изменено
+        обратно на SORT_STRING.</td></tr><tr><td>&nbsp;</td><td><a href='function.curl-setopt.html'>curl_setopt</a></td><td>Добавлены параметры CURLOPT_PROTOCOLS и
+        CURLOPT_REDIR_PROTOCOLS.</td></tr><tr><td>&nbsp;</td><td><a href='function.ip2long.html'>ip2long</a></td><td>До этой версии функция ip2long могла иногда возвращать верное число, даже если отправленное значение не было Интернет адресом (IPv4) в точечном формате.</td></tr><tr><td>&nbsp;</td><td><a href='function.natsort.html'>natsort</a></td><td>В строках, отбитых нулями спереди, (например, '00005') теперь данная отбивка игнорируется.</td></tr></tbody><tbody class="gen-changelog v5-2-10"><tr><td>5.2.9</td><td><a href='function.array-unique.html'>array_unique</a></td><td>Добавлен необязательный параметр sort_flags, по
+        умолчанию равный SORT_REGULAR. До версии 5.2.9,
+        это функция сортировала массив с помощью SORT_STRING.</td></tr></tbody><tbody class="gen-changelog v5-2-9"><tr><td>5.2.8</td><td><a href='xsltprocessor.importstylesheet.html'>XSLTProcessor::importStylesheet</a></td><td>Принимает SimpleXMLElement вновь, что было невозможно
+        в версии PHP 5.2.6 и более поздних.</td></tr></tbody><tbody class="gen-changelog v5-2-8"><tr><td>5.2.7</td><td><a href='function.error-log.html'>error_log</a></td><td>Добавлен 4-й тип значения в message_type.</td></tr><tr><td>&nbsp;</td><td><a href='function.parse-ini-file.html'>parse_ini_file</a></td><td>В случае ошибки синтаксиса данная функция теперь вернет FALSE,
+        а не пустой массив.</td></tr><tr><td>&nbsp;</td><td><a href='function.round.html'>round</a></td><td>Работа функции round была изменена
+        в соответствии со стандартом C99.</td></tr><tr><td>&nbsp;</td><td><a href='function.strtotime.html'>strtotime</a></td><td>В версиях PHP 5 до 5.2.7 при запросе временной метки дня недели,
+        являвшегося первым днем месяца, ошибочно прибавлялась одна неделя.
+        Эта ошибка была исправлена в версии 5.2.7 и следующих за ней версиях.</td></tr></tbody><tbody class="gen-changelog v5-2-7"><tr><td>5.2.6</td><td><a href='function.fopen.html'>fopen</a></td><td>Добавлены опции 'c' и 'c+'</td></tr></tbody><tbody class="gen-changelog v5-2-6"><tr><td>5.2.5</td><td><a href='function.addcslashes.html'>addcslashes</a></td><td>Добавлены экранирующие последовательности \v и \f.</td></tr><tr><td>&nbsp;</td><td><a href='function.debug-backtrace.html'>debug_backtrace</a></td><td>Добавлен необязательный аргумент provide_object.</td></tr><tr><td>&nbsp;</td><td><a href='function.imagefilter.html'>imagefilter</a></td><td>Добавлена поддержка прозрачности IMG_FILTER_COLORIZE.</td></tr></tbody><tbody class="gen-changelog v5-2-5"><tr><td>5.2.4</td><td><a href='function.checkdnsrr.html'>checkdnsrr</a></td><td>Добавлено значение TXT параметра type.</td></tr><tr><td>&nbsp;</td><td><a href='function.get-loaded-extensions.html'>get_loaded_extensions</a></td><td>Добавлен необязательный аргумент zend_extensions</td></tr><tr><td>&nbsp;</td><td><a href='function.ldap-first-attribute.html'>ldap_first_attribute</a></td><td>Параметр ber_identifier был удалён. 
+        В настоящее время обрабатывается PHP автоматически.</td></tr><tr><td>&nbsp;</td><td><a href='function.ldap-next-attribute.html'>ldap_next_attribute</a></td><td>Параметр ber_identifier был удалён. Теперь это
+  обрабатывается PHP автоматически.</td></tr><tr><td>&nbsp;</td><td><a href='function.parse-ini-file.html'>parse_ini_file</a></td><td>Ключи и имена секций, состоящие из цифр, будут обработаны в PHP как
+        целые числа,
+        поэтому числа, начинающиеся с 0 будут считаться восьмиричными,
+        а начинающиеся с 0x - шестнадцатиричными.</td></tr><tr><td>&nbsp;</td><td><a href='function.stream-wrapper-register.html'>stream_wrapper_register</a></td><td>Добавлен параметр flags.</td></tr></tbody><tbody class="gen-changelog v5-2-4"><tr><td>5.2.3</td><td><a href='function.getimagesize.html'>getimagesize</a></td><td>Уровень ошибок чтения, генерируемых функцией, снижен до
+        E_NOTICE с E_WARNING.</td></tr><tr><td>&nbsp;</td><td><a href='function.htmlentities.html'>htmlentities</a></td><td>Добавлен параметр double_encode.</td></tr><tr><td>&nbsp;</td><td><a href='function.htmlspecialchars.html'>htmlspecialchars</a></td><td>Добавлен параметр double_encode.</td></tr><tr><td>&nbsp;</td><td><a href='function.json-decode.html'>json_decode</a></td><td>Глубина рекурсии увеличена с 20 до 128</td></tr><tr><td>&nbsp;</td><td><a href='function.xmlwriter-write-element.html'>XMLWriter::writeElement</a></td><td>Параметр content стал опциональным.</td></tr><tr><td>&nbsp;</td><td><a href='function.xmlwriter-write-element-ns.html'>XMLWriter::writeElementNS</a></td><td>Параметр content стал опциональным.</td></tr><tr><td>&nbsp;</td><td><a href='pdostatement.getcolumnmeta.html'>PDOStatement::getColumnMeta</a></td><td>Поле table</td></tr></tbody><tbody class="gen-changelog v5-2-3"><tr><td>5.2.2 - 5.2.6</td><td><a href='function.substr.html'>substr</a></td><td>Если параметр start указывает на позицию
+        с отрицательной обрезкой, возвращается FALSE. Другие версии
+        возвращают строку с начала.</td></tr></tbody><tbody class="gen-changelog v5-2-2 - 5-2-6"><tr><td>5.2.2</td><td><a href='domdocument.registernodeclass.html'>DOMDocument::registerNodeClass</a></td><td>В версиях до 5.2.2 ранее зарегистрированный расширенный класс 
+        extendedclass должен быть исключен из регистрации,
+        прежде чем регистрировать новый класс, расширяющий тот же базовый класс
+        baseclass.</td></tr><tr><td>&nbsp;</td><td><a href='function.ftp-ssl-connect.html'>ftp_ssl_connect</a></td><td>Эта функция теперь возвращает FALSE, если не удалось установить
+        SSL-соединение, вместо прежнего поведения, когда
+        устанавливалось обычное, не-SSL соединение.</td></tr><tr><td>&nbsp;</td><td><a href='function.phpinfo.html'>phpinfo</a></td><td>Добавлен вывод информации о загруженном конфигурационном файле.
+        Ранее выводился только путь к конфигурационному файлу (php.ini).</td></tr><tr><td>&nbsp;</td><td><a href='function.preg-match.html'>preg_match</a></td><td>Именованные подмаски теперь позволяют синтаксис
+        (?&lt;name&gt;)
+        и (?'name'), также как и
+        (?P&lt;name&gt;). Предыдущие версии позволяли
+        только (?P&lt;name&gt;).</td></tr><tr><td>&nbsp;</td><td><a href='function.preg-match-all.html'>preg_match_all</a></td><td>Именованные подмаски теперь принимают синтаксис
+        (?&lt;name&gt;)
+        и (?'name'), также как и
+        (?P&lt;name&gt;). Предыдущие версии
+        принимали только (?P&lt;name&gt;).</td></tr><tr><td>&nbsp;</td><td><a href='function.proc-terminate.html'>proc_terminate</a></td><td>Предыдущие версии использовали для уничтожения указанного процесса ресурс
+        resource.</td></tr><tr><td>&nbsp;</td><td><a href='function.token-get-all.html'>token_get_all</a></td><td>Номера строк возвращаются в элементе 2.</td></tr></tbody><tbody class="gen-changelog v5-2-2"><tr><td>5.2.1</td><td><a href='function.iterator-to-array.html'>iterator_to_array</a></td><td>Добавлен параметр use_keys.</td></tr><tr><td>&nbsp;</td><td><a href='function.json-decode.html'>json_decode</a></td><td>Добавлена поддержка декодирования основных типов JSON.</td></tr><tr><td>&nbsp;</td><td><a href='function.memory-get-peak-usage.html'>memory_get_peak_usage</a></td><td>Для работы функции больше не требуется, чтобы PHP компилировался с настройкой
+        --enable-memory-limit.</td></tr><tr><td>&nbsp;</td><td><a href='function.memory-get-usage.html'>memory_get_usage</a></td><td>Для работы функции больше не требуется, чтобы PHP компилировался с настройкой
+        --enable-memory-limit.</td></tr><tr><td>&nbsp;</td><td><a href='function.mt-srand.html'>mt_srand</a></td><td>Реализация Mersenne Twister в PHP теперь использует новый алгоритм
+        переинициализации, разработанный Richard Wagner. При том же параметре
+        последовательность значений будет отличатся от последовательности, сгенерированной
+        в предыдущих версиях PHP. (Ранее при одинаковых параметрах последовательность была одинаковой).
+        Это поведение более не планируется изменять, но тем не
+        менее, полагаться на это небезопасно.</td></tr><tr><td>&nbsp;</td><td><a href='function.proc-open.html'>proc_open</a></td><td>Настройка bypass_shell добавлена в аргумент
+        other_options.</td></tr></tbody><tbody class="gen-changelog v5-2-1"><tr><td>5.2.0</td><td><a href='function.base64-decode.html'>base64_decode</a></td><td>Добавлен параметр strict</td></tr><tr><td>&nbsp;</td><td><a href='function.curl-multi-info-read.html'>curl_multi_info_read</a></td><td>Добавлен параметр msgs_in_queue.</td></tr><tr><td>&nbsp;</td><td><a href='function.error-reporting.html'>error_reporting</a></td><td>Добавлена E_RECOVERABLE_ERROR.</td></tr><tr><td>&nbsp;</td><td><a href='function.imagettftext.html'>imagettftext</a></td><td>Стало возможным задавать код сущности в тексте text
+        шестнадцатеричным числом.</td></tr><tr><td>&nbsp;</td><td><a href='function.imap-open.html'>imap_open</a></td><td>n_retries added</td></tr><tr><td>&nbsp;</td><td><a href='function.imap-reopen.html'>imap_reopen</a></td><td>n_retries added</td></tr><tr><td>&nbsp;</td><td><a href='function.mb-strrpos.html'>mb_strrpos</a></td><td>Добавлен необязательный аргумент offset.</td></tr><tr><td>&nbsp;</td><td><a href='function.memory-get-peak-usage.html'>memory_get_peak_usage</a></td><td>Добавлен аргумент real_usage.</td></tr><tr><td>&nbsp;</td><td><a href='function.memory-get-usage.html'>memory_get_usage</a></td><td>Добавлен аргумент real_usage.</td></tr><tr><td>&nbsp;</td><td><a href='function.openssl-verify.html'>openssl_verify</a></td><td>The signature_alg parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.pathinfo.html'>pathinfo</a></td><td>Добавлена константа PATHINFO_FILENAME.</td></tr><tr><td>&nbsp;</td><td><a href='function.pg-escape-bytea.html'>pg_escape_bytea</a></td><td>Добавлен аргумент connection</td></tr><tr><td>&nbsp;</td><td><a href='function.pg-escape-string.html'>pg_escape_string</a></td><td>Добавлен аргумент connection</td></tr><tr><td>&nbsp;</td><td><a href='function.session-get-cookie-params.html'>session_get_cookie_params</a></td><td>Добавлен элемент &quot;httponly&quot; в возвращаемый массив.</td></tr><tr><td>&nbsp;</td><td><a href='function.session-set-cookie-params.html'>session_set_cookie_params</a></td><td>The httponly parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.set-error-handler.html'>set_error_handler</a></td><td>Обработчик должен вернуть FALSE, чтобы заполнилось значение
+        переменной $php_errormsg.</td></tr><tr><td>&nbsp;</td><td><a href='function.setcookie.html'>setcookie</a></td><td>Добавлен параметр httponly.</td></tr><tr><td>&nbsp;</td><td><a href='function.setrawcookie.html'>setrawcookie</a></td><td>Был добавлен параметр httponly.</td></tr><tr><td>&nbsp;</td><td><a href='function.snmp-set-oid-numeric-print.html'>snmp_set_oid_numeric_print</a></td><td>Since PHP 5.2.0.</td></tr><tr><td>&nbsp;</td><td><a href='pdostatement.execute.html'>PDOStatement::execute</a></td><td>Ключи массива input_parameters должны совпадать
+        с именами параметров, заявленными в SQL запросе. До PHP 5.2.0 на это не
+        обращалось внимания.</td></tr><tr><td>&nbsp;</td><td><a href='simplexmlelement.children.html'>SimpleXMLElement::children</a></td><td>Добавлен не обязательный параметр is_prefix.</td></tr><tr><td>&nbsp;</td><td><a href='soapserver.soapserver.html'>SoapServer::SoapServer</a></td><td>Added the typemap option.</td></tr><tr><td>&nbsp;</td><td><a href='xmlreader.open.html'>XMLReader::open</a></td><td>Были добавлены параметры encoding и options.</td></tr><tr><td>&nbsp;</td><td><a href='xmlreader.xml.html'>XMLReader::XML</a></td><td>Были добавлены параметры encoding и options.</td></tr></tbody><tbody class="gen-changelog v5-2-0"><tr><td>5.1.3</td><td><a href='directoryiterator.construct.html'>DirectoryIterator::__construct</a></td><td>Вызывается исключение RuntimeException, если параметр
+        path содержит пустую строку.</td></tr><tr><td>&nbsp;</td><td><a href='function.curl-getinfo.html'>curl_getinfo</a></td><td>Добавлена константа CURLINFO_HEADER_OUT.</td></tr><tr><td>&nbsp;</td><td><a href='function.get-headers.html'>get_headers</a></td><td>Эта функция теперь использует stream context по-умолчанию, 
+        который может быть установлен или изменен при помощи функции 
+        stream_context_set_default.</td></tr><tr><td>&nbsp;</td><td><a href='function.http-build-query.html'>http_build_query</a></td><td>Квадратные скобки экранируются.</td></tr><tr><td>&nbsp;</td><td><a href='function.imagecolorallocate.html'>imagecolorallocate</a></td><td>Возвращает FALSE в случае неудачи. В 
+        предыдущих версиях в этом случае возвращалось
+        значение -1.</td></tr><tr><td>&nbsp;</td><td><a href='function.imagecolorallocatealpha.html'>imagecolorallocatealpha</a></td><td>Возвращает FALSE, если создать цвет не удалось.
+        Раньше в этом случае фунция возвращала -1.</td></tr><tr><td>&nbsp;</td><td><a href='function.imagepng.html'>imagepng</a></td><td>Добавлен аргумент filters.</td></tr><tr><td>&nbsp;</td><td><a href='function.mb-get-info.html'>mb_get_info</a></td><td>Стали доступны элементы &quot;mail_charset&quot;, &quot;mail_header_encoding&quot;, 
+        и &quot;mail_body_encoding&quot;.</td></tr><tr><td>&nbsp;</td><td><a href='soapclient.dorequest.html'>SoapClient::__doRequest</a></td><td>Добавлен параметр one_way.</td></tr><tr><td>&nbsp;</td><td><a href='xmlreader.getattribute.html'>XMLReader::getAttribute</a></td><td>Возвращает NULL, если атрибут не найден.
+        Ранее возвращалась пустая строка.</td></tr></tbody><tbody class="gen-changelog v5-1-3"><tr><td>5.1.2</td><td><a href='function.date-default-timezone-set.html'>date_default_timezone_set</a></td><td>Функция начала проверять timezone_identifier.</td></tr><tr><td>&nbsp;</td><td><a href='function.http-build-query.html'>http_build_query</a></td><td>Добавлен параметр arg_separator.</td></tr><tr><td>&nbsp;</td><td><a href='function.imagepng.html'>imagepng</a></td><td>Добавлен аргумент quality.</td></tr><tr><td>&nbsp;</td><td><a href='function.parse-url.html'>parse_url</a></td><td>Добавлен параметр component.</td></tr></tbody><tbody class="gen-changelog v5-1-2"><tr><td>5.1.1</td><td><a href='function.date.html'>date</a></td><td>Для стандартных форматов даты/времени существуют специальные
+        константы, которые могут
+        быть указаны в качестве параметра format.</td></tr><tr><td>&nbsp;</td><td><a href='function.debug-backtrace.html'>debug_backtrace</a></td><td>Элементом возвращаемого массива теперь может быть текущий объект
+        object.</td></tr><tr><td>&nbsp;</td><td><a href='function.gmdate.html'>gmdate</a></td><td>Существуют также полезные константы
+        стандартных форматов даты/времени, которые могут быть использованы
+        в качестве параметра format.</td></tr></tbody><tbody class="gen-changelog v5-1-1"><tr><td>5.1.0</td><td><a href='directoryiterator.construct.html'>DirectoryIterator::__construct</a></td><td>Вызывается исключение RuntimeException при ошибке.
+        Раньше вызывалось исключение Exception.</td></tr><tr><td>&nbsp;</td><td><a href='domdocument.loadhtml.html'>DOMDocument::loadHTML</a></td><td>Добавлен параметр options.</td></tr><tr><td>&nbsp;</td><td><a href='domdocument.loadhtmlfile.html'>DOMDocument::loadHTMLFile</a></td><td>Добавлен параметр options.</td></tr><tr><td>&nbsp;</td><td><a href='domdocument.save.html'>DOMDocument::save</a></td><td>Добавлен аргумент options</td></tr><tr><td>&nbsp;</td><td><a href='domdocument.savexml.html'>DOMDocument::saveXML</a></td><td>Добавлен аргумент options</td></tr><tr><td>&nbsp;</td><td><a href='function.class-implements.html'>class_implements</a></td><td>Добавлена возможность передавать строку в качестве аргумента
+        class. Добавлен аргумент
+        autoload.</td></tr><tr><td>&nbsp;</td><td><a href='function.class-parents.html'>class_parents</a></td><td>Добавлена возможность передавать строку в качестве аргумента
+        class. Добавлен аргумент
+        autoload.</td></tr><tr><td>&nbsp;</td><td><a href='function.ctype-digit.html'>ctype_digit</a></td><td>До версии PHP 5.1.0 эта функция возвращала TRUE,
+        если в качестве text передавалась пустая строка.</td></tr><tr><td>&nbsp;</td><td><a href='function.curl-setopt.html'>curl_setopt</a></td><td>Добавлены параметры CURLOPT_AUTOREFERER,
+        CURLOPT_BINARYTRANSFER,
+        CURLOPT_FTPSSLAUTH,
+        CURLOPT_PROXYAUTH и
+        CURLOPT_TIMECONDITION.</td></tr><tr><td>&nbsp;</td><td><a href='function.date.html'>date</a></td><td>Допустимым диапазоном дат для временных меток обычно являются
+        даты с 13 декабря 1901, 20:45:54 GMT по 19 января 2038, 03:14:07 GMT.
+        (Они соответствуют минимальному и максимальному значению 32-битного
+        целого числа со знаком). Однако для PHP версии ниже 5.1.0 в некоторых
+        операционных системах (например, Windows) этот диапазон был ограничен датами
+        01-01-1970 до 19-01-2038.</td></tr><tr><td>&nbsp;</td><td><a href='function.date.html'>date</a></td><td>Теперь ошибки, связанные с временными зонами, генерируют ошибки уровня E_STRICT и E_NOTICE.</td></tr><tr><td>&nbsp;</td><td><a href='function.date-sunrise.html'>date_sunrise</a></td><td>Теперь ошибки, связанные с временными зонами, генерируют ошибки уровня E_STRICT и E_NOTICE.</td></tr><tr><td>&nbsp;</td><td><a href='function.date-sunset.html'>date_sunset</a></td><td>Теперь ошибки, связанные с временными зонами, генерируют ошибки уровня E_STRICT и E_NOTICE.</td></tr><tr><td>&nbsp;</td><td><a href='function.explode.html'>explode</a></td><td>Добавлена поддержка отрицательных значений limit</td></tr><tr><td>&nbsp;</td><td><a href='function.file-get-contents.html'>file_get_contents</a></td><td>Добавлены аргументы offset и
+        maxlen.</td></tr><tr><td>&nbsp;</td><td><a href='function.file-put-contents.html'>file_put_contents</a></td><td>Добавлена поддержка LOCK_EX и возможность
+        передачи потокового ресурса в параметр data</td></tr><tr><td>&nbsp;</td><td><a href='function.get-parent-class.html'>get_parent_class</a></td><td>Если функция&nbsp;была вызвана без параметров вне объекта, то
+        функция возвращала NULL вместе с предупреждением, однако сейчас она
+        возвращает FALSE.</td></tr><tr><td>&nbsp;</td><td><a href='function.gettimeofday.html'>gettimeofday</a></td><td>Добавлен параметр return_float.</td></tr><tr><td>&nbsp;</td><td><a href='function.glob.html'>glob</a></td><td>Добавлена константа GLOB_ERR</td></tr><tr><td>&nbsp;</td><td><a href='function.gmdate.html'>gmdate</a></td><td>Корректным диапазоном временных меток обычно является
+        диапазон дат с 13 декабря 1901 20:45:54 GMT до 19 января
+        2038 03:14:07 GMT. (Эти даты соответствуют минимальному
+        и максимальному значению 32-битному целому числу со знаком).
+        Однако, до PHP 5.1.0 на некоторых системах (например, Windows)
+        этот диапазон был ограничен датами от 01-01-1970 до 19-01-2038.</td></tr><tr><td>&nbsp;</td><td><a href='function.gmmktime.html'>gmmktime</a></td><td>Начиная с версии PHP 5.1.0, параметр is_dst
+        считается устаревшим. В результате должны быть использованы
+        новые возможности обработки временных зон.</td></tr><tr><td>&nbsp;</td><td><a href='function.idate.html'>idate</a></td><td>Теперь ошибки, связанные с временными зонами, генерируют ошибки уровня E_STRICT и E_NOTICE.</td></tr><tr><td>&nbsp;</td><td><a href='function.imagerotate.html'>imagerotate</a></td><td>Добавлен параметр ignore_transparent.</td></tr><tr><td>&nbsp;</td><td><a href='function.intval.html'>intval</a></td><td>Генерирует ошибку уровня E_NOTICE и
+        возвращает 1, если в качестве var
+        передан объект.</td></tr><tr><td>&nbsp;</td><td><a href='function.localtime.html'>localtime</a></td><td>Теперь ошибки, связанные с временными зонами, генерируют ошибки уровня E_STRICT и E_NOTICE.</td></tr><tr><td>&nbsp;</td><td><a href='function.md5-file.html'>md5_file</a></td><td>Функция изменена для работы с потоковым API. Это означает, что ее
+        можно использовать с обертками, например, так:
+        md5_file('http://example.com/..')</td></tr><tr><td>&nbsp;</td><td><a href='function.mktime.html'>mktime</a></td><td>Теперь ошибки, связанные с временными зонами, генерируют ошибки уровня E_STRICT и E_NOTICE.</td></tr><tr><td>&nbsp;</td><td><a href='function.mktime.html'>mktime</a></td><td>Если mktime была вызвана без аргументов,
+        то будет сгенерировано замечание уровня
+        E_STRICT. Используйте вместо этого
+        функцию time.</td></tr><tr><td>&nbsp;</td><td><a href='function.mktime.html'>mktime</a></td><td>Параметр is_dst теперь считается устаревшим.
+        Функция теперь возвращает FALSE при ошибке, тогда как раньше
+        возвращалась -1.
+        Теперь функция принимает дату с одновременно установленными
+        в ноль годом, месяцем и днем.</td></tr><tr><td>&nbsp;</td><td><a href='function.openssl-pkcs7-verify.html'>openssl_pkcs7_verify</a></td><td>The content parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.preg-replace.html'>preg_replace</a></td><td>Добавлен параметр count</td></tr><tr><td>&nbsp;</td><td><a href='function.preg-replace-callback.html'>preg_replace_callback</a></td><td>Добавлен параметр count</td></tr><tr><td>&nbsp;</td><td><a href='function.session-regenerate-id.html'>session_regenerate_id</a></td><td>Added the delete_old_session parameter.</td></tr><tr><td>&nbsp;</td><td><a href='function.sha1-file.html'>sha1_file</a></td><td>Функция теперь работает с потоковым API. Это означает, что ее
+        можно использовать с обертками, например,
+        sha1_file('http://example.com/..')</td></tr><tr><td>&nbsp;</td><td><a href='function.str-word-count.html'>str_word_count</a></td><td>Добавлен параметр charlist</td></tr><tr><td>&nbsp;</td><td><a href='function.stream-copy-to-stream.html'>stream_copy_to_stream</a></td><td>Добавлен параметр offset</td></tr><tr><td>&nbsp;</td><td><a href='function.stream-filter-append.html'>stream_filter_append</a></td><td>До PHP 5.1.0 эта функция возвращает TRUE в случае успешного выполнения
+        или FALSE в случае возникновения ошибки.</td></tr><tr><td>&nbsp;</td><td><a href='function.stream-filter-prepend.html'>stream_filter_prepend</a></td><td>До PHP 5.1.0 эта функция возвращает TRUE в случае успешного выполнения
+        или FALSE в случае возникновения ошибки.</td></tr><tr><td>&nbsp;</td><td><a href='function.stream-get-contents.html'>stream_get_contents</a></td><td>Был добавлен параметр offset.</td></tr><tr><td>&nbsp;</td><td><a href='function.strftime.html'>strftime</a></td><td>Теперь ошибки, связанные с временными зонами, генерируют ошибки уровня E_STRICT и E_NOTICE.</td></tr><tr><td>&nbsp;</td><td><a href='function.strtotime.html'>strtotime</a></td><td>Теперь ошибки, связанные с временными зонами, генерируют ошибки уровня E_STRICT и E_NOTICE.</td></tr><tr><td>&nbsp;</td><td><a href='function.strtotime.html'>strtotime</a></td><td>Теперь в случае ошибки возвращает FALSE, ранее возвращалась
+        -1.</td></tr><tr><td>&nbsp;</td><td><a href='function.substr-compare.html'>substr_compare</a></td><td>Добавлена возможность использования отрицательных значений в offset.</td></tr><tr><td>&nbsp;</td><td><a href='function.substr-count.html'>substr_count</a></td><td>Добавлены параметры offset
+        и length</td></tr><tr><td>&nbsp;</td><td><a href='function.var-export.html'>var_export</a></td><td>Стало возможным экспортировать классы и массивы, содержащие
+        другие классы, используя магический метод
+        __set_state().</td></tr><tr><td>&nbsp;</td><td><a href='xsltprocessor.registerphpfunctions.html'>XSLTProcessor::registerPHPFunctions</a></td><td>Был добавлен параметр restrict.</td></tr></tbody><tbody class="gen-changelog v5-1-0"><tr><td>5.0.5</td><td><a href='function.php-check-syntax.html'>php_check_syntax</a></td><td>Эта функция была удалена из PHP.</td></tr></tbody><tbody class="gen-changelog v5-0-5"><tr><td>5.0.3</td><td><a href='function.get-class-vars.html'>get_class_vars</a></td><td>В зависимости от области видимости, get_class_vars
+        вернет только те свойства, доступ к которым может быть получен
+        из текущей области видимости.</td></tr><tr><td>&nbsp;</td><td><a href='function.is-subclass-of.html'>is_subclass_of</a></td><td>Вы также можете передать параметр object
+        в виде строки (имени класса)</td></tr><tr><td>&nbsp;</td><td><a href='function.php-check-syntax.html'>php_check_syntax</a></td><td>Вызов функции exit после php_check_syntax передает результат
+        в Segfault.</td></tr></tbody><tbody class="gen-changelog v5-0-3"><tr><td>5.0.2</td><td><a href='function.array-slice.html'>array_slice</a></td><td>Добавлен необязательный параметр preserve_keys.</td></tr><tr><td>&nbsp;</td><td><a href='function.class-exists.html'>class_exists</a></td><td>Больше не возвращает TRUE для объявленных интерфейсов.
+        Используйте для этого interface_exists.</td></tr><tr><td>&nbsp;</td><td><a href='function.get-class-vars.html'>get_class_vars</a></td><td>Вызов get_class_vars не вернет все свойства
+        в качестве массива, в отличие от предыдущего поведения, где
+        protected и private свойства имели префикс с нулевым байтом.</td></tr><tr><td>&nbsp;</td><td><a href='function.sort.html'>sort</a></td><td>Добавлена поддержка SORT_LOCALE_STRING</td></tr><tr><td>&nbsp;</td><td><a href='function.strtotime.html'>strtotime</a></td><td>В PHP 5 до версии 5.0.2 &quot;now&quot; и другие
+        относительные времена вычислялись неверно относительно
+        полуночи текущего дня. Это отличается от поведения текущих
+        версий, где вычисление производится корректно относительно
+        текущего времени.</td></tr></tbody><tbody class="gen-changelog v5-0-2"><tr><td>5.0.1</td><td><a href='function.get-class-vars.html'>get_class_vars</a></td><td>Вызов get_class_vars покажет все
+        свойства, как при конвертировании объекта в класс.</td></tr><tr><td>&nbsp;</td><td><a href='function.php-check-syntax.html'>php_check_syntax</a></td><td>error_message передается по ссылке.</td></tr></tbody><tbody class="gen-changelog v5-0-1"><tr><td>5.0.0</td><td><a href='function.apache-get-modules.html'>apache_get_modules</a></td><td>Функция стала доступна при использовании Apache 1, или PHP Apache 2 
+        filter API. Ранее это было возможно только c Apache 2 
+        handler API.</td></tr><tr><td>&nbsp;</td><td><a href='function.apache-get-version.html'>apache_get_version</a></td><td>Стала доступной при использовании Apache 2 filter API.</td></tr><tr><td>&nbsp;</td><td><a href='function.array-keys.html'>array_keys</a></td><td>Добавлен параметр strict.</td></tr><tr><td>&nbsp;</td><td><a href='function.array-merge.html'>array_merge</a></td><td>Поведение функции array_merge было изменено в PHP 5.
+          В отличие от PHP 4, array_merge
+          принимает параметры только типа array.
+          Однако вы можете использовать приведение типов.
+          Смотрите следующий пример для уточнения подробностей.
+         
+         
+          
+           Пример использования array_merge в PHP 5
+           
+
+&lt;?php
+$beginning = 'foo';
+$end = array(1 =&gt; 'bar');
+$result = array_merge((array)$beginning, (array)$end);
+print_r($result);
+?&gt;
+
+           
+           Результат выполнения данного примера:
+           
+    
+    Array
+    (
+        [0] =&gt; foo
+        [1] =&gt; bar
+    )</td></tr><tr><td>&nbsp;</td><td><a href='function.cal-info.html'>cal_info</a></td><td>Параметр calendar стал необязательным и по умолчанию
+  равен &quot;все календари&quot;.</td></tr><tr><td>&nbsp;</td><td><a href='function.checkdnsrr.html'>checkdnsrr</a></td><td>Добавлено значение AAAA параметра type.</td></tr><tr><td>&nbsp;</td><td><a href='function.class-exists.html'>class_exists</a></td><td>Добавлен параметр autoload.</td></tr><tr><td>&nbsp;</td><td><a href='function.com-release.html'>com_release</a></td><td>This function was removed.</td></tr><tr><td>&nbsp;</td><td><a href='function.curl-setopt.html'>curl_setopt</a></td><td>Добавлены параметры CURLOPT_FTP_USE_EPRT,
+        CURLOPT_NOSIGNAL,
+        CURLOPT_UNRESTRICTED_AUTH,
+        CURLOPT_BUFFERSIZE,
+        CURLOPT_HTTPAUTH,
+        CURLOPT_PROXYPORT,
+        CURLOPT_PROXYTYPE,
+        CURLOPT_SSLCERTTYPE и
+        CURLOPT_HTTP200ALIASES.</td></tr><tr><td>&nbsp;</td><td><a href='function.dirname.html'>dirname</a></td><td>dirname теперь безопасна для обработки бинарных данных.</td></tr><tr><td>&nbsp;</td><td><a href='function.empty.html'>empty</a></td><td>Объекты без свойств более не считаются пустыми.</td></tr><tr><td>&nbsp;</td><td><a href='function.error-reporting.html'>error_reporting</a></td><td>Добавлена E_STRICT (не входит в состав
+        E_ALL).</td></tr><tr><td>&nbsp;</td><td><a href='function.extension-loaded.html'>extension_loaded</a></td><td>extension_loaded использует внутреннее имя расширения
+        для определения, доступно оно в данный момент или нет. В большинстве своем
+        имена расширений записаны в нижнем регистре, но могут быть исключения.
+        В версиях PHP младше 5 функция сравнивает имена расширений с учетом регистра.</td></tr><tr><td>&nbsp;</td><td><a href='function.fgetss.html'>fgetss</a></td><td>Параметр length стал необязательным</td></tr><tr><td>&nbsp;</td><td><a href='function.file.html'>file</a></td><td>Добавлен параметр context</td></tr><tr><td>&nbsp;</td><td><a href='function.file.html'>file</a></td><td>До версии PHP 5.0.0 параметр flags
+        использовал только include_path
+        и для его включения необходимо было передать 1</td></tr><tr><td>&nbsp;</td><td><a href='function.file-get-contents.html'>file_get_contents</a></td><td>Добавлена поддержка контекста.</td></tr><tr><td>&nbsp;</td><td><a href='function.file-put-contents.html'>file_put_contents</a></td><td>Добавлена поддержка контекста</td></tr><tr><td>&nbsp;</td><td><a href='function.get-class.html'>get_class</a></td><td>Имя класса теперь возвращается в оригинальной записи.</td></tr><tr><td>&nbsp;</td><td><a href='function.get-class.html'>get_class</a></td><td>Параметр object стал необязателен
+        при вызове из метода объекта.</td></tr><tr><td>&nbsp;</td><td><a href='function.get-class-methods.html'>get_class_methods</a></td><td>Начиная с PHP 5, эта функция возвращает имена методов именно так,
+        как они были объявлены (с учетом регистра). В PHP 4 они
+        возвращались в нижнем регистре.</td></tr><tr><td>&nbsp;</td><td><a href='function.get-defined-constants.html'>get_defined_constants</a></td><td>Добавлен аргумент categorize.</td></tr><tr><td>&nbsp;</td><td><a href='function.get-defined-vars.html'>get_defined_vars</a></td><td>Переменная $GLOBALS включена в возвращаемый
+        результирующий массив.</td></tr><tr><td>&nbsp;</td><td><a href='function.get-parent-class.html'>get_parent_class</a></td><td>Параметр object стал необязательным,
+        если вызов происходит внутри метода данного объекта.</td></tr><tr><td>&nbsp;</td><td><a href='function.html-entity-decode.html'>html_entity_decode</a></td><td>Добавлена поддержка многобайтных кодировок.</td></tr><tr><td>&nbsp;</td><td><a href='function.ip2long.html'>ip2long</a></td><td>До этой версии функция ip2long возвращала -1 при ошибке.</td></tr><tr><td>&nbsp;</td><td><a href='function.is-a.html'>is_a</a></td><td>Эта функция была помечена устаревшей в пользу оператора
+        instanceof.
+        Вызов данной функции вызовет предупреждение уровня
+        E_STRICT.</td></tr><tr><td>&nbsp;</td><td><a href='function.is-executable.html'>is_executable</a></td><td>is_executable стала доступной на
+        Windows</td></tr><tr><td>&nbsp;</td><td><a href='function.jdtojewish.html'>jdtojewish</a></td><td>Добавлен аргумент fl.</td></tr><tr><td>&nbsp;</td><td><a href='function.mb-encode-mimeheader.html'>mb_encode_mimeheader</a></td><td>Добавлен аргумент indent.</td></tr><tr><td>&nbsp;</td><td><a href='function.mb-send-mail.html'>mb_send_mail</a></td><td>Заголовки Content-Type и 
+        Content-Transfer-Encoding можно переопределять, 
+        начиная с PHP 5.0.0. В ранних версиях всегда используются значения,
+        заданные функцией mb_language.</td></tr><tr><td>&nbsp;</td><td><a href='function.md5.html'>md5</a></td><td>Добавлен параметр raw_output.</td></tr><tr><td>&nbsp;</td><td><a href='function.md5-file.html'>md5_file</a></td><td>Добавлен параметр raw_output</td></tr><tr><td>&nbsp;</td><td><a href='function.microtime.html'>microtime</a></td><td>Добавлен параметр get_as_float.</td></tr><tr><td>&nbsp;</td><td><a href='function.mkdir.html'>mkdir</a></td><td>Начиная с версии PHP 5.0.0 mkdir также может быть
+        использована с некоторыми обертками URL.  Обратитесь
+        к  для полного списка оберток, поддерживающих
+        mkdir.</td></tr><tr><td>&nbsp;</td><td><a href='function.mkdir.html'>mkdir</a></td><td>Добавлен параметр recursive</td></tr><tr><td>&nbsp;</td><td><a href='function.mysql-fetch-object.html'>mysql_fetch_object</a></td><td>Добавлена возможность возврата результата в виде различных объектов.</td></tr><tr><td>&nbsp;</td><td><a href='function.opendir.html'>opendir</a></td><td>path теперь поддерживает обертку
+        ftp://.</td></tr><tr><td>&nbsp;</td><td><a href='function.openssl-pkcs7-encrypt.html'>openssl_pkcs7_encrypt</a></td><td>The cipherid parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.openssl-sign.html'>openssl_sign</a></td><td>The signature_alg parameter was added.</td></tr><tr><td>&nbsp;</td><td><a href='function.parse-ini-file.html'>parse_ini_file</a></td><td>Значения, заключенные в двойные кавычки, теперь могут содержать
+        переводы строк.</td></tr><tr><td>&nbsp;</td><td><a href='function.pg-fetch-object.html'>pg_fetch_object</a></td><td>Добавлены аргументы class_name и 
+        params. Устаревший вариант с 
+        result_type оставлен для обратной совместимости.</td></tr><tr><td>&nbsp;</td><td><a href='function.proc-open.html'>proc_open</a></td><td>Добавлены аргументы cwd,
+        env и other_options.</td></tr><tr><td>&nbsp;</td><td><a href='function.range.html'>range</a></td><td>Добавлен необязательный параметр step.</td></tr><tr><td>&nbsp;</td><td><a href='function.realpath.html'>realpath</a></td><td>До этой версии при передаче пустой строки или NULL в path
+        realpath возвращала имя директории, вызываемого
+        скрипта.</td></tr><tr><td>&nbsp;</td><td><a href='function.rename.html'>rename</a></td><td>rename теперь также может быть
+        использована с некоторыми обёртками
+        URL. Обратитесь к 
+        для получения списка обёрток, которые поддерживают
+        rename.</td></tr><tr><td>&nbsp;</td><td><a href='function.rmdir.html'>rmdir</a></td><td>Начиная с версии PHP 5.0.0, функция rmdir также
+        может быть использована с некоторыми обёртками
+        URL. Обратитесь к  для получения списка
+        обёрток, которые поддерживают rmdir.</td></tr><tr><td>&nbsp;</td><td><a href='function.session-id.html'>session_id</a></td><td>The , (comma) and - (minus)
+        characters are allowed in the file session handler.</td></tr><tr><td>&nbsp;</td><td><a href='function.set-error-handler.html'>set_error_handler</a></td><td>Добавлен аргумент error_types.</td></tr><tr><td>&nbsp;</td><td><a href='function.sha1.html'>sha1</a></td><td>Добавлен параметр raw_output.</td></tr><tr><td>&nbsp;</td><td><a href='function.sha1-file.html'>sha1_file</a></td><td>Добавлен параметр raw_output</td></tr><tr><td>&nbsp;</td><td><a href='function.str-ireplace.html'>str_ireplace</a></td><td>Добавлен параметр count.</td></tr><tr><td>&nbsp;</td><td><a href='function.str-replace.html'>str_replace</a></td><td>Добавлен параметр count.</td></tr><tr><td>&nbsp;</td><td><a href='function.stream-get-meta-data.html'>stream_get_meta_data</a></td><td>Следующие элементы были добавлены к возвращаемому массиву:
+        mode, seekable,
+        and uri.</td></tr><tr><td>&nbsp;</td><td><a href='function.strip-tags.html'>strip_tags</a></td><td>strip_tags теперь безопасна для обработки
+        бинарных данных</td></tr><tr><td>&nbsp;</td><td><a href='function.strrpos.html'>strrpos</a></td><td>Параметр needle может быть строкой из
+        более чем одного символа.</td></tr><tr><td>&nbsp;</td><td><a href='function.strrpos.html'>strrpos</a></td><td>Добавлен параметр offset.</td></tr><tr><td>&nbsp;</td><td><a href='function.strtotime.html'>strtotime</a></td><td>Стало возможным указывать микросекунды, но они не принимаются
+        во внимание и будут проигнорированы.</td></tr><tr><td>&nbsp;</td><td><a href='function.uniqid.html'>uniqid</a></td><td>Параметр prefix был сделан необязательным.</td></tr><tr><td>&nbsp;</td><td><a href='function.unlink.html'>unlink</a></td><td>Начиная с версии PHP 5.0.0, функция unlink
+        также может быть использована с некоторыми
+        обёртками URL. Обратитесь к  для
+        получения списка обёрток, которые поддерживают
+        unlink.</td></tr><tr><td>&nbsp;</td><td><a href='function.usleep.html'>usleep</a></td><td>Теперь эта функция работает и в Windows системах.</td></tr><tr><td>&nbsp;</td><td><a href='mysqli-result.fetch-object.html'>mysqli_result::fetch_object</a></td><td>Добавлена возможность возвращать объекты различных классов.</td></tr></tbody></table>
+   </div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="indexes.examples.html">Список примеров</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href=""></a></div>
+ <div class="up"><a href="appendices.html">Appendices</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

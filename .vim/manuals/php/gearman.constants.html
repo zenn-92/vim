@@ -1,0 +1,741 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Предопределенные константы</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="gearman.resources.html">Типы ресурсов</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="gearman.examples.html">Примеры</a></div>
+ <div class="up"><a href="book.gearman.html">Gearman</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="gearman.constants" class="appendix">
+ <h1>Предопределенные константы</h1>
+
+ <p class="simpara">
+Перечисленные ниже константы определены данным расширением и могут быть
+доступны только в том случае, если PHP был собран с
+поддержкой этого расширения или же в том случае, если
+данное расширение было подгружено во время выполнения.
+</p>
+ <p class="para">
+  Возвращаемые значения. Всегда проверяйте значение
+  <span class="methodname"><a href="gearmanclient.error.html" class="methodname">GearmanClient::error()</a></span> или
+  <span class="methodname"><strong>GearmanWorker()</strong></span>, содержащее строку с описанием ошибки, так
+  как в этой строке может содержаться более детальная информация о последней
+  операции:
+ </p>
+ <p class="para">
+  <dl>
+
+   
+    <dt id="constant.gearman-success">
+     <strong><code>GEARMAN_SUCCESS</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Операция завершена успешно.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.gearman-io-wait">
+     <strong><code>GEARMAN_IO_WAIT</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      В режиме без блокировок событие ожидает установку блокировки.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.gearman-errno">
+     <strong><code>GEARMAN_ERRNO</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Системная ошибка. Чтобы получить код ошибки, воспользуйтесь функцией
+      <span class="methodname"><strong>GearmanClient::errno()</strong></span> или
+      <span class="methodname"><strong>GearmanWorker::errno()</strong></span>.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.gearman-no-active-fds">
+     <strong><code>GEARMAN_NO_ACTIVE_FDS</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      На момент вызова <span class="methodname"><strong>GearmanClient::wait()</strong></span> или
+      <span class="methodname"><strong>GearmanWorker()</strong></span> не было активных подключений.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.gearman-unexpected-packet">
+     <strong><code>GEARMAN_UNEXPECTED_PACKET</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Означает, что что-то пошло совсем не так, как должно было. Применимо только
+      к <a href="class.gearmanworker.html" class="classname">GearmanWorker</a>.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.gearman-getaddrinfo">
+     <strong><code>GEARMAN_GETADDRINFO</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Провал операции разрешения имен DNS (неверный порт, хост и т.п.).
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.gearman-no-servers">
+     <strong><code>GEARMAN_NO_SERVERS</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Перед отправкой работы или задания не был вызван метод
+      <span class="methodname"><a href="gearmanclient.addserver.html" class="methodname">GearmanClient::addServer()</a></span>.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.gearman-lost-connection">
+     <strong><code>GEARMAN_LOST_CONNECTION</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Во время обработки запроса прервалось соединение.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.gearman-memory-allocation-failure">
+     <strong><code>GEARMAN_MEMORY_ALLOCATION_FAILURE</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Не удалось выделить память (недостаточно памяти).
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.gearman-server-error">
+     <strong><code>GEARMAN_SERVER_ERROR</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      На сервере Gearman произошел сбой, и сервер не смог обработать запрос.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.gearman-work-data">
+     <strong><code>GEARMAN_WORK_DATA</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Код-уведомление, который можно получить методом
+      <span class="methodname"><a href="gearmanclient.returncode.html" class="methodname">GearmanClient::returnCode()</a></span> во время работы
+      <span class="methodname"><a href="gearmanclient.do.html" class="methodname">GearmanClient::do()</a></span>. Выполняющий задание процесс
+      (worker) посылает этот код, когда ему требуется обновить данные на клиенте,
+      передать часть результатов работы или избавиться от ненужных данных во время
+      выполнения долгих заданий.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.gearman-work-warning">
+     <strong><code>GEARMAN_WORK_WARNING</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Код-уведомление, который можно получить методом
+      <span class="methodname"><a href="gearmanclient.returncode.html" class="methodname">GearmanClient::returnCode()</a></span> во время работы
+      <span class="methodname"><a href="gearmanclient.do.html" class="methodname">GearmanClient::do()</a></span>. Принцип и поведение те же, что и
+      в случае <strong><code>GEARMAN_WORK_DATA</code></strong>, однако этот код следует
+      интерпретировать как предупреждение, которое обработчик задания передает
+      клиенту.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.gearman-work-status">
+     <strong><code>GEARMAN_WORK_STATUS</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Код-уведомление, который можно получить методом
+      <span class="methodname"><a href="gearmanclient.returncode.html" class="methodname">GearmanClient::returnCode()</a></span> во время работы
+      <span class="methodname"><a href="gearmanclient.do.html" class="methodname">GearmanClient::do()</a></span>. Обработчик задания посылает
+      этот код, чтобы обновить текущее состояние выполняемого задания. С помощью
+      метода <span class="methodname"><a href="gearmanclient.dostatus.html" class="methodname">GearmanClient::doStatus()</a></span> можно узнать, какой
+      процент работы уже выполнен.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.gearman-work-exception">
+     <strong><code>GEARMAN_WORK_EXCEPTION</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Код-уведомление, который можно получить методом
+      <span class="methodname"><a href="gearmanclient.returncode.html" class="methodname">GearmanClient::returnCode()</a></span> во время работы
+      <span class="methodname"><a href="gearmanclient.do.html" class="methodname">GearmanClient::do()</a></span>. Означает, что выполнение
+      задания завершилось неудачей, и было выброшено заданное исключение.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.gearman-work-fail">
+     <strong><code>GEARMAN_WORK_FAIL</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Код-уведомление, который можно получить методом
+      <span class="methodname"><a href="gearmanclient.returncode.html" class="methodname">GearmanClient::returnCode()</a></span> во время работы
+      <span class="methodname"><a href="gearmanclient.do.html" class="methodname">GearmanClient::do()</a></span>. Означает, что работу выполнить
+      не удалось.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.gearman-could-not-connect">
+     <strong><code>GEARMAN_COULD_NOT_CONNECT</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Не удалось подключиться к серверу.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.gearman-invalid-function-name">
+     <strong><code>GEARMAN_INVALID_FUNCTION_NAME</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Это значение возвращается при попытке зарегистрировать NULL в качестве имени
+      функции или при использовании callback-интерфейса без задания соответствующих
+      функций обратного вызова.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.gearman-invalid-worker-function">
+     <strong><code>GEARMAN_INVALID_WORKER_FUNCTION</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Попытка зарегистрировать в обработчике фукнцию, передавая NULL в качестве
+      функции обратного вызова.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.gearman-no-registered-functions">
+     <strong><code>GEARMAN_NO_REGISTERED_FUNCTIONS</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Это значение означает, что обработчик получил задание для функции, которая
+      в нем не зарегистрирована.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.gearman-no-jobs">
+     <strong><code>GEARMAN_NO_JOBS</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Означает, что метод <span class="methodname"><a href="gearmanworker.work.html" class="methodname">GearmanWorker::work()</a></span> неблокирующего
+      обработчика на данный момент не выполняет никакой работы.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.gearman-echo-data-corruption">
+     <strong><code>GEARMAN_ECHO_DATA_CORRUPTION</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Указывает, что после вызова <span class="methodname"><a href="gearmanclient.echo.html" class="methodname">GearmanClient::echo()</a></span>
+      или <span class="methodname"><a href="gearmanworker.echo.html" class="methodname">GearmanWorker::echo()</a></span> возвращенные данные не
+      соответствуют переданным.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.gearman-need-workload-fn">
+     <strong><code>GEARMAN_NEED_WORKLOAD_FN</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Означает, что клиент выбрал потоковый режим передачи данных для обработки,
+      но не задал callback-функцию для обработки данных из этого потока.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.gearman-pause">
+     <strong><code>GEARMAN_PAUSE</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      При работе в неблокирующем режиме, это значение может вернуть
+      callback-фукнция, чтобы приостановить обработку задания и выйти из метода
+      <span class="methodname"><a href="gearmanclient.runtasks.html" class="methodname">GearmanClient::runTasks()</a></span>. Чтобы продолжить работу,
+      следует еще раз вызвать метод
+      <span class="methodname"><a href="gearmanclient.runtasks.html" class="methodname">GearmanClient::runTasks()</a></span>.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.gearman-unknown-state">
+     <strong><code>GEARMAN_UNKNOWN_STATE</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Состояние внутреннего взаимодействия клиента и обработчика неизвестно.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.gearman-send-buffer-too-small">
+     <strong><code>GEARMAN_SEND_BUFFER_TOO_SMALL</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Внутренняя ошибка: попытка передать больше данных, чем помещается в один
+      чанк. Размеры буфера жестко заданы и не подлежат изменению.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.gearman-timeout">
+     <strong><code>GEARMAN_TIMEOUT</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Превышен таймаут ожидания, заданный клиентом - обработчиком.
+     </span>
+    </dd>
+
+   
+  </dl>
+
+ </p>
+
+ <p class="para">
+  Настройки <a href="class.gearmanclient.html" class="classname">GearmanClient</a>:
+ </p>
+ <p class="para">
+  <dl>
+
+   
+    <dt id="constant.gearman-client-non-blocking">
+     <strong><code>GEARMAN_CLIENT_NON_BLOCKING</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Запускать клиента в неблокирующем режиме.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.gearman-client-unbuffered-result">
+     <strong><code>GEARMAN_CLIENT_UNBUFFERED_RESULT</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Позволять клиенту читать данные и посылать их обратно в чанках вместо
+      буферизации данных целиком средствами библиотеки.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.gearman-client-free-tasks">
+     <strong><code>GEARMAN_CLIENT_FREE_TASKS</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Автоматически уничтожать объекты заданий после их выполнения. Эта настройка
+      используется по умолчанию, чтобы предотвратить утечки памяти.
+     </span>
+    </dd>
+
+   
+  </dl>
+
+ </p>
+
+ <p class="para">
+  Настройки <a href="class.gearmanworker.html" class="classname">GearmanWorker</a>:
+ </p>
+ <p class="para">
+  <dl>
+
+   
+    <dt id="constant.gearman-worker-non-blocking">
+     <strong><code>GEARMAN_WORKER_NON_BLOCKING</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Запускать обработчик заданий в неблокирующем режиме.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.gearman-worker-grab-uniq">
+     <strong><code>GEARMAN_WORKER_GRAB_UNIQ</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Возвращать уникальный ID клиента, ассоциированный с обработчиком заданий.
+     </span>
+    </dd>
+
+   
+  </dl>
+
+ </p>
+
+ <p class="para">
+  Базовая конфигурация Gearman:
+ </p>
+ <p class="para">
+  <dl>
+
+   
+    <dt id="constant.gearman-default-tcp-host">
+     <strong><code>GEARMAN_DEFAULT_TCP_HOST</code></strong>
+     (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.gearman-default-tcp-port">
+     <strong><code>GEARMAN_DEFAULT_TCP_PORT</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.gearman-default-socket-timeout">
+     <strong><code>GEARMAN_DEFAULT_SOCKET_TIMEOUT</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.gearman-default-socket-send-size">
+     <strong><code>GEARMAN_DEFAULT_SOCKET_SEND_SIZE</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.gearman-default-socket-recv-size">
+     <strong><code>GEARMAN_DEFAULT_SOCKET_RECV_SIZE</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.gearman-max-error-size">
+     <strong><code>GEARMAN_MAX_ERROR_SIZE</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.gearman-packet-header-size">
+     <strong><code>GEARMAN_PACKET_HEADER_SIZE</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.gearman-job-handle-size">
+     <strong><code>GEARMAN_JOB_HANDLE_SIZE</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.gearman-option-size">
+     <strong><code>GEARMAN_OPTION_SIZE</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.gearman-unique-size">
+     <strong><code>GEARMAN_UNIQUE_SIZE</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.gearman-max-command-args">
+     <strong><code>GEARMAN_MAX_COMMAND_ARGS</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.gearman-args-buffer-size">
+     <strong><code>GEARMAN_ARGS_BUFFER_SIZE</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.gearman-send-buffer-size">
+     <strong><code>GEARMAN_SEND_BUFFER_SIZE</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.gearman-recv-buffer-size">
+     <strong><code>GEARMAN_RECV_BUFFER_SIZE</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.gearman-worker-wait-timeout">
+     <strong><code>GEARMAN_WORKER_WAIT_TIMEOUT</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   
+  </dl>
+
+ </p>
+</div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="gearman.resources.html">Типы ресурсов</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="gearman.examples.html">Примеры</a></div>
+ <div class="up"><a href="book.gearman.html">Gearman</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

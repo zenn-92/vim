@@ -1,0 +1,507 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Функции для работы с Многобайтными строками</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mbstring.php4.req.html">Требования, предъявляемые к кодировкам символов в PHP</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.mb-check-encoding.html">mb_check_encoding</a></div>
+ <div class="up"><a href="book.mbstring.html">Многобайтные строки</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="ref.mbstring" class="reference">
+  <h1 class="title">Функции для работы с Многобайтными строками</h1> 
+
+  <div class="partintro">
+    <h1 class="title">Ссылки</h1>
+    <p class="para">
+     Схемы многобайтного кодирования символов и их реализации достаточно
+     сложны, и их описание находится за пределами этой документации.
+     Более исчерпывающую информацию о кодировках и их устройстве можно
+     почерпнуть из нижеприведенных источников.
+     <ul class="itemizedlist">
+      <li class="listitem">
+       <p class="para">
+        Материалы по Юникоду
+       </p>
+       <p class="para">
+        <a href="http://www.unicode.org/" class="link external">&raquo;&nbsp;http://www.unicode.org/</a>
+       </p>
+      </li>
+      <li class="listitem">
+       <p class="para">
+        Информация о символах Японской/Корейской/Китайской кодировок
+       </p>
+       <p class="para">
+        <a href="http://examples.oreilly.com/cjkvinfo/doc/cjk.inf" class="link external">&raquo;&nbsp;http://examples.oreilly.com/cjkvinfo/doc/cjk.inf</a>
+       </p>
+      </li>
+     </ul>
+    </p>
+  </div>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <h2>Содержание</h2><ul class="chunklist chunklist_reference"><li><a href="function.mb-check-encoding.html">mb_check_encoding</a> — Проверяет, что кодировка для строки выбрана верно</li><li><a href="function.mb-convert-case.html">mb_convert_case</a> — Производит смену регистра символов в строке</li><li><a href="function.mb-convert-encoding.html">mb_convert_encoding</a> — Преобразует кодировку символов</li><li><a href="function.mb-convert-kana.html">mb_convert_kana</a> — Преобразование кодировок &quot;kana&quot; из одной в другую (&quot;zen-kaku&quot;, &quot;han-kaku&quot; и другие)</li><li><a href="function.mb-convert-variables.html">mb_convert_variables</a> — Преобразует символы в переменной(-ых) из одной кодировки в другую</li><li><a href="function.mb-decode-mimeheader.html">mb_decode_mimeheader</a> — Декодирует строку в MIME-заголовке</li><li><a href="function.mb-decode-numericentity.html">mb_decode_numericentity</a> — Декодирует числовую HTML-ссылку в символ</li><li><a href="function.mb-detect-encoding.html">mb_detect_encoding</a> — Определение кодировки символов</li><li><a href="function.mb-detect-order.html">mb_detect_order</a> — Установка/получение списка кодировок для механизмов определения кодировки</li><li><a href="function.mb-encode-mimeheader.html">mb_encode_mimeheader</a> — Кодирование строки для MIME-заголовка</li><li><a href="function.mb-encode-numericentity.html">mb_encode_numericentity</a> — Кодирование символа в числовую HTML-ссылку</li><li><a href="function.mb-encoding-aliases.html">mb_encoding_aliases</a> — Получает псевдонимы известного типа кодировки</li><li><a href="function.mb-ereg-match.html">mb_ereg_match</a> — Совпадение с регулярным выражением для многобайтовой строки</li><li><a href="function.mb-ereg-replace-callback.html">mb_ereg_replace_callback</a> — Perform a regular expresssion seach and replace with multibyte support using a callback</li><li><a href="function.mb-ereg-replace.html">mb_ereg_replace</a> — Осуществляет замену по регулярному выражению с поддержкой многобайтовых символов</li><li><a href="function.mb-ereg-search-getpos.html">mb_ereg_search_getpos</a> — Возвращает начальную позицию следующего совпадения с регулярным выражением</li><li><a href="function.mb-ereg-search-getregs.html">mb_ereg_search_getregs</a> — Выводит результат последнего сравнения с регулярным выражением</li><li><a href="function.mb-ereg-search-init.html">mb_ereg_search_init</a> — Инициализация поиска соответствий регулярному выражению многобайтной 
+   строкой и текстом регулярного выражения</li><li><a href="function.mb-ereg-search-pos.html">mb_ereg_search_pos</a> — Возвращает позицию и длину совпавшего с регулярным выражением участка
+   многобайтной строки</li><li><a href="function.mb-ereg-search-regs.html">mb_ereg_search_regs</a> — Возвращает совпавшую с регулярным выражением часть строки</li><li><a href="function.mb-ereg-search-setpos.html">mb_ereg_search_setpos</a> — Задает начальную позицию в строке, с которой начнется поиск 
+   соответствий регулярному выражению</li><li><a href="function.mb-ereg-search.html">mb_ereg_search</a> — Поиск соответствий регулярному выражению для строк в многобайтных кодировках</li><li><a href="function.mb-ereg.html">mb_ereg</a> — Совпадение с регулярным выражением с поддержкой многобайтовых символов</li><li><a href="function.mb-eregi-replace.html">mb_eregi_replace</a> — Осуществляет замену по регулярному выражению с поддержкой многобайтовых символов без учета регистра</li><li><a href="function.mb-eregi.html">mb_eregi</a> — Поиск соответствий регулярному выражению поддерживающий многобайтные 
+  символы и нечувствительный к регистру</li><li><a href="function.mb-get-info.html">mb_get_info</a> — Получает внутренние настройки mbstring</li><li><a href="function.mb-http-input.html">mb_http_input</a> — Определение кодировки символов входных данных HTTP-запроса</li><li><a href="function.mb-http-output.html">mb_http_output</a> — Установка/получение кодировки символов HTTP вывода</li><li><a href="function.mb-internal-encoding.html">mb_internal_encoding</a> — Установка/получение внутренней кодировки скрипта</li><li><a href="function.mb-language.html">mb_language</a> — Установка/получение текущего языка</li><li><a href="function.mb-list-encodings.html">mb_list_encodings</a> — Возвращает массив всех поддерживаемых кодировок</li><li><a href="function.mb-output-handler.html">mb_output_handler</a> — Callback-функция, преобразующая кодировку символов в выходном буфере</li><li><a href="function.mb-parse-str.html">mb_parse_str</a> — Разбор данных запросов GET/POST/COOKIE и установка 
+   значений глобальных переменных</li><li><a href="function.mb-preferred-mime-name.html">mb_preferred_mime_name</a> — Получение набора символов MIME</li><li><a href="function.mb-regex-encoding.html">mb_regex_encoding</a> — Возвращает текущую кодировку для многобайтового регулярного выражения в виде строки</li><li><a href="function.mb-regex-set-options.html">mb_regex_set_options</a> — Установка/получение значений по умолчанию для настроек функций mbregex</li><li><a href="function.mb-send-mail.html">mb_send_mail</a> — Отправка закодированного сообщения</li><li><a href="function.mb-split.html">mb_split</a> — Разделение строк в многобайтных кодировках, используя регулярное выражение</li><li><a href="function.mb-strcut.html">mb_strcut</a> — Получение части строки</li><li><a href="function.mb-strimwidth.html">mb_strimwidth</a> — Получение строки, образанной до заданной ширины</li><li><a href="function.mb-stripos.html">mb_stripos</a> — Поиск позиции первого вхождения одной строки в другую, нечувствителен к регистру</li><li><a href="function.mb-stristr.html">mb_stristr</a> — Находит первое вхождение подстроки в строке без учета регистра</li><li><a href="function.mb-strlen.html">mb_strlen</a> — Получает длину строки</li><li><a href="function.mb-strpos.html">mb_strpos</a> — Поиск позиции первого вхождения одной строки в другую</li><li><a href="function.mb-strrchr.html">mb_strrchr</a> — Поиск последнего вхождения одной строки в другую</li><li><a href="function.mb-strrichr.html">mb_strrichr</a> — Поиск последнего вхождения одной строки в другую, нечувствительный к регистру</li><li><a href="function.mb-strripos.html">mb_strripos</a> — Поиск последнего вхождения одной строки в другую, нечувствительный к регистру</li><li><a href="function.mb-strrpos.html">mb_strrpos</a> — Поиск позиции последнего вхождения одной строки в другую</li><li><a href="function.mb-strstr.html">mb_strstr</a> — Находит первое вхождение подстроки в строке</li><li><a href="function.mb-strtolower.html">mb_strtolower</a> — Приведение строки к нижнему регистру</li><li><a href="function.mb-strtoupper.html">mb_strtoupper</a> — Приведение строки к верхнему регистру</li><li><a href="function.mb-strwidth.html">mb_strwidth</a> — Возвращает ширину строки</li><li><a href="function.mb-substitute-character.html">mb_substitute_character</a> — Задание/получение символа заместителя</li><li><a href="function.mb-substr-count.html">mb_substr_count</a> — Возвращает количество вхождений подстроки</li><li><a href="function.mb-substr.html">mb_substr</a> — Возвращает часть строки</li></ul>
+</div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mbstring.php4.req.html">Требования, предъявляемые к кодировкам символов в PHP</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.mb-check-encoding.html">mb_check_encoding</a></div>
+ <div class="up"><a href="book.mbstring.html">Многобайтные строки</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

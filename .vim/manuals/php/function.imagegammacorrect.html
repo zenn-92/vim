@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Применение гамма коррекции к GD изображению</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.imagefttext.html">imagefttext</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.imagegd2.html">imagegd2</a></div>
+ <div class="up"><a href="ref.image.html">GD и функции для работы с изображениями Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.imagegammacorrect" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">imagegammacorrect</h1>
+  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">imagegammacorrect</span> &mdash; <span class="dc-title">
+   Применение гамма коррекции к GD изображению
+  </span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-function.imagegammacorrect-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><strong>imagegammacorrect</strong></span>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$image</code></span>
+   , <span class="methodparam"><span class="type">float</span> <code class="parameter">$inputgamma</code></span>
+   , <span class="methodparam"><span class="type">float</span> <code class="parameter">$outputgamma</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Применяет гамма коррекцию к изображению <code class="parameter">image</code> 
+   согласно заданным входным и выходным настройкам.
+  </p>
+ </div>
+
+ <div class="refsect1 parameters" id="refsect1-function.imagegammacorrect-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    <dt>
+<code class="parameter">
+image</code></dt>
+<dd>
+<p class="para">Ресурс изображения, полученный одной из функций создания изображений,
+например, такой как <span class="function"><a href="function.imagecreatetruecolor.html" class="function">imagecreatetruecolor()</a></span>.</p></dd>
+
+    
+     <dt>
+<code class="parameter">inputgamma</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Входная настройка гаммы.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">outputgamma</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Выходная настройка гаммы.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+ <div class="refsect1 returnvalues" id="refsect1-function.imagegammacorrect-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает <strong><code>TRUE</code></strong> в случае успешного завершения  или <strong><code>FALSE</code></strong> в случае возникновения ошибки.
+  </p>
+ </div>
+
+ <div class="refsect1 examples" id="refsect1-function.imagegammacorrect-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-3294">
+    <p><strong>Пример #1 Пример использования <span class="function"><strong>imagegammacorrect()</strong></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Создание&nbsp;изображения<br /></span><span style="color: #0000BB">$im&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecreatefromgif</span><span style="color: #007700">(</span><span style="color: #DD0000">'php.gif'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Корректировка&nbsp;гаммы,&nbsp;на&nbsp;выходе&nbsp;1.537<br /></span><span style="color: #0000BB">imagegammacorrect</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1.0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1.537</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Сохранение&nbsp;изображения&nbsp;и&nbsp;освобождение&nbsp;памяти<br /></span><span style="color: #0000BB">imagegif</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'./php_gamma_corrected.gif'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.imagefttext.html">imagefttext</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.imagegd2.html">imagegd2</a></div>
+ <div class="up"><a href="ref.image.html">GD и функции для работы с изображениями Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

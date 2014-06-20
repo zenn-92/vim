@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Разбор данных запросов GET/POST/COOKIE и установка 
+   значений глобальных переменных</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.mb-output-handler.html">mb_output_handler</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.mb-preferred-mime-name.html">mb_preferred_mime_name</a></div>
+ <div class="up"><a href="ref.mbstring.html">Функции для работы с Многобайтными строками</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.mb-parse-str" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">mb_parse_str</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5)</p><p class="refpurpose"><span class="refname">mb_parse_str</span> &mdash; <span class="dc-title">
+   Разбор данных запросов GET/POST/COOKIE и установка 
+   значений глобальных переменных
+  </span></p>
+
+ </div>
+   
+ <div class="refsect1 description" id="refsect1-function.mb-parse-str-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><strong>mb_parse_str</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$encoded_string</code></span>
+   [, <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$result</code></span>
+  ] )</div>
+
+  <p class="para rdfs-comment">
+   Рабзбирает запросы GET/POST/COOKIE и устанавливает значения глобальных
+   переменных. Так как PHP не работает с исходными данными POST/COOKIE, на 
+   данный момент его можно использовать только для работы с данными запроса
+   GET. Функция разбирает строку URL, определяет кодировку, преобразует 
+   символы во внутреннюю кодировку скрипта и заносит значения  
+   переменных в массив <code class="parameter">result</code> типа <span class="type"><a href="language.types.array.html" class="type array">array</a></span> или 
+   в глобальные переменные.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.mb-parse-str-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">encoded_string</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Кодированные данные в URL.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">result</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Массив <span class="type"><a href="language.types.array.html" class="type array">array</a></span>, содержащий декодированные
+       данные и символы во внутренней кодировке скрипта.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 returnvalues" id="refsect1-function.mb-parse-str-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает <strong><code>TRUE</code></strong> в случае успешного завершения  или <strong><code>FALSE</code></strong> в случае возникновения ошибки.
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 seealso" id="refsect1-function.mb-parse-str-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.mb-detect-order.html" class="function" rel="rdfs-seeAlso">mb_detect_order()</a> - Установка/получение списка кодировок для механизмов определения кодировки</span></li>
+    <li class="member"><span class="function"><a href="function.mb-internal-encoding.html" class="function" rel="rdfs-seeAlso">mb_internal_encoding()</a> - Установка/получение внутренней кодировки скрипта</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.mb-output-handler.html">mb_output_handler</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.mb-preferred-mime-name.html">mb_preferred_mime_name</a></div>
+ <div class="up"><a href="ref.mbstring.html">Функции для работы с Многобайтными строками</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

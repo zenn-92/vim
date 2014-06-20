@@ -1,0 +1,214 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Аудио потоки</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="wrappers.rar.html">rar://</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="wrappers.expect.html">expect://</a></div>
+ <div class="up"><a href="wrappers.html">Поддерживаемые протоколы и обработчики (wrappers)</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="wrappers.audio" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">ogg://</h1>
+  <p class="refpurpose"><span class="refname">ogg://</span> &mdash; <span class="dc-title">Аудио потоки</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-wrappers.audio-description">
+  <h3 class="title">Описание</h3>
+  <p class="para">
+   Файлы, открываемые для чтения с использованием обертки <var class="filename">ogg://</var>,
+   рассматриваются как сжатый аудио поток, кодируемый с использованием кодека <em>OGG/Vorbis</em>.
+   Аналогично, файлы открытые для записи или добавления через обертку
+   <var class="filename">ogg://</var> записываются как сжатые звуковые данные.
+   Функция <span class="function"><a href="function.stream-get-meta-data.html" class="function">stream_get_meta_data()</a></span>, когда используется с файлами <em>OGG/Vorbis</em>
+   открытыми для чтения, будет возвращать разнообразную информацию о потоке, включая
+   тэг производителя <code class="parameter">vendor</code>, комментарии
+   <code class="parameter">comments</code>, число каналов
+   <code class="parameter">channels</code>, частоту дискретизации <code class="parameter">rate</code>,
+   и диапазон частоты кодирования, описываемый:
+   <code class="parameter">bitrate_lower</code>, <code class="parameter">bitrate_upper</code>,
+   <code class="parameter">bitrate_nominal</code>, и <code class="parameter">bitrate_window</code>.
+  </p>
+
+  <p class="simpara"><var class="filename">ogg://</var> PHP 4.3.0 и старше (PECL) </p>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <strong>Данная обертка не доступна по умолчанию</strong><br />
+   <span class="simpara">
+    Для того чтобы использовать обертку <var class="filename">ogg://</var> вы должны установить
+    расширение <a href="http://pecl.php.net/package/oggvorbis" class="link external">&raquo;&nbsp;OGG/Vorbis</a>
+    доступное в <a href="http://pecl.php.net/" class="link external">&raquo;&nbsp;PECL</a>.
+   </span>
+  </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 usage" id="refsect1-wrappers.audio-usage"> 
+  <h3 class="title">Использование</h3>
+  <ul class="itemizedlist">
+   <li class="listitem"><span class="simpara"><var class="filename">ogg://soundfile.ogg</var></span></li>
+   <li class="listitem"><span class="simpara"><var class="filename">ogg:///path/to/soundfile.ogg</var></span></li>
+   <li class="listitem"><span class="simpara"><var class="filename">ogg://http://www.example.com/path/to/soundstream.ogg</var></span></li>
+  </ul>
+ </div>
+ 
+
+ <div class="refsect1 options" id="refsect1-wrappers.audio-options">
+  <h3 class="title">Опции</h3>
+  <p class="para">
+   <table class="doctable table">
+    <caption><strong>Основная информация</strong></caption>
+    
+     <thead>
+      <tr>
+       <th>Атрибут</th>
+       <th>Поддержка</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>Ограничение по <a href="filesystem.configuration.html#ini.allow-url-fopen" class="link">allow_url_fopen</a></td>
+       <td>Нет</td>
+      </tr>
+
+      <tr>
+       <td>Чтение</td>
+       <td>Да</td>
+      </tr>
+
+      <tr>
+       <td>Запись</td>
+       <td>Да</td>
+      </tr>
+
+      <tr>
+       <td>Добавление</td>
+       <td>Да</td>
+      </tr>
+
+      <tr>
+       <td>Одновременные чтение и запись</td>
+       <td>Нет</td>
+      </tr>
+
+      <tr>
+       <td>Поддержка <span class="function"><a href="function.stat.html" class="function">stat()</a></span></td>
+       <td>Нет</td>
+      </tr>
+
+      <tr>
+       <td>Поддержка <span class="function"><a href="function.unlink.html" class="function">unlink()</a></span></td>
+       <td>Нет</td>
+      </tr>
+
+      <tr>
+       <td>Поддержка <span class="function"><a href="function.rename.html" class="function">rename()</a></span></td>
+       <td>Нет</td>
+      </tr>
+
+      <tr>
+       <td>Поддержка <span class="function"><a href="function.mkdir.html" class="function">mkdir()</a></span></td>
+       <td>Нет</td>
+      </tr>
+
+      <tr>
+       <td>Поддержка <span class="function"><a href="function.rmdir.html" class="function">rmdir()</a></span></td>
+       <td>Нет</td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+  
+  <p class="para">
+   <table class="doctable table">
+    <caption><strong>Установки для контекста</strong></caption>
+    
+     <thead>
+      <tr>
+       <th>Название</th>
+       <th>Использование</th>
+       <th>Значение по умолчанию</th>
+       <th>Режим</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td><em>pcm_mode</em></td>
+       <td>
+        Опция PCM кодирования применяемая во время чтение, одна из:
+        <strong><code>OGGVORBIS_PCM_U8</code></strong>, <strong><code>OGGVORBIS_PCM_S8</code></strong>,
+        <strong><code>OGGVORBIS_PCM_U16_BE</code></strong>, <strong><code>OGGVORBIS_PCM_S16_BE</code></strong>,
+        <strong><code>OGGVORBIS_PCM_U16_LE</code></strong>, и <strong><code>OGGVORBIS_PCM_S16_LE</code></strong>.
+        (8 или 16 битное, со знаком или без, прямой или обратный порядок байтов)
+       </td>
+       <td>OGGVORBIS_PCM_S16_LE</td>
+       <td>Чтение</td>
+      </tr>
+
+      <tr>
+       <td><em>rate</em></td>
+       <td>
+        Частота дискретизации входных данных, выраженная в Гц
+       </td>
+       <td>44100</td>
+       <td>Запись/Добавление</td>
+      </tr>
+
+      <tr>
+       <td><em>bitrate</em></td>
+       <td>
+        Когда дано целое число, постоянный битрейт при котором кодировать. (от 16000 до 131072)
+        Когда дано вещественное число, качество переменного битрейта для использования. (от -1.0 до 1.0)
+       </td>
+       <td>128000</td>
+       <td>Запись/Добавление</td>
+      </tr>
+
+      <tr>
+       <td><em>channels</em></td>
+       <td>
+        Количество аудио каналов для кодирования, обычно 1 (Моно), или 2 (Стерео).
+        Может варьироваться вплоть до 16.
+       </td>
+       <td>2</td>
+       <td>Запись/Добавление</td>
+      </tr>
+
+      <tr>
+       <td><em>comments</em></td>
+       <td>
+        Массив строк для запись в заголовок трека.
+       </td>
+       <td class="empty">&nbsp;</td>
+       <td>Запись/Добавление</td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+ 
+
+ <div class="refsect1 examples" id="refsect1-wrappers.audio-examples">
+  <h3 class="title">Примеры</h3>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="wrappers.rar.html">rar://</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="wrappers.expect.html">expect://</a></div>
+ <div class="up"><a href="wrappers.html">Поддерживаемые протоколы и обработчики (wrappers)</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

@@ -1,0 +1,226 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Устанавливает постоянное соединение с сервером MySQL</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.mysql-num-rows.html">mysql_num_rows</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.mysql-ping.html">mysql_ping</a></div>
+ <div class="up"><a href="ref.mysql.html">MySQL</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.mysql-pconnect" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">mysql_pconnect</h1>
+  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">mysql_pconnect</span> &mdash; <span class="dc-title">Устанавливает постоянное соединение с сервером MySQL</span></p>
+
+ </div>
+ 
+ <div id="function.mysql-pconnect-soft-deprecation-notice" class="soft-deprecation-notice">
+  <blockquote class="sidebar">
+   <p class="para">Данное расширение устарело, начиная с версии PHP 5.5.0, и будет удалено в будущем.
+Используйте вместо него <a href="book.mysqli.html" class="link">MySQLi</a> или <a href="ref.pdo-mysql.html" class="link">PDO_MySQL</a>.
+Смотрите также инструкцию <a href="mysqlinfo.api.choosing.html" class="link">MySQL: 
+выбор API</a> и <a href="faq.databases.html#faq.databases.mysql.deprecated" class="link">соответствующий FAQ</a> для получения более подробной информации. 
+Альтернативы для данной функции:</p>
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.mysqli-connect.html" class="function">mysqli_connect()</a></span> с <em>p:</em> префиксом хоста</li>
+    <li class="member"><span class="methodname"><a href="pdo.construct.html" class="methodname">PDO::__construct()</a></span> с опцией драйвера <strong><code>PDO::ATTR_PERSISTENT</code></strong></li>
+   </ul>
+  </blockquote>
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.mysql-pconnect-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">resource</span> <span class="methodname"><strong>mysql_pconnect</strong></span>
+    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$server</code><span class="initializer"> = ini_get(&quot;mysql.default_host&quot;)</span></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$username</code><span class="initializer"> = ini_get(&quot;mysql.default_user&quot;)</span></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$password</code><span class="initializer"> = ini_get(&quot;mysql.default_password&quot;)</span></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$client_flags</code><span class="initializer"> = 0</span></span>
+  ]]]] )</div>
+
+  
+  <p class="para rdfs-comment">
+   Устанавливает постоянное соединение с сервером MySQL.
+  </p>
+  
+  <p class="para">
+   <span class="function"><strong>mysql_pconnect()</strong></span> работает аналогично
+   <span class="function"><a href="function.mysql-connect.html" class="function">mysql_connect()</a></span> с двумя важными отличиями.
+  </p>
+  <p class="para">
+   Во-первых, при соединении функция пытается найти уже открытый
+   (постоянный) указатель на тот же сервер с тем же пользователем и паролем.
+   Если он найден, возвращён функцией будет именно он, вместо открытия
+   нового соединения.
+  </p>
+  <p class="para">
+   Во-вторых, соединение с SQL-сервером не будет закрыто, когда работа
+   скрипта закончится. Вместо этого, оно останется рабочим для будущего
+   использования (<span class="function"><a href="function.mysql-close.html" class="function">mysql_close()</a></span> также не закрывает
+   постоянные соединения, открытые <span class="function"><strong>mysql_pconnect()</strong></span>).
+  </p>
+  <p class="para">
+   Соединения такого типа называют &#039;постоянными&#039;.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.mysql-pconnect-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">server</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Сервер MySQL. Может также включать номер порта, например,
+       &quot;hostname:port&quot; или путь к локальному сокету, например,
+       &quot;:/path/to/socket&quot; для локального хоста.
+      </p>
+      <p class="para">
+       Если директива <a href="mysql.configuration.html#ini.mysql.default-host" class="link">
+       mysql.default_host</a> не определена (по умолчанию), то
+       по умолчанию используется значение &#039;localhost:3306&#039;
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">username</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Имя пользователя. По умолчанию используется имя пользователя,
+       владеющего серверным процессом.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">password</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Пароль. По умолчанию используется пустая строка.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">client_flags</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Параметр <code class="parameter">client_flags</code> может быть
+       комбинацией следующих констант:
+       128 (включает обработку <em>LOAD DATA LOCAL</em>),
+       <strong><code>MYSQL_CLIENT_SSL</code></strong>,
+       <strong><code>MYSQL_CLIENT_COMPRESS</code></strong>,
+       <strong><code>MYSQL_CLIENT_IGNORE_SPACE</code></strong> и
+       <strong><code>MYSQL_CLIENT_INTERACTIVE</code></strong>.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.mysql-pconnect-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает дескриптор постоянного соединения MySQL в случае успеха,
+   и <strong><code>FALSE</code></strong> в случае ошибки.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.mysql-pconnect-changelog">
+  <h3 class="title">Список изменений</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Версия</th>
+       <th>Описание</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>4.3.0</td>
+       <td>
+        Добавлен параметр <code class="parameter">client_flags</code>.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.mysql-pconnect-notes">
+  <h3 class="title">Примечания</h3>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <p class="para">
+    Учтите, что соединения такого типа работают только, если
+    PHP установлен как модуль. За дополнительной информацией
+    обращайтесь к разделу
+    &quot;<a href="features.persistent-connections.html" class="link">Постоянные соединения с
+    базами данных</a>&quot;.
+   </p>
+  </p></blockquote>
+  <div class="warning"><strong class="warning">Внимание</strong>
+   <p class="para">
+    Использование постоянных соединений может потребовать некоторой
+    настройки Apache и MySQL. Убедитесь, что вы не превысите максимальное
+    число дозволенных соединений в MySQL.
+   </p>
+  </div>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <p class="para">
+    Можно подавить сообщение об ошибке при неудачном соединении
+    поставив перед вызовом функции оператор
+    <a href="language.operators.errorcontrol.html" class="link">@</a>.
+   </p>
+  </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.mysql-pconnect-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.mysql-connect.html" class="function" rel="rdfs-seeAlso">mysql_connect()</a> - Открывает соединение с сервером MySQL</span></li>
+    <li class="member">&quot;<a href="features.persistent-connections.html" class="link">Постоянные
+    соединения с базами данных</a>&quot;</li>
+   </ul>
+  </p>
+ </div>
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.mysql-num-rows.html">mysql_num_rows</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.mysql-ping.html">mysql_ping</a></div>
+ <div class="up"><a href="ref.mysql.html">MySQL</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

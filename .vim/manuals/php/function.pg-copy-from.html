@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Вставляет записи из массива в таблицу</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.pg-convert.html">pg_convert</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.pg-copy-to.html">pg_copy_to</a></div>
+ <div class="up"><a href="ref.pgsql.html">PostgreSQL</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.pg-copy-from" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">pg_copy_from</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5)</p><p class="refpurpose"><span class="refname">pg_copy_from</span> &mdash; <span class="dc-title">
+   Вставляет записи из массива в таблицу
+  </span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.pg-copy-from-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><strong>pg_copy_from</strong></span>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$connection</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$table_name</code></span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$rows</code></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$delimiter</code></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$null_as</code></span>
+  ]] )</div>
+
+  <p class="para rdfs-comment">
+   <span class="function"><strong>pg_copy_from()</strong></span> вставляет записи в таблицу из массива <code class="parameter">rows</code>. 
+   В ходе выполнения вызывает SQL команду <em>COPY FROM</em> для вставки записей.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.pg-copy-from-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">connection</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Ресурс соединения с базой данных PostgreSQL.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">table_name</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Имя таблицы, в которую копируются значения из <code class="parameter">rows</code>.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">rows</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Массив (<span class="type"><a href="language.types.array.html" class="type array">array</a></span>) данных для копирования в <code class="parameter">table_name</code>. 
+       Каждое значение в <code class="parameter">rows</code> становится строкой в <code class="parameter">table_name</code>. 
+       Каждое значение массива <code class="parameter">rows</code> должно быть строкой с разделителем, содержащей 
+       значения для вставки в каждое поле таблицы. Значения должны заканчиваться символом перевода строки.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">delimiter</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Символ, отделяющий значения друг от друга в каждом элементе массива <code class="parameter">rows</code>. 
+       По-умолчанию <em>TAB</em>.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">null_as</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Определяет, каким образом значения SQL <em>NULL</em> представлены 
+       в массиве <code class="parameter">rows</code>. По-умолчанию \N (&quot;\\N&quot;).
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.pg-copy-from-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+   <p class="para">
+    Возвращает <strong><code>TRUE</code></strong> в случае успешного завершения  или <strong><code>FALSE</code></strong> в случае возникновения ошибки.
+   </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.pg-copy-from-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-2103">
+    <p><strong>Пример #1 Пример использования <span class="function"><strong>pg_copy_from()</strong></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />&nbsp;&nbsp;&nbsp;$db&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">pg_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"dbname=publisher"</span><span style="color: #007700">)&nbsp;or&nbsp;die(</span><span style="color: #DD0000">"Не&nbsp;удается&nbsp;создать&nbsp;подключение"</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$rows&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">pg_copy_to</span><span style="color: #007700">(</span><span style="color: #0000BB">$db</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$table_name</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">pg_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$db</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"DELETE&nbsp;FROM&nbsp;</span><span style="color: #0000BB">$table_name</span><span style="color: #DD0000">"</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">pg_copy_from</span><span style="color: #007700">(</span><span style="color: #0000BB">$db</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$table_name</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$rows</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div> 
+  </p>
+ </div>
+
+  
+ <div class="refsect1 seealso" id="refsect1-function.pg-copy-from-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.pg-copy-to.html" class="function" rel="rdfs-seeAlso">pg_copy_to()</a> - Копирует данные из таблицы в массив</span></li>
+   </ul>
+  </p>
+ </div>
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.pg-convert.html">pg_convert</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.pg-copy-to.html">pg_copy_to</a></div>
+ <div class="up"><a href="ref.pgsql.html">PostgreSQL</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

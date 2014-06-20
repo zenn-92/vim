@@ -1,0 +1,375 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Отправка HTTP заголовка</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.header-remove.html">header_remove</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.headers-list.html">headers_list</a></div>
+ <div class="up"><a href="ref.network.html">Сетевые Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.header" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">header</h1>
+  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">header</span> &mdash; <span class="dc-title">
+   Отправка HTTP заголовка
+  </span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.header-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type"><span class="type void">void</span></span> <span class="methodname"><strong>header</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
+   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$replace</code><span class="initializer"> = true</span></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$http_response_code</code></span>
+  ]] )</div>
+
+  <p class="para rdfs-comment">
+   <span class="function"><strong>header()</strong></span> используется для отправки <acronym title="Hypertext Transfer Protocol">HTTP</acronym>
+   заголовка. В <a href="http://www.faqs.org/rfcs/rfc2616" class="link external">&raquo;&nbsp;спецификации HTTP/1.1</a>
+   есть подробное описание <acronym title="Hypertext Transfer Protocol">HTTP</acronym> заголовков.
+  </p>
+  <p class="para">
+   Помните, что функцию <span class="function"><strong>header()</strong></span> можно вызывать только
+   если клиенту еще не передавались данные. То есть она должна идти первой в
+   выводе, перед ее вызовом не должно быть никаких HTML тэгов, пустых строк и т.п.
+   Довольно часто возникает ошибка, когда при чтении кода файловыми функциями,
+   вроде <span class="function"><a href="function.include.html" class="function">include</a></span> или <span class="function"><a href="function.require.html" class="function">require</a></span>, в этом
+   коде попадаются пробелы или пустые строки, которые выводятся до вызова
+   <span class="function"><strong>header()</strong></span>. Те же проблемы могут возникать и при использовании
+   одиночного PHP/HTML файла.
+   <div class="informalexample">
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+&lt;html&gt;<br /><span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;Этот&nbsp;пример&nbsp;приведет&nbsp;к&nbsp;ошибке.&nbsp;Обратите&nbsp;внимание<br />&nbsp;*&nbsp;на&nbsp;тэг&nbsp;вверху,&nbsp;который&nbsp;будет&nbsp;выведен&nbsp;до&nbsp;вызова&nbsp;header()&nbsp;*/<br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'Location:&nbsp;http://www.example.com/'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.header-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">string</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Строка заголовка.
+      </p>
+      <p class="para">
+       Существует два специальных заголовка. Один из них начинается с 
+       &quot;<em>HTTP/</em>&quot; (регистр не важен) и используется для
+       отправки кода состояния HTTP. Например, если веб-сервер Apache
+       сконфигурирован таким образом, чтобы запросы к несуществующим файлам
+       обрабатывались средствами PHP скрипта (используя директиву
+       <em>ErrorDocument</em>), вы наверняка захотите быть уверенными
+       что скрипт генерирует правильный код состояния.
+      </p>
+      <p class="para">
+       <div class="informalexample">
+        <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />header</span><span style="color: #007700">(</span><span style="color: #DD0000">"HTTP/1.0&nbsp;404&nbsp;Not&nbsp;Found"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+        </div>
+
+       </div>
+      </p>
+      <p class="para">
+       Для FastCGI синтаксис 404 кода несколько иной:
+       <div class="informalexample">
+        <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />header</span><span style="color: #007700">(</span><span style="color: #DD0000">"Status:&nbsp;404&nbsp;Not&nbsp;Found"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+        </div>
+
+       </div>         
+      </p>
+      <p class="para">
+       Другим специальным видом заголовков является &quot;Location:&quot;. В этом случае
+       фукнция не только отправляет этот заголовок броузеру, но также возвращает
+       ему код состояния <em>REDIRECT</em> (302) (если ранее не был
+       установлен код <em>201</em> или <em>3xx</em>).
+      </p>
+      <p class="para">
+       <div class="informalexample">
+        <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />header</span><span style="color: #007700">(</span><span style="color: #DD0000">"Location:&nbsp;http://www.example.com/"</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">/*&nbsp;Перенаправление&nbsp;броузера&nbsp;*/<br /><br />/*&nbsp;Можно&nbsp;убедиться,&nbsp;что&nbsp;следующий&nbsp;за&nbsp;командой&nbsp;код&nbsp;не&nbsp;выполнится&nbsp;из-за<br />перенаправления.*/<br /></span><span style="color: #007700">exit;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+        </div>
+
+       </div>
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">replace</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Необязательный параметр <code class="parameter">replace</code> определяет, надо
+       ли заменять предыдущий аналогичный заголовок или заголовок того же типа.
+       По умолчанию заголовок будет заменен, но если передать <strong><code>FALSE</code></strong>, можно
+       задать несколько однотипных заголовков. Например:
+      </p>
+      <p class="para">
+       <div class="informalexample">
+        <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />header</span><span style="color: #007700">(</span><span style="color: #DD0000">'WWW-Authenticate:&nbsp;Negotiate'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'WWW-Authenticate:&nbsp;NTLM'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+        </div>
+
+       </div>
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">http_response_code</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Принудительно задает код ответа HTTP. Следует учитывать, что это будет
+       работать, только если строка <code class="parameter">string</code> не является
+       пустой.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.header-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Эта функция не возвращает значения после выполнения.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.header-changelog">
+  <h3 class="title">Список изменений</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Версия</th>
+       <th>Описание</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>4.4.2 и 5.1.2</td>
+       <td>
+        Стало невозможно отправлять более одного заголовка за раз. Это сделано
+        для защиты от атак, связанных с инъекцией заголовков.
+       </td>
+      </tr>
+
+      <tr>
+       <td>4.3.0</td>
+       <td>
+        Добавлен параметр <code class="parameter">http_response_code</code>.
+       </td>
+      </tr>
+
+      <tr>
+       <td>4.0.4</td>
+       <td>
+        Добавлен параметр <code class="parameter">replace</code>.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.header-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-4516">
+    <p><strong>Пример #1 Диалог загрузки</strong></p>
+    <div class="example-contents"><p>
+     Если нужно предупредить пользователя о необходимости сохранить пересылаемые
+     данные, такие как сгенерированный PDF файл, можно воспользоваться заголовком
+     <a href="http://www.faqs.org/rfcs/rfc2183" class="link external">&raquo;&nbsp;Content-Disposition</a>, который
+     подставляет рекомендуемое имя файла и заставляет броузер показать диалог
+     загрузки.
+    </p></div>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Будем&nbsp;передавать&nbsp;PDF<br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'Content-type:&nbsp;application/pdf'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Который&nbsp;будет&nbsp;называться&nbsp;downloaded.pdf<br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'Content-Disposition:&nbsp;attachment;&nbsp;filename="downloaded.pdf"'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Исходный&nbsp;PDF&nbsp;файл&nbsp;original.pdf<br /></span><span style="color: #0000BB">readfile</span><span style="color: #007700">(</span><span style="color: #DD0000">'original.pdf'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+  <p class="para">
+   <div class="example" id="example-4517">
+    <p><strong>Пример #2 Директивы для работы с кэшем</strong></p>
+    <div class="example-contents"><p>
+     PHP скрипты часто генерируют динамический контент, который не должен
+     кэшироваться клиентским броузером или какими-либо промежуточными
+     обработчиками, вроде прокси серверов. Можно принудительно отключить
+     кэширование на многих прокси серверах и броузерах, передав заголовки:
+    </p></div>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />header</span><span style="color: #007700">(</span><span style="color: #DD0000">"Cache-Control:&nbsp;no-cache,&nbsp;must-revalidate"</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;HTTP/1.1<br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">"Expires:&nbsp;Sat,&nbsp;26&nbsp;Jul&nbsp;1997&nbsp;05:00:00&nbsp;GMT"</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;Дата&nbsp;в&nbsp;прошлом<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>
+     <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+      <p class="para">
+       В некоторых случаях ваши страницы не будут кэшироваться броузером, даже
+       если вы не передавали этих заголовков. В броузерах есть определенные
+       настройки, с помощью которых пользователь может изменять обычный ход
+       кэширования, отключать его. Вы должны перекрывать любые настройки,
+       которые могут повлиять на кэширование скрипта, отправляя приведенные
+       выше заголовки.
+      </p>
+      <p class="para">
+       Дополнительно, для случаев когда используются сессии, можно задать настройки
+       конфигурации <span class="function"><a href="function.session-cache-limiter.html" class="function">session_cache_limiter()</a></span> и
+       <em>session.cache_limiter</em>. Эти настройки можно использовать
+       для автоматической генерации заголовков управляющих кешированием.
+      </p>
+     </p></blockquote>
+    </p></div>
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.header-notes">
+  <h3 class="title">Примечания</h3>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+<p class="para">
+ Доступ к заголовкам и их вывод будет осуществляться только в
+ случае, если в используемом вами SAPI есть их поддержка.
+</p>
+</p></blockquote>
+
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <p class="para">
+    Чтобы обойти эту проблему, можно буферизовать вывод скрипта. В этом случае
+    все выводимые данные будут буферизоваться на сервере, пока не будет дана
+    явная команда на пересылку данных. Управлять буферизацией можно вручную
+    функциями <span class="function"><a href="function.ob-start.html" class="function">ob_start()</a></span> и <span class="function"><a href="function.ob-end-flush.html" class="function">ob_end_flush()</a></span>,
+    либо задав директиву <em>output_buffering</em> в конфигурационном
+    файле <var class="filename">php.ini</var>, или же настроив соответствующим образом конфигурацию сервера.
+   </p>
+  </p></blockquote>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <p class="para">
+    Строка заголовка задающая состояние HTTP всегда будет отсылаться клиенту
+    первой, вне зависимости от того был соответствующий вызов функции
+    <span class="function"><strong>header()</strong></span> первым или нет. Это состояние можно перезаписать,
+    вызывая <span class="function"><strong>header()</strong></span> с новой строкой состояния в любое время, 
+    когда можно отправлять HTTP заголовки.
+   </p>
+  </p></blockquote>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <p class="para">
+    В Microsoft Internet Explorer 4.01 есть баг, из-за которого это не работает.
+    Обойти его никак нельзя. В Microsoft Internet Explorer 5.5 также есть этот баг,
+    но его уже можно устранить установкой Service Pack 2 или выше.
+   </p>
+  </p></blockquote>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <span class="simpara">
+    Если включен <a href="ini.sect.safe-mode.html#ini.safe-mode" class="link">безопасный режим</a>, то uid
+    скрипта будет добавляться к <em>realm</em> части 
+    <em>WWW-Authenticate</em> заголовка (используется для 
+    HTTP аутентификации).
+   </span>
+  </p></blockquote>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <p class="para">
+    Спецификация HTTP/1.1 требует указывать абсолютный <acronym title="Uniform Resource Identifier">URI</acronym>
+    в качестве аргумента <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.30" class="link external">&raquo;&nbsp;Location:</a>,
+    включающий схему, имя хоста и абсолютный путь, хотя некоторые клиенты
+    способны принимать и относительные URI. Абсолютный URI можно построить
+    самостоятельно с помощью <var class="varname"><var class="varname"><a href="reserved.variables.server.html" class="classname">$_SERVER['HTTP_HOST']</a></var></var>,
+    <var class="varname"><var class="varname"><a href="reserved.variables.server.html" class="classname">$_SERVER['PHP_SELF']</a></var></var> и <span class="function"><a href="function.dirname.html" class="function">dirname()</a></span>:
+    <div class="informalexample">
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;Перенаправление&nbsp;броузера&nbsp;на&nbsp;другую&nbsp;страницу&nbsp;в&nbsp;той&nbsp;же&nbsp;директории,&nbsp;что&nbsp;и<br />изначально&nbsp;запрошенная&nbsp;*/<br /></span><span style="color: #0000BB">$host&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'HTTP_HOST'</span><span style="color: #007700">];<br /></span><span style="color: #0000BB">$uri&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">rtrim</span><span style="color: #007700">(</span><span style="color: #0000BB">dirname</span><span style="color: #007700">(</span><span style="color: #0000BB">$_SERVER</span><span style="color: #007700">[</span><span style="color: #DD0000">'PHP_SELF'</span><span style="color: #007700">]),&nbsp;</span><span style="color: #DD0000">'/\\'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$extra&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'mypage.php'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">"Location:&nbsp;http://</span><span style="color: #0000BB">$host$uri</span><span style="color: #DD0000">/</span><span style="color: #0000BB">$extra</span><span style="color: #DD0000">"</span><span style="color: #007700">);<br />exit;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+     </div>
+
+    </div>
+   </p>
+  </p></blockquote>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <p class="para">
+    ID сессии не будет передаваться вместе с заголовком Location, даже если
+    включена настройка <a href="session.configuration.html#ini.session.use-trans-sid" class="link">session.use_trans_sid</a>. Его нужно
+    передавать вручную, используя константу <strong><code>SID</code></strong>.
+   </p>
+  </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.header-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.headers-sent.html" class="function" rel="rdfs-seeAlso">headers_sent()</a> - Проверяет были ли и куда отправлены заголовки</span></li>
+    <li class="member"><span class="function"><a href="function.setcookie.html" class="function" rel="rdfs-seeAlso">setcookie()</a> - Посылает cookie</span></li>
+    <li class="member"><span class="function"><a href="function.http-response-code.html" class="function" rel="rdfs-seeAlso">http_response_code()</a> - Получает или устанавливает код ответа HTTP</span></li>
+    <li class="member">
+     Раздел документации <a href="features.http-auth.html" class="link">HTTP
+     аутентификация</a>
+    </li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.header-remove.html">header_remove</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.headers-list.html">headers_list</a></div>
+ <div class="up"><a href="ref.network.html">Сетевые Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Присвоение атрибута</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="pdo.rollback.html">PDO::rollBack</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="class.pdostatement.html">PDOStatement</a></div>
+ <div class="up"><a href="class.pdo.html">PDO</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="pdo.setattribute" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">PDO::setAttribute</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PECL pdo &gt;= 0.1.0)</p><p class="refpurpose"><span class="refname">PDO::setAttribute</span> &mdash; <span class="dc-title">
+   Присвоение атрибута
+  </span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-pdo.setattribute-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><strong>PDO::setAttribute</strong></span>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$attribute</code></span>
+   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>
+   )</div>
+
+
+  <p class="para rdfs-comment">
+   Присваивает атрибут PDO объекту. Некоторые основные атрибуты приведены ниже;
+   отдельные драйверы могут имет свои дополнительные атрибуты.
+   <ul class="itemizedlist">
+    <li class="listitem"><p class="para">
+     <em>PDO::ATTR_CASE</em>: Приводить имена столбцов к заданному регистру.
+     <ul class="itemizedlist">
+      <li class="listitem"><p class="para">
+       <em>PDO::CASE_LOWER</em>: Приводить имена столбцов к нижнему регистру.
+      </p></li>
+      <li class="listitem"><p class="para">
+       <em>PDO::CASE_NATURAL</em>: Оставлять имена столбцов в том виде,
+       в котором они выданы драйвером.
+      </p></li>
+      <li class="listitem"><p class="para">
+       <em>PDO::CASE_UPPER</em>: Приводить имена столбцов к верхнему регистру.
+      </p></li>
+     </ul>
+    </p></li>
+    <li class="listitem"><p class="para"><em>PDO::ATTR_ERRMODE</em>: Режим сообщений об ошибках.
+     <ul class="itemizedlist">
+      <li class="listitem"><p class="para"><em>PDO::ERRMODE_SILENT</em>:
+       Только установка кодов ошибок.</p></li>
+      <li class="listitem"><p class="para"><em>PDO::ERRMODE_WARNING</em>:
+       Вызывать <a href="" class="link">E_WARNING</a>.</p></li>
+      <li class="listitem"><p class="para"><em>PDO::ERRMODE_EXCEPTION</em>:
+       Выбрасывать <a href="class.pdoexception.html" class="link">исключения</a>.</p></li>
+     </ul>
+    </p></li>
+    <li class="listitem"><p class="para"><em>PDO::ATTR_ORACLE_NULLS</em>
+     (доступен для всех драйверов, не только для Oracle):
+     Преобразование NULL в пустые строки.
+     <ul class="itemizedlist">
+      <li class="listitem"><p class="para"><em>PDO::NULL_NATURAL</em>:
+       Без преобразования.</p></li>
+      <li class="listitem"><p class="para"><em>PDO::NULL_EMPTY_STRING</em>:
+       Пустые строки преобразовывать в <strong><code>NULL</code></strong>.</p></li>
+      <li class="listitem"><p class="para"><em>PDO::NULL_TO_STRING</em>:
+       NULL преобразовывать в пустые строки.</p></li>
+     </ul>
+    </p></li>
+    <li class="listitem"><p class="para"><em>PDO::ATTR_STRINGIFY_FETCHES</em>:
+     Преобразовывать числовые значения в строки во время выборки.
+     Значение типа <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>.
+    </p></li>
+    <li class="listitem"><p class="para"><em>PDO::ATTR_STATEMENT_CLASS</em>:
+     Задает пользовательский класс производный от PDOStatement. Атрибут нельзя
+     использовать с PDO, использующими постоянные соединения.
+     Принимает массив <em>array(string classname, array(mixed constructor_args))</em>.
+    </p></li>
+    <li class="listitem"><p class="para"><em>PDO::ATTR_TIMEOUT</em>:
+     Задает таймаут в секундах. Не все драйверы поддерживают эту опцию. Также
+     назначение этого таймаута может отличаться в разных драйверах. Например,
+     sqlite будет ждать это количество времени получения блокировки на запись.
+     А другие драйверы могут использовать его, как таймаут подключения или чтения.
+     Атрибут принимает значение типа <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>.
+    </p></li>
+    <li class="listitem"><p class="para"><em>PDO::ATTR_AUTOCOMMIT</em>
+     (доступен в OCI, Firebird и MySQL):
+     Требуется ли автоматическая фиксация каждого отдельного выражения в запросе.
+    </p></li>
+    <li class="listitem"><p class="para"><em>PDO::ATTR_EMULATE_PREPARES</em>
+     Включение или выключение эмуляции подготавливаемых запросов. Некоторые драйверы
+     не поддерживают подготавливаемые запросы, либо их поддержка ограничена.
+     Эта настройка указывает PDO всегда эмулировать подготавливаемые запросы
+     (если <strong><code>TRUE</code></strong>) или пытаться использовать родные средства драйвера (если
+     <strong><code>FALSE</code></strong>). Если драйвер не сможет подготовить запрос, эта настройка
+     сбросится в режим эмуляции. Атрибут принимает значение типа <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>.
+     </p></li>
+    <li class="listitem"><p class="para"><em>PDO::MYSQL_ATTR_USE_BUFFERED_QUERY</em>
+    (доступен в MySQL):
+    Использовать буферизованные запросы.
+    </p></li>
+    <li class="listitem"><p class="para"><em>PDO::ATTR_DEFAULT_FETCH_MODE</em>:
+    Задает режим выборки данных по умолчанию. Описание возможных режимов приведено
+    в документации к методу <span class="function"><a href="pdostatement.fetch.html" class="function">PDOStatement::fetch()</a></span>.
+    </p></li>
+   </ul>
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-pdo.setattribute-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает <strong><code>TRUE</code></strong> в случае успешного завершения  или <strong><code>FALSE</code></strong> в случае возникновения ошибки.
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="pdo.rollback.html">PDO::rollBack</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="class.pdostatement.html">PDOStatement</a></div>
+ <div class="up"><a href="class.pdo.html">PDO</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

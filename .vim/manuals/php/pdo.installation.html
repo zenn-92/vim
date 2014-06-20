@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Установка</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="pdo.requirements.html">Требования</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="pdo.configuration.html">Настройка во время выполнения</a></div>
+ <div class="up"><a href="pdo.setup.html">Установка и настройка</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="pdo.installation" class="section">
+ <h2 class="title">Установка</h2>
+ <div class="procedure">
+  <strong class="title">Инсталляция PDO на Unix системах</strong>
+  <ol type="1"><li>
+   <p class="para">
+    PDO и драйвер <a href="ref.pdo-sqlite.html" class="link">PDO_SQLITE</a>
+    включены по умолчанию в PHP, начиная с версии 5.1.0. Чтобы
+    включить PDO драйвер для произвольной базы данных, обратитесь
+    к документации <a href="pdo.drivers.html" class="link">PDO драйверы баз данных</a>.
+   </p>
+   <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+    <p class="para">
+     Если PDO собирается, как подгружаемое расширение
+     (<em class="emphasis">не рекомендуется</em>), то все PDO драйверы
+     <em class="emphasis">должны</em> быть загружены
+     <em class="emphasis">после</em> загрузки самого PDO.
+    </p>
+  </p></blockquote>
+  </li>
+  <li>
+   <p class="para">
+    При инсталляции PDO в качестве подгружаемого модуля в файл php.ini
+    необходимо внести изменения, чтобы расширение PDO загружалось
+    автоматически при запуске PHP. Также туда придется включить загрузку
+    некоторых драйверов баз данных; при этом убедитесь, что они перечислены
+    после строки pdo.so, так как PDO должно загрузиться первым. Если вы
+    устанавливаете PDO и драйверы как статичные модули, этот шаг можно
+    пропустить
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+extension=pdo.so
+</pre></div>
+    </div>
+   </p>
+  </li>
+ </ol></div>
+ <div class="procedure">
+  <strong class="title">Пользователи Windows</strong>
+  <ol type="1"><li>
+   <p class="para">
+    PDO и все основные драйверы внедрены в PHP как загружаемые модули.
+    Чтобы их использовать, требуется их просто включить, отредактировав
+    файл <var class="filename">php.ini</var> следующим образом:
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+extension=php_pdo.dll
+</pre></div>
+    </div>
+   </p>
+   <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+    <p class="para">
+     Этот шаг необязателен для версий PHP 5.3 и выше, так как для работы PDO
+     больше не требуются DLL.
+    </p>
+   </p></blockquote>
+  </li>
+  <li>
+   <p class="para">
+    Далее нужно выбрать DLL конкретных баз данных и либо загружать их
+    во время выполнения функцией <span class="function"><a href="function.dl.html" class="function">dl()</a></span>, либо включить их
+    в <var class="filename">php.ini</var> после <var class="filename">php_pdo.dll</var>. Например:
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+extension=php_pdo.dll
+extension=php_pdo_firebird.dll
+extension=php_pdo_informix.dll
+extension=php_pdo_mssql.dll
+extension=php_pdo_mysql.dll
+extension=php_pdo_oci.dll
+extension=php_pdo_oci8.dll
+extension=php_pdo_odbc.dll
+extension=php_pdo_pgsql.dll
+extension=php_pdo_sqlite.dll  
+</pre></div>
+    </div>
+   </p>
+   <p class="para">
+    Эти DLL должны лежать в директории
+    <a href="ini.core.html#ini.extension-dir" class="link">extension_dir</a>.
+   </p>
+  </li>
+ </ol></div>
+ <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+  <p class="para">
+   Не забывайте, что после внесения изменений в <var class="filename">php.ini</var> необходим перезапуск
+   PHP.
+  </p>
+ </p></blockquote>
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="pdo.requirements.html">Требования</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="pdo.configuration.html">Настройка во время выполнения</a></div>
+ <div class="up"><a href="pdo.setup.html">Установка и настройка</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

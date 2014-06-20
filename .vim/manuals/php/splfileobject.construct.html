@@ -1,0 +1,168 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Конструктор класса SplFileObject</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="class.splfileobject.html">SplFileObject</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="splfileobject.current.html">SplFileObject::current</a></div>
+ <div class="up"><a href="class.splfileobject.html">SplFileObject</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="splfileobject.construct" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">SplFileObject::__construct</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0)</p><p class="refpurpose"><span class="refname">SplFileObject::__construct</span> &mdash; <span class="dc-title">Конструктор класса SplFileObject</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-splfileobject.construct-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="methodname"><strong>SplFileObject::__construct</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$open_mode</code><span class="initializer"> = &quot;r&quot;</span></span>
+   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$use_include_path</code><span class="initializer"> = false</span></span>
+   [, <span class="methodparam"><span class="type">resource</span> <code class="parameter">$context</code></span>
+  ]]] )</div>
+
+  <p class="para rdfs-comment">
+   Создает новый файловый объект.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-splfileobject.construct-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">filename</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Файл, который требуется прочитать.
+      </p>
+      <div class="tip"><strong class="tip">Подсказка</strong><p class="simpara">Для этой функции вы можете использовать URL
+в качестве имени файла, если была включена опция <a href="filesystem.configuration.html#ini.allow-url-fopen" class="link">fopen wrappers</a>. Смотрите более
+подробную информацию об определении имени файла в описании функции
+<span class="function"><a href="function.fopen.html" class="function">fopen()</a></span>. Смотрите также список поддерживаемых оберток URL, их возможности, замечания по использованию и список
+предопределенных констант в <a href="wrappers.html" class="xref">Поддерживаемые протоколы и обработчики (wrappers)</a>.</p></div>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">open_mode</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Режим работы с файлом. Список возможных режимов работы приведен в описании
+       функции <span class="function"><a href="function.fopen.html" class="function">fopen()</a></span>.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">use_include_path</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Требуется ли просматривать <a href="ini.core.html#ini.include-path" class="link">include_path</a>
+       во время поиска файла <code class="parameter">filename</code>.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">context</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Допустимый ресурс контекста, созданный функцией
+       <span class="function"><a href="function.stream-context-create.html" class="function">stream_context_create()</a></span>.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-splfileobject.construct-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Эта функция не возвращает значения после выполнения.
+  </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-splfileobject.construct-errors">
+  <h3 class="title">Ошибки</h3>
+  <p class="para">
+   Выбрасывает исключение <a href="class.runtimeexception.html" class="classname">RuntimeException</a>, если файл
+   <code class="parameter">filename</code> невозможно открыть.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-splfileobject.construct-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-3992">
+    <p><strong>Пример #1 Пример использования <span class="methodname"><strong>SplFileObject::__construct()</strong></span></strong></p>
+    <div class="example-contents"><p>
+     Этот пример открывает текущий файл и осуществляет перебор его строк.
+    </p></div>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$file&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">SplFileObject</span><span style="color: #007700">(</span><span style="color: #0000BB">__FILE__</span><span style="color: #007700">);<br />foreach&nbsp;(</span><span style="color: #0000BB">$file&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$line_num&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$line</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Строка&nbsp;</span><span style="color: #0000BB">$line_num</span><span style="color: #DD0000">:&nbsp;</span><span style="color: #0000BB">$line</span><span style="color: #DD0000">"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>Результатом выполнения данного примера
+будет что-то подобное:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+Строка 0: &lt;?php
+Строка 1: $file = new SplFileObject(__FILE__);
+Строка 2: foreach ($file as $line_num =&gt; $line) {
+Строка 3:     echo &quot;Line $line_num is $line&quot;;
+Строка 4: }
+Строка 5: ?&gt;
+</pre></div>
+    </div>
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-splfileobject.construct-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="methodname"><a href="splfileinfo.openfile.html" class="methodname" rel="rdfs-seeAlso">SplFileInfo::openFile()</a> - Получает объект SplFileObject для файла</span></li>
+    <li class="member"><span class="function"><a href="function.fopen.html" class="function" rel="rdfs-seeAlso">fopen()</a> - Открывает файл или URL</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="class.splfileobject.html">SplFileObject</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="splfileobject.current.html">SplFileObject::current</a></div>
+ <div class="up"><a href="class.splfileobject.html">SplFileObject</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

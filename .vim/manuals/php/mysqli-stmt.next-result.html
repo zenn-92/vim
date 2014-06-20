@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Читает следующий набор строк из мультизапроса</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mysqli-stmt.more-results.html">mysqli_stmt::more_results</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mysqli-stmt.num-rows.html">mysqli_stmt::$num_rows</a></div>
+ <div class="up"><a href="class.mysqli-stmt.html">mysqli_stmt</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="mysqli-stmt.next-result" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">mysqli_stmt::next_result</h1>
+  <h1 class="refname">mysqli_stmt_next_result</h1>
+  <p class="verinfo">(PHP 5)</p><p class="refpurpose"><span class="refname">mysqli_stmt::next_result</span> -- <span class="refname">mysqli_stmt_next_result</span> &mdash; <span class="dc-title">
+   Читает следующий набор строк из мультизапроса
+  </span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-mysqli-stmt.next-result-description">
+  <h3 class="title">Описание</h3>
+  <p class="para">Объектно-ориентированный стиль (method):</p>
+   <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><strong>mysqli_stmt::next_result</strong></span>
+    ( <span class="methodparam">void</span>
+    )</div>
+
+  <p class="para rdfs-comment">Процедурный стиль:</p>
+  <div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><strong>mysqli_stmt_next_result</strong></span>
+    ( <span class="methodparam"><span class="type"><span class="type mysql_stmt">mysql_stmt</span></span> <code class="parameter">$stmt</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Читает следующий набор строк из мультизапроса.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-mysqli-stmt.next-result-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    <dt>
+<code class="parameter">
+stmt</code></dt>
+<dd>
+<p class="para">Только для процедурного стиля: Идентификатор выражения, полученный с помощью
+<span class="function"><a href="mysqli.stmt-init.html" class="function">mysqli_stmt_init()</a></span>.</p></dd>
+
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-mysqli-stmt.next-result-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает <strong><code>TRUE</code></strong> в случае успешного завершения  или <strong><code>FALSE</code></strong> в случае возникновения ошибки.
+  </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-mysqli-stmt.next-result-errors">
+  <h3 class="title">Ошибки</h3>
+  <p class="para">
+   Вызывает ошибку уровня <strong><code>E_STRICT</code></strong>, если нет доступного
+   результирующего набора. Следует проверять наличие доступных наборов функцией
+   <span class="methodname"><a href="mysqli-stmt.more-results.html" class="methodname">mysqli_stmt::more_results()</a></span> непосредственно перед
+   вызовом <span class="methodname"><strong>mysqli_stmt::next_result()</strong></span>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-mysqli-stmt.next-result-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="methodname"><a href="mysqli-stmt.more-results.html" class="methodname" rel="rdfs-seeAlso">mysqli_stmt::more_results()</a> - Проверяет, есть ли еще наборы строк в результате мультизапроса</span></li>
+    <li class="member"><span class="methodname"><a href="mysqli.multi-query.html" class="methodname" rel="rdfs-seeAlso">mysqli::multi_query()</a> - Выполняет запрос к базе данных</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mysqli-stmt.more-results.html">mysqli_stmt::more_results</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mysqli-stmt.num-rows.html">mysqli_stmt::$num_rows</a></div>
+ <div class="up"><a href="class.mysqli-stmt.html">mysqli_stmt</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

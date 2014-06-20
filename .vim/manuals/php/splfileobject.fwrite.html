@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Запись в файл</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="splfileobject.ftruncate.html">SplFileObject::ftruncate</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="splfileobject.getchildren.html">SplFileObject::getChildren</a></div>
+ <div class="up"><a href="class.splfileobject.html">SplFileObject</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="splfileobject.fwrite" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">SplFileObject::fwrite</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0)</p><p class="refpurpose"><span class="refname">SplFileObject::fwrite</span> &mdash; <span class="dc-title">Запись в файл</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-splfileobject.fwrite-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">int</span> <span class="methodname"><strong>SplFileObject::fwrite</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$str</code></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code></span>
+  ] )</div>
+
+  <p class="para rdfs-comment">
+   Записывает содержимое строки <code class="parameter">string</code> в файл
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-splfileobject.fwrite-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">str</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Строка, которая будет записана в файл.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">length</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Если задан аргумент <code class="parameter">length</code>, запись остановится 
+       после того, как <code class="parameter">length</code> байт будут записаны или 
+       будет достигнут конец строки <code class="parameter">string</code>, в зависимости от того,
+       что случится раньше.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-splfileobject.fwrite-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает количество записанных байт или <strong><code>NULL</code></strong> в случае ошибки.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-splfileobject.fwrite-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-4008">
+    <p><strong>Пример #1 Пример использования <span class="methodname"><strong>SplFileObject::fwrite()</strong></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$file&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">SplFileObject</span><span style="color: #007700">(</span><span style="color: #DD0000">"fwrite.txt"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"w"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$written&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$file</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fwrite</span><span style="color: #007700">(</span><span style="color: #DD0000">"12345"</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #DD0000">"В&nbsp;файл&nbsp;записано&nbsp;</span><span style="color: #0000BB">$written</span><span style="color: #DD0000">&nbsp;байт"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>Результатом выполнения данного примера
+будет что-то подобное:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+В файл записано 5 байт
+</pre></div>
+    </div>
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-splfileobject.fwrite-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.fwrite.html" class="function" rel="rdfs-seeAlso">fwrite()</a> - Бинарно-безопасная запись в файл</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="splfileobject.ftruncate.html">SplFileObject::ftruncate</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="splfileobject.getchildren.html">SplFileObject::getChildren</a></div>
+ <div class="up"><a href="class.splfileobject.html">SplFileObject</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

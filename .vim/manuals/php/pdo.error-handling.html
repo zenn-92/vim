@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Ошибки и их обработка</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="pdo.prepared-statements.html">Подготовленные запросы и хранимые процедуры</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="pdo.lobs.html">Большие объекты (LOB)</a></div>
+ <div class="up"><a href="book.pdo.html">PDO</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="pdo.error-handling" class="chapter">
+ <h1>Ошибки и их обработка</h1>
+
+ <p class="para">
+  PDO предлагает на выбор 3 стратегии обработки ошибок в зависимости от вашего
+  стиля разработки приложений.
+ </p>
+ <ul class="itemizedlist">
+  <li class="listitem">
+   <p class="para">
+    <strong><code>PDO::ERRMODE_SILENT</code></strong>
+   </p>
+   <p class="para">
+     Это режим по умолчанию. PDO просто предоставит вам код ошибки, который
+     можно получить методами <span class="function"><a href="pdo.errorcode.html" class="function">PDO::errorCode()</a></span> и
+     <span class="function"><a href="pdo.errorinfo.html" class="function">PDO::errorInfo()</a></span>. Эти методы реализованы как в объектах
+     запросов так и в объектах баз данных. Если ошибка вызвана во время выполнения
+     кода объекта запроса, нужно вызвать метод
+     <span class="function"><a href="pdostatement.errorcode.html" class="function">PDOStatement::errorCode()</a></span> или
+     <span class="function"><a href="pdostatement.errorinfo.html" class="function">PDOStatement::errorInfo()</a></span> этого объекта. Если ошибка
+     вызова объекта базы данных, нужно вызвать аналогичные методы у этого объекта.
+    </p>
+  </li>
+  <li class="listitem">
+   <p class="para">
+    <strong><code>PDO::ERRMODE_WARNING</code></strong>
+   </p>
+   <p class="para">
+     Помимо задания кода ошибки PDO выдаст обычное E_WARNING сообщение. Это может
+     быть полезно при отладке или тестировании, когда нужно видеть, что произошло,
+     но не нужно прерывать работу приложения.
+    </p>
+   </li>
+   <li class="listitem">
+    <p class="para">
+     <strong><code>PDO::ERRMODE_EXCEPTION</code></strong>
+    </p>
+    <p class="para">
+     Помимо задания кода ошибки PDO будет выбрасывать исключение
+     <a href="class.pdoexception.html" class="classname">PDOException</a>, свойства которого будут отражать
+     код ошибки и ее описание. Этот режим также полезен при отладке, так как
+     сразу известно, где в программе произошла ошибка. Это позволяет быстро
+     локализовать и решить проблему. (Не забывайте, что если исключение
+     является причиной завершения работы скрипта, все активные транзакции
+     будут откачены.)
+    </p>
+    <p class="para">
+     Режим исключений также полезен, так как дает возможность структурировать
+     обработку ошибок более тщательно, нежели с обычными PHP предупреждениями, а
+     также с меньшей вложенностью кода, чем в случае работы в тихом режиме с
+     явной проверкой возвращаемых значений при каждом обращении к базе данных.
+    </p>
+    <p class="para">
+     Подробнее об исключениях в PHP см. в разделе <a href="language.exceptions.html" class="link">Исключения</a>.
+    </p>
+   </li>
+ </ul>
+ <p class="para">
+  PDO стандартизирован для работы со строковыми кодами ошибок SQL-92 SQLSTATE.
+  Отдельные PDO драйверы могут задавать соответствия своих собственных кодов
+  кодам SQLSTATE. Метод <span class="function"><a href="pdo.errorcode.html" class="function">PDO::errorCode()</a></span> возвращает одиночный
+  SQLSTATE код. Если необходима специфичная информация об ошибке, PDO предлагает
+  метод <span class="function"><a href="pdo.errorinfo.html" class="function">PDO::errorInfo()</a></span>, который возвращает массив, содержащий
+  SQLSTATE код, код ошибки драйвера, а также строку ошибки драйвера.
+ </p>
+ 
+ <p class="para">
+  <div class="example" id="example-934">
+   <p><strong>Пример #1 Создание PDO объекта и задание режима обработки ошибок</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$dsn&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'mysql:dbname=testdb;host=127.0.0.1'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$user&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'dbuser'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$password&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'dbpass'</span><span style="color: #007700">;<br /><br />try&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$dbh&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">(</span><span style="color: #0000BB">$dsn</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$user</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$password</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setAttribute</span><span style="color: #007700">(</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">ATTR_ERRMODE</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">ERRMODE_EXCEPTION</span><span style="color: #007700">);<br />}&nbsp;catch&nbsp;(</span><span style="color: #0000BB">PDOException&nbsp;$e</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'Подключение&nbsp;не&nbsp;удалось:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$e</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getMessage</span><span style="color: #007700">();<br />}<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+ </p>
+</div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="pdo.prepared-statements.html">Подготовленные запросы и хранимые процедуры</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="pdo.lobs.html">Большие объекты (LOB)</a></div>
+ <div class="up"><a href="book.pdo.html">PDO</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

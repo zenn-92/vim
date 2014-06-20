@@ -1,0 +1,348 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Предопределенные константы</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="json.resources.html">Типы ресурсов</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="class.jsonserializable.html">JsonSerializable</a></div>
+ <div class="up"><a href="book.json.html">JSON</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="json.constants" class="appendix">
+ <h1>Предопределенные константы</h1>
+
+ <p class="simpara">
+Перечисленные ниже константы определены данным расширением и могут быть
+доступны только в том случае, если PHP был собран с
+поддержкой этого расширения или же в том случае, если
+данное расширение было подгружено во время выполнения.
+</p>
+ <p class="para">
+  Следующие константы указывают на тип ошибки, возвращенной функцией
+  <span class="function"><a href="function.json-last-error.html" class="function">json_last_error()</a></span>.
+ </p>
+ <dl>
+
+  
+   <dt id="constant.json-error-none">
+    <strong><code>JSON_ERROR_NONE</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Не произошло никаких ошибок.
+     Доступна начиная с PHP 5.3.0.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.json-error-depth">
+    <strong><code>JSON_ERROR_DEPTH</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Была превышена максимальная глубина стека.
+     Доступна начиная с PHP 5.3.0.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.json-error-state-mismatch">
+    <strong><code>JSON_ERROR_STATE_MISMATCH</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Неверный или поврежденный JSON.
+     Доступна начиная с PHP 5.3.0.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.json-error-ctrl-char">
+    <strong><code>JSON_ERROR_CTRL_CHAR</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Ошибка управляющих символов, вероятно из-за неверного кодирования.
+     Доступна начиная с PHP 5.3.0.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.json-error-syntax">
+    <strong><code>JSON_ERROR_SYNTAX</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Синтаксическая ошибка.
+     Доступна начиная с PHP 5.3.0.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.json-error-utf8">
+    <strong><code>JSON_ERROR_UTF8</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Поврежденные символы UTF-8, вероятно, из-за неверного кодирования.
+     Эта константа стала доступна начиная с PHP 5.3.3.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.json-error-recursion">
+    <strong><code>JSON_ERROR_RECURSION</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <p class="para">
+     Объект или массив, переданный в функцию <span class="function"><a href="function.json-encode.html" class="function">json_encode()</a></span> включает
+     рекурсивные ссылки и не может быть закодирован.
+     Если была передана опция <strong><code>JSON_PARTIAL_OUTPUT_ON_ERROR</code></strong>, то
+     на месте рекурсивных ссылок будет выведен <strong><code>NULL</code></strong>.
+    </p>
+    <p class="para">
+     Эта константа стала доступна начиная с PHP 5.5.0.
+    </p>
+   </dd>
+
+  
+  
+   <dt id="constant.json-error-inf-or-nan">
+    <strong><code>JSON_ERROR_INF_OR_NAN</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <p class="para">
+     Значение, переданное в функцию <span class="function"><a href="function.json-encode.html" class="function">json_encode()</a></span> включает либо
+     <a href="language.types.float.html#language.types.float.nan" class="link"><strong><code>NAN</code></strong></a>,
+     либо <a href="function.is-infinite.html" class="link"><strong><code>INF</code></strong></a>.
+     Если была указана константа <strong><code>JSON_PARTIAL_OUTPUT_ON_ERROR</code></strong>,
+     то вместо указанных особых значений будет выведен <em>0</em>.
+    </p>
+    <p class="para">
+     Эта константа стала доступна начиная с PHP 5.5.0.
+    </p>
+   </dd>
+
+  
+  
+   <dt id="constant.json-error-unsupported-type">
+    <strong><code>JSON_ERROR_UNSUPPORTED_TYPE</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <p class="para">
+     В функцию <span class="function"><a href="function.json-encode.html" class="function">json_encode()</a></span> было передано значение
+     неподдерживаемого типа, например, <span class="type"><a href="language.types.resource.html" class="type resource">resource</a></span>.
+     Если была указана константа <strong><code>JSON_PARTIAL_OUTPUT_ON_ERROR</code></strong>,
+     то вместо неподдерживаемого значения будет выводиться <strong><code>NULL</code></strong>.
+    </p>
+    <p class="para">
+     Эта константа стала доступна начиная с PHP 5.5.0.
+    </p>
+   </dd>
+
+  
+ </dl>
+
+
+ <p class="para">
+  Следующие константы можно комбинировать для использования в
+  <span class="function"><a href="function.json-encode.html" class="function">json_encode()</a></span>.
+ </p>
+ <dl>
+
+  
+   <dt id="constant.json-hex-tag">
+    <strong><code>JSON_HEX_TAG</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Все &lt; и &gt; кодируются в \u003C и \u003E.
+     Доступна начиная с PHP 5.3.0.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.json-hex-amp">
+    <strong><code>JSON_HEX_AMP</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Все &amp; кодируются в \u0026.
+     Доступна начиная с PHP 5.3.0.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.json-hex-apos">
+    <strong><code>JSON_HEX_APOS</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Все символы &#039; кодируются в \u0027.
+     Доступна начиная с PHP 5.3.0.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.json-hex-quot">
+    <strong><code>JSON_HEX_QUOT</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Все символы &quot; кодируются в \u0022.
+     Доступна начиная с PHP 5.3.0.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.json-force-object">
+    <strong><code>JSON_FORCE_OBJECT</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Выдавать объект вместо массива при использовании неассоциативного
+     массива. Это полезно, когда принимающая программа или код ожидают
+     объект или же массив пуст.
+     Доступна начиная с PHP 5.3.0.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.json-numeric-check">
+    <strong><code>JSON_NUMERIC_CHECK</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Кодирование строк, содержащих числа, как
+     числа. Доступна начиная с PHP 5.3.3.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.json-bigint-as-string">
+    <strong><code>JSON_BIGINT_AS_STRING</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Кодирует большие целые числа в виде их строковых эквивалентов.
+     Доступна начиная с PHP 5.4.0.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.json-pretty-print">
+    <strong><code>JSON_PRETTY_PRINT</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Использовать пробельные символы в возвращаемых данных
+     для их форматирования. Доступна начиная с PHP 5.4.0.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.json-unescaped-slashes">
+    <strong><code>JSON_UNESCAPED_SLASHES</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Не экранировать <em>/</em>.
+     Доступна начиная с PHP 5.4.0.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.json-unescaped-unicode">
+    <strong><code>JSON_UNESCAPED_UNICODE</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Не кодировать многобайтные символы Unicode (по умолчанию они кодируются как \uXXXX).
+     Доступна начиная с PHP 5.4.0.
+    </span>
+   </dd>
+
+  
+ </dl>
+
+</div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="json.resources.html">Типы ресурсов</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="class.jsonserializable.html">JsonSerializable</a></div>
+ <div class="up"><a href="book.json.html">JSON</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

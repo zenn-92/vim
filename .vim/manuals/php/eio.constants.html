@@ -1,0 +1,851 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Предопределенные константы</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="eio.resources.html">Типы ресурсов</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="eio.examples.html">Примеры</a></div>
+ <div class="up"><a href="book.eio.html">Eio</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="eio.constants" class="appendix">
+ <h1>Предопределенные константы</h1>
+
+ <p class="simpara">
+Перечисленные ниже константы определены данным расширением и могут быть
+доступны только в том случае, если PHP был собран с
+поддержкой этого расширения или же в том случае, если
+данное расширение было подгружено во время выполнения.
+</p>
+
+ <p class="para">Константы приоритета запроса:
+  <dl>
+
+
+   
+    <dt id="constant.eio-pri-min">
+     <strong><code>EIO_PRI_MIN</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Минимальный приоритет запроса
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.eio-pri-default">
+     <strong><code>EIO_PRI_DEFAULT</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     Приоритет по умолчанию
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.eio-pri-max">
+     <strong><code>EIO_PRI_MAX</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     Максимальный приоритет запроса
+     </span>
+    </dd>
+
+   
+   
+  </dl>
+
+ </p>
+
+ <p class="para">Аргумент <code class="parameter">whence</code> функции <span class="function"><a href="function.eio-seek.html" class="function">eio_seek()</a></span>:
+  <dl>
+
+   
+    <dt id="constant.eio-seek-set">
+     <strong><code>EIO_SEEK_SET</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Смещение <code class="parameter">offset</code>, заданное в байтах.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.eio-seek-cur">
+     <strong><code>EIO_SEEK_CUR</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Смещение <code class="parameter">offset</code>, заданное в байтах от текущего значения.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.eio-seek-end">
+     <strong><code>EIO_SEEK_END</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      Смещение <code class="parameter">offset</code>, заданное в байтах от размера файла.
+     </span>
+    </dd>
+
+   
+  </dl>
+
+ </p>
+
+ <p class="para">
+  Флаги, используемые в <span class="function"><a href="function.eio-readdir.html" class="function">eio_readdir()</a></span>:
+  <dl>
+
+
+
+   
+    <dt id="constant.eio-readdir-dents">
+     <strong><code>EIO_READDIR_DENTS</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     Флаг <span class="function"><a href="function.eio-readdir.html" class="function">eio_readdir()</a></span>. Если указан, аргумент для выполнения
+     функции обратного вызова становится массивом со следующими ключами:
+     <em>&#039;names&#039;</em> - вассив имен директории
+     <em>&#039;dents&#039;</em> - массив массивов вида <em>struct eio_dirent</em>,
+     каждый из которых имеет ключи:
+     <em>&#039;name&#039;</em> - имя директории;
+     <em>&#039;type&#039;</em> - одна из констант <em class="emphasis">EIO_DT_*</em>;
+     <em>&#039;inode&#039;</em> - Номер inode, если он доступен, иначе значение не указывается;
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.eio-readdir-dirs-first">
+     <strong><code>EIO_READDIR_DIRS_FIRST</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     Когда флаг указан, имена будут возвращены в порядке, при котором
+     будут возвращены первыми директории в оптимальном порядке.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.eio-readdir-stat-order">
+     <strong><code>EIO_READDIR_STAT_ORDER</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     Когда флаг указан, имена будут возвращены в порядке, в зависимости от
+     <em>stat</em> каждого из них. Если планируется выполнить
+     <span class="function"><a href="function.stat.html" class="function">stat()</a></span> для всех файлов в директории, такой порядок будет,
+     скорее всего, наиболее быстрым.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.eio-readdir-found-unknown">
+     <strong><code>EIO_READDIR_FOUND_UNKNOWN</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+
+     </span>
+    </dd>
+
+   
+
+
+
+   
+    <dt id="constant.eio-dt-unknown">
+     <strong><code>EIO_DT_UNKNOWN</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     Неизвестный тип узла (очень распростанено). Далее необходим вызов
+     <span class="function"><a href="function.stat.html" class="function">stat()</a></span>.
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.eio-dt-fifo">
+     <strong><code>EIO_DT_FIFO</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     Тип FIFO узла
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.eio-dt-chr">
+     <strong><code>EIO_DT_CHR</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     Тип узла
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.eio-dt-mpc">
+     <strong><code>EIO_DT_MPC</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     Тип узла мультиплексное символьное устройство (v7+coherent)
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.eio-dt-dir">
+     <strong><code>EIO_DT_DIR</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     Тип узла директория
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.eio-dt-nam">
+     <strong><code>EIO_DT_NAM</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     Тип узла специальный именованный файл Xenix (Xenix special named file)
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.eio-dt-blk">
+     <strong><code>EIO_DT_BLK</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     Тип узла
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.eio-dt-mpb">
+     <strong><code>EIO_DT_MPB</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     Тип узла мультеплексное блочное устройство (Multiplexed block device) (v7+coherent)
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.eio-dt-reg">
+     <strong><code>EIO_DT_REG</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     Тип узла
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.eio-dt-nwk">
+     <strong><code>EIO_DT_NWK</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.eio-dt-cmp">
+     <strong><code>EIO_DT_CMP</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     Тип узла HP-UX network special
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.eio-dt-lnk">
+     <strong><code>EIO_DT_LNK</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     Тип узла ссылка
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.eio-dt-sock">
+     <strong><code>EIO_DT_SOCK</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     Тип узла сокет
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.eio-dt-door">
+     <strong><code>EIO_DT_DOOR</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     Тип узла Solaris door
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.eio-dt-wht">
+     <strong><code>EIO_DT_WHT</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     Тип узла
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.eio-dt-max">
+     <strong><code>EIO_DT_MAX</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     Наибольшее значение типа узла
+     </span>
+    </dd>
+
+   
+
+
+
+  </dl>
+
+ </p>
+ <p class="para">
+  Режимы доступа для <span class="function"><a href="function.eio-open.html" class="function">eio_open()</a></span> Аргумент <code class="parameter">flags</code>:
+  <dl>
+
+
+
+   
+    <dt id="constant.eio-o-rdonly">
+     <strong><code>EIO_O_RDONLY</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.eio-o-wronly">
+     <strong><code>EIO_O_WRONLY</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.eio-o-rdwr">
+     <strong><code>EIO_O_RDWR</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.eio-o-nonblock">
+     <strong><code>EIO_O_NONBLOCK</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.eio-o-append">
+     <strong><code>EIO_O_APPEND</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.eio-o-creat">
+     <strong><code>EIO_O_CREAT</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.eio-o-trunc">
+     <strong><code>EIO_O_TRUNC</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.eio-o-excl">
+     <strong><code>EIO_O_EXCL</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.eio-o-fsync">
+     <strong><code>EIO_O_FSYNC</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   
+
+
+  </dl>
+
+ </p>
+ <p class="para">
+  Флаги аргумент <code class="parameter">mode</code> функции <span class="function"><a href="function.eio-open.html" class="function">eio_open()</a></span>:
+  <dl>
+
+
+
+   
+    <dt id="constant.eio-s-irusr">
+     <strong><code>EIO_S_IRUSR</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.eio-s-iwusr">
+     <strong><code>EIO_S_IWUSR</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.eio-s-ixusr">
+     <strong><code>EIO_S_IXUSR</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.eio-s-irgrp">
+     <strong><code>EIO_S_IRGRP</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.eio-s-iwgrp">
+     <strong><code>EIO_S_IWGRP</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.eio-s-ixgrp">
+     <strong><code>EIO_S_IXGRP</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.eio-s-iroth">
+     <strong><code>EIO_S_IROTH</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.eio-s-iwoth">
+     <strong><code>EIO_S_IWOTH</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.eio-s-ixoth">
+     <strong><code>EIO_S_IXOTH</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.eio-s-ifreg">
+     <strong><code>EIO_S_IFREG</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.eio-s-ifchr">
+     <strong><code>EIO_S_IFCHR</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.eio-s-ifblk">
+     <strong><code>EIO_S_IFBLK</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.eio-s-ififo">
+     <strong><code>EIO_S_IFIFO</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.eio-s-ifsock">
+     <strong><code>EIO_S_IFSOCK</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   
+
+
+
+  </dl>
+
+ </p>
+ <p class="para">
+  Флаги функции <span class="function"><a href="function.eio-sync-file-range.html" class="function">eio_sync_file_range()</a></span>:
+  <dl>
+
+
+
+   
+    <dt id="constant.eio-sync-file-range-wait-before">
+     <strong><code>EIO_SYNC_FILE_RANGE_WAIT_BEFORE</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.eio-sync-file-range-write">
+     <strong><code>EIO_SYNC_FILE_RANGE_WRITE</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   
+   
+    <dt id="constant.eio-sync-file-range-wait-after">
+     <strong><code>EIO_SYNC_FILE_RANGE_WAIT_AFTER</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   
+
+
+
+  </dl>
+
+ </p>
+ <p class="para">
+  Флаги функции <span class="function"><a href="function.eio-fallocate.html" class="function">eio_fallocate()</a></span>:
+  <dl>
+
+
+   
+    <dt id="constant.eio-falloc-fl-keep-size">
+     <strong><code>EIO_FALLOC_FL_KEEP_SIZE</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+     </span>
+    </dd>
+
+   
+
+  </dl>
+
+ </p>
+
+ <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+  <p class="para">
+   Константы <em class="emphasis">EIO_S_I*</em> имеют то же значение, что их коллеги
+   <em class="emphasis">S_I*</em> в POSIX.
+  </p>
+ </p></blockquote>
+
+ <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+  <p class="para">
+   <em class="emphasis">EIO_SYNC_FILE_*</em> имеют то же значение, что их коллеги
+   <em class="emphasis">SYNC_FILE_**</em>.
+  </p>
+ </p></blockquote>
+
+ <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+  <p class="para">
+   <em class="emphasis">EIO_O_*</em> имеют то же значение, что их коллеги
+   <em class="emphasis">O_*</em> в POSIX.
+  </p>
+ </p></blockquote>
+</div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="eio.resources.html">Типы ресурсов</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="eio.examples.html">Примеры</a></div>
+ <div class="up"><a href="book.eio.html">Eio</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

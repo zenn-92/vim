@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Основы использования</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="session.examples.html">Примеры</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="session.idpassing.html">Передача идентификатора сессии</a></div>
+ <div class="up"><a href="session.examples.html">Примеры</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="session.examples.basic" class="section">
+  <h2 class="title">Основы использования</h2>
+   <p class="para">
+    Сессии являются простым способом хранения информации для отдельных пользователей с уникальным идентификатором сессии.
+    Это может использоваться для сохранения состояния между запросами страниц. Идентификаторы сессий обычно
+    отправляются браузеру через сессионный cookie и используются для получения имеющихся данных сессии.
+    Отсутствие идентификатора сессии или сессионного cookie сообщает PHP о том, что необходимо создать новую сессию и сгенерировать
+    новый идентификатор сессии.
+   </p>
+   <p class="para">
+    Сессии используют простую технологию. Когда сессия создана, PHP будет либо получать существующую сессию,
+    используя переданный идентификатор (обычно из сессионного cookie) или, если ничего не передавалось,
+    будет создана новая сессия. PHP заполнит суперглобальную переменную <var class="varname"><var class="varname"><a href="reserved.variables.session.html" class="classname">$_SESSION</a></var></var>
+    сессионной информацией после того, как будет запущена сессия. Когда PHP завершает работу, он автоматически
+    сериализует содержимое суперглобальной переменной <var class="varname"><var class="varname"><a href="reserved.variables.session.html" class="classname">$_SESSION</a></var></var> и отправит для
+    сохранения, используя сессионный обработчик для записи сессии.
+   </p>
+   <p class="para">
+    По умолчанию PHP использует внутренний обработчик <code class="parameter">files</code> для сохранения сессий,
+    который установлен в INI-переменной <a href="session.configuration.html#ini.session.save-handler" class="link">session.save_handler</a>.
+    Этот обработчик сохраняет данные на сервере в директории, указанной в
+    конфигурационной директиве <a href="session.configuration.html#ini.session.save-path" class="link">session.save_path</a>.
+   </p>
+   <p class="para">
+    Сессии могут запускаться вручную с помощью функции <span class="function"><a href="function.session-start.html" class="function">session_start()</a></span>
+    и, если директива <a href="session.configuration.html#ini.session.auto-start" class="link">session.auto_start</a> установлена в
+    <code class="parameter">1</code>, сессия автоматически запустится, когда PHP посылает любые данные
+    в буфер вывода.
+   </p>
+   <p class="para">
+    Сессия обычно завершает свою работу, когда PHP заканчивает исполнять скрипт, но может быть
+    завершена и вручную с помощью функции <span class="function"><a href="function.session-write-close.html" class="function">session_write_close()</a></span>.
+   </p>
+  <p class="para">
+   <div class="example" id="example-4797">
+    <p><strong>Пример #1 
+     Регистрация переменной с помощью <var class="varname"><var class="varname"><a href="reserved.variables.session.html" class="classname">$_SESSION</a></var></var>.
+    </strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />session_start</span><span style="color: #007700">();<br />if&nbsp;(!isset(</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #DD0000">'count'</span><span style="color: #007700">]))&nbsp;{<br />&nbsp;&nbsp;</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #DD0000">'count'</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;<br />}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #DD0000">'count'</span><span style="color: #007700">]++;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+   <div class="example" id="example-4798">
+    <p><strong>Пример #2 
+     Отмена объявления переменной с помощью <var class="varname"><var class="varname"><a href="reserved.variables.session.html" class="classname">$_SESSION</a></var></var>.
+    </strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />session_start</span><span style="color: #007700">();<br />unset(</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #DD0000">'count'</span><span style="color: #007700">]);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+  <p class="para">
+   <div class="caution"><strong class="caution">Предостережение</strong>
+    <p class="para">
+     НЕ ОЧИЩАЙТЕ <var class="varname"><var class="varname"><a href="reserved.variables.session.html" class="classname">$_SESSION</a></var></var> целиком, испольуя      
+     <em>unset($_SESSION)</em>, так как это отключит возможность 
+     регистрации сессионных переменных через суперглобальную переменную
+     <var class="varname"><var class="varname"><a href="reserved.variables.session.html" class="classname">$_SESSION</a></var></var>.
+    </p>
+   </div>
+  </p>
+  <div class="warning"><strong class="warning">Внимание</strong>
+   <p class="para">
+    Вы не можете использовать ссылки в сессионных переменных, так как не 
+    существует реального способа восстановления ссылки к другой переменной.
+   </p>
+  </div>
+ </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="session.examples.html">Примеры</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="session.idpassing.html">Передача идентификатора сессии</a></div>
+ <div class="up"><a href="session.examples.html">Примеры</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

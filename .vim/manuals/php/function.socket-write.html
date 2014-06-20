@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Запись в сокет</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.socket-strerror.html">socket_strerror</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="book.ssh2.html">SSH2</a></div>
+ <div class="up"><a href="ref.sockets.html">Сокетные Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.socket-write" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">socket_write</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.1.0, PHP 5)</p><p class="refpurpose"><span class="refname">socket_write</span> &mdash; <span class="dc-title">Запись в сокет</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.socket-write-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">int</span> <span class="methodname"><strong>socket_write</strong></span>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$socket</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$buffer</code></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code><span class="initializer"> = 0</span></span>
+  ] )</div>
+
+  <p class="para rdfs-comment">
+   Функция <span class="function"><strong>socket_write()</strong></span> записывает в сокет 
+   <code class="parameter">socket</code> данные из указанного буфера
+   <code class="parameter">buffer</code>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.socket-write-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">socket</code></dt>
+
+     <dd>
+
+      <p class="para">
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">buffer</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Буфер, который будет записан.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">length</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Необязательный параметр <code class="parameter">length</code> может указывать
+       другое число байт, записываемых в сокет. Если это число 
+       больше, чем длина буфера, оно будет молча урезано до длины 
+       буфера.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.socket-write-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает количество байт, успешно записанных в сокет или <strong><code>FALSE</code></strong> в случае возникновения ошибки.
+   Код ошибки может быть получен при помощи функции
+   <span class="function"><a href="function.socket-last-error.html" class="function">socket_last_error()</a></span>. Этот код может быть передан функции
+   <span class="function"><a href="function.socket-strerror.html" class="function">socket_strerror()</a></span> для получения текстового описания
+   ошибки.
+  </p>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <p class="para">
+    Совершенно нормально для функции <span class="function"><strong>socket_write()</strong></span> возвращать
+    ноль, что означает, что ни одного байта не было записано. Пожалуйста, используйте
+    оператор <em>===</em> для проверки значения на  <strong><code>FALSE</code></strong> в случае ошибки.
+   </p>
+  </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.socket-write-notes">
+  <h3 class="title">Примечания</h3>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <p class="para">
+    <span class="function"><strong>socket_write()</strong></span> не обязательно записывает все байты 
+    из указанного буфера. Нормально то, что, в зависимости от сетевых
+    буферов и т. д., только некоторое количество данных, даже один байт, будет записан,
+    хотя ваш буфер больше. Вы должны следить за тем, чтобы
+    непреднамеренно не забыть передать остаток ваших данных.
+   </p>
+  </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.socket-write-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.socket-accept.html" class="function" rel="rdfs-seeAlso">socket_accept()</a> - Принимает соединение на сокете</span></li>
+    <li class="member"><span class="function"><a href="function.socket-bind.html" class="function" rel="rdfs-seeAlso">socket_bind()</a> - Привязывает имя к сокету</span></li>
+    <li class="member"><span class="function"><a href="function.socket-connect.html" class="function" rel="rdfs-seeAlso">socket_connect()</a> - Начинает соединение с сокетом</span></li>
+    <li class="member"><span class="function"><a href="function.socket-listen.html" class="function" rel="rdfs-seeAlso">socket_listen()</a> - Listens for a connection on a socket</span></li>
+    <li class="member"><span class="function"><a href="function.socket-read.html" class="function" rel="rdfs-seeAlso">socket_read()</a> - Читает строку байт максимальной длины length из сокета</span></li>
+    <li class="member"><span class="function"><a href="function.socket-strerror.html" class="function" rel="rdfs-seeAlso">socket_strerror()</a> - Возвращает строку, описывающую ошибку сокета</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.socket-strerror.html">socket_strerror</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="book.ssh2.html">SSH2</a></div>
+ <div class="up"><a href="ref.sockets.html">Сокетные Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Определение, загружено ли расширение</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.dl.html">dl</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.gc-collect-cycles.html">gc_collect_cycles</a></div>
+ <div class="up"><a href="ref.info.html">PHP опции/Информационные Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.extension-loaded" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">extension_loaded</h1>
+  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">extension_loaded</span> &mdash; <span class="dc-title">
+   Определение, загружено ли расширение
+  </span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.extension-loaded-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><strong>extension_loaded</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Определяет, загружено ли указанное расширение.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.extension-loaded-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">name</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Имя расширения.
+      </p>
+      <p class="para">
+       Чтобы посмотреть все имена расширений, воспользуйтесь функцией 
+       <span class="function"><a href="function.phpinfo.html" class="function">phpinfo()</a></span>. Если вы работаете с 
+       <em>CGI</em> или <em>CLI</em> версией PHP, используйте
+       параметр <strong class="option unknown">-m</strong>
+ для отображения списка доступных расширений:
+       <div class="example-contents screen">
+<div class="cdata"><pre>
+$ php -m
+[PHP Modules]
+xml
+tokenizer
+standard
+sockets
+session
+posix
+pcre
+overload
+mysql
+mbstring
+ctype
+
+[Zend Modules]
+</pre></div>
+       </div>
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.extension-loaded-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает <strong><code>TRUE</code></strong>, если расширение с заданным именем <code class="parameter">name</code>
+   загружено; <strong><code>FALSE</code></strong> в противном случае.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.extension-loaded-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-480">
+   <p><strong>Пример #1 Пример использования <span class="function"><strong>extension_loaded()</strong></span></strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">if&nbsp;(!</span><span style="color: #0000BB">extension_loaded</span><span style="color: #007700">(</span><span style="color: #DD0000">'gd'</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(!</span><span style="color: #0000BB">dl</span><span style="color: #007700">(</span><span style="color: #DD0000">'gd.so'</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.extension-loaded-changelog">
+  <h3 class="title">Список изменений</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Версия</th>
+       <th>Описание</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.0.0</td>
+       <td>
+        <span class="function"><strong>extension_loaded()</strong></span> использует внутреннее имя расширения
+        для определения, доступно оно в данный момент или нет. В большинстве своем
+        имена расширений записаны в нижнем регистре, но могут быть исключения.
+        В версиях PHP младше 5 функция сравнивает имена расширений с учетом регистра.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.extension-loaded-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.get-loaded-extensions.html" class="function" rel="rdfs-seeAlso">get_loaded_extensions()</a> - Возвращает массив имен всех скомпилированных и загруженных модулей</span></li>
+    <li class="member"><span class="function"><a href="function.get-extension-funcs.html" class="function" rel="rdfs-seeAlso">get_extension_funcs()</a> - Возвращает массив имен функций модуля</span></li>
+    <li class="member"><span class="function"><a href="function.phpinfo.html" class="function" rel="rdfs-seeAlso">phpinfo()</a> - Выводит информацию о текущей конфигурации PHP</span></li>
+    <li class="member"><span class="function"><a href="function.dl.html" class="function" rel="rdfs-seeAlso">dl()</a> - Загружает PHP расширение во время выполнения</span></li>
+    <li class="member"><span class="function"><a href="function.function-exists.html" class="function" rel="rdfs-seeAlso">function_exists()</a> - Возвращает TRUE, если указанная функция определена</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.dl.html">dl</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.gc-collect-cycles.html">gc_collect_cycles</a></div>
+ <div class="up"><a href="ref.info.html">PHP опции/Информационные Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

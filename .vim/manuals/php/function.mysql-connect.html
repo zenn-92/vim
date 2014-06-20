@@ -1,0 +1,299 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Открывает соединение с сервером MySQL</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.mysql-close.html">mysql_close</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.mysql-create-db.html">mysql_create_db</a></div>
+ <div class="up"><a href="ref.mysql.html">MySQL</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.mysql-connect" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">mysql_connect</h1>
+  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">mysql_connect</span> &mdash; <span class="dc-title">Открывает соединение с сервером MySQL</span></p>
+
+ </div>
+ 
+ <div id="function.mysql-connect-soft-deprecation-notice" class="soft-deprecation-notice">
+  <blockquote class="sidebar">
+   <p class="para">Данное расширение устарело, начиная с версии PHP 5.5.0, и будет удалено в будущем.
+Используйте вместо него <a href="book.mysqli.html" class="link">MySQLi</a> или <a href="ref.pdo-mysql.html" class="link">PDO_MySQL</a>.
+Смотрите также инструкцию <a href="mysqlinfo.api.choosing.html" class="link">MySQL: 
+выбор API</a> и <a href="faq.databases.html#faq.databases.mysql.deprecated" class="link">соответствующий FAQ</a> для получения более подробной информации. 
+Альтернативы для данной функции:</p>
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.mysqli-connect.html" class="function">mysqli_connect()</a></span></li>
+    <li class="member"><span class="methodname"><a href="pdo.construct.html" class="methodname">PDO::__construct()</a></span></li>
+   </ul>
+  </blockquote>
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.mysql-connect-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">resource</span> <span class="methodname"><strong>mysql_connect</strong></span>
+    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$server</code><span class="initializer"> = ini_get(&quot;mysql.default_host&quot;)</span></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$username</code><span class="initializer"> = ini_get(&quot;mysql.default_user&quot;)</span></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$password</code><span class="initializer"> = ini_get(&quot;mysql.default_password&quot;)</span></span>
+   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$new_link</code><span class="initializer"> = false</span></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$client_flags</code><span class="initializer"> = 0</span></span>
+  ]]]]] )</div>
+
+  <p class="para rdfs-comment">
+   Открывает новое соединение с сервером MySQL или использует
+   уже существующее.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.mysql-connect-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">server</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Сервер MySQL. Может также включать номер порта, например,
+       &quot;hostname:port&quot; или путь к локальному сокету, например,
+       &quot;:/path/to/socket&quot; для локального сервера.
+      </p>
+      <p class="para">
+       Если PHP-директива <a href="mysql.configuration.html#ini.mysql.default-host" class="link">
+       mysql.default_host</a> не определена (по умолчанию), то
+       значением по умолчанию является &#039;localhost:3306&#039;.
+       В <a href="ini.core.html#ini.sql.safe-mode" class="link">SQL safe mode</a> этот параметр игнорируется и всегда используется
+       значение &#039;localhost:3306&#039;.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">username</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Имя пользователя. Значение по умолчанию определяется
+       директивой <a href="mysql.configuration.html#ini.mysql.default-user" class="link">mysql.default_user</a>.
+       В <a href="ini.core.html#ini.sql.safe-mode" class="link">SQL safe mode</a> этот параметр будет проигнорирован и будет
+       использован пользователь, владеющий процессом сервера.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">password</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Пароль. Значение по умолчанию определяется директивой
+       <a href="mysql.configuration.html#ini.mysql.default-password" class="link">mysql.default_password</a>.
+       В <a href="ini.core.html#ini.sql.safe-mode" class="link">SQL safe mode</a> этот параметр будет проигнорирован и в качестве
+       пароля будет использована пустая строка.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">new_link</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Если второй вызов функции <span class="function"><strong>mysql_connect()</strong></span>
+       произошёл с теми же аргументами, то новое соединение не будет
+       установлено. Вместо этого функция вернёт ссылку
+       на уже установленное соединение. Параметр
+       <code class="parameter">new_link</code> может заставить
+       функцию <span class="function"><strong>mysql_connect()</strong></span> открыть ещё одно
+       соединение, даже если соединение с аналогичными параметрами
+       уже открыто.
+       В <a href="ini.core.html#ini.sql.safe-mode" class="link">SQL safe mode</a> этот параметр игнорируется.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">client_flags</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Параметр <code class="parameter">client_flags</code> должен быть комбинацией из
+       следующих констант:
+       128 (включает обработку <em>LOAD DATA LOCAL</em>),
+       <strong><code>MYSQL_CLIENT_SSL</code></strong>,
+       <strong><code>MYSQL_CLIENT_COMPRESS</code></strong>,
+       <strong><code>MYSQL_CLIENT_IGNORE_SPACE</code></strong> or
+       <strong><code>MYSQL_CLIENT_INTERACTIVE</code></strong>.
+       Подробнее читайте в разделе <a href="mysql.constants.html#mysql.client-flags" class="xref">Клиентские константы MySQL</a>.
+       В <a href="ini.core.html#ini.sql.safe-mode" class="link">SQL safe mode</a> этот параметр игнорируется.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.mysql-connect-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает дескриптор соединения с MySQL в случае успешного
+   выполнения или <strong><code>FALSE</code></strong> в случае возникновения ошибки.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.mysql-connect-changelog">
+  <h3 class="title">Список изменений</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Версия</th>
+       <th>Описание</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>4.3.0</td>
+       <td>
+        Добавлен параметр <code class="parameter">client_flags</code>.
+       </td>
+      </tr>
+
+      <tr>
+       <td>4.2.0</td>
+       <td>
+        Добавлен параметр <code class="parameter">new_link</code>.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.mysql-connect-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-1616">
+    <p><strong>Пример #1 Пример использования <span class="function"><strong>mysql_connect()</strong></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$link&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysql_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'mysql_user'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'mysql_password'</span><span style="color: #007700">);<br />if&nbsp;(!</span><span style="color: #0000BB">$link</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">'Ошибка&nbsp;соединения:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">mysql_error</span><span style="color: #007700">());<br />}<br />echo&nbsp;</span><span style="color: #DD0000">'Успешно&nbsp;соединились'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">mysql_close</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+  <p class="para">
+   <div class="example" id="example-1617">
+    <p><strong>Пример #2 Пример использования <span class="function"><strong>mysql_connect()</strong></span> с синтаксисом <em>hostname:port</em></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;соединяемся&nbsp;с&nbsp;example.com&nbsp;на&nbsp;порту&nbsp;3307<br /></span><span style="color: #0000BB">$link&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysql_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'example.com:3307'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'mysql_user'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'mysql_password'</span><span style="color: #007700">);<br />if&nbsp;(!</span><span style="color: #0000BB">$link</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">'Ошибка&nbsp;соединения:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">mysql_error</span><span style="color: #007700">());<br />}<br />echo&nbsp;</span><span style="color: #DD0000">'Успешно&nbsp;соединились'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">mysql_close</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;соединяемся&nbsp;с&nbsp;localhost&nbsp;на&nbsp;порту&nbsp;3307<br /></span><span style="color: #0000BB">$link&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysql_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'127.0.0.1:3307'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'mysql_user'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'mysql_password'</span><span style="color: #007700">);<br />if&nbsp;(!</span><span style="color: #0000BB">$link</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">'Ошибка&nbsp;соединения:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">mysql_error</span><span style="color: #007700">());<br />}<br />echo&nbsp;</span><span style="color: #DD0000">'Успешно&nbsp;соединились'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">mysql_close</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+  <p class="para">
+   <div class="example" id="example-1618">
+    <p><strong>Пример #3 Пример использования <span class="function"><strong>mysql_connect()</strong></span> с синтаксисом &quot;:/path/to/socket&quot;</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;соединяемся&nbsp;к&nbsp;localhost&nbsp;по&nbsp;сокету,&nbsp;т.е.&nbsp;/tmp/mysql.sock<br /><br />//&nbsp;вариант&nbsp;1:&nbsp;не&nbsp;указываем&nbsp;localhost<br /></span><span style="color: #0000BB">$link&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysql_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">':/tmp/mysql'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'mysql_user'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'mysql_password'</span><span style="color: #007700">);<br />if&nbsp;(!</span><span style="color: #0000BB">$link</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">'Ошибка&nbsp;соединения:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">mysql_error</span><span style="color: #007700">());<br />}<br />echo&nbsp;</span><span style="color: #DD0000">'Успешно&nbsp;соединились'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">mysql_close</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">);<br /><br /><br /></span><span style="color: #FF8000">//&nbsp;вариант&nbsp;2:&nbsp;указываем&nbsp;localhost<br /></span><span style="color: #0000BB">$link&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysql_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost:/tmp/mysql.sock'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'mysql_user'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'mysql_password'</span><span style="color: #007700">);<br />if&nbsp;(!</span><span style="color: #0000BB">$link</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">'Ошибка&nbsp;соединения:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">mysql_error</span><span style="color: #007700">());<br />}<br />echo&nbsp;</span><span style="color: #DD0000">'Успешно&nbsp;соединились'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">mysql_close</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.mysql-connect-notes">
+  <h3 class="title">Примечания</h3>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <p class="para">
+    При указании параметру <code class="parameter">server</code> значения
+    &quot;localhost&quot; или &quot;localhost:port&quot; клиентская
+    библиотека MySQL будет пытаться соединиться с локальным сокетом.
+    Если вы всё же хотите использовать TCP/IP, используйте адрес
+    &quot;127.0.0.1&quot; вместо &quot;localhost&quot;. Если
+    клиентская библиотека пытается подключиться не к тому
+    локальному сокету, это можно исправить через
+    указание директивы <a href="mysql.configuration.html#ini.mysql.default-host" class="xref"></a> в
+    конфигурации PHP, после чего можно оставлять параметр
+    <code class="parameter">server</code> пустым.
+   </p>
+  </p></blockquote>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <p class="para">
+    Соединение с сервером будет закрыто при завершении исполнения
+    скрипта, если только до этого оно не было закрыто с помощью
+    функции <span class="function"><a href="function.mysql-close.html" class="function">mysql_close()</a></span>.
+   </p>
+  </p></blockquote>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <p class="para">
+    Подавить вывод ошибок можно добавив
+    <a href="language.operators.errorcontrol.html" class="link">@</a> в начало
+    названия функции.
+   </p>
+  </p></blockquote>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <p class="para">
+    Ошибка &quot;Can&#039;t create TCP/IP socket (10106)&quot;
+    (Невозможно создать сокет TCP/IP) обычно означает, что
+    конфигурационная директива <a href="ini.core.html#ini.variables-order" class="link">variables_order</a>
+    не содержит символ <em>E</em>. В Windows, если в окружение
+    не будет скопирована переменная окружения
+    <em>SYSTEMROOT</em>, то PHP будет испытывать проблемы
+    при загрузке Winsock.
+   </p>
+  </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.mysql-connect-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.mysql-pconnect.html" class="function" rel="rdfs-seeAlso">mysql_pconnect()</a> - Устанавливает постоянное соединение с сервером MySQL</span></li>
+    <li class="member"><span class="function"><a href="function.mysql-close.html" class="function" rel="rdfs-seeAlso">mysql_close()</a> - Закрывает соединение с сервером MySQL</span></li>
+   </ul>
+  </p>
+ </div>
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.mysql-close.html">mysql_close</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.mysql-create-db.html">mysql_create_db</a></div>
+ <div class="up"><a href="ref.mysql.html">MySQL</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

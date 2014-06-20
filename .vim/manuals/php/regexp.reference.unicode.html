@@ -1,0 +1,346 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Свойства Unicode-символов</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="regexp.reference.escape.html">Экранирующие последовательности</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="regexp.reference.anchors.html">Якоря</a></div>
+ <div class="up"><a href="reference.pcre.pattern.syntax.html">Описание синтаксиса Perl-совместимых регулярных выражений</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="regexp.reference.unicode" class="section">
+  <h2 class="title">Свойства Unicode-символов</h2>
+  <p class="para">
+   Начиная с версии 5.1.0, были добавлены три дополнительные управляющие
+   последовательности, совпадающих с некоторыми общими символьными типами
+   <em class="emphasis">в режиме UTF-8</em>. Вот они:
+  </p>
+  <dl>
+
+   
+    <dt>
+<em class="emphasis">\p{xx}</em></dt>
+
+    <dd>
+<span class="simpara">символ со свойством xx</span></dd>
+
+   
+   
+    <dt>
+<em class="emphasis">\P{xx}</em></dt>
+
+    <dd>
+<span class="simpara">символ без свойства xx</span></dd>
+
+   
+   
+    <dt>
+<em class="emphasis">\X</em></dt>
+
+    <dd>
+<span class="simpara">расширенная последовательность Unicode</span></dd>
+
+   
+  </dl>
+
+  <p class="para">
+   Имена свойств, представленные выше как <em>xx</em>, ограничены
+   общими категориями свойств  Unicode. Каждый символ имеет ровно одно такое свойство,
+   указываемое двубуквенной аббревиатурой. Для совместимости с Perl также можно указать
+   отрицание добавлением знака &quot;^&quot; между открывающей скобкой и именем свойства.
+   Например, <em>\p{^Lu}</em> - это то же самое, что и <em>\P{Lu}</em>.
+  </p>
+  <p class="para">
+   Если с <em>\p</em> или <em>\P</em> указана только одна буква,
+   она включает все свойства, которые начинаются с этой буквы.
+   В этом случае, если не используется отрицание, фигурные скобки необязательны;
+   следующие два примера эквивалентны:
+  </p>
+  <div class="informalexample">
+   <div class="example-contents">
+<div class="cdata"><pre>
+\p{L}
+\pL
+</pre></div>
+   </div>
+
+  </div>
+  <table class="doctable table">
+   <caption><strong>Поддерживаемые коды свойств</strong></caption>
+   
+    <thead>
+     <tr>
+      <th>Свойство</th>
+      <th>Совпадение</th>
+      <th>Замечание</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td><em>C</em></td>
+      <td>Другое</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><em>Cc</em></td>
+      <td>Control</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><em>Cf</em></td>
+      <td>Формат</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><em>Cn</em></td>
+      <td>Не присвоено</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><em>Co</em></td>
+      <td>Частное использование</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><em>Cs</em></td>
+      <td>Суррогат</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><em>L</em></td>
+      <td>Буква</td>
+      <td>
+       Включает следующие свойства: <em>Ll</em>,
+       <em>Lm</em>, <em>Lo</em>, <em>Lt</em> и
+       <em>Lu</em>.
+      </td>
+     </tr>
+
+     <tr>
+      <td><em>Ll</em></td>
+      <td>Строчная буква</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><em>Lm</em></td>
+      <td>Модификатор буквы</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><em>Lo</em></td>
+      <td>Другая буква</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><em>Lt</em></td>
+      <td>Заглавная буква</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><em>Lu</em></td>
+      <td>Прописная буква</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><em>M</em></td>
+      <td>Знак</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><em>Mc</em></td>
+      <td>Пробельный знак</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><em>Me</em></td>
+      <td>Окружающий знак</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><em>Mn</em></td>
+      <td>Непробельный знак</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><em>N</em></td>
+      <td>Число</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><em>Nd</em></td>
+      <td>Десятичное число</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><em>Nl</em></td>
+      <td>Буквенное число</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><em>No</em></td>
+      <td>Другое число</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><em>P</em></td>
+      <td>Пунктуация</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><em>Pc</em></td>
+      <td>Соединяющая пунктуация</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><em>Pd</em></td>
+      <td>Знаки тире</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><em>Pe</em></td>
+      <td>Закрывающая пунктуация</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><em>Pf</em></td>
+      <td>Заключительная пунктуация</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><em>Pi</em></td>
+      <td>Начальная пунктуация</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><em>Po</em></td>
+      <td>Другая пунктуация</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><em>Ps</em></td>
+      <td>Открывающая пунктуация</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><em>S</em></td>
+      <td>Символ</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><em>Sc</em></td>
+      <td>Денежный знак</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><em>Sk</em></td>
+      <td>Модификатор символа</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><em>Sm</em></td>
+      <td>Математический символ</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><em>So</em></td>
+      <td>Другой символ</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><em>Z</em></td>
+      <td>Разделитель</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><em>Zl</em></td>
+      <td>Разделитель строки</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><em>Zp</em></td>
+      <td>Разделитель абзаца</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><em>Zs</em></td>
+      <td>Пробельный разделитель</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+  <p class="para">
+   Расширенные свойства, такие как греческие (&quot;Greek&quot;) или музыкальные символы
+   (&quot;InMusicalSymbols&quot;) не поддерживаются в PCRE.
+  </p>
+  <p class="para">
+   Указывание регистро-независимого (безрегистрового) режима не влияет на эти
+   управляющие последовательности. Например, <em>\p{Lu}</em> всегда
+   совпадает только с прописными буквами.
+  </p>
+  <p class="para">
+   Последовательность <em>\X</em> совпадает с любым числом Unicode символов,
+   формирующих расширенную Unicode последовательность. <em>\X</em>
+   эквивалентно <em>(?&gt;\PM\pM*)</em>.
+  </p>
+  <p class="para">
+   Это означает, что совпадет символ без свойства &quot;знака&quot; (&quot;mark&quot; property),
+   за которым идет ноль или более символов со свойством &quot;знака&quot;, и вся
+   последовательность обрабатывается как одна неделимая группа (смотрите ниже).
+   Символы со свойством &quot;знака&quot; - это обычно знаки ударения, влияющие на
+   предыдущий символ.
+  </p>
+  <p class="para">
+   Совпадение символов по Unicode свойству не является быстрой операцией,
+   потому для этой цели PCRE необходимо осуществить поиск в структуре данных
+   с более чем пятнадцатью тысяч символов. Поэтому традиционные управляющие
+   последовательности в PCRE, такие как <em>\d</em> и <em>\w</em>,
+   не используют Unicode свойства.
+  </p>
+ </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="regexp.reference.escape.html">Экранирующие последовательности</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="regexp.reference.anchors.html">Якоря</a></div>
+ <div class="up"><a href="reference.pcre.pattern.syntax.html">Описание синтаксиса Perl-совместимых регулярных выражений</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

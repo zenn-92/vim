@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Добавляет новый атрибут</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="domelement.setattributenodens.html">DOMElement::setAttributeNodeNS</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="domelement.setidattribute.html">DOMElement::setIdAttribute</a></div>
+ <div class="up"><a href="class.domelement.html">DOMElement</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="domelement.setattributens" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">DOMElement::setAttributeNS</h1>
+  <p class="verinfo">(PHP 5)</p><p class="refpurpose"><span class="refname">DOMElement::setAttributeNS</span> &mdash; <span class="dc-title">Добавляет новый атрибут</span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-domelement.setattributens-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type"><span class="type void">void</span></span> <span class="methodname"><strong>DOMElement::setAttributeNS</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$namespaceURI</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$qualifiedName</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$value</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Устанавливает значение атрибута с пространстве имен 
+   <code class="parameter">namespaceURI</code> и локальным именем
+   <code class="parameter">name</code>. Если атрибут не существует, он будет создан.
+  </p>
+ </div>
+
+ <div class="refsect1 parameters" id="refsect1-domelement.setattributens-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">namespaceURI</code></dt>
+
+     <dd>
+
+      <p class="para">
+       URI пространства имен.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">qualifiedName</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Стандартизованное имя атрибута в виде <em>prefix:tagname</em>.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">value</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Значение атрибута.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+ <div class="refsect1 returnvalues" id="refsect1-domelement.setattributens-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Эта функция не возвращает значения после выполнения.
+  </p>
+ </div>
+
+ <div class="refsect1 errors" id="refsect1-domelement.setattributens-errors">
+  <h3 class="title">Ошибки</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<strong><code>DOM_NO_MODIFICATION_ALLOWED_ERR</code></strong></dt>
+
+     <dd>
+
+      <p class="para">
+       Возникает, если узел доступен только для чтения.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<strong><code>DOM_NAMESPACE_ERR</code></strong></dt>
+
+     <dd>
+
+      <p class="para">
+       Возникает, если значение <code class="parameter">qualifiedName</code> 
+       построено неправильно или если <code class="parameter">qualifiedName</code> 
+       имеет префикс, а <code class="parameter">namespaceURI</code> имеет 
+       значение <strong><code>NULL</code></strong>.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+ <div class="refsect1 seealso" id="refsect1-domelement.setattributens-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="methodname"><a href="domelement.hasattributens.html" class="methodname" rel="rdfs-seeAlso">DOMElement::hasAttributeNS()</a> - Проверяет, существует ли заданный атрибут</span></li>
+    <li class="member"><span class="methodname"><a href="domelement.getattributens.html" class="methodname" rel="rdfs-seeAlso">DOMElement::getAttributeNS()</a> - Возвращает значение атрибута</span></li>
+    <li class="member"><span class="methodname"><a href="domelement.removeattributens.html" class="methodname" rel="rdfs-seeAlso">DOMElement::removeAttributeNS()</a> - Удаляет атрибут</span></li>
+   </ul>
+  </p>
+ </div>
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="domelement.setattributenodens.html">DOMElement::setAttributeNodeNS</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="domelement.setidattribute.html">DOMElement::setIdAttribute</a></div>
+ <div class="up"><a href="class.domelement.html">DOMElement</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

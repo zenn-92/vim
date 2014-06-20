@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Создание нового изображения на основе части GD2 файла или URL</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.imagecreatefromgd2.html">imagecreatefromgd2</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.imagecreatefromgd.html">imagecreatefromgd</a></div>
+ <div class="up"><a href="ref.image.html">GD и функции для работы с изображениями Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.imagecreatefromgd2part" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">imagecreatefromgd2part</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.7, PHP 5)</p><p class="refpurpose"><span class="refname">imagecreatefromgd2part</span> &mdash; <span class="dc-title">
+   Создание нового изображения на основе части GD2 файла или URL
+  </span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-function.imagecreatefromgd2part-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">resource</span> <span class="methodname"><strong>imagecreatefromgd2part</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$srcX</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$srcY</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$width</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$height</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Создание нового изображения на основе части GD2 файла или URL.
+  </p>
+  <div class="tip"><strong class="tip">Подсказка</strong><p class="simpara">Для этой функции вы можете использовать URL
+в качестве имени файла, если была включена опция <a href="filesystem.configuration.html#ini.allow-url-fopen" class="link">fopen wrappers</a>. Смотрите более
+подробную информацию об определении имени файла в описании функции
+<span class="function"><a href="function.fopen.html" class="function">fopen()</a></span>. Смотрите также список поддерживаемых оберток URL, их возможности, замечания по использованию и список
+предопределенных констант в <a href="wrappers.html" class="xref">Поддерживаемые протоколы и обработчики (wrappers)</a>.</p></div>
+ </div>
+
+ <div class="refsect1 parameters" id="refsect1-function.imagecreatefromgd2part-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">filename</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Путь к GD2 изображению.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">srcX</code></dt>
+
+     <dd>
+
+      <p class="para">
+       x-координата точки исходного изображения.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">srcY</code></dt>
+
+     <dd>
+
+      <p class="para">
+       y-координата точки исходного изображения.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">width</code></dt>
+
+     <dd>
+
+      <p class="para">Ширина исходного изображения.</p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">height</code></dt>
+
+     <dd>
+
+      <p class="para">Высота исходного изображения.</p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+ <div class="refsect1 returnvalues" id="refsect1-function.imagecreatefromgd2part-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">Возвращает ресурс изображения в случае успеха, или <strong><code>FALSE</code></strong> в случае ошибки.</p>
+ </div>
+
+ <div class="refsect1 examples" id="refsect1-function.imagecreatefromgd2part-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-3260">
+    <p><strong>Пример #1 Пример использования <span class="function"><strong>imagecreatefromgd2part()</strong></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Для&nbsp;этого&nbsp;примера&nbsp;нам&nbsp;сначала&nbsp;потребуется&nbsp;узнать&nbsp;размер&nbsp;изображения<br /></span><span style="color: #0000BB">$image&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">getimagesize</span><span style="color: #007700">(</span><span style="color: #DD0000">'./test.gd2'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Создание&nbsp;изображения<br /></span><span style="color: #0000BB">$im&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecreatefromgd2part</span><span style="color: #007700">(</span><span style="color: #DD0000">'./test.gd2'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">4</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">4</span><span style="color: #007700">,&nbsp;(</span><span style="color: #0000BB">$image</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">]&nbsp;/&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">)&nbsp;-&nbsp;</span><span style="color: #0000BB">6</span><span style="color: #007700">,&nbsp;(</span><span style="color: #0000BB">$image</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">]&nbsp;/&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">)&nbsp;-&nbsp;</span><span style="color: #0000BB">6</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Добавим&nbsp;рельеф&nbsp;на&nbsp;изображение<br />//&nbsp;Работает&nbsp;в&nbsp;PHP&nbsp;5+<br /></span><span style="color: #007700">if(</span><span style="color: #0000BB">function_exists</span><span style="color: #007700">(</span><span style="color: #DD0000">'imagefilter'</span><span style="color: #007700">))<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">imagefilter</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">IMG_FILTER_EMBOSS</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;сохранение&nbsp;изображения<br /></span><span style="color: #0000BB">imagegd2</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'./test_emboss.gd2'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+ <div class="refsect1 notes" id="refsect1-function.imagecreatefromgd2part-notes">
+  <h3 class="title">Примечания</h3>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: <span class="simpara">Эта функция нуждается в GD версии 2.0.1 или выше.</span></p></blockquote>
+  <div class="warning"><strong class="warning">Внимание</strong><p class="para">
+Версии PHP для Windows до PHP 4.3.0 не поддерживают возможность использования удаленных файлов этой
+функцией даже в том случае, если включена опция
+<a href="filesystem.configuration.html#ini.allow-url-fopen" class="link">allow_url_fopen</a>.</p></div>
+ </div>
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.imagecreatefromgd2.html">imagecreatefromgd2</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.imagecreatefromgd.html">imagecreatefromgd</a></div>
+ <div class="up"><a href="ref.image.html">GD и функции для работы с изображениями Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

@@ -1,0 +1,209 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Выдает параметры рамки, обрамляющей текст написанный шрифтом PostScript Type1</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.imagepolygon.html">imagepolygon</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.imagepsencodefont.html">imagepsencodefont</a></div>
+ <div class="up"><a href="ref.image.html">GD и функции для работы с изображениями Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.imagepsbbox" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">imagepsbbox</h1>
+  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">imagepsbbox</span> &mdash; <span class="dc-title">
+   Выдает параметры рамки, обрамляющей текст написанный шрифтом PostScript Type1
+  </span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-function.imagepsbbox-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">array</span> <span class="methodname"><strong>imagepsbbox</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$text</code></span>
+   , <span class="methodparam"><span class="type">resource</span> <code class="parameter">$font</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$size</code></span>
+   )</div>
+
+  <div class="methodsynopsis dc-description">
+   <span class="type">array</span> <span class="methodname"><strong>imagepsbbox</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$text</code></span>
+   , <span class="methodparam"><span class="type">resource</span> <code class="parameter">$font</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$size</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$space</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$tightness</code></span>
+   , <span class="methodparam"><span class="type">float</span> <code class="parameter">$angle</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Выдает параметры рамки, обрамляющей текст написанный шрифтом PostScript Type1.
+  </p>
+  <p class="para">
+   Параметры рамки расчитываются на основе метрики символов и в общем случае могут
+   не совпадать с реальным размером текста после его прорисовки на изображении.
+   Если угол составляет 0 градусов, текст может занимать на 1 пиксел больше в
+   каждом направлении.
+  </p>
+ </div>
+
+ <div class="refsect1 parameters" id="refsect1-function.imagepsbbox-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">text</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Текст, который должен быть записан.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">font_index</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Ресурс шрифта, возвращаемый функцией <span class="function"><a href="function.imagepsloadfont.html" class="function">imagepsloadfont()</a></span>.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">size</code></dt>
+
+     <dd>
+
+      <p class="para">
+       <code class="parameter">size</code> задается в пикселах.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">space</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Позволяет изменять размер пробела в шрифте. Значение аргумента добавляется
+       к значению по умолчанию для шрифта и может быть отрицательным. Значение
+       задается в условных единицах, одна единица соответствует 1/1000 ширины
+       буквы m этого шрифта.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">tightness</code></dt>
+
+     <dd>
+
+      <p class="para">
+       <code class="parameter">tightness</code> позволяет регулировать расстояние между
+       символами. Значение аргумента добавляется
+       к значению по умолчанию для шрифта и может быть отрицательным. Значение
+       задается в условных единицах, одна единица соответствует 1/1000 ширины
+       буквы m этого шрифта.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">angle</code></dt>
+
+     <dd>
+
+      <p class="para">
+       <code class="parameter">angle</code> задается в градусах.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+ <div class="refsect1 returnvalues" id="refsect1-function.imagepsbbox-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает массив со следующими элементами:
+   <table class="doctable informaltable">
+    
+     <tbody class="tbody">
+      <tr>
+       <td>0</td>
+       <td>левая x-координата</td>
+      </tr>
+
+      <tr>
+       <td>1</td>
+       <td>верхняя y-координата</td>
+      </tr>
+
+      <tr>
+       <td>2</td>
+       <td>правая x-координата</td>
+      </tr>
+
+      <tr>
+       <td>3</td>
+       <td>нижняя y-координата</td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+ <div class="refsect1 examples" id="refsect1-function.imagepsbbox-examples">
+  <h3 class="title">Примеры</h3>
+  <div class="example" id="example-3314">
+   <p><strong>Пример #1 Пример использования <span class="function"><strong>imagepsbbox()</strong></span></strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Создание&nbsp;изображения<br /></span><span style="color: #0000BB">$im&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecreatetruecolor</span><span style="color: #007700">(</span><span style="color: #0000BB">200</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">200</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Выделение&nbsp;цветов<br /></span><span style="color: #0000BB">$black&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecolorallocate</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$white&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecolorallocate</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">255</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">255</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">255</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Загрузка&nbsp;шрифта&nbsp;PostScript<br /></span><span style="color: #0000BB">$font&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagepsloadfont</span><span style="color: #007700">(</span><span style="color: #DD0000">'font.pfm'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Создание&nbsp;рамки<br /></span><span style="color: #0000BB">$bbox&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagepsbbox</span><span style="color: #007700">(</span><span style="color: #DD0000">'Простой&nbsp;пример&nbsp;текста'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$font</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">12</span><span style="color: #007700">);&nbsp;<br /><br /></span><span style="color: #FF8000">//&nbsp;Определим&nbsp;X&nbsp;и&nbsp;Y&nbsp;координаты<br /></span><span style="color: #0000BB">$x&nbsp;</span><span style="color: #007700">=&nbsp;(</span><span style="color: #0000BB">$bbox</span><span style="color: #007700">[</span><span style="color: #0000BB">2</span><span style="color: #007700">]&nbsp;/&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">)&nbsp;-&nbsp;</span><span style="color: #0000BB">10</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$y&nbsp;</span><span style="color: #007700">=&nbsp;(</span><span style="color: #0000BB">$bbox</span><span style="color: #007700">[</span><span style="color: #0000BB">3</span><span style="color: #007700">]&nbsp;/&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">)&nbsp;-&nbsp;</span><span style="color: #0000BB">10</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;Запишем&nbsp;текст&nbsp;на&nbsp;изображение<br /></span><span style="color: #0000BB">imagepstext</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'Простой&nbsp;пример&nbsp;текста'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$font</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">12</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$black</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$white</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$x</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$y</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Вывод&nbsp;и&nbsp;освобождение&nbsp;памяти<br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'Content-type:&nbsp;image/png'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">imagepng</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+ </div>
+
+ <div class="refsect1 notes" id="refsect1-function.imagepsbbox-notes">
+  <h3 class="title">Примечания</h3>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: <span class="simpara">Эта функция доступна только в
+случае, если PHP был скомпилирован с опцией <strong class="option configure">--with-t1lib[=DIR]</strong>
+.</span></p></blockquote>
+ </div>
+
+ <div class="refsect1 seealso" id="refsect1-function.imagepsbbox-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.imagepstext.html" class="function" rel="rdfs-seeAlso">imagepstext()</a> - Рисование текста поверх изображения, используя шрифты PostScript Type1</span></li>
+   </ul>
+  </p>
+ </div>
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.imagepolygon.html">imagepolygon</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.imagepsencodefont.html">imagepsencodefont</a></div>
+ <div class="up"><a href="ref.image.html">GD и функции для работы с изображениями Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

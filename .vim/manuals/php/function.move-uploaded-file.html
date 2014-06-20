@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Перемещает загруженный файл в новое место</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.mkdir.html">mkdir</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.parse-ini-file.html">parse_ini_file</a></div>
+ <div class="up"><a href="ref.filesystem.html">Файловая система</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.move-uploaded-file" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">move_uploaded_file</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.3, PHP 5)</p><p class="refpurpose"><span class="refname">move_uploaded_file</span> &mdash; <span class="dc-title">Перемещает загруженный файл в новое место</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.move-uploaded-file-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><strong>move_uploaded_file</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$destination</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Эта функция проверяет, является ли файл
+   <code class="parameter">filename</code> загруженным на сервер
+   (переданным по протоколу HTTP POST). Если файл действительно
+   загружен на сервер, он будет перемещён в место, указанное
+   в аргументе <code class="parameter">destination</code>.
+  </p>
+  <p class="para">
+   Такая проверка особенно важна в том случае, если существует шанс того,
+   что какие-либо действия, производимые над загруженным файлом, могут
+   открыть его содержимое пользователю или даже другим пользователям
+   системы.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.move-uploaded-file-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">filename</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Путь к загруженному файлу.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">destination</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Назначение перемещаемого файла.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.move-uploaded-file-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   В случае успеха возвращает <strong><code>TRUE</code></strong>.
+  </p>
+  <p class="para">
+   Если <code class="parameter">filename</code> не является загруженным файлом,
+   никаких действий не предпринимается и
+   <span class="function"><strong>move_uploaded_file()</strong></span> возвращает <strong><code>FALSE</code></strong>.
+  </p>
+  <p class="para">
+   Если <code class="parameter">filename</code> является загруженным файлом, но
+   не может быть перемещён по каким-либо причинам, никаких действий не
+   предпринимается и
+   <span class="function"><strong>move_uploaded_file()</strong></span> возвращает <strong><code>FALSE</code></strong>.
+   Кроме того, отображается предупреждение.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.move-uploaded-file-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-2463">
+    <p><strong>Пример #1 Загрузка нескольких файлов</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$uploads_dir&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'/uploads'</span><span style="color: #007700">;<br />foreach&nbsp;(</span><span style="color: #0000BB">$_FILES</span><span style="color: #007700">[</span><span style="color: #DD0000">"pictures"</span><span style="color: #007700">][</span><span style="color: #DD0000">"error"</span><span style="color: #007700">]&nbsp;as&nbsp;</span><span style="color: #0000BB">$key&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$error</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #0000BB">$error&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #0000BB">UPLOAD_ERR_OK</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$tmp_name&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$_FILES</span><span style="color: #007700">[</span><span style="color: #DD0000">"pictures"</span><span style="color: #007700">][</span><span style="color: #DD0000">"tmp_name"</span><span style="color: #007700">][</span><span style="color: #0000BB">$key</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$name&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$_FILES</span><span style="color: #007700">[</span><span style="color: #DD0000">"pictures"</span><span style="color: #007700">][</span><span style="color: #DD0000">"name"</span><span style="color: #007700">][</span><span style="color: #0000BB">$key</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">move_uploaded_file</span><span style="color: #007700">(</span><span style="color: #0000BB">$tmp_name</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"</span><span style="color: #0000BB">$uploads_dir</span><span style="color: #DD0000">/</span><span style="color: #0000BB">$name</span><span style="color: #DD0000">"</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.move-uploaded-file-notes">
+  <h3 class="title">Примечания</h3>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <p class="para">
+    Функция <span class="function"><strong>move_uploaded_file()</strong></span> принимает во внимание
+    как <a href="ini.sect.safe-mode.html#ini.safe-mode" class="link">безопасный режим</a>, так и <a href="ini.core.html#ini.open-basedir" class="link">open_basedir</a>.
+    Тем не менее, ограничения накладываются лишь на параметр
+    <code class="parameter">destination</code>, чтобы
+    разрешить перемещение загруженных файлов, так как параметр
+    <code class="parameter">filename</code> может конфликтовать с этими
+    ограничениями. <span class="function"><strong>move_uploaded_file()</strong></span> гарантирует
+    безопасность этой операции, работая лишь с теми файлами, которые были
+    загружены через PHP.
+   </p>
+  </p></blockquote>
+  <div class="warning"><strong class="warning">Внимание</strong>
+   <p class="para">
+    Если результирующий файл уже существует, он будет перезаписан.
+   </p>
+  </div>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.move-uploaded-file-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.is-uploaded-file.html" class="function" rel="rdfs-seeAlso">is_uploaded_file()</a> - Определяет, был ли файл загружен при помощи HTTP POST</span></li>
+    <li class="member"><span class="function"><a href="function.rename.html" class="function" rel="rdfs-seeAlso">rename()</a> - Переименовывает файл или директорию</span></li>
+    <li class="member">Простой пример использования этой функции можно найти в разделе &quot;<a href="features.file-upload.html" class="link">Загрузка файлов на сервер</a>&quot;</li>
+   </ul>
+  </p>
+ </div>
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.mkdir.html">mkdir</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.parse-ini-file.html">parse_ini_file</a></div>
+ <div class="up"><a href="ref.filesystem.html">Файловая система</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

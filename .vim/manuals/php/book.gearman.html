@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Gearman</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.ftp-systype.html">ftp_systype</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="intro.gearman.html">Введение</a></div>
+ <div class="up"><a href="refs.remote.other.html">Другие службы</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="book.gearman" class="book">
+ <h1 class="title">Gearman</h1>
+ 
+
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+<ul class="chunklist chunklist_book"><li><a href="intro.gearman.html">Введение</a></li><li><a href="gearman.setup.html">Установка и настройка</a><ul class="chunklist chunklist_book chunklist_children"><li><a href="gearman.requirements.html">Требования</a></li><li><a href="gearman.installation.html">Установка</a></li><li><a href="gearman.configuration.html">Настройка во время выполнения</a></li><li><a href="gearman.resources.html">Типы ресурсов</a></li></ul></li><li><a href="gearman.constants.html">Предопределенные константы</a></li><li><a href="gearman.examples.html">Примеры</a><ul class="chunklist chunklist_book chunklist_children"><li><a href="gearman.examples-reverse.html">Базовое использование</a></li><li><a href="gearman.examples-reverse-bg.html">Базовый клиент и обработчик Gearman, фоновый режим</a></li><li><a href="gearman.examples-reverse-task.html">Базовые клиент и обработчик Gearman, отправка задач</a></li></ul></li><li><a href="class.gearmanclient.html">GearmanClient</a> — Класс GearmanClient<ul class="chunklist chunklist_book chunklist_children"><li><a href="gearmanclient.addoptions.html">GearmanClient::addOptions</a> — Добавить клиентские опции</li><li><a href="gearmanclient.addserver.html">GearmanClient::addServer</a> — Добавить сервер задач для клиента</li><li><a href="gearmanclient.addservers.html">GearmanClient::addServers</a> — Добавить список серверов задач для клиента</li><li><a href="gearmanclient.addtask.html">GearmanClient::addTask</a> — Добавить задачу, которая будет выполнена в параллельном режиме</li><li><a href="gearmanclient.addtaskbackground.html">GearmanClient::addTaskBackground</a> — Добавить фоновую задачу для работы в параллельном режиме</li><li><a href="gearmanclient.addtaskhigh.html">GearmanClient::addTaskHigh</a> — Добавить высокоприоритетную задачу для работы в параллельном режиме</li><li><a href="gearmanclient.addtaskhighbackground.html">GearmanClient::addTaskHighBackground</a> — Добавить высокоприоритетную фоновую задачу для работы в параллельном режиме</li><li><a href="gearmanclient.addtasklow.html">GearmanClient::addTaskLow</a> — Добавить низкоприоритетную задачу для работы в параллельном режиме</li><li><a href="gearmanclient.addtasklowbackground.html">GearmanClient::addTaskLowBackground</a> — Добавить низкоприоритетную фоновую задачу для работы в параллельном режиме</li><li><a href="gearmanclient.addtaskstatus.html">GearmanClient::addTaskStatus</a> — Добавить задачу для получения статуса</li><li><a href="gearmanclient.clearcallbacks.html">GearmanClient::clearCallbacks</a> — Очистить все функции обратного вызова данной задачи</li><li><a href="gearmanclient.clone.html">GearmanClient::clone</a> — Создать копию объекта GearmanClient</li><li><a href="gearmanclient.construct.html">GearmanClient::__construct</a> — Создать экземпляр GearmanClient</li><li><a href="gearmanclient.context.html">GearmanClient::context</a> — Возвращает контекст приложения</li><li><a href="gearmanclient.data.html">GearmanClient::data</a> — Возвращает данные приложения (функция устарела)</li><li><a href="gearmanclient.do.html">GearmanClient::do</a> — Выполняет одну задачу и возвращает результат [Устаревший метод]</li><li><a href="gearmanclient.dobackground.html">GearmanClient::doBackground</a> — Запускает выполнение задачи в фоновом режиме</li><li><a href="gearmanclient.dohigh.html">GearmanClient::doHigh</a> — Запускает на выполнение задачу с высоким приоритетом</li><li><a href="gearmanclient.dohighbackground.html">GearmanClient::doHighBackground</a> — Запускает на выполнение с высоким приоритетом задачу в фоновом режиме</li><li><a href="gearmanclient.dojobhandle.html">GearmanClient::doJobHandle</a> — Получить дескриптор выполняющейся задачи</li><li><a href="gearmanclient.dolow.html">GearmanClient::doLow</a> — Запускает на выполнение задачу с низким приоритетом</li><li><a href="gearmanclient.dolowbackground.html">GearmanClient::doLowBackground</a> — Запускает на выполнение с низким приоритетом задачу в фоновом режиме</li><li><a href="gearmanclient.donormal.html">GearmanClient::doNormal</a> — Выполняет одиночное задание и возвращает результат</li><li><a href="gearmanclient.dostatus.html">GearmanClient::doStatus</a> — Получение статуса обработки задания</li><li><a href="gearmanclient.echo.html">GearmanClient::echo</a> — Отправляет данные всем серверам заданий, чтобы проверить отклик [Устаревший метод]</li><li><a href="gearmanclient.error.html">GearmanClient::error</a> — Вернуть строку ошибки для последней встретившейся ошибки</li><li><a href="gearmanclient.geterrno.html">GearmanClient::getErrno</a> — Получить значение errno</li><li><a href="gearmanclient.jobstatus.html">GearmanClient::jobStatus</a> — Получение статуса выполнения фонового задания</li><li><a href="gearmanclient.ping.html">GearmanClient::ping</a> — Отправляет данные на все сервера и смотрит, какие из них выведут эти данные</li><li><a href="gearmanclient.removeoptions.html">GearmanClient::removeOptions</a> — Удалить клиентские опции</li><li><a href="gearmanclient.returncode.html">GearmanClient::returnCode</a> — Получить последний возвращённый код Gearman</li><li><a href="gearmanclient.runtasks.html">GearmanClient::runTasks</a> — Запустить список задач в параллельном режиме</li><li><a href="gearmanclient.setclientcallback.html">GearmanClient::setClientCallback</a> — Установить функцию обратного вызова, когда есть пакет данных для задачи (устаревший метод)</li><li><a href="gearmanclient.setcompletecallback.html">GearmanClient::setCompleteCallback</a> — Установите функцию, которая будет вызвана по завершении задачи</li><li><a href="gearmanclient.setcontext.html">GearmanClient::setContext</a> — Установить данные приложения</li><li><a href="gearmanclient.setcreatedcallback.html">GearmanClient::setCreatedCallback</a> — Установить функцию обратного вызова, когда задача ставится в очередь</li><li><a href="gearmanclient.setdata.html">GearmanClient::setData</a> — Установить данные приложения (устаревший метод)</li><li><a href="gearmanclient.setdatacallback.html">GearmanClient::setDataCallback</a> — Задает callback-функцию для обработки переданных данных</li><li><a href="gearmanclient.setexceptioncallback.html">GearmanClient::setExceptionCallback</a> — Задание функции обратного вызова для перехвата исключений обработчика
+   заданий</li><li><a href="gearmanclient.setfailcallback.html">GearmanClient::setFailCallback</a> — Задание функции обратного вызова для обработки ситуации, когда задание
+   выполнить не удалось</li><li><a href="gearmanclient.setoptions.html">GearmanClient::setOptions</a> — Задание настроек клиента</li><li><a href="gearmanclient.setstatuscallback.html">GearmanClient::setStatusCallback</a> — Задание callback-функции, собирающей информацию о состоянии обработчика заданий</li><li><a href="gearmanclient.settimeout.html">GearmanClient::setTimeout</a> — Установка таймаута для операций ввода/вывода</li><li><a href="gearmanclient.setwarningcallback.html">GearmanClient::setWarningCallback</a> — Задание callback-функции, обслуживающей предупреждения обработчика заданий</li><li><a href="gearmanclient.setworkloadcallback.html">GearmanClient::setWorkloadCallback</a> — Задание callback-функции принимающей промежуточные результаты от
+   обработчика заданий</li><li><a href="gearmanclient.timeout.html">GearmanClient::timeout</a> — Получение значения таймаута операций ввода/вывода</li></ul></li><li><a href="class.gearmanjob.html">GearmanJob</a> — Класс GearmanJob<ul class="chunklist chunklist_book chunklist_children"><li><a href="gearmanjob.complete.html">GearmanJob::complete</a> — Отправка результата и статуса завершения (устаревший метод)</li><li><a href="gearmanjob.construct.html">GearmanJob::__construct</a> — Создание объекта GearmanJob</li><li><a href="gearmanjob.data.html">GearmanJob::data</a> — Отправка данных (устаревший метод)</li><li><a href="gearmanjob.exception.html">GearmanJob::exception</a> — Отправка исключения (устаревший метод)</li><li><a href="gearmanjob.fail.html">GearmanJob::fail</a> — Отправка статуса провала операции (устаревший метод)</li><li><a href="gearmanjob.functionname.html">GearmanJob::functionName</a> — Получение имени функции</li><li><a href="gearmanjob.handle.html">GearmanJob::handle</a> — Получение описателя объекта &quot;работы&quot;</li><li><a href="gearmanjob.returncode.html">GearmanJob::returnCode</a> — Получение последнего кода возврата</li><li><a href="gearmanjob.sendcomplete.html">GearmanJob::sendComplete</a> — Отправка результата и статуса завершения</li><li><a href="gearmanjob.senddata.html">GearmanJob::sendData</a> — Отправка данных</li><li><a href="gearmanjob.sendexception.html">GearmanJob::sendException</a> — Отправка исключения</li><li><a href="gearmanjob.sendfail.html">GearmanJob::sendFail</a> — Отправка статуса провала операции</li><li><a href="gearmanjob.sendstatus.html">GearmanJob::sendStatus</a> — Отправка статуса задания</li><li><a href="gearmanjob.sendwarning.html">GearmanJob::sendWarning</a> — Отправка предупреждения</li><li><a href="gearmanjob.setreturn.html">GearmanJob::setReturn</a> — Установка возвращаемого значения</li><li><a href="gearmanjob.status.html">GearmanJob::status</a> — Отправка статуса задания (устаревший метод)</li><li><a href="gearmanjob.unique.html">GearmanJob::unique</a> — Получение уникального идентификатора</li><li><a href="gearmanjob.warning.html">GearmanJob::warning</a> — Отправка предупреждения (устаревший метод)</li><li><a href="gearmanjob.workload.html">GearmanJob::workload</a> — Получение данных для обработки</li><li><a href="gearmanjob.workloadsize.html">GearmanJob::workloadSize</a> — Получение размера обрабатываемых данных</li></ul></li><li><a href="class.gearmantask.html">GearmanTask</a> — Класс GearmanTask<ul class="chunklist chunklist_book chunklist_children"><li><a href="gearmantask.construct.html">GearmanTask::__construct</a> — Создает объект GearmanTask</li><li><a href="gearmantask.create.html">GearmanTask::create</a> — Создает задание (устаревший метод)</li><li><a href="gearmantask.data.html">GearmanTask::data</a> — Получение данных из обработчика</li><li><a href="gearmantask.datasize.html">GearmanTask::dataSize</a> — Получение размера возвращаемых данных</li><li><a href="gearmantask.function.html">GearmanTask::function</a> — Получение имени функции (устаревший метод)</li><li><a href="gearmantask.functionname.html">GearmanTask::functionName</a> — Получение имени функции</li><li><a href="gearmantask.isknown.html">GearmanTask::isKnown</a> — Определение, известно ли серверу об этом задании</li><li><a href="gearmantask.isrunning.html">GearmanTask::isRunning</a> — Проверяет, выполняется ли задание в данный момент</li><li><a href="gearmantask.jobhandle.html">GearmanTask::jobHandle</a> — Получение описателя работы для этого задания</li><li><a href="gearmantask.recvdata.html">GearmanTask::recvData</a> — Чтение рабочих или результирующих данных задания в буфер</li><li><a href="gearmantask.returncode.html">GearmanTask::returnCode</a> — Получение последнего кода возврата</li><li><a href="gearmantask.senddata.html">GearmanTask::sendData</a> — Отправка данных задания (устаревший метод)</li><li><a href="gearmantask.sendworkload.html">GearmanTask::sendWorkload</a> — Отправка данных задания</li><li><a href="gearmantask.taskdenominator.html">GearmanTask::taskDenominator</a> — Получение знаменателя в дроби, отвечающей за процент выполненной работы</li><li><a href="gearmantask.tasknumerator.html">GearmanTask::taskNumerator</a> — Получение числителя дроби, отвечающей за процент выполненной работы</li><li><a href="gearmantask.unique.html">GearmanTask::unique</a> — Получение уникального идентификатора задания</li><li><a href="gearmantask.uuid.html">GearmanTask::uuid</a> — Получение уникального идентификатора задания (устаревший метод)</li></ul></li><li><a href="class.gearmanworker.html">GearmanWorker</a> — Класс GearmanWorker<ul class="chunklist chunklist_book chunklist_children"><li><a href="gearmanworker.addfunction.html">GearmanWorker::addFunction</a> — Регистрация и добавление callback-функции</li><li><a href="gearmanworker.addoptions.html">GearmanWorker::addOptions</a> — Добавление настроек обработчика</li><li><a href="gearmanworker.addserver.html">GearmanWorker::addServer</a> — Добавление сервера заданий</li><li><a href="gearmanworker.addservers.html">GearmanWorker::addServers</a> — Добавление нескольких серверов заданий</li><li><a href="gearmanworker.clone.html">GearmanWorker::clone</a> — Создание копии обработчика</li><li><a href="gearmanworker.construct.html">GearmanWorker::__construct</a> — Создание объекта GearmanWorker</li><li><a href="gearmanworker.echo.html">GearmanWorker::echo</a> — Проверка отклика серверов заданий</li><li><a href="gearmanworker.error.html">GearmanWorker::error</a> — Получение последней обнаруженной ошибки</li><li><a href="gearmanworker.geterrno.html">GearmanWorker::getErrno</a> — Получение номера ошибки</li><li><a href="gearmanworker.options.html">GearmanWorker::options</a> — Получение настроек обработчика</li><li><a href="gearmanworker.register.html">GearmanWorker::register</a> — Регистрация функции на сервере заданий</li><li><a href="gearmanworker.removeoptions.html">GearmanWorker::removeOptions</a> — Удаление настроек обработчика</li><li><a href="gearmanworker.returncode.html">GearmanWorker::returnCode</a> — Получение последнего кода возврата Gearman</li><li><a href="function.func-name.html">GearmanWorker::setId</a> — Назначает обработчику идентификатор, чтобы в дальнейшем иметь
+   возможность опросить все доступные обработчики</li><li><a href="gearmanworker.setoptions.html">GearmanWorker::setOptions</a> — Задание настроек обработчика</li><li><a href="gearmanworker.settimeout.html">GearmanWorker::setTimeout</a> — Задание таймаута ожидания ввода/вывода на сокете</li><li><a href="gearmanworker.timeout.html">GearmanWorker::timeout</a> — Получение значения таймаута ожидания запросов на сокете</li><li><a href="gearmanworker.unregister.html">GearmanWorker::unregister</a> — Удалить регистрацию имени функции на всех серверах заданий</li><li><a href="gearmanworker.unregisterall.html">GearmanWorker::unregisterAll</a> — Удаление регистрации всех имен функций на серверах заданий</li><li><a href="gearmanworker.wait.html">GearmanWorker::wait</a> — Ожидание запроса от какого-либо сервера задач</li><li><a href="gearmanworker.work.html">GearmanWorker::work</a> — Ожидание задания и его немедленное выполнение</li></ul></li><li><a href="class.gearmanexception.html">GearmanException</a> — Класс GearmanException</li></ul></div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.ftp-systype.html">ftp_systype</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="intro.gearman.html">Введение</a></div>
+ <div class="up"><a href="refs.remote.other.html">Другие службы</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

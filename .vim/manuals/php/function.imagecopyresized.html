@@ -1,0 +1,251 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Копирование и изменение размера части изображения</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.imagecopyresampled.html">imagecopyresampled</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.imagecreate.html">imagecreate</a></div>
+ <div class="up"><a href="ref.image.html">GD и функции для работы с изображениями Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.imagecopyresized" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">imagecopyresized</h1>
+  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">imagecopyresized</span> &mdash; <span class="dc-title">Копирование и изменение размера части изображения</span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-function.imagecopyresized-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><strong>imagecopyresized</strong></span>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$dst_image</code></span>
+   , <span class="methodparam"><span class="type">resource</span> <code class="parameter">$src_image</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$dst_x</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$dst_y</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$src_x</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$src_y</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$dst_w</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$dst_h</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$src_w</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$src_h</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   <span class="function"><strong>imagecopyresized()</strong></span> копирует прямоугольный участок одного
+   изображения на другое изображение.
+   <code class="parameter">dst_image</code> - результирующее изображение,
+   <code class="parameter">src_image</code> - идентификатор исходного изображения.
+  </p>
+  <p class="para">
+   Другими словами, <span class="function"><strong>imagecopyresized()</strong></span> берет прямоугольный
+   участок из <code class="parameter">src_image</code> с шириной
+   <code class="parameter">src_w</code> и высотой <code class="parameter">src_h</code> на
+   координатах <code class="parameter">src_x</code>,<code class="parameter">src_y</code> и помещает
+   его в прямоугольную область изображения <code class="parameter">dst_image</code> с
+   шириной <code class="parameter">dst_w</code> и высотой <code class="parameter">dst_h</code>
+   на координатах <code class="parameter">dst_x</code>,<code class="parameter">dst_y</code>.
+  </p>
+  <p class="para">
+   Если координаты, ширина или высота исходного и конечного изображений различны,
+   копируемый фрагмент будет растянут или сжат. Координаты отсчитываются от левого
+   верхнего угла изображения. Функцию можно использовать для наложения учатсков
+   на то же изображение, с которого они скопированы (если
+   <code class="parameter">dst_image</code> имеет то же значение, что и
+   <code class="parameter">src_image</code>), но если участки будут пересекаться, результат
+   непредсказуем.
+  </p>
+ </div>
+
+ <div class="refsect1 parameters" id="refsect1-function.imagecopyresized-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">dst_image</code></dt>
+
+     <dd>
+
+      <p class="para">Ресурс целевого изображения.</p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">src_image</code></dt>
+
+     <dd>
+
+      <p class="para">Ресурс исходного изображения.</p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">dst_x</code></dt>
+
+     <dd>
+
+      <p class="para">
+       x-координата результирующего изображения.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">dst_y</code></dt>
+
+     <dd>
+
+      <p class="para">
+       y-координата результирующего изображения.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">src_x</code></dt>
+
+     <dd>
+
+      <p class="para">
+       x-координата исходного изображения.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">src_y</code></dt>
+
+     <dd>
+
+      <p class="para">
+       y-координата исходного изображения.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">dst_w</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Результирующая ширина.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">dst_h</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Результирующая высота.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">src_w</code></dt>
+
+     <dd>
+
+      <p class="para">Ширина исходного изображения.</p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">src_h</code></dt>
+
+     <dd>
+
+      <p class="para">Высота исходного изображения.</p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+ <div class="refsect1 returnvalues" id="refsect1-function.imagecopyresized-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает <strong><code>TRUE</code></strong> в случае успешного завершения  или <strong><code>FALSE</code></strong> в случае возникновения ошибки.
+  </p>
+ </div>
+
+ <div class="refsect1 examples" id="refsect1-function.imagecopyresized-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-3257">
+    <p><strong>Пример #1 Изменение размера изображения</strong></p>
+    <div class="example-contents"><p>
+     В этом примере размер изображения будет уменьшен в два раза.
+    </p></div>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;файл&nbsp;и&nbsp;новый&nbsp;размер<br /></span><span style="color: #0000BB">$filename&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'test.jpg'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$percent&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0.5</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;тип&nbsp;содержимого<br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'Content-Type:&nbsp;image/jpeg'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;получение&nbsp;нового&nbsp;размера<br /></span><span style="color: #007700">list(</span><span style="color: #0000BB">$width</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$height</span><span style="color: #007700">)&nbsp;=&nbsp;</span><span style="color: #0000BB">getimagesize</span><span style="color: #007700">(</span><span style="color: #0000BB">$filename</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$newwidth&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$width&nbsp;</span><span style="color: #007700">*&nbsp;</span><span style="color: #0000BB">$percent</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$newheight&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$height&nbsp;</span><span style="color: #007700">*&nbsp;</span><span style="color: #0000BB">$percent</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;загрузка<br /></span><span style="color: #0000BB">$thumb&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecreatetruecolor</span><span style="color: #007700">(</span><span style="color: #0000BB">$newwidth</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$newheight</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$source&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecreatefromjpeg</span><span style="color: #007700">(</span><span style="color: #0000BB">$filename</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;изменение&nbsp;размера<br /></span><span style="color: #0000BB">imagecopyresized</span><span style="color: #007700">(</span><span style="color: #0000BB">$thumb</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$source</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$newwidth</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$newheight</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$width</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$height</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;вывод<br /></span><span style="color: #0000BB">imagejpeg</span><span style="color: #007700">(</span><span style="color: #0000BB">$thumb</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>Результатом выполнения данного примера
+будет что-то подобное:</p></div>
+    <div class="mediaobject">
+     
+     <div class="imageobject">
+      <img src="images/21009b70229598c6a80eef8b45bf282b-imagecopyresized.jpg" alt="Вывод примера: Изменение размера изображения" width="47" height="25" />
+     </div>
+    </div>
+    <div class="example-contents"><p>
+     Изображение будет выведено с уменьшенным размером. Если требуется получить
+     изображение в лучшем качестве, используйте функцию
+     <span class="function"><a href="function.imagecopyresampled.html" class="function">imagecopyresampled()</a></span>.
+    </p></div>
+   </div>
+  </p>
+ </div>
+
+ <div class="refsect1 notes" id="refsect1-function.imagecopyresized-notes">
+  <h3 class="title">Примечания</h3>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <p class="para">
+    Существует проблема связанная с ограничениями палитровых изображений (255+1
+    цвет). Ресэмплирование или фильтрация изображения требует больше цветов, чем
+    255. Для расчета нового пиксела и его цвета применяется некоторое приближение.
+    В случае палитровых изображений мы пытаемся создать новый цвет, а если это не
+    удается, мы выбираем ближайший (теоретически) вычисленный цвет. Это не всегда
+    визуально ближайший цвет. Такой подход может давать в результате пустые (или
+    визуально пустые) изображения. Для устранения этой проблемы, пожалуйста,
+    используйте truecolor-изображения в качестве результирующих, создаваемые
+    функцией <span class="function"><a href="function.imagecreatetruecolor.html" class="function">imagecreatetruecolor()</a></span>.
+   </p>
+  </p></blockquote>
+ </div>
+
+ <div class="refsect1 seealso" id="refsect1-function.imagecopyresized-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <span class="function"><a href="function.imagecopyresampled.html" class="function" rel="rdfs-seeAlso">imagecopyresampled()</a> - Копирование и изменение размера изображения с ресемплированием</span>
+  </p>
+ </div>
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.imagecopyresampled.html">imagecopyresampled</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.imagecreate.html">imagecreate</a></div>
+ <div class="up"><a href="ref.image.html">GD и функции для работы с изображениями Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

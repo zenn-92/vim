@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Задание функции обратного вызова для перехвата исключений обработчика
+   заданий</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="gearmanclient.setdatacallback.html">GearmanClient::setDataCallback</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="gearmanclient.setfailcallback.html">GearmanClient::setFailCallback</a></div>
+ <div class="up"><a href="class.gearmanclient.html">GearmanClient</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="gearmanclient.setexceptioncallback" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">GearmanClient::setExceptionCallback</h1>
+  <p class="verinfo">(PECL gearman &gt;= 0.5.0)</p><p class="refpurpose"><span class="refname">GearmanClient::setExceptionCallback</span> &mdash; <span class="dc-title">
+   Задание функции обратного вызова для перехвата исключений обработчика
+   заданий
+  </span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-gearmanclient.setexceptioncallback-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><strong>GearmanClient::setExceptionCallback</strong></span>
+    ( <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$callback</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Задает функцию, которая будет вызываться, когда обработчик задания пошлет
+   исключение.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-gearmanclient.setexceptioncallback-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">callback</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Функция для перехвата исключения, выброшенного обработчиком заданий.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-gearmanclient.setexceptioncallback-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает <strong><code>TRUE</code></strong> в случае успешного завершения  или <strong><code>FALSE</code></strong> в случае возникновения ошибки.
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-gearmanclient.setexceptioncallback-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="methodname"><a href="gearmanclient.setdatacallback.html" class="methodname" rel="rdfs-seeAlso">GearmanClient::setDataCallback()</a> - Задает callback-функцию для обработки переданных данных</span></li>
+    <li class="member"><span class="methodname"><a href="gearmanclient.setcompletecallback.html" class="methodname" rel="rdfs-seeAlso">GearmanClient::setCompleteCallback()</a> - Установите функцию, которая будет вызвана по завершении задачи</span></li>
+    <li class="member"><span class="methodname"><a href="gearmanclient.setcreatedcallback.html" class="methodname" rel="rdfs-seeAlso">GearmanClient::setCreatedCallback()</a> - Установить функцию обратного вызова, когда задача ставится в очередь</span></li>
+    <li class="member"><span class="methodname"><a href="gearmanclient.setfailcallback.html" class="methodname" rel="rdfs-seeAlso">GearmanClient::setFailCallback()</a> - Задание функции обратного вызова для обработки ситуации, когда задание
+   выполнить не удалось</span></li>
+    <li class="member"><span class="methodname"><a href="gearmanclient.setstatuscallback.html" class="methodname" rel="rdfs-seeAlso">GearmanClient::setStatusCallback()</a> - Задание callback-функции, собирающей информацию о состоянии обработчика заданий</span></li>
+    <li class="member"><span class="methodname"><a href="gearmanclient.setwarningcallback.html" class="methodname" rel="rdfs-seeAlso">GearmanClient::setWarningCallback()</a> - Задание callback-функции, обслуживающей предупреждения обработчика заданий</span></li>
+    <li class="member"><span class="methodname"><a href="gearmanclient.setworkloadcallback.html" class="methodname" rel="rdfs-seeAlso">GearmanClient::setWorkloadCallback()</a> - Задание callback-функции принимающей промежуточные результаты от
+   обработчика заданий</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="gearmanclient.setdatacallback.html">GearmanClient::setDataCallback</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="gearmanclient.setfailcallback.html">GearmanClient::setFailCallback</a></div>
+ <div class="up"><a href="class.gearmanclient.html">GearmanClient</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

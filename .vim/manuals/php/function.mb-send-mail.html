@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Отправка закодированного сообщения</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.mb-regex-set-options.html">mb_regex_set_options</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.mb-split.html">mb_split</a></div>
+ <div class="up"><a href="ref.mbstring.html">Функции для работы с Многобайтными строками</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.mb-send-mail" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">mb_send_mail</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5)</p><p class="refpurpose"><span class="refname">mb_send_mail</span> &mdash; <span class="dc-title">Отправка закодированного сообщения</span></p>
+
+ </div>
+   
+ <div class="refsect1 description" id="refsect1-function.mb-send-mail-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><strong>mb_send_mail</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$to</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$subject</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$message</code></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$additional_headers</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$additional_parameter</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
+  ]] )</div>
+
+  <p class="para rdfs-comment">
+   Посылает сообщение электронной почты. Заголовки и сообщения преобразуются 
+   и кодируются в соответствии с настройкой <span class="function"><a href="function.mb-language.html" class="function">mb_language()</a></span>. 
+   Это обертка для функции <span class="function"><a href="function.mail.html" class="function">mail()</a></span>, так что стоит ознакомиться
+   и с описанием функции <span class="function"><a href="function.mail.html" class="function">mail()</a></span>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.mb-send-mail-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">to</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Электронные адреса получателей. Несколько адресов в аргументе 
+       <code class="parameter">to</code> перечисляются через запятую. Значение 
+       этого аргумента не кодируется автоматически.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">subject</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Тема письма.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">message</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Текст письма.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">additional_headers</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Значение <code class="parameter">additional_headers</code> вставляется в конец
+       заголовка. Обычно его используют, чтобы добавлять дополнительные 
+       заголовки. Если дополнительных заголовков несколько, их необходимо 
+       разделять символом новой строки (&quot;\n&quot;).
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">additional_parameter</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Значением <code class="parameter">additional_parameter</code> является параметр 
+       командной строки MTA. Он полезен для задания корректного заголовка
+       Return-Path при использовании функции sendmail.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.mb-send-mail-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает <strong><code>TRUE</code></strong> в случае успешного завершения  или <strong><code>FALSE</code></strong> в случае возникновения ошибки.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.mb-send-mail-changelog">
+  <h3 class="title">Список изменений</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Версия</th>
+       <th>Описание</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.0.0</td>
+       <td>
+        Заголовки <em>Content-Type</em> и 
+        <em>Content-Transfer-Encoding</em> можно переопределять, 
+        начиная с PHP 5.0.0. В ранних версиях всегда используются значения,
+        заданные функцией <span class="function"><a href="function.mb-language.html" class="function">mb_language()</a></span>.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.mb-send-mail-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.mail.html" class="function" rel="rdfs-seeAlso">mail()</a> - Отправляет электронную почту</span></li>
+    <li class="member"><span class="function"><a href="function.mb-encode-mimeheader.html" class="function" rel="rdfs-seeAlso">mb_encode_mimeheader()</a> - Кодирование строки для MIME-заголовка</span></li>
+    <li class="member"><span class="function"><a href="function.mb-language.html" class="function" rel="rdfs-seeAlso">mb_language()</a> - Установка/получение текущего языка</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.mb-regex-set-options.html">mb_regex_set_options</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.mb-split.html">mb_split</a></div>
+ <div class="up"><a href="ref.mbstring.html">Функции для работы с Многобайтными строками</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

@@ -1,0 +1,1024 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Настройка во время выполнения</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="session.installation.html">Установка</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="session.resources.html">Типы ресурсов</a></div>
+ <div class="up"><a href="session.setup.html">Установка и настройка</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="session.configuration" class="section">
+ <h2 class="title">Настройка во время выполнения</h2>
+ <p class="simpara">
+Поведение этих функций зависит от установок в <var class="filename">php.ini</var>.
+</p>
+ <p class="para">
+ <table class="doctable table">
+  <caption><strong>Опции настройки механизма сессий</strong></caption>
+  
+   <thead>
+    <tr>
+     <th>Имя</th>
+     <th>По умолчанию</th>
+     <th>Меняемо</th>
+     <th>Список изменений</th>
+    </tr>
+
+   </thead>
+
+   <tbody class="tbody">
+    <tr>
+     <td><a href="session.configuration.html#ini.session.save-path" class="link">session.save_path</a></td>
+     <td>&quot;&quot;</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.html#ini.session.name" class="link">session.name</a></td>
+     <td>&quot;PHPSESSID&quot;</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.html#ini.session.save-handler" class="link">session.save_handler</a></td>
+     <td>&quot;files&quot;</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.html#ini.session.auto-start" class="link">session.auto_start</a></td>
+     <td>&quot;0&quot;</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.html#ini.session.gc-probability" class="link">session.gc_probability</a></td>
+     <td>&quot;1&quot;</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.html#ini.session.gc-divisor" class="link">session.gc_divisor</a></td>
+     <td>&quot;100&quot;</td>
+     <td>PHP_INI_ALL</td>
+     <td>Доступна с PHP 4.3.2.</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.html#ini.session.gc-maxlifetime" class="link">session.gc_maxlifetime</a></td>
+     <td>&quot;1440&quot;</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.html#ini.session.serialize-handler" class="link">session.serialize_handler</a></td>
+     <td>&quot;php&quot;</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.html#ini.session.cookie-lifetime" class="link">session.cookie_lifetime</a></td>
+     <td>&quot;0&quot;</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.html#ini.session.cookie-path" class="link">session.cookie_path</a></td>
+     <td>&quot;/&quot;</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.html#ini.session.cookie-domain" class="link">session.cookie_domain</a></td>
+     <td>&quot;&quot;</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.html#ini.session.cookie-secure" class="link">session.cookie_secure</a></td>
+     <td>&quot;&quot;</td>
+     <td>PHP_INI_ALL</td>
+     <td>Доступна с PHP 4.0.4.</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.html#ini.session.cookie-httponly" class="link">session.cookie_httponly</a></td>
+     <td>&quot;&quot;</td>
+     <td>PHP_INI_ALL</td>
+     <td>Доступна с PHP 5.2.0.</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.html#ini.session.use-cookies" class="link">session.use_cookies</a></td>
+     <td>&quot;1&quot;</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.html#ini.session.use-only-cookies" class="link">session.use_only_cookies</a></td>
+     <td>&quot;1&quot;</td>
+     <td>PHP_INI_ALL</td>
+     <td>Доступна с PHP 4.3.0.</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.html#ini.session.referer-check" class="link">session.referer_check</a></td>
+     <td>&quot;&quot;</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.html#ini.session.entropy-file" class="link">session.entropy_file</a></td>
+     <td>&quot;&quot;</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.html#ini.session.entropy-length" class="link">session.entropy_length</a></td>
+     <td>&quot;0&quot;</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.html#ini.session.cache-limiter" class="link">session.cache_limiter</a></td>
+     <td>&quot;nocache&quot;</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.html#ini.session.cache-expire" class="link">session.cache_expire</a></td>
+     <td>&quot;180&quot;</td>
+     <td>PHP_INI_ALL</td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.html#ini.session.use-trans-sid" class="link">session.use_trans_sid</a></td>
+     <td>&quot;0&quot;</td>
+     <td>PHP_INI_ALL</td>
+     <td>PHP_INI_ALL в PHP &lt;= 4.2.3. PHP_INI_PERDIR в PHP &lt; 5. Доступна с PHP 4.0.3.</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.html#ini.session.bug-compat-42" class="link">session.bug_compat_42</a></td>
+     <td>&quot;1&quot;</td>
+     <td>PHP_INI_ALL</td>
+     <td>Доступна с PHP 4.3.0. Упразднена в PHP 5.4.0.</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.html#ini.session.bug-compat-warn" class="link">session.bug_compat_warn</a></td>
+     <td>&quot;1&quot;</td>
+     <td>PHP_INI_ALL</td>
+     <td>Доступна с PHP 4.3.0. Упразднена в PHP 5.4.0.</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.html#ini.session.hash-function" class="link">session.hash_function</a></td>
+     <td>&quot;0&quot;</td>
+     <td>PHP_INI_ALL</td>
+     <td>Доступна с PHP 5.0.0.</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.html#ini.session.hash-bits-per-character" class="link">session.hash_bits_per_character</a></td>
+     <td>&quot;4&quot;</td>
+     <td>PHP_INI_ALL</td>
+     <td>Доступна с PHP 5.0.0.</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.html#ini.url-rewriter.tags" class="link">url_rewriter.tags</a></td>
+     <td>&quot;a=href,area=href,frame=src,form=,fieldset=&quot;</td>
+     <td>PHP_INI_ALL</td>
+     <td>Доступна с PHP 4.0.4.</td>
+    </tr>
+
+     <tr>
+      <td><a href="session.configuration.html#ini.session.upload-progress.enabled" class="link">session.upload_progress.enabled</a></td>
+      <td>&quot;1&quot;</td>
+      <td>PHP_INI_PERDIR</td>
+      <td>Доступна с PHP 5.4.0.</td>
+     </tr>
+
+     <tr>
+      <td><a href="session.configuration.html#ini.session.upload-progress.cleanup" class="link">session.upload_progress.cleanup</a></td>
+      <td>&quot;1&quot;</td>
+      <td>PHP_INI_PERDIR</td>
+      <td>Доступна с PHP 5.4.0.</td>
+     </tr>
+
+     <tr>
+      <td><a href="session.configuration.html#ini.session.upload-progress.prefix" class="link">session.upload_progress.prefix</a></td>
+      <td>&quot;upload_progress_&quot;</td>
+      <td>PHP_INI_PERDIR</td>
+      <td>Доступна с PHP 5.4.0.</td>
+     </tr>
+
+     <tr>
+      <td><a href="session.configuration.html#ini.session.upload-progress.name" class="link">session.upload_progress.name</a></td>
+      <td>&quot;PHP_SESSION_UPLOAD_PROGRESS&quot;</td>
+      <td>PHP_INI_PERDIR</td>
+      <td>Доступна с PHP 5.4.0.</td>
+     </tr>
+
+     <tr>
+      <td><a href="session.configuration.html#ini.session.upload-progress.freq" class="link">session.upload_progress.freq</a></td>
+      <td>&quot;1%&quot;</td>
+      <td>PHP_INI_PERDIR</td>
+      <td>Доступна с PHP 5.4.0.</td>
+     </tr>
+
+     <tr>
+      <td><a href="session.configuration.html#ini.session.upload-progress.min-freq" class="link">session.upload_progress.min_freq</a></td>
+      <td>&quot;1&quot;</td>
+      <td>PHP_INI_PERDIR</td>
+      <td>Доступна с PHP 5.4.0.</td>
+     </tr>
+
+   </tbody>
+  
+ </table>
+
+ Для подробного описания констант
+PHP_INI_*, обратитесь к разделу <a href="configuration.changes.modes.html" class="xref">Где могут быть установлены параметры конфигурации</a>.
+ </p>
+ <p class="para">
+  Система управления сессиями поддерживает ряд опций, которые могут быть
+  указаны в файле <var class="filename">php.ini</var>. Ниже приводится краткий обзор.
+ <dl>
+
+
+  
+   <dt id="ini.session.save-handler">
+    <code class="parameter">session.save_handler</code>
+    <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     <em>session.save_handler</em> определяет имя обработчика, который
+     используется для хранения и извлечения данных, связанных с сессией.
+     По умолчанию имеет значение <em>files</em>. Следует обратить внимание, что
+     некоторые расширения могут зарегистрировать собственные обработчики
+     (<em>save_handler</em>). Текущие зарегистрированные обработчики
+     отображаются в <span class="function"><a href="function.phpinfo.html" class="function">phpinfo()</a></span>. См. также
+     <span class="function"><a href="function.session-set-save-handler.html" class="function">session_set_save_handler()</a></span>.
+    </span>
+   </dd>
+
+  
+
+  
+   <dt id="ini.session.save-path">
+    <code class="parameter">session.save_path</code>
+    <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     <em>session.save_path</em> определяет аргумент, который
+     передается в обработчик сохранения. При установленном по умолчанию
+     обработчике files, аргумент содержит путь, где будут создаваться файлы.
+     См. также <span class="function"><a href="function.session-save-path.html" class="function">session_save_path()</a></span>.
+    </span>
+    <p class="para">
+     У этой директивы также существует дополнительный аргумент N, определяющий
+     глубину размещения файлов сессии относительно указанной директории.
+     Например, указание <em>&#039;5;/tmp&#039;</em> может в конечном итоге
+     привести к такому размещению файла сессии:
+     <em>/tmp/4/b/1/e/3/sess_4b1e384ad74619bd212e236e52a5a174If
+     </em>. Для того, чтобы использовать аргумент N, необходимо
+     предварительно создать все эти директории. Помочь в этом может
+     небольшой скрипт, расположенный в <var class="filename">ext/session</var>.
+     Версия для bash называется <var class="filename">mod_files.sh</var>, а
+     Windows-версия - <var class="filename">mod_files.bat</var>.
+     Также следует учитывать, что если N определен и больше 0, то автоматическая
+     сборка мусора не выполняется, подробнее см. информацию в файле <var class="filename">php.ini</var>.
+     Если используется N, необходимо также удостовериться, что значение
+     <em>session.save_path</em> указано в кавычках, поскольку 
+     разделитель (<em>;</em>) в <var class="filename">php.ini</var> используется как знак
+     комментария.
+    </p>
+    <div class="warning"><strong class="warning">Внимание</strong>
+     <p class="para">
+      Если установить в качестве значения общедоступную для чтения директорию,
+      например, <var class="filename">/tmp</var> (по умолчанию), остальные пользователи
+      сервера получат возможность перехватить сессию пользователя, получив
+      список файлов такой директории.
+     </p>
+    </div>
+    <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+     <span class="simpara">
+      До версии PHP 4.3.6, для использования механизма сессий
+      пользователям Windows приходилось изменять эту переменную.
+      Необходимо было указать корректный путь, например, такой:
+      <var class="filename">c:/temp</var>.
+     </span>
+    </p></blockquote>
+   </dd>
+
+  
+
+  
+   <dt id="ini.session.name">
+    <code class="parameter">session.name</code>
+    <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     <em>session.name</em> определяет название сессии,
+     используемое как название Cookies. Может содержать только цифры и буквы.
+     По умолчанию равно <em>PHPSESSID</em>.
+     См. также <span class="function"><a href="function.session-name.html" class="function">session_name()</a></span>.
+    </span>
+   </dd>
+
+  
+  
+  
+   <dt id="ini.session.auto-start">
+    <code class="parameter">session.auto_start</code>
+    <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     <em>session.auto_start</em> определяет, будет ли модуль сессии
+     запускать сессию автоматически при старте. Значение по умолчанию
+     <em>0</em> (отключено).
+    </span>
+   </dd>
+
+  
+
+  
+   <dt id="ini.session.serialize-handler">
+    <code class="parameter">session.serialize_handler</code>
+    <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     <em>session.serialize_handler</em> определяет имя обработчика,
+     который используется для сериализации / десериализации данных. В настоящее
+     время используется внутренний формат PHP (наименование <em>php</em>
+     или <em>php_binary</em>), а также поддерживается WDDX
+     (наименование <em>wddx</em>). WDDX доступен только в том случае,
+     если PHP скомпилирован с <a href="ref.wddx.html" class="link">поддержкой WDDX</a>.
+     Значение по умолчанию: <em>php</em>.
+    </span>
+   </dd>
+
+  
+
+  
+   <dt id="ini.session.gc-probability">
+    <code class="parameter">session.gc_probability</code>
+    <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     <em>session.gc_probability</em> в сочетании с
+     <em>session.gc_divisor</em> определяет вероятность запуска
+     функции сборщика мусора (gc, garbage collection).
+     По умолчанию равна <em>1</em>. См. подробнее в <a href="session.configuration.html#ini.session.gc-divisor" class="link">session.gc_divisor</a>.
+    </span>
+   </dd>
+
+  
+
+  
+   <dt id="ini.session.gc-divisor">
+    <code class="parameter">session.gc_divisor</code>
+    <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     <em>session.gc_divisor</em> в сочетании с
+     <em>session.gc_probability</em> вероятность запуска
+     функции сборщика мусора (gc, garbage collection) при каждой инициализации
+     сессии. Вероятность рассчитывается как gc_probability/gc_divisor, т.е.
+     1/100 означает, что функция gc запускается в одном случае из ста, или 1%
+     при каждом запросе.
+     <em>session.gc_divisor</em> по умолчанию имеет значение
+     <em>100</em>.
+    </span>
+   </dd>
+
+  
+  
+  
+   <dt id="ini.session.gc-maxlifetime">
+    <code class="parameter">session.gc_maxlifetime</code>
+    <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     <em>session.gc_maxlifetime</em> задает отсрочку времени в
+     секундах, после которой данные будут рассматриваться как &quot;мусор&quot; и
+     потенциально будут удалены. Сбор мусора может произойти в течение старта
+     сессии (в зависимости от значений <a href="session.configuration.html#ini.session.gc-probability" class="link">session.gc_probability</a> и
+     <a href="session.configuration.html#ini.session.gc-divisor" class="link">session.gc_divisor</a>).
+    </span>
+    <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+     <p class="para">
+      Если разные скрипты имеют разные значения
+      <em>session.gc_maxlifetime</em>, но при этом одни и
+      те же места для хранения данных сессии, то скрипт с минимальным
+      значением уничтожит все данные. В таком случае следует использовать
+      эту директиву вместе с
+      <a href="session.configuration.html#ini.session.save-path" class="link">session.save_path</a>.
+     </p>
+    </p></blockquote>
+    <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+     <span class="simpara">Если по умолчанию используется обработчик file, файловая система
+     должна отслеживать время доступа (access time, atime). Windows FAT этого не
+     позволяет, при использовании данной файловой системы (или любой другой без
+     поддержки отслеживания времени доступа) придется разрабатывать собственный
+     способ сборки сессионного мусора.
+     Начиная с версии PHP 4.2.3 используется mtime (modified date, дата
+     изменений) вместо atime. В этом случае поддержка файловой системой atime не
+     требуется.
+     </span>
+    </p></blockquote>
+   </dd>
+
+  
+
+  
+   <dt id="ini.session.referer-check">
+    <code class="parameter">session.referer_check</code>
+    <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     <em>session.referer_check</em> содержит подстроку, которую
+     можно использовать при проверке HTTP Referer. Если клиентом был послан
+     referer и подстрока не была выявлена, то идентификатор сессии
+     будет помечен как недействительный. По умолчанию используется пустая
+     строка.
+    </span>
+   </dd>
+
+  
+
+  
+   <dt id="ini.session.entropy-file">
+    <code class="parameter">session.entropy_file</code>
+    <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     <em>session.entropy_file</em> содержит путь к ресурсу (файлу),
+     используемому как дополнительный источник энтропии в процессе создания
+     идентификатора сессии. Например, <em>/dev/random</em> или
+     <em>/dev/urandom</em>, которые доступны на многих Unix-системах.
+    </span>
+    <span class="simpara">
+     Эта возможность также поддерживается в Windows начиная с версии PHP 5.3.3.
+     Указание ненулевого значения в <em>session.entropy_length</em>
+     предписывает PHP использовать в качестве источника энтропии
+     Windows Random API.
+    </span>
+   </dd>
+
+  
+
+  
+   <dt id="ini.session.entropy-length">
+    <code class="parameter">session.entropy_length</code>
+    <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     <em>session.entropy_length</em> определяет количество байт,
+     которые будут прочитаны из вышеуказанного файла. По умолчанию
+     <em>0</em> (отключено).
+    </span>
+   </dd>
+
+  
+
+  
+   <dt id="ini.session.use-cookies">
+    <code class="parameter">session.use_cookies</code>
+    <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     <em>session.use_cookies</em> определяет, будет ли модуль
+     использовать cookies для хранения идентификатора сессии на стороне клиента.
+     По умолчанию <em>1</em> (включено).
+    </span>
+   </dd>
+
+  
+
+  
+   <dt id="ini.session.use-only-cookies">
+    <code class="parameter">session.use_only_cookies</code>
+    <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     <em>session.use_only_cookies</em> определяет, будет ли
+     модуль использовать <em class="emphasis">только</em> cookies
+     для хранения идентификатора сессии на стороне клиента.
+     Включение этого параметра предотвращает атаки с использованием
+     идентификатора сессии, размещенного в URL. Добавлено в PHP 4.3.0.
+     Значение по умолчанию <em>1</em> (включено) с версии PHP 5.3.0.
+    </span>
+   </dd>
+
+  
+
+
+  
+   <dt id="ini.session.cookie-lifetime">
+    <code class="parameter">session.cookie_lifetime</code>
+    <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     <em>session.cookie_lifetime</em> указывает время жизни cookies,
+     отправляемого в браузер клиента, в секундах. Значение 0 означает, что
+     cookies будут валидны до закрытия браузера. По умолчанию равно <em>0</em>.
+     См. также <span class="function"><a href="function.session-get-cookie-params.html" class="function">session_get_cookie_params()</a></span> и
+     <span class="function"><a href="function.session-set-cookie-params.html" class="function">session_set_cookie_params()</a></span>.
+    </span>
+    <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+     <p class="para">
+      Отметка окончания времени устанавливается по отношению к серверному времени,
+      который не обязательно совпадает с временем в браузере клиента.
+     </p>
+    </p></blockquote> 
+   </dd>
+
+  
+
+  
+   <dt id="ini.session.cookie-path">
+    <code class="parameter">session.cookie_path</code>
+    <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     <em>session.cookie_path</em> определяет устанавливаемый
+     путь в сессионной cookie. По умолчанию <em>/</em>. См. также
+     <span class="function"><a href="function.session-get-cookie-params.html" class="function">session_get_cookie_params()</a></span> и
+     <span class="function"><a href="function.session-set-cookie-params.html" class="function">session_set_cookie_params()</a></span>.
+    </span>
+   </dd>
+
+  
+
+  
+   <dt id="ini.session.cookie-domain">
+    <code class="parameter">session.cookie_domain</code>
+    <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     <em>session.cookie_domain</em> определяет устанавливаемый
+     домен в сессионной cookie. В соответствии со спецификацией нет смысла дополнительно
+     указывать имя хоста, который сгенерировал cookies.
+     См. также <span class="function"><a href="function.session-get-cookie-params.html" class="function">session_get_cookie_params()</a></span> и
+     <span class="function"><a href="function.session-set-cookie-params.html" class="function">session_set_cookie_params()</a></span>.
+    </span>
+   </dd>
+
+  
+
+  
+   <dt id="ini.session.cookie-secure">
+    <code class="parameter">session.cookie_secure</code>
+    <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     <em>session.cookie_secure</em> указывает, должны ли cookies
+     передаваться только через защищенное соединение. По умолчанию
+     <em>off</em>.
+     Добавлено в версии PHP 4.0.4. См. также
+     <span class="function"><a href="function.session-get-cookie-params.html" class="function">session_get_cookie_params()</a></span> и
+     <span class="function"><a href="function.session-set-cookie-params.html" class="function">session_set_cookie_params()</a></span>.
+    </span>
+   </dd>
+
+  
+
+  
+   <dt id="ini.session.cookie-httponly">
+    <code class="parameter">session.cookie_httponly</code>
+    <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Отметка, согласно которой доступ к cookies может быть получен только через HTTP
+     протокол. Это означает, что cookies не будут доступны через скриптовые языки,
+     такие как JavaScript. Данная настройка позволяет эффективно защитить от
+     XSS атак (к сожалению, эта функция поддерживается не всеми браузерами).
+    </span>
+   </dd>
+
+  
+
+  
+   <dt id="ini.session.cache-limiter">
+    <code class="parameter">session.cache_limiter</code>
+    <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     <em>session.cache_limiter</em> определяет метод контроля
+     кэша, используемого для страниц сессий. Может принимать одно из следующих
+     значений:
+     <em>nocache</em>, <em>private</em>, 
+     <em>private_no_expire</em> или <em>public</em>.
+     По умолчанию <em>nocache</em>. Подробнее о данных
+     значениях смотрите в
+     <span class="function"><a href="function.session-cache-limiter.html" class="function">session_cache_limiter()</a></span>.
+    </span>
+   </dd>
+
+  
+
+
+  
+   <dt id="ini.session.cache-expire">
+    <code class="parameter">session.cache_expire</code>
+    <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     <em>session.cache_expire</em> указывает время жизни
+     кэшированных страниц сессий в минутах, это никак не влияет на ограничитель
+     nocache. По умолчанию <em>180</em>. См. также
+     <span class="function"><a href="function.session-cache-expire.html" class="function">session_cache_expire()</a></span>.
+    </span>
+   </dd>
+
+  
+
+  
+   <dt id="ini.session.use-trans-sid">
+    <code class="parameter">session.use_trans_sid</code>
+    <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     <em>session.use_trans_sid</em> указывает, используется ли
+     прозрачная поддержка sid или нет. По умолчанию
+     <em>0</em> (отключено).
+    </span>
+    <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+     <span class="simpara">
+      В PHP 4.1.2 и более ранних версиях, данная опция доступна при компиляции с
+      <a href="configure.about.html#configure.enable-trans-sid" class="link">
+      <em>--enable-trans-sid</em></a>.
+      Начиная с PHP 4.2.0, возможность trans-sid всегда доступна.
+     </span>
+     <span class="simpara">
+      Управление сессией на основе URL имеет дополнительные риски
+      безопасности по сравнению с управлением на основе cookies. В качестве
+      примера можно упомянуть такие ситуации, когда пользователи
+      могут отправить URL, содержащий идентификатор активной сессии своим
+      друзьям по электронной почте или сохранить ссылку с идентификатором
+      в закладках и все время посещать сайт с одним и тем же идентификатором.
+     </span>
+    </p></blockquote>
+   </dd>
+
+  
+  
+  
+   <dt id="ini.session.bug-compat-42">
+    <code class="parameter">session.bug_compat_42</code>
+    <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     PHP версии 4.2.3 и более ранние имеют недокументированную особенность/ошибку,
+     позволяющую инициализировать переменную сессии как
+     глобальную при отключенной директиве
+     <a href="ini.core.html#ini.register-globals" class="link">register_globals</a>.
+     PHP 4.3.0 и более поздние предупреждают, если используется эта особенность и
+     включена опция <a href="session.configuration.html#ini.session.bug-compat-warn" class="link">
+     session.bug_compat_warn</a>. Эта особенность/ошибка
+     может быть отключена при отключении данной директивы.
+    </span>
+   </dd>
+
+  
+  
+  
+   <dt id="ini.session.bug-compat-warn">
+    <code class="parameter">session.bug_compat_warn</code>
+    <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     PHP версии 4.2.3 и более ранние имеют недокументированную особенность/ошибку,
+     позволяющую инициализировать переменную сессии как
+     глобальную, при отключенной директиве
+     <a href="ini.core.html#ini.register-globals" class="link">register_globals</a>.
+     PHP 4.3.0 и более поздние предупреждают, если используется эта особенность
+     при помощи включения директив
+     <a href="session.configuration.html#ini.session.bug-compat-42" class="link">session.bug_compat_42</a>
+     и <a href="session.configuration.html#ini.session.bug-compat-warn" class="link">
+     session.bug_compat_warn</a>.
+    </span>
+   </dd>
+
+  
+
+  
+   <dt id="ini.session.hash-function">
+    <code class="parameter">session.hash_function</code>
+    <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span>
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     <em>session.hash_function</em> позволяет указать алгоритм
+     хэширования, используемый для генерации идентификатора сессии.
+     &#039;0&#039; означает MD5 (128 bits), а &#039;1&#039; означает SHA-1 (160 bits).
+    </span>
+    <p class="para">
+     Начиная с PHP 5.3.0 также стало возможным указать любой из алгоритмов,
+     предусмотренных <a href="ref.hash.html" class="link">расширением hash</a> (если
+     оно доступно), например <em>sha512</em> или
+     <em>whirlpool</em>. Полный список алгоритмов может быть
+     получен с помощью функции <span class="function"><a href="function.hash-algos.html" class="function">hash_algos()</a></span>.
+    </p>
+    <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+     <p class="para">
+      Эта опция была добавлена в PHP 5.
+     </p>
+    </p></blockquote>
+   </dd>
+
+  
+
+  
+   <dt id="ini.session.hash-bits-per-character">
+    <code class="parameter">session.hash_bits_per_character</code>
+    <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     <em>session.hash_bits_per_character</em> позволяет указать
+     сколько бит хранится в каждом символе при преобразовании бинарного
+     представления во что-либо более удобочитаемое. Возможные значения: &#039;4&#039; (0-9, a-f),
+     &#039;5&#039; (0-9, a-v) и &#039;6&#039; (0-9, a-z, A-Z, &quot;-&quot;, &quot;,&quot;).
+    </span>
+    <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+     <p class="para">
+      Эта опция была добавлена в PHP 5.
+     </p>
+    </p></blockquote>
+   </dd>
+
+  
+
+  
+   <dt id="ini.url-rewriter.tags">
+    <code class="parameter">url_rewriter.tags</code>
+    <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     <em>url_rewriter.tags</em> определяет, какие HTML-теги
+     будут переписаны при включении идентификатора сессии при условии 
+     включенной поддержки transparent sid.
+     По умолчанию
+     <em>a=href,area=href,frame=src,input=src,form=fakeentry,fieldset=</em>
+    </span>
+    <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+     <span class="simpara">
+      Если необходимо строгое соответствие HTML/XHTML, то следует исключить 
+      элемент <em>form</em> из данного списка, а поля формы размещать 
+      в тэге &lt;fieldset&gt;.
+     </span>
+    </p></blockquote>
+   </dd>
+
+  
+
+  
+   <dt id="ini.session.upload-progress.enabled">
+    <code class="parameter">session.upload_progress.enabled</code>
+    <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Включает отслеживание прогресса загрузки файлов
+     и заполнение соответствующей переменной в массиве <var class="varname"><var class="varname"><a href="reserved.variables.session.html" class="classname">$_SESSION</a></var></var>.
+     По умолчанию равна 1, включена.
+    </span>
+   </dd>
+
+  
+
+  
+   <dt id="ini.session.upload-progress.cleanup">
+    <code class="parameter">session.upload_progress.cleanup</code>
+    <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Чистка информации о прогрессе загрузки файлов по завершении
+     обработки POST-данных (т.е. по завершении загрузки).
+     По умолчанию равна 1, включена.
+    </span>
+    <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+     <span class="simpara">
+      Строго рекомендуется не отключать эту опцию.
+     </span>
+    </p></blockquote>
+   </dd>
+
+  
+
+  
+   <dt id="ini.session.upload-progress.prefix">
+    <code class="parameter">session.upload_progress.prefix</code>
+    <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Префикс, используемый для ключа прогресса загрузки в массиве <var class="varname"><var class="varname"><a href="reserved.variables.session.html" class="classname">$_SESSION</a></var></var>.
+     Для обеспечения уникальности данный ключ будет присоединен к значению
+     <em>$_POST[ini_get(&quot;session.upload_progress.name&quot;)]</em>.
+    </span>
+    <span class="simpara">
+     По умолчанию равен &quot;upload_progress_&quot;.
+    </span>
+   </dd>
+
+  
+
+  
+   <dt id="ini.session.upload-progress.name">
+    <code class="parameter">session.upload_progress.name</code>
+    <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Имя ключа, используемого в массиве <var class="varname"><var class="varname"><a href="reserved.variables.session.html" class="classname">$_SESSION</a></var></var>, для хранения
+     информации о прогрессе. Смотрите также директиву
+     <a href="session.configuration.html#ini.session.upload-progress.prefix" class="link">session.upload_progress.prefix</a>.
+    </span>
+    <span class="simpara">
+     Если элемент <em>$_POST[ini_get(&quot;session.upload_progress.name&quot;)]</em>
+     не передан, прогресс загрузки данного файла не будет отслеживаться.
+    </span>
+    <span class="simpara">
+     По умолчанию равно &quot;PHP_SESSION_UPLOAD_PROGRESS&quot;.
+    </span>
+   </dd>
+
+  
+
+  
+   <dt id="ini.session.upload-progress.freq">
+    <code class="parameter">session.upload_progress.freq</code>
+    <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span>
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Определяет частоту обновления информации о прогрессе загрузки.
+     Можно указать значение в байтах (т.е. &quot;обновлять информацию
+     о прогрессе каждые 100 байт&quot;) или в процентах (т.е. &quot;обновлять
+     информацию о прогрессе после получения 1% данных от размера файла&quot;).
+    </span>
+    <span class="simpara">
+     По умолчанию равна &quot;1%&quot;.
+    </span>
+   </dd>
+
+  
+
+  
+   <dt id="ini.session.upload-progress.min-freq">
+    <code class="parameter">session.upload_progress.min-freq</code>
+    <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Минимальная задержка между обновлениями, в секундах.
+     По умолчанию равна &quot;1&quot; (одной секунде).
+    </span>
+   </dd>
+
+  
+
+ </dl>
+
+ </p>
+
+ <p class="para">
+  Настройки <a href="ini.core.html#ini.track-vars" class="link"><em>track_vars</em></a> и
+  <a href="ini.core.html#ini.register-globals" class="link"><em>register_globals</em></a>
+  влияют на способ хранения и использования переменных сессии.
+ </p>
+
+ <p class="para">
+  Прогресс загрузки файлов не будет обрабатываться, если не включена
+  опция session.upload_progress.enabled и не установлена переменная
+  $_POST[ini_get(&quot;session.upload_progress.name&quot;)].
+  Подробнее об этом смотрите в главе
+  &quot;<a href="session.upload-progress.html" class="link">Отслеживание прогресса загрузки файлов с помощью сессий</a>&quot;.
+ </p>
+
+ <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+  <p class="para">
+   Начиная с PHP 4.0.3, опция <a href="ini.core.html#ini.track-vars" class="link"><em>track_vars</em></a> постоянно
+   включена.
+  </p>
+ </p></blockquote>
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="session.installation.html">Установка</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="session.resources.html">Типы ресурсов</a></div>
+ <div class="up"><a href="session.setup.html">Установка и настройка</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

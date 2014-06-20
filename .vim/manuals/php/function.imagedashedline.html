@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Рисование пунктирной линии</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.imagecropauto.html">imagecropauto</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.imagedestroy.html">imagedestroy</a></div>
+ <div class="up"><a href="ref.image.html">GD и функции для работы с изображениями Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.imagedashedline" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">imagedashedline</h1>
+  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">imagedashedline</span> &mdash; <span class="dc-title">Рисование пунктирной линии</span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-function.imagedashedline-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><strong>imagedashedline</strong></span>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$image</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$x1</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$y1</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$x2</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$y2</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$color</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Эта функция устарела. Используйте сочетание функций
+   <span class="function"><a href="function.imagesetstyle.html" class="function">imagesetstyle()</a></span> и <span class="function"><a href="function.imageline.html" class="function">imageline()</a></span>.
+  </p>
+ </div>
+
+ <div class="refsect1 parameters" id="refsect1-function.imagedashedline-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    <dt>
+<code class="parameter">
+image</code></dt>
+<dd>
+<p class="para">Ресурс изображения, полученный одной из функций создания изображений,
+например, такой как <span class="function"><a href="function.imagecreatetruecolor.html" class="function">imagecreatetruecolor()</a></span>.</p></dd>
+
+    
+     <dt>
+<code class="parameter">x1</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Верхняя левая x координата.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">y1</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Верхняя левая y координата. 0, 0 - верхний левый угол изображения.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">x2</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Нижняя правая х-координата.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">y2</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Нижняя правая у-координата.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">color</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Цвет линии. Идентификатор цвета, созданный функцией
+       <span class="function"><a href="function.imagecolorallocate.html" class="function">imagecolorallocate()</a></span>.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+ <div class="refsect1 returnvalues" id="refsect1-function.imagedashedline-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Всегда возвращает true
+  </p>
+ </div>
+
+ <div class="refsect1 examples" id="refsect1-function.imagedashedline-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-3271">
+    <p><strong>Пример #1 Пример использования <span class="function"><strong>imagedashedline()</strong></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Создание&nbsp;изображения&nbsp;100x100<br /></span><span style="color: #0000BB">$im&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecreatetruecolor</span><span style="color: #007700">(</span><span style="color: #0000BB">100</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">100</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$white&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecolorallocate</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0xFF</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0xFF</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0xFF</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Рисование&nbsp;вертикальной&nbsp;пунктирной&nbsp;линии<br /></span><span style="color: #0000BB">imagedashedline</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">50</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">25</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">50</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">75</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$white</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Сохранение&nbsp;изображения<br /></span><span style="color: #0000BB">imagepng</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'./dashedline.png'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>Результатом выполнения данного примера
+будет что-то подобное:</p></div>
+    <div class="mediaobject">
+     
+     <div class="imageobject">
+      <img src="images/21009b70229598c6a80eef8b45bf282b-imagedashedline.png" alt="Вывод примера: imagedashedline()" width="100" height="100" />
+     </div>
+    </div>
+   </div>
+   <div class="example" id="example-3272">
+    <p><strong>Пример #2 Альтернатива функции <span class="function"><strong>imagedashedline()</strong></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Создание&nbsp;изображения&nbsp;100x100<br /></span><span style="color: #0000BB">$im&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecreatetruecolor</span><span style="color: #007700">(</span><span style="color: #0000BB">100</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">100</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$white&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecolorallocate</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0xFF</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0xFF</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0xFF</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Определение&nbsp;стиля:&nbsp;Первые&nbsp;4&nbsp;пиксела&nbsp;белые,&nbsp;следующие&nbsp;4&nbsp;-&nbsp;прозрачные.<br />//&nbsp;Это&nbsp;создает&nbsp;эффект&nbsp;пунктира.<br /></span><span style="color: #0000BB">$style&nbsp;</span><span style="color: #007700">=&nbsp;Array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$white</span><span style="color: #007700">,&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$white</span><span style="color: #007700">,&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$white</span><span style="color: #007700">,&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$white</span><span style="color: #007700">,&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">IMG_COLOR_TRANSPARENT</span><span style="color: #007700">,&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">IMG_COLOR_TRANSPARENT</span><span style="color: #007700">,&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">IMG_COLOR_TRANSPARENT</span><span style="color: #007700">,&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">IMG_COLOR_TRANSPARENT<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">imagesetstyle</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$style</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Рисование&nbsp;пунктирной&nbsp;линии<br /></span><span style="color: #0000BB">imageline</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">50</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">25</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">50</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">75</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">IMG_COLOR_STYLED</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Сохранение&nbsp;изображения<br /></span><span style="color: #0000BB">imagepng</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'./imageline.png'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+ <div class="refsect1 seealso" id="refsect1-function.imagedashedline-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.imagesetstyle.html" class="function" rel="rdfs-seeAlso">imagesetstyle()</a> - Установка стиля рисования линий</span></li>
+    <li class="member"><span class="function"><a href="function.imageline.html" class="function" rel="rdfs-seeAlso">imageline()</a> - Рисование линии</span></li>
+   </ul>
+  </p>
+ </div>
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.imagecropauto.html">imagecropauto</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.imagedestroy.html">imagedestroy</a></div>
+ <div class="up"><a href="ref.image.html">GD и функции для работы с изображениями Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

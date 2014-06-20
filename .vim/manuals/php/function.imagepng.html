@@ -1,0 +1,176 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Вывод PNG изображения в броузер или файл</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.imagepalettetotruecolor.html">imagepalettetotruecolor</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.imagepolygon.html">imagepolygon</a></div>
+ <div class="up"><a href="ref.image.html">GD и функции для работы с изображениями Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.imagepng" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">imagepng</h1>
+  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">imagepng</span> &mdash; <span class="dc-title">
+   Вывод PNG изображения в броузер или файл
+  </span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-function.imagepng-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><strong>imagepng</strong></span>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$image</code></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$quality</code></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$filters</code></span>
+  ]]] )</div>
+
+  <p class="para rdfs-comment">
+   Выводит или сохраняет <acronym title="Portable Network Graphics">PNG</acronym> изображение
+   <code class="parameter">image</code>.
+  </p>
+ </div>
+
+ <div class="refsect1 parameters" id="refsect1-function.imagepng-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    <dt>
+<code class="parameter">
+image</code></dt>
+<dd>
+<p class="para">Ресурс изображения, полученный одной из функций создания изображений,
+например, такой как <span class="function"><a href="function.imagecreatetruecolor.html" class="function">imagecreatetruecolor()</a></span>.</p></dd>
+
+    
+     <dt>
+<code class="parameter">filename</code></dt>
+
+     <dd>
+
+      <p class="para">Путь для сохранения файла. Если не установлен или равен <strong><code>NULL</code></strong>, изображение будет выведено в поток вывода в бинарном виде.</p>
+      <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+       <p class="para">
+        Недопустимо передавать <strong><code>NULL</code></strong>, если не используются аргументы
+        <code class="parameter">quality</code> и <code class="parameter">filters</code>.
+       </p>
+      </p></blockquote>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">quality</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Степень сжатия: от 0 (нет сжатия) до 9.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">filters</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Позволяет уменьшить размер PNG файла. Это битовая маска, значением которой
+       может быть комбинация констант <em>PNG_FILTER_XXX</em>.
+       Для включения или выключения всех фильтров удобно воспользоваться 
+       константами <strong><code>PNG_NO_FILTER</code></strong> или
+       <strong><code>PNG_ALL_FILTERS</code></strong> соответственно.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+ <div class="refsect1 returnvalues" id="refsect1-function.imagepng-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает <strong><code>TRUE</code></strong> в случае успешного завершения  или <strong><code>FALSE</code></strong> в случае возникновения ошибки.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.imagepng-changelog">
+  <h3 class="title">Список изменений</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Версия</th>
+       <th>Описание</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.1.3</td>
+       <td>
+        Добавлен аргумент <code class="parameter">filters</code>.
+       </td>
+      </tr>
+
+      <tr>
+       <td>5.1.2</td>
+       <td>
+        Добавлен аргумент <code class="parameter">quality</code>.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.imagepng-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="informalexample">
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$im&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecreatefrompng</span><span style="color: #007700">(</span><span style="color: #DD0000">"test.png"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'Content-Type:&nbsp;image/png'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">imagepng</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+ <div class="refsect1 seealso" id="refsect1-function.imagepng-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.imagegif.html" class="function" rel="rdfs-seeAlso">imagegif()</a> - Выводит изображение в браузер или пишет в файл</span></li>
+    <li class="member"><span class="function"><a href="function.imagewbmp.html" class="function" rel="rdfs-seeAlso">imagewbmp()</a> - Выводит изображение в браузер или пишет в файл</span></li>
+    <li class="member"><span class="function"><a href="function.imagejpeg.html" class="function" rel="rdfs-seeAlso">imagejpeg()</a> - Выводит изображение в браузер или пишет в файл</span></li>
+    <li class="member"><span class="function"><a href="function.imagetypes.html" class="function" rel="rdfs-seeAlso">imagetypes()</a> - Возвращает список типов изображений, поддерживаемых PHP сборкой</span></li>
+    <li class="member"><span class="function"><a href="function.imagesavealpha.html" class="function" rel="rdfs-seeAlso">imagesavealpha()</a> - Установка флага сохранения всей информации альфа компонента (в противовес
+   одноцветной прозрачности) и сохранение PNG изобаржения</span></li>
+   </ul>
+  </p>
+ </div>
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.imagepalettetotruecolor.html">imagepalettetotruecolor</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.imagepolygon.html">imagepolygon</a></div>
+ <div class="up"><a href="ref.image.html">GD и функции для работы с изображениями Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

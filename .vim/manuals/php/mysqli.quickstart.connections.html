@@ -1,0 +1,203 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Соединения</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mysqli.quickstart.dual-interface.html">Процедурный и объектно-ориентированный интерфейс</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mysqli.quickstart.statements.html">Выполнение запросов</a></div>
+ <div class="up"><a href="mysqli.quickstart.html">Краткое руководство</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="mysqli.quickstart.connections" class="section">
+  <h2 class="title">Соединения</h2>
+  <p class="para">
+   Сервер MySQL поддерживает различные способы передачи данных. Соединения могут
+   использовать TCP/IP протоколы, сокеты Unix доменов или именованные пайпы
+   Windows.
+  </p>
+  <p class="para">
+   Имя хоста <em>localhost</em> имеет специальное назначение. Оно
+   используется только в сокетах Unix доменов. Невозможно открыть TCP/IP соединение,
+   используя в качестве имени хоста <em>localhost</em>. Вместо него нужно
+   задать <em>127.0.0.1</em>.
+  </p>
+  <p class="para">
+   <div class="example" id="example-1669">
+    <p><strong>Пример #1 Специальное назначение localhost</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$mysqli&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">mysqli</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"user"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"password"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"database"</span><span style="color: #007700">);<br />if&nbsp;(</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connect_errno</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Не&nbsp;удалось&nbsp;подключиться&nbsp;к&nbsp;MySQL:&nbsp;("&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connect_errno&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">")&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connect_error</span><span style="color: #007700">;<br />}<br />echo&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">host_info&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$mysqli&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">mysqli</span><span style="color: #007700">(</span><span style="color: #DD0000">"127.0.0.1"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"user"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"password"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"database"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">3306</span><span style="color: #007700">);<br />if&nbsp;(</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connect_errno</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Не&nbsp;удалось&nbsp;подключиться&nbsp;к&nbsp;MySQL:&nbsp;("&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connect_errno&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">")&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connect_error</span><span style="color: #007700">;<br />}<br /><br />echo&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">host_info&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>Результат выполнения данного примера:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+Localhost via UNIX socket
+127.0.0.1 via TCP/IP
+</pre></div>
+    </div>
+   </div>
+  </p>
+  <p class="para">
+   <em class="emphasis">Умолчания для параметров соединений</em>
+  </p>
+  <p class="para">
+   В зависимости от функции, осуществляющей подключение, какие-то параметры можно
+   не задавать. Если параметр не задан, расширение попытается использовать
+   значение по умолчанию для этого параметра, которое задано в конфигурационном
+   файле PHP.
+  </p>
+  <p class="para">
+   <div class="example" id="example-1670">
+    <p><strong>Пример #2 Задание значений по умолчанию</strong></p>
+    <div class="example-contents">
+<div class="inicode"><pre class="inicode">mysqli.default_host=192.168.2.27
+mysqli.default_user=root
+mysqli.default_pw=&quot;&quot;
+mysqli.default_port=3306
+mysqli.default_socket=/tmp/mysql.sock</pre>
+</div>
+    </div>
+
+   </div>
+  </p>
+  <p class="para">
+   Далее, чтобы установить соединение, функция передает параметры в клиентскую
+   билиотеку, которой пользуется расширение. Если библиотека обнаружит пустые или
+   отсутствующие параметры, она может подставить вместо них свои встроенные
+   значения по умолчанию.
+  </p>
+  <p class="para">
+   <em class="emphasis">
+    Встроенные библиотечные умолчания для параметров соединения
+   </em>
+  </p>
+  <p class="para">
+   Если имя хоста не задано или передана пустая строка, клиентская библиотека
+   использует для подключения к Unix сокету хоста <em>localhost</em>.
+   Если сокет не задан или передана пустая строка, и при этом запрошено
+   подключение к Unix сокету, библиотека попытается подключиться к сокету
+   <em>/tmp/mysql.sock</em>.
+  </p>
+  <p class="para">
+   В Windows системах, если в качестве имени хоста передается <em>.</em>,
+   библиотека попытается открыть соединение на основе именованного пайпа. В этом
+   случае имя сокета будет воспринято, как имя пайпа. Если имя сокета не задано, то
+   будет использовано значение <em>\\.\pipe\MySQL</em>.
+  </p>
+  <p class="para">
+   Если соединение не использует ни сокет Unix домена, ни именованный пайп Windows,
+   и при этом не задан порт для подключения, библиотека использует номер порта
+   <em>3306</em>.
+  </p>
+  <p class="para">
+   В драйвере <a href="mysqlnd.overview.html" class="link">mysqlnd</a> и Клиентской
+   библиотеке MySQL (libmysql) заложена та же логика определения умолчаний.
+  </p>
+  <p class="para">
+   <em class="emphasis">Настройки соединения</em>
+  </p>
+  <p class="para">
+   Настройки соединения позволяют, например, задать какие-то команды, которые
+   нужно выполнить сразу после подключения, или отдать распоряжение использовать
+   определенный набор символов. Настройки должны быть заданы до подключения к
+   серверу.
+  </p>
+  <p class="para">
+   Когда требуется задать настройки соединения, операция подключения выполняется 
+   в три этапа: функцией <span class="function"><a href="mysqli.init.html" class="function">mysqli_init()</a></span> создается дескриптор
+   подключения, затем подключение настраивается с помощью функции
+   <span class="function"><a href="mysqli.options.html" class="function">mysqli_options()</a></span>, и наконец устанавливается сетевое
+   соединение с сервером посредством фукнции
+   <span class="function"><a href="mysqli.real-connect.html" class="function">mysqli_real_connect()</a></span>.
+  </p>
+  <p class="para">
+   <em class="emphasis">Объединение подключений в пул</em>
+  </p>
+  <p class="para">
+   Расширение mysqli поддерживает постоянные соединения с базой данных, которые
+   представляют из себя специальный вид объединяемых соединений. По умолчанию,
+   каждое открытое скриптом соединение закрывается либо самим скриптом в ходе
+   выполнения, либо автоматически по завершении работы скрипта. Постоянные
+   соединения отличаются тем, что не закрываются, а помещаются в пул для
+   повторного использования в дальнейшем. Если требуется подключиться к тому
+   же серверу и базе данных, с тем же именем пользователя, паролем, сокетом и
+   портом, то вместо создания нового подключения из пула извлекается уже
+   существующее. Повторное использование подключений позволяет избежать
+   накладных расходов на создание новых соединений.
+  </p>
+  <p class="para">
+   Каждый PHP процесс использует свой пул подключений mysqli. В зависимости от
+   конфигурации веб-сервера, PHP процесс может обслуживать один или несколько
+   запросов. Соответственно, соединение из пула могут последовательно использовать
+   несколько скриптов.
+  </p>
+  <p class="para">
+   <em class="emphasis">Постоянное соединение</em>
+  </p>
+  <p class="para">
+   Новое подключение создается, только если в пуле не найдется свободного
+   подключения с теми же данными хоста, имени пользователя, пароля, сокета, порта
+   и базы данных по умолчанию. Механизм постоянных соединений можно включать
+   и выключать PHP директивой <a href="mysqli.configuration.html#ini.mysqli.allow-persistent" class="link">mysqli.allow_persistent</a>.
+   Максимальное количество соединений, которые может открыть скрипт, ограничено
+   значением <a href="mysqli.configuration.html#ini.mysqli.max-links" class="link">mysqli.max_links</a>.
+   Максимальное количество соединений, которые может открыть один PHP процесс,
+   ограничено значением <a href="mysqli.configuration.html#ini.mysqli.max-persistent" class="link">mysqli.max_persistent</a>. Следует
+   заметить, что веб-сервер может порождать множество PHP процессов.
+  </p>
+  <p class="para">
+   Главный недостаток постоянных подключений заключается в том, что перед
+   повторным использованием их состояние не сбрасывается к изначальному. Например,
+   открытые и незавершенные транзакции не будут автоматически откатываться. Также,
+   если во время нахождения соединения в пуле для процесса изменились
+   какие-либо разрешения или уровни доступа, этот факт никак не отразится на
+   подключении при его извлечении из пула. Такое поведение может привести к
+   нежелательным результатам. Хотя, с другой стороны, название
+   <em>постоянный</em> можно рассматривать, как обещание, что подключение
+   и правда останется в том состоянии, в котором оно было помещено в пул.
+  </p>
+  <p class="para">
+   Расширение mysqli поддерживает обе интерпретации термина постоянное соединение:
+   состояние соединения может сохраняться, а может и сбрасываться в изначальное.
+   По умолчанию, при извлечении из пула соединение сбрасывается. mysqli делает
+   это неявным вызовом функции <span class="function"><a href="mysqli.change-user.html" class="function">mysqli_change_user()</a></span> каждый раз,
+   когда подключение используется повторно. С точки зрения пользователя подключение
+   выглядит, как только что созданное.
+  </p>
+  <p class="para">
+   Однако, вызов функции <span class="function"><a href="mysqli.change-user.html" class="function">mysqli_change_user()</a></span> довольно
+   дорогостоящая операция. Для улучшения быстродействия можно перекомпилировать
+   расширение с установленным флагом
+   <strong><code>MYSQLI_NO_CHANGE_USER_ON_PCONNECT</code></strong>.
+  </p>
+  <p class="para">
+   Выбор между безопасным поведением подключений и наилучшим быстродействием
+   остается за пользователем. Здесь нельзя дать однозначного совета. Для простоты
+   использования, по умолчанию включен безопасный режим с очисткой соединений.
+  </p>
+  <p class="para">
+   <em class="emphasis">См. также</em>
+  </p>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="methodname"><a href="mysqli.construct.html" class="methodname">mysqli::__construct()</a></span></li>
+    <li class="member"><span class="methodname"><a href="mysqli.init.html" class="methodname">mysqli::init()</a></span></li>
+    <li class="member"><span class="methodname"><a href="mysqli.options.html" class="methodname">mysqli::options()</a></span></li>
+    <li class="member"><span class="methodname"><a href="mysqli.real-connect.html" class="methodname">mysqli::real_connect()</a></span></li>
+    <li class="member"><span class="methodname"><a href="mysqli.change-user.html" class="methodname">mysqli::change_user()</a></span></li>
+    <li class="member"><a href="mysqli.get-host-info.html" class="link">$mysqli::host_info</a></li>
+    <li class="member"><a href="mysqli.configuration.html" class="link">Настройки конфигурации MySQLi</a></li>
+    <li class="member"><a href="features.persistent-connections.html" class="link">Постоянные соединения с базами данных</a></li>
+   </ul>
+  </p>
+ </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mysqli.quickstart.dual-interface.html">Процедурный и объектно-ориентированный интерфейс</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mysqli.quickstart.statements.html">Выполнение запросов</a></div>
+ <div class="up"><a href="mysqli.quickstart.html">Краткое руководство</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

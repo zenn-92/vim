@@ -1,0 +1,245 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Возвращает метаданные столбца в результирующей таблице</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="pdostatement.getattribute.html">PDOStatement::getAttribute</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="pdostatement.nextrowset.html">PDOStatement::nextRowset</a></div>
+ <div class="up"><a href="class.pdostatement.html">PDOStatement</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="pdostatement.getcolumnmeta" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">PDOStatement::getColumnMeta</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PECL pdo &gt;= 0.2.0)</p><p class="refpurpose"><span class="refname">PDOStatement::getColumnMeta</span> &mdash; <span class="dc-title">
+   Возвращает метаданные столбца в результирующей таблице
+  </span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-pdostatement.getcolumnmeta-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">array</span> <span class="methodname"><strong>PDOStatement::getColumnMeta</strong></span>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$column</code></span>
+   )</div>
+
+
+  <div class="warning"><strong class="warning">Внимание</strong><p class="simpara">
+Эта функция является <em class="emphasis">ЭКСПЕРИМЕНТАЛЬНОЙ</em>.
+Поведение этой функции, ее имя и относящаяся к ней документация
+могут измениться в последующих версиях PHP без уведомления.
+Используйте эту функцию на свой страх и риск.</p></div>
+  <p class="para">
+   Возвращает метаданные столбца результирующей таблицы в виде ассоциативного
+   массива. Индексация столбцов начинается с 0.
+  </p>
+  <div class="warning"><strong class="warning">Внимание</strong>
+   <p class="simpara">
+    Не все PDO драйверы поддерживают
+    <span class="function"><strong>PDOStatement::getColumnMeta()</strong></span>.
+   </p>
+  </div>
+
+ </div>
+
+ <div class="refsect1 parameters" id="refsect1-pdostatement.getcolumnmeta-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">column</code></dt>
+
+      <dd>
+
+       <p class="para">
+        Индекс (начиная с 0) столбца результирующего набора.
+       </p>
+      </dd>
+
+     
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-pdostatement.getcolumnmeta-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает ассоциативный массив, содержащий следующие значения метаданных:
+  </p>
+   <table class="doctable table">
+    <caption><strong>Метаданные столбца</strong></caption>
+    
+     <col /> 
+     <col /> 
+     <thead>
+      <tr>
+       <th>Имя</th>
+       <th>Значение</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td><em>native_type</em></td>
+       <td>Внутренний тип PHP, в котором будет представлено значение столбца.</td>
+      </tr>
+
+      <tr>
+       <td><em>driver:decl_type</em></td>
+       <td>SQL тип в котором значение столбца хранится в базе данных.
+       Если значение столбца результирующей таблицы было возвращено из функции,
+       <span class="function"><strong>PDOStatement::getColumnMeta()</strong></span> не будет определять
+       этот тип.
+       </td>
+      </tr>
+
+      <tr>
+       <td><em>flags</em></td>
+       <td>Какие-либо флаги, установленные для столбца.</td>
+      </tr>
+
+      <tr>
+       <td><em>name</em></td>
+       <td>
+        Имя столбца в том виде, в котором его вернула СУБД.
+       </td>
+      </tr>
+
+      <tr>
+       <td><em>table</em></td>
+       <td>
+        Имя таблицы базы данных, содержащей этот столбец.
+       </td>
+      </tr>
+
+      <tr>
+       <td><em>len</em></td>
+       <td>
+        Размер поля столбца. Как правило, для типов, отличных от чисел с
+        плавающей запятой, это значение равно <em>-1</em>.
+       </td>
+      </tr>
+
+      <tr>
+       <td><em>precision</em></td>
+       <td>
+        Числовая точность значений этого поля. Как правило, для типов,
+        отличных от чисел с плавающей запятой, это значение
+        равно <em>0</em>.
+       </td>
+      </tr>
+
+      <tr>
+       <td><em>pdo_type</em></td>
+       <td>
+        PDO тип значения столбца в виде одной из констант
+        <em>PDO::PARAM_*</em>.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  <p class="para">
+   Возвращает <strong><code>FALSE</code></strong> в случаях, когда указанного столбца нет в результирующей
+   таблице, а также если не существует самого результирующего набора.
+  </p>
+ </div>
+
+
+ 
+
+ <div class="refsect1 changelog" id="refsect1-pdostatement.getcolumnmeta-changelog">
+  <h3 class="title">Список изменений</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Версия</th>
+       <th>Описание</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.2.3</td>
+       <td>Поле <em>table</em></td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-pdostatement.getcolumnmeta-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-981">
+    <p><strong>Пример #1 Извлечение метаданных столбца</strong></p>
+    <div class="example-contents"><p>
+     В следующем примере показаны результаты извлечения метаданных одного столбца
+     сгенерированного функцией COUNT драйвера PDO_SQLITE.
+    </p></div>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$select&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$DB</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #DD0000">'SELECT&nbsp;COUNT(*)&nbsp;FROM&nbsp;fruit'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$meta&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$select</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getColumnMeta</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$meta</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>Результат выполнения данного примера:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+array(6) {
+  [&quot;native_type&quot;]=&gt;
+  string(7) &quot;integer&quot;
+  [&quot;flags&quot;]=&gt;
+  array(0) {
+  }
+  [&quot;name&quot;]=&gt;
+  string(8) &quot;COUNT(*)&quot;
+  [&quot;len&quot;]=&gt;
+  int(-1)
+  [&quot;precision&quot;]=&gt;
+  int(0)
+  [&quot;pdo_type&quot;]=&gt;
+  int(2)
+}
+
+</pre></div>
+    </div>
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-pdostatement.getcolumnmeta-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="pdostatement.columncount.html" class="function" rel="rdfs-seeAlso">PDOStatement::columnCount()</a> - Возвращает количество столбцов в результирующем наборе</span></li>
+    <li class="member"><span class="function"><a href="pdostatement.rowcount.html" class="function" rel="rdfs-seeAlso">PDOStatement::rowCount()</a> - Возвращает количество строк, модифицированных последним SQL запросом</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="pdostatement.getattribute.html">PDOStatement::getAttribute</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="pdostatement.nextrowset.html">PDOStatement::nextRowset</a></div>
+ <div class="up"><a href="class.pdostatement.html">PDOStatement</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

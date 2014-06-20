@@ -1,0 +1,170 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Экранирует специальные символы в строке для использования в SQL выражении,
+   используя текущий набор символов соединения</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mysqli.real-connect.html">mysqli::real_connect</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mysqli.real-query.html">mysqli::real_query</a></div>
+ <div class="up"><a href="class.mysqli.html">mysqli</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="mysqli.real-escape-string" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">mysqli::real_escape_string</h1>
+  <h1 class="refname">mysqli_real_escape_string</h1>
+  <p class="verinfo">(PHP 5)</p><p class="refpurpose"><span class="refname">mysqli::real_escape_string</span> -- <span class="refname">mysqli_real_escape_string</span> &mdash; <span class="dc-title">
+   Экранирует специальные символы в строке для использования в SQL выражении,
+   используя текущий набор символов соединения
+  </span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-mysqli.real-escape-string-description">
+  <h3 class="title">Описание</h3>
+  <p class="para">Объектно-ориентированный стиль</p>
+  <div class="methodsynopsis dc-description">
+   <span class="type">string</span> <span class="methodname"><a href="function.mysqli-escape-string.html" class="methodname">mysqli::escape_string</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$escapestr</code></span>
+   )</div>
+
+  <div class="methodsynopsis dc-description">
+   <span class="type">string</span> <span class="methodname"><strong>mysqli::real_escape_string</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$escapestr</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">Процедурный стиль</p>
+  <div class="methodsynopsis dc-description">
+   <span class="type">string</span> <span class="methodname"><strong>mysqli_real_escape_string</strong></span>
+    ( <span class="methodparam"><span class="type"><a href="class.mysqli.html" class="type mysqli">mysqli</a></span> <code class="parameter">$link</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$escapestr</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Эта функция используется для создания допустимых в SQL строк, которые можно
+   использовать в SQL выражениях. Заданная строка кодируется в экранированную SQL
+   строку, используя текущий набор символов подключения.
+  </p>
+  <div class="caution"><strong class="caution">Предостережение</strong>
+   <h1 class="title">Безопасность: набор символов по умолчанию</h1>
+   <p class="para">
+    Набор символов должен быть задан либо на стороне сервера, либо с помощью
+    API функции <span class="function"><a href="mysqli.set-charset.html" class="function">mysqli_set_charset()</a></span>. В противном случае
+    <span class="function"><strong>mysqli_real_escape_string()</strong></span> работать не будет. За
+    дополнительной информацией обращайтесь к документации
+    <a href="mysqlinfo.concepts.charset.html" class="link">наборы символов</a>.
+   </p>
+  </div>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-mysqli.real-escape-string-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    <dt>
+<code class="parameter">
+link</code></dt>
+<dd>
+<p class="para">Только для процедурного стиля: Идентификатор соединения, полученный с помощью
+<span class="function"><a href="function.mysqli-connect.html" class="function">mysqli_connect()</a></span> или <span class="function"><a href="mysqli.init.html" class="function">mysqli_init()</a></span>
+</p></dd>
+
+    
+     <dt>
+<code class="parameter">escapestr</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Строка, которую требуется экранировать.
+      </p>
+      <p class="para">
+       Экранируемые символы <em>NUL (ASCII 0), \n, \r, \, &#039;, &quot;, и
+       Control-Z</em>.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-mysqli.real-escape-string-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает экранированную строку.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-mysqli.real-escape-string-examples">
+  <h3 class="title">Примеры</h3>
+  <div class="example" id="example-1728">
+   <p><strong>Пример #1 Пример использования <span class="methodname"><strong>mysqli::real_escape_string()</strong></span></strong></p>
+   <div class="example-contents"><p>Объектно-ориентированный стиль</p></div>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$mysqli&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">mysqli</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_user"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_password"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"world"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;проверка&nbsp;соединения&nbsp;*/<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">mysqli_connect_errno</span><span style="color: #007700">())&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Не&nbsp;удалось&nbsp;подключиться:&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">mysqli_connect_error</span><span style="color: #007700">());<br />&nbsp;&nbsp;&nbsp;&nbsp;exit();<br />}<br /><br /></span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #DD0000">"CREATE&nbsp;TEMPORARY&nbsp;TABLE&nbsp;myCity&nbsp;LIKE&nbsp;City"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$city&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"'s&nbsp;Hertogenbosch"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">/*&nbsp;этот&nbsp;запрос&nbsp;вызовет&nbsp;ошибку,&nbsp;так&nbsp;как&nbsp;мы&nbsp;не&nbsp;экранировали&nbsp;$city&nbsp;*/<br /></span><span style="color: #007700">if&nbsp;(!</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #DD0000">"INSERT&nbsp;into&nbsp;myCity&nbsp;(Name)&nbsp;VALUES&nbsp;('</span><span style="color: #0000BB">$city</span><span style="color: #DD0000">')"</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Ошибка:&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">sqlstate</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #0000BB">$city&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">real_escape_string</span><span style="color: #007700">(</span><span style="color: #0000BB">$city</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;этот&nbsp;запрос&nbsp;отработает&nbsp;нормально&nbsp;*/<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #DD0000">"INSERT&nbsp;into&nbsp;myCity&nbsp;(Name)&nbsp;VALUES&nbsp;('</span><span style="color: #0000BB">$city</span><span style="color: #DD0000">')"</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"%d&nbsp;строк&nbsp;вставлено.\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">affected_rows</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">close</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>Процедурный стиль</p></div>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$link&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysqli_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_user"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_password"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"world"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;проверка&nbsp;соединения&nbsp;*/<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">mysqli_connect_errno</span><span style="color: #007700">())&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Не&nbsp;удалось&nbsp;подключиться:&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">mysqli_connect_error</span><span style="color: #007700">());<br />&nbsp;&nbsp;&nbsp;&nbsp;exit();<br />}<br /><br /></span><span style="color: #0000BB">mysqli_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"CREATE&nbsp;TEMPORARY&nbsp;TABLE&nbsp;myCity&nbsp;LIKE&nbsp;City"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$city&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"'s&nbsp;Hertogenbosch"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">/*&nbsp;этот&nbsp;запрос&nbsp;вызовет&nbsp;ошибку,&nbsp;так&nbsp;как&nbsp;мы&nbsp;не&nbsp;экранировали&nbsp;$city&nbsp;*/<br /></span><span style="color: #007700">if&nbsp;(!</span><span style="color: #0000BB">mysqli_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"INSERT&nbsp;into&nbsp;myCity&nbsp;(Name)&nbsp;VALUES&nbsp;('</span><span style="color: #0000BB">$city</span><span style="color: #DD0000">')"</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Ошибка:&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">mysqli_sqlstate</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">));<br />}<br /><br /></span><span style="color: #0000BB">$city&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysqli_real_escape_string</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$city</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;этот&nbsp;запрос&nbsp;отработает&nbsp;нормально&nbsp;*/<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">mysqli_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"INSERT&nbsp;into&nbsp;myCity&nbsp;(Name)&nbsp;VALUES&nbsp;('</span><span style="color: #0000BB">$city</span><span style="color: #DD0000">')"</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"%d&nbsp;строк&nbsp;вставлено.\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">mysqli_affected_rows</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">));<br />}<br /><br /></span><span style="color: #0000BB">mysqli_close</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>Результат выполнения данных примеров:</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>
+Ошибка: 42000
+1 строк вставлено.
+</pre></div>
+   </div>
+  </div>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-mysqli.real-escape-string-notes">
+  <h3 class="title">Примечания</h3>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <p class="para">
+    Тем, кто привык использовать функцию
+    <span class="function"><a href="function.mysql-real-escape-string.html" class="function">mysql_real_escape_string()</a></span>,
+    следует обратить внимание, что аргументы
+    <span class="function"><strong>mysqli_real_escape_string()</strong></span> отличаются от аргументов
+    <span class="function"><a href="function.mysql-real-escape-string.html" class="function">mysql_real_escape_string()</a></span>. Идентификатор
+    <code class="parameter">link</code> в <span class="function"><strong>mysqli_real_escape_string()</strong></span>
+    идет первым, в то время как в <span class="function"><a href="function.mysql-real-escape-string.html" class="function">mysql_real_escape_string()</a></span>
+    первой идет экранируемая строка.
+   </p>
+  </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-mysqli.real-escape-string-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="mysqli.set-charset.html" class="function" rel="rdfs-seeAlso">mysqli_set_charset()</a> - Задает набор символов по умолчанию</span></li>
+    <li class="member"><span class="function"><a href="mysqli.character-set-name.html" class="function" rel="rdfs-seeAlso">mysqli_character_set_name()</a> - Возвращает кодировку по умолчанию, установленную для соединения с БД</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mysqli.real-connect.html">mysqli::real_connect</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mysqli.real-query.html">mysqli::real_query</a></div>
+ <div class="up"><a href="class.mysqli.html">mysqli</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

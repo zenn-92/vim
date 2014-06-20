@@ -1,0 +1,243 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Класс SplPriorityQueue</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="splminheap.compare.html">SplMinHeap::compare</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="splpriorityqueue.compare.html">SplPriorityQueue::compare</a></div>
+ <div class="up"><a href="spl.datastructures.html">Структуры данных</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="class.splpriorityqueue" class="reference">
+ <h1 class="title">Класс SplPriorityQueue</h1>
+ 
+ 
+ <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.3.0)</p>
+ 
+
+  <div class="section" id="splpriorityqueue.intro">
+   <h2 class="title">Введение</h2>
+   <p class="para">
+    Класс SplPriorityQueue обеспечивает основные функциональные возможности
+    приоритетной очереди, реализованный при помощи динамической кучи.
+   </p>
+  </div>
+
+ 
+  <div class="section" id="splpriorityqueue.synopsis">
+   <h2 class="title">Обзор классов</h2>
+ 
+
+   <div class="classsynopsis">
+    <div class="ooclass"></div>
+ 
+
+
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <strong class="classname">SplPriorityQueue</strong>
+     </span>
+
+     <span class="oointerface">implements 
+      <span class="interfacename"><a href="class.iterator.html" class="interfacename">Iterator</a></span>
+     </span>
+
+     <span class="oointerface">, 
+      <span class="interfacename"><a href="class.countable.html" class="interfacename">Countable</a></span>
+     </span>
+ 
+     {</div>
+
+ 
+    
+ 
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Методы */</div>
+    <div class="constructorsynopsis dc-description">
+   <span class="methodname"><a href="splpriorityqueue.construct.html" class="methodname">__construct</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+
+    <div class="methodsynopsis dc-description">
+   <span class="type">int</span> <span class="methodname"><a href="splpriorityqueue.compare.html" class="methodname">compare</a></span>
+    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$priority1</code></span>
+   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$priority2</code></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">int</span> <span class="methodname"><a href="splpriorityqueue.count.html" class="methodname">count</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">mixed</span> <span class="methodname"><a href="splpriorityqueue.current.html" class="methodname">current</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">mixed</span> <span class="methodname"><a href="splpriorityqueue.extract.html" class="methodname">extract</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">void</span> <span class="methodname"><a href="splpriorityqueue.insert.html" class="methodname">insert</a></span>
+    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>
+   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$priority</code></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><a href="splpriorityqueue.isempty.html" class="methodname">isEmpty</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">mixed</span> <span class="methodname"><a href="splpriorityqueue.key.html" class="methodname">key</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">void</span> <span class="methodname"><a href="splpriorityqueue.next.html" class="methodname">next</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">void</span> <span class="methodname"><a href="splpriorityqueue.recoverfromcorruption.html" class="methodname">recoverFromCorruption</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">void</span> <span class="methodname"><a href="splpriorityqueue.rewind.html" class="methodname">rewind</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">void</span> <span class="methodname"><a href="splpriorityqueue.setextractflags.html" class="methodname">setExtractFlags</a></span>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">mixed</span> <span class="methodname"><a href="splpriorityqueue.top.html" class="methodname">top</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><a href="splpriorityqueue.valid.html" class="methodname">valid</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+
+   }</div>
+ 
+  </div>
+ 
+
+ 
+ </div>
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+<h2>Содержание</h2><ul class="chunklist chunklist_reference"><li><a href="splpriorityqueue.compare.html">SplPriorityQueue::compare</a> — Сравнивает приоритеты для корректного помещения элементов в очередь</li><li><a href="splpriorityqueue.construct.html">SplPriorityQueue::__construct</a> — Создает новую пустую очередь</li><li><a href="splpriorityqueue.count.html">SplPriorityQueue::count</a> — Производит подсчет элементов в очереди</li><li><a href="splpriorityqueue.current.html">SplPriorityQueue::current</a> — Возвращает текущий узел, на который указывает итератор</li><li><a href="splpriorityqueue.extract.html">SplPriorityQueue::extract</a> — Извлекает узел из начала очереди и пересортирует ее</li><li><a href="splpriorityqueue.insert.html">SplPriorityQueue::insert</a> — Добавляет элемент в очередь и пересортирует ее</li><li><a href="splpriorityqueue.isempty.html">SplPriorityQueue::isEmpty</a> — Проверяет, является ли очередь пустой</li><li><a href="splpriorityqueue.key.html">SplPriorityQueue::key</a> — Возвращает индекс текущего узла</li><li><a href="splpriorityqueue.next.html">SplPriorityQueue::next</a> — Переход к следующему узлу</li><li><a href="splpriorityqueue.recoverfromcorruption.html">SplPriorityQueue::recoverFromCorruption</a> — Восстанавливает корректное состояние очереди</li><li><a href="splpriorityqueue.rewind.html">SplPriorityQueue::rewind</a> — Переводит итератор на начало очереди</li><li><a href="splpriorityqueue.setextractflags.html">SplPriorityQueue::setExtractFlags</a> — Задает режим извлечения узлов</li><li><a href="splpriorityqueue.top.html">SplPriorityQueue::top</a> — Возвращает узел находящийся в начале очереди</li><li><a href="splpriorityqueue.valid.html">SplPriorityQueue::valid</a> — Проверяет, есть ли в очереди еще элементы</li></ul>
+</div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="splminheap.compare.html">SplMinHeap::compare</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="splpriorityqueue.compare.html">SplPriorityQueue::compare</a></div>
+ <div class="up"><a href="spl.datastructures.html">Структуры данных</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

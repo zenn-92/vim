@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Настройка во время выполнения</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="sqlite.installation.html">Установка</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="sqlite.resources.html">Типы ресурсов</a></div>
+ <div class="up"><a href="sqlite.setup.html">Установка и настройка</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="sqlite.configuration" class="section">
+ <h2 class="title">Настройка во время выполнения</h2>
+ <p class="simpara">
+Поведение этих функций зависит от установок в <var class="filename">php.ini</var>.
+</p>
+ <p class="para">
+  <table class="doctable table">
+   <caption><strong>SQLite Опции настройки</strong></caption>
+   
+    <thead>
+     <tr>
+      <th>Имя</th>
+      <th>По умолчанию</th>
+      <th>Меняемо</th>
+      <th>История изменений</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td><a href="sqlite.configuration.html#ini.sqlite.assoc-case" class="link">sqlite.assoc_case</a></td>
+      <td>&quot;0&quot;</td>
+      <td>PHP_INI_ALL</td>
+      <td>Доступна, начиная с версии PHP 5.0.0.</td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+  Для подробного описания констант
+PHP_INI_*, обратитесь к разделу <a href="configuration.changes.modes.html" class="xref">Где могут быть установлены параметры конфигурации</a>.
+ </p>
+ <p class="para">Краткое разъяснение конфигурационных
+директив.</p>
+ <p class="para">
+  <dl>
+
+   
+    <dt id="ini.sqlite.assoc-case">
+     <code class="parameter">sqlite.assoc_case</code>
+     <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Использовать смешанный регистр (<em>0</em>), верхний регистр
+      (<em>1</em>) или нижний регистр (<em>2</em>)
+      в индексах ключей.
+     </p>
+     <p class="para">
+      Эта опция обычно полезна, если вам нужна совместимость с другими
+      базами данных, в которых имена полей всегда возвращаются в верхнем
+      или нижнем регистре, вне зависимости от реально используемого
+      имени в схеме базы данных.
+     </p>
+     <p class="para">
+      Библиотека <span class="productname">SQLite</span> возвращает имена
+      полей в натуральном регистре (т.е. так, как они были определены в
+      схеме вашей базы данных). Если параметр
+      <code class="parameter">sqlite.assoc_case</code> установлен в <em>0</em>,
+      то натуральный регистр будет сохранен. При установке параметра в
+      <em>1</em> или <em>2</em>, PHP преобразует
+      индексы ключей в верхний или нижний регистр, соответственно.
+     </p>
+     <p class="para">
+      Использование этой опции привносит небольшое уменьшение
+      производительности, но является НАМНОГО более быстрым решением,
+      чем осуществление смены регистра вручную в PHP-скрипте.
+     </p>
+    </dd>
+
+         
+  </dl>
+
+ </p>
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="sqlite.installation.html">Установка</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="sqlite.resources.html">Типы ресурсов</a></div>
+ <div class="up"><a href="sqlite.setup.html">Установка и настройка</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

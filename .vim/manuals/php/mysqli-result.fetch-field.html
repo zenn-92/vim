@@ -1,0 +1,216 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Возвращает следующее поле результирующего набора</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mysqli-result.fetch-field-direct.html">mysqli_result::fetch_field_direct</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mysqli-result.fetch-fields.html">mysqli_result::fetch_fields</a></div>
+ <div class="up"><a href="class.mysqli-result.html">mysqli_result</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="mysqli-result.fetch-field" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">mysqli_result::fetch_field</h1>
+  <h1 class="refname">mysqli_fetch_field</h1>
+  <p class="verinfo">(PHP 5)</p><p class="refpurpose"><span class="refname">mysqli_result::fetch_field</span> -- <span class="refname">mysqli_fetch_field</span> &mdash; <span class="dc-title">
+   Возвращает следующее поле результирующего набора
+  </span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-mysqli-result.fetch-field-description">
+  <h3 class="title">Описание</h3>
+  <p class="para">Объектно-ориентированный стиль</p>
+  <div class="methodsynopsis dc-description">
+   <span class="type">object</span> <span class="methodname"><strong>mysqli_result::fetch_field</strong></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+
+  <p class="para rdfs-comment">Процедурный стиль</p>
+  <div class="methodsynopsis dc-description">
+   <span class="type">object</span> <span class="methodname"><strong>mysqli_fetch_field</strong></span>
+    ( <span class="methodparam"><span class="type"><a href="class.mysqli-result.html" class="type mysqli_result">mysqli_result</a></span> <code class="parameter">$result</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Возвращает информацию об одном столбце результирующего набора в виде объекта.
+   Чтобы получить определения всех столбцов, просто запустите эту функцию
+   многократно.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-mysqli-result.fetch-field-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    <dt>
+<code class="parameter">
+result</code></dt>
+<dd>
+<p class="para">Только для процедурного стиля: Идентификатор результата запроса, полученный с помощью
+<span class="function"><a href="mysqli.query.html" class="function">mysqli_query()</a></span>, <span class="function"><a href="mysqli.store-result.html" class="function">mysqli_store_result()</a></span>
+или <span class="function"><a href="mysqli.use-result.html" class="function">mysqli_use_result()</a></span>.</p></dd>
+
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-mysqli-result.fetch-field-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает объект содержащий определение поля или <strong><code>FALSE</code></strong>, если столбцы
+   в результирующей таблице закончились.
+  </p>
+  <p class="para">
+  <table class="doctable table">
+   <caption><strong>Свойства объекта</strong></caption>
+   
+    <thead>
+     <tr>
+      <th>Свойство</th>
+      <th>Описание</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>name</td>
+      <td>Имя столбца</td>
+     </tr>
+
+     <tr>
+      <td>orgname</td>
+      <td>Исходное имя столбца, если у него есть псевдоним</td>
+     </tr>
+
+     <tr>
+      <td>table</td>
+      <td>Имя таблицы, которой принадлежит столбец (если не вычислено)</td>
+     </tr>
+
+     <tr>
+      <td>orgtable</td>
+      <td>Исходное имя таблицы, если есть псевдоним</td>
+     </tr>
+
+     <tr>
+      <td>def</td>
+      <td>Зарезервировано для значения по умолчанию, на данный момент всегда &quot;&quot;</td>
+     </tr>
+
+     <tr>
+      <td>db</td>
+      <td>База данных (с PHP 5.3.6)</td>
+     </tr>
+
+     <tr>
+      <td>catalog</td>
+      <td>Имя каталога, всегда &quot;def&quot; (с PHP 5.3.6)</td>
+     </tr>
+
+     <tr>
+      <td>max_length</td>
+      <td>Максимальная ширина поля результирующего набора.</td>
+     </tr>
+
+     <tr>
+      <td>length</td>
+      <td>Ширина поля, как она задана при определении таблицы.</td>
+     </tr>
+
+     <tr>
+      <td>charsetnr</td>
+      <td>Количество наборов символов для поля.</td>
+     </tr>
+
+     <tr>
+      <td>flags</td>
+      <td>Целое число, представляющее битовые флаги для поля.</td>
+     </tr>
+
+     <tr>
+      <td>type</td>
+      <td>Тип данных поля</td>
+     </tr>
+
+     <tr>
+      <td>decimals</td>
+      <td>Число знаков после запятой (для целочисленных полей)</td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-mysqli-result.fetch-field-examples">
+  <h3 class="title">Примеры</h3>
+  <div class="example" id="example-1782">
+   <p><strong>Пример #1 Объектно-ориентированный стиль</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$mysqli&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">mysqli</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_user"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_password"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"world"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;проверка&nbsp;подключения&nbsp;*/<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">mysqli_connect_errno</span><span style="color: #007700">())&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Не&nbsp;удалось&nbsp;подключиться:&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">mysqli_connect_error</span><span style="color: #007700">());<br />&nbsp;&nbsp;&nbsp;&nbsp;exit();<br />}<br /><br /></span><span style="color: #0000BB">$query&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"SELECT&nbsp;Name,&nbsp;SurfaceArea&nbsp;from&nbsp;Country&nbsp;ORDER&nbsp;BY&nbsp;Code&nbsp;LIMIT&nbsp;5"</span><span style="color: #007700">;<br /><br />if&nbsp;(</span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #0000BB">$query</span><span style="color: #007700">))&nbsp;{<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">/*&nbsp;Получим&nbsp;информацию&nbsp;обо&nbsp;всех&nbsp;столбцах&nbsp;*/<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">while&nbsp;(</span><span style="color: #0000BB">$finfo&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$result</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetch_field</span><span style="color: #007700">())&nbsp;{<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Имя:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$finfo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">name</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Таблица:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$finfo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">table</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"макс.&nbsp;длина:&nbsp;%d\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$finfo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">max_length</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Флаги:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%d\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$finfo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">flags</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Тип:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%d\n\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$finfo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">type</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$result</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">close</span><span style="color: #007700">();<br />}<br /><br /></span><span style="color: #FF8000">/*&nbsp;закрываем&nbsp;подключение&nbsp;*/<br /></span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">close</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+  <div class="example" id="example-1783">
+   <p><strong>Пример #2 Процедурный стиль</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$link&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysqli_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_user"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_password"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"world"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;проверка&nbsp;подключения&nbsp;*/<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">mysqli_connect_errno</span><span style="color: #007700">())&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Не&nbsp;удалось&nbsp;подключиться:&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">mysqli_connect_error</span><span style="color: #007700">());<br />&nbsp;&nbsp;&nbsp;&nbsp;exit();<br />}<br /><br /></span><span style="color: #0000BB">$query&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"SELECT&nbsp;Name,&nbsp;SurfaceArea&nbsp;from&nbsp;Country&nbsp;ORDER&nbsp;BY&nbsp;Code&nbsp;LIMIT&nbsp;5"</span><span style="color: #007700">;<br /><br />if&nbsp;(</span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysqli_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$query</span><span style="color: #007700">))&nbsp;{<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">/*&nbsp;Получим&nbsp;информацию&nbsp;обо&nbsp;всех&nbsp;столбцах&nbsp;*/<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">while&nbsp;(</span><span style="color: #0000BB">$finfo&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysqli_fetch_field</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">))&nbsp;{<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Имя:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$finfo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">name</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Таблица:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$finfo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">table</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"макс.&nbsp;длина:&nbsp;%d\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$finfo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">max_length</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Флаги:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%d\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$finfo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">flags</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Тип:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%d\n\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$finfo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">type</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">mysqli_free_result</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #FF8000">/*&nbsp;закрываем&nbsp;подключение&nbsp;*/<br /></span><span style="color: #0000BB">mysqli_close</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>Результат выполнения данных примеров:</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>
+Имя:         Name
+Таблица:     Country
+макс. длина: 11
+Флаги:       1
+Тип:         254
+
+Имя:         SurfaceArea
+Таблица:     Country
+макс. длина: 10
+Флаги:       32769
+Тип:         4
+
+</pre></div>
+   </div>
+  </div>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-mysqli-result.fetch-field-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="mysqli-result.field-count.html" class="function" rel="rdfs-seeAlso">mysqli_num_fields()</a> - Получение количества полей в результирующем наборе</span></li>
+    <li class="member"><span class="function"><a href="mysqli-result.fetch-field-direct.html" class="function" rel="rdfs-seeAlso">mysqli_fetch_field_direct()</a> - Получение метаданных конкретного поля</span></li>
+    <li class="member"><span class="function"><a href="mysqli-result.fetch-fields.html" class="function" rel="rdfs-seeAlso">mysqli_fetch_fields()</a> - Возвращает массив объектов, представляющих поля результирующего набора</span></li>
+    <li class="member"><span class="function"><a href="mysqli-result.field-seek.html" class="function" rel="rdfs-seeAlso">mysqli_field_seek()</a> - Установить указатель поля на определенное смещение</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mysqli-result.fetch-field-direct.html">mysqli_result::fetch_field_direct</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mysqli-result.fetch-fields.html">mysqli_result::fetch_fields</a></div>
+ <div class="up"><a href="class.mysqli-result.html">mysqli_result</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

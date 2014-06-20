@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Задание режима сопряжения цветов для изображения</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.imageaffinematrixget.html">imageaffinematrixget</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.imageantialias.html">imageantialias</a></div>
+ <div class="up"><a href="ref.image.html">GD и функции для работы с изображениями Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.imagealphablending" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">imagealphablending</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5)</p><p class="refpurpose"><span class="refname">imagealphablending</span> &mdash; <span class="dc-title">
+   Задание режима сопряжения цветов для изображения
+  </span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-function.imagealphablending-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><strong>imagealphablending</strong></span>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$image</code></span>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$blendmode</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   <span class="function"><strong>imagealphablending()</strong></span> позволяет использовать режим сопряжения
+   цветов для truecolor-изображений при рисовании. В режиме сопряжения альфа
+   компонент цвета, который передается всем функциям рисования, вроде
+   <span class="function"><a href="function.imagesetpixel.html" class="function">imagesetpixel()</a></span>, определяет то, насколько сильно цвет
+   нижележащего слоя будет просачиваться через накладываемое изображение. В
+   результате, gd автоматически сопрягает существующий цвет в каждой точке с цветом
+   рисуемого поверх изображения и сохраняет результат сопряжения в изображении.
+   Пикселы, подвергшиеся сопряжению, не обладают свойством прозрачности.
+   В режиме без сопряжения цвет рисуемого поверх изображения пиксела буквально
+   копируется вместе со своим альфа компонентом, заменяя пиксел в исходном
+   изображении. Режим сопряжения не доступен при рисовании на палитровых
+   изображениях.
+  </p>
+ </div>
+
+ <div class="refsect1 parameters" id="refsect1-function.imagealphablending-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    <dt>
+<code class="parameter">
+image</code></dt>
+<dd>
+<p class="para">Ресурс изображения, полученный одной из функций создания изображений,
+например, такой как <span class="function"><a href="function.imagecreatetruecolor.html" class="function">imagecreatetruecolor()</a></span>.</p></dd>
+
+    
+     <dt>
+<code class="parameter">blendmode</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Включить режим сопряжения или нет. Включен (<strong><code>TRUE</code></strong>) по умолчанию для 
+       truecolor-изображений, для всех остальных по умолчанию выключен (<strong><code>FALSE</code></strong>).
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+ <div class="refsect1 returnvalues" id="refsect1-function.imagealphablending-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает <strong><code>TRUE</code></strong> в случае успешного завершения  или <strong><code>FALSE</code></strong> в случае возникновения ошибки.
+  </p>
+ </div>
+
+ <div class="refsect1 examples" id="refsect1-function.imagealphablending-examples">
+  <h3 class="title">Примеры</h3>
+  <div class="example" id="example-3228">
+   <p><strong>Пример #1 Пример использования <span class="function"><strong>imagealphablending()</strong></span></strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Создание&nbsp;изображения&nbsp;<br /></span><span style="color: #0000BB">$im&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecreatetruecolor</span><span style="color: #007700">(</span><span style="color: #0000BB">100</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">100</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Включение&nbsp;режима&nbsp;сопряжения&nbsp;цветов<br /></span><span style="color: #0000BB">imagealphablending</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Рисуем&nbsp;прямоугольник<br /></span><span style="color: #0000BB">imagefilledrectangle</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">30</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">30</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">70</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">70</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">imagecolorallocate</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">255</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">));<br /><br /></span><span style="color: #FF8000">//&nbsp;Вывод<br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'Content-type:&nbsp;image/png'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">imagepng</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+ </div>
+
+ <div class="refsect1 notes" id="refsect1-function.imagealphablending-notes">
+  <h3 class="title">Примечания</h3>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: <span class="simpara">Эта функция нуждается в GD версии 2.0.1 или выше.</span></p></blockquote>
+ </div>
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.imageaffinematrixget.html">imageaffinematrixget</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.imageantialias.html">imageantialias</a></div>
+ <div class="up"><a href="ref.image.html">GD и функции для работы с изображениями Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

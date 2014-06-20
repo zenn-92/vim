@@ -1,0 +1,626 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Читает содержимое директории</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.eio-readahead.html">eio_readahead</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.eio-readlink.html">eio_readlink</a></div>
+ <div class="up"><a href="ref.eio.html">Eio Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.eio-readdir" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">eio_readdir</h1>
+  <p class="verinfo">(PECL eio &gt;= 0.0.1dev)</p><p class="refpurpose"><span class="refname">eio_readdir</span> &mdash; <span class="dc-title">
+   Читает содержимое директории
+  </span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.eio-readdir-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">resource</span> <span class="methodname"><strong>eio_readdir</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$path</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$pri</code></span>
+   , <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$callback</code></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code><span class="initializer"> = NULL</span></span>
+  ] )</div>
+
+  <p class="para rdfs-comment">
+   Читает содержимое директории (посредством системных вызовов
+   <em>opendir</em>, <em>readdir</em> и
+   <em>closedir</em>) и либо возвращает имена файлов, либо передает
+   массив в качестве аргумента <code class="parameter">result</code> в функцию 
+   <code class="parameter">callback</code>. Поведение метода зависит от значения параметра
+   <code class="parameter">flags</code>.
+  </p>
+
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.eio-readdir-parameters">
+  <h3 class="title">Список параметров</h3>
+  <dl>
+
+   
+    <dt>
+<code class="parameter">path</code></dt>
+
+    <dd>
+
+     <p class="para">
+      Путь к директории.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">flags</code></dt>
+
+    <dd>
+
+     <p class="para">
+      Комбинация констант <em class="emphasis">EIO_READDIR_*</em>.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">pri</code></dt>
+
+    <dd>
+
+     <p class="para">Приоритет запросов: <strong><code>EIO_PRI_DEFAULT</code></strong>, <strong><code>EIO_PRI_MIN</code></strong>, <strong><code>EIO_PRI_MAX</code></strong>, или <strong><code>NULL</code></strong>.
+Если передан <strong><code>NULL</code></strong>, то <code class="parameter">pri</code> устанавливается в
+<strong><code>EIO_PRI_DEFAULT</code></strong>.
+</p>
+
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">callback</code></dt>
+
+    <dd>
+
+      <p class="para">
+Функция <code class="parameter">callback</code> вызывается при завершении запроса.
+Она должна удовлетворять следующему прототипу: <div class="example-contents"><div class="phpcode"><code><span style="color: #000000">
+void&nbsp;callback(mixed&nbsp;$data,&nbsp;int&nbsp;$result[,&nbsp;resource&nbsp;$req]);</span>
+</code></div></div>
+
+<dl>
+
+
+<dt>
+<code class="parameter">data</code></dt>
+
+<dd>
+<p class="para">является пользовательскими данными, переданными в запросе.</p></dd>
+
+
+
+<dt>
+<code class="parameter">result</code></dt>
+
+<dd>
+<p class="para">содержит результирующее значение, зависящее от запроса; обычно это значение, возвращаемое соответствующим
+системным вызовом.</p></dd>
+
+
+
+<dt>
+<code class="parameter">req</code></dt>
+
+<dd>
+<p class="para">является опциональным запрашиваемым ресурсом, который может использоваться с такими функциями как <span class="function"><a href="function.eio-get-last-error.html" class="function">eio_get_last_error()</a></span></p></dd>
+
+
+</dl>
+
+</p>
+
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">data</code></dt>
+
+    <dd>
+
+     <p class="para">
+      Данные, которые необходимо передать функции <code class="parameter">callback</code>.
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.eio-readdir-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   <span class="function"><strong>eio_readdir()</strong></span> возвращает ресурс запроса или <strong><code>FALSE</code></strong> в случае
+   ошибки. Также может задавать значение аргумента <code class="parameter">result</code>
+   функции <code class="parameter">callback</code> в зависимости от значения параметра
+   <code class="parameter">flags</code>:
+  </p>
+
+  <p class="para">
+   <dl>
+
+
+    
+    
+     <dt>
+
+      <strong><code>EIO_READDIR_DENTS</code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+     </dt>
+
+     <dd>
+
+      <span class="simpara">
+       Флаг <span class="function"><strong>eio_readdir()</strong></span>. Если задан, в качестве аргумента
+       callback-функции будет передаваться массив со следующими ключами:
+       <em>&#039;names&#039;</em> - массив имен директории
+       <em>&#039;dents&#039;</em> - массив структур типа <em>struct
+       eio_dirent</em>, каждая из которых представляется массивом с ключами:
+       <em>&#039;name&#039;</em> - имя директории;
+       <em>&#039;type&#039;</em> - одна из констант <em class="emphasis">EIO_DT_*</em>;
+       <em>&#039;inode&#039;</em> - номер узла inode, если доступен, либо пустое
+       значение;
+      </span>
+     </dd>
+
+    
+    
+     <dt>
+
+      <strong><code>EIO_READDIR_DIRS_FIRST</code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+     </dt>
+
+     <dd>
+
+      <span class="simpara">
+       Если этот флаг задан, первыми будут возвращаться имена директорий, затем
+       имена файлов. Порядок следования имен в каждой группе будет оптимальным для
+       применения фукнции stat.
+      </span>
+     </dd>
+
+    
+    
+     <dt>
+
+      <strong><code>EIO_READDIR_STAT_ORDER</code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+     </dt>
+
+     <dd>
+
+      <span class="simpara">
+       Если этот флаг задан, имена файлов и директорий будут возвращаеться в
+       порядке, удобном для сбора статистики (<em>stat</em>) каждого из
+       объектов. Если полученный список имен предполагается передавать в функцию
+       <span class="function"><a href="function.stat.html" class="function">stat()</a></span>, порядок следования имен обеспечит наиболее быструю
+       работу фукнции.
+      </span>
+     </dd>
+
+    
+    
+     <dt>
+
+      <strong><code>EIO_READDIR_FOUND_UNKNOWN</code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+     </dt>
+
+     <dd>
+
+      <span class="simpara">
+
+      </span>
+     </dd>
+
+    
+
+
+   </dl>
+
+  </p>
+
+  <p class="para">Node types:
+   <dl>
+
+
+
+    
+     <dt>
+
+      <strong><code>EIO_DT_UNKNOWN</code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+     </dt>
+
+     <dd>
+
+      <span class="simpara">
+       Неизвестный тип узла (очень часто). Необходима обработка функцией
+      <span class="function"><a href="function.stat.html" class="function">stat()</a></span>.
+      </span>
+     </dd>
+
+    
+    
+     <dt>
+
+      <strong><code>EIO_DT_FIFO</code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+     </dt>
+
+     <dd>
+
+      <span class="simpara">
+       Тип узла - FIFO
+      </span>
+     </dd>
+
+    
+    
+     <dt>
+
+      <strong><code>EIO_DT_CHR</code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+     </dt>
+
+     <dd>
+
+      <span class="simpara">
+       Тип узла
+      </span>
+     </dd>
+
+    
+    
+     <dt>
+
+      <strong><code>EIO_DT_MPC</code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+     </dt>
+
+     <dd>
+
+      <span class="simpara">
+       Тип узла - составное символьное устройство (v7+coherent)
+      </span>
+     </dd>
+
+    
+    
+     <dt>
+
+      <strong><code>EIO_DT_DIR</code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+     </dt>
+
+     <dd>
+
+      <span class="simpara">
+       Тип узла - директория
+      </span>
+     </dd>
+
+    
+    
+     <dt>
+
+      <strong><code>EIO_DT_NAM</code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+     </dt>
+
+     <dd>
+
+      <span class="simpara">
+       Тип узла - файл со специальным Xenix наименованием
+      </span>
+     </dd>
+
+    
+    
+     <dt>
+
+      <strong><code>EIO_DT_BLK</code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+     </dt>
+
+     <dd>
+
+      <span class="simpara">
+       Тип узла
+      </span>
+     </dd>
+
+    
+    
+     <dt>
+
+      <strong><code>EIO_DT_MPB</code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+     </dt>
+
+     <dd>
+
+      <span class="simpara">
+       Составное блочное устройство (v7+coherent)
+      </span>
+     </dd>
+
+    
+    
+     <dt>
+
+      <strong><code>EIO_DT_REG</code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+     </dt>
+
+     <dd>
+
+      <span class="simpara">
+       Тип узла
+      </span>
+     </dd>
+
+    
+    
+     <dt>
+
+      <strong><code>EIO_DT_NWK</code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+     </dt>
+
+     <dd>
+
+      <span class="simpara">
+      </span>
+     </dd>
+
+    
+    
+     <dt>
+
+      <strong><code>EIO_DT_CMP</code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+     </dt>
+
+     <dd>
+
+      <span class="simpara">
+       Специальный тип узла для сетей HP-UX
+      </span>
+     </dd>
+
+    
+    
+     <dt>
+
+      <strong><code>EIO_DT_LNK</code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+     </dt>
+
+     <dd>
+
+      <span class="simpara">
+       Тип узла - ссылка
+      </span>
+     </dd>
+
+    
+    
+     <dt>
+
+      <strong><code>EIO_DT_SOCK</code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+     </dt>
+
+     <dd>
+
+      <span class="simpara">
+       Тип узла - сокет
+      </span>
+     </dd>
+
+    
+    
+     <dt>
+
+      <strong><code>EIO_DT_DOOR</code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+     </dt>
+
+     <dd>
+
+      <span class="simpara">
+       Тип узла - Solaris door
+      </span>
+     </dd>
+
+    
+    
+     <dt>
+
+      <strong><code>EIO_DT_WHT</code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+     </dt>
+
+     <dd>
+
+      <span class="simpara">
+       Тип узла
+      </span>
+     </dd>
+
+    
+    
+     <dt>
+
+      <strong><code>EIO_DT_MAX</code></strong>
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+     </dt>
+
+     <dd>
+
+      <span class="simpara">
+       Максимальное значение типа узла
+      </span>
+     </dd>
+
+    
+ 
+ 
+ 
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.eio-readdir-examples">
+  <h3 class="title">Примеры</h3>
+  <div class="example" id="example-3643">
+   <p><strong>Пример #1 Пример использования <span class="function"><strong>eio_readdir()</strong></span></strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;Вызывается,&nbsp;когда&nbsp;отработает&nbsp;eio_readdir()&nbsp;*/<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">my_readdir_callback</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$result</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Вызвана&nbsp;функция&nbsp;"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">__FUNCTION__</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"данные:&nbsp;"</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"результат:&nbsp;"</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">eio_readdir</span><span style="color: #007700">(</span><span style="color: #DD0000">"/var/spool/news"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">EIO_READDIR_STAT_ORDER&nbsp;</span><span style="color: #007700">|&nbsp;</span><span style="color: #0000BB">EIO_READDIR_DIRS_FIRST</span><span style="color: #007700">,<br />&nbsp;&nbsp;</span><span style="color: #0000BB">EIO_PRI_DEFAULT</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_readdir_callback"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">eio_event_loop</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>Результатом выполнения данного примера
+будет что-то подобное:</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>
+Вызвана функция my_readdir_callback
+данные: NULL
+результат: array(2) {
+ [&quot;names&quot;]=&gt;
+  array(7) {
+   [0]=&gt;
+    string(7) &quot;archive&quot;
+    [1]=&gt;
+    string(8) &quot;articles&quot;
+    [2]=&gt;
+    string(8) &quot;incoming&quot;
+    [3]=&gt;
+    string(7) &quot;innfeed&quot;
+    [4]=&gt;
+    string(8) &quot;outgoing&quot;
+    [5]=&gt;
+    string(8) &quot;overview&quot;
+    [6]=&gt;
+    string(3) &quot;tmp&quot;
+  }
+ [&quot;dents&quot;]=&gt;
+  array(7) {
+   [0]=&gt;
+    array(3)
+    {
+     [&quot;name&quot;]=&gt;
+      string(7)
+      &quot;archive&quot;
+      [&quot;type&quot;]=&gt;
+      int(4)
+      [&quot;inode&quot;]=&gt;
+      int(393265)
+    }
+   [1]=&gt;
+    array(3)
+    {
+     [&quot;name&quot;]=&gt;
+      string(8)
+      &quot;articles&quot;
+      [&quot;type&quot;]=&gt;
+      int(4)
+      [&quot;inode&quot;]=&gt;
+      int(393266)
+    }
+   [2]=&gt;
+    array(3)
+    {
+     [&quot;name&quot;]=&gt;
+      string(8)
+      &quot;incoming&quot;
+      [&quot;type&quot;]=&gt;
+      int(4)
+      [&quot;inode&quot;]=&gt;
+      int(393267)
+    }
+   [3]=&gt;
+    array(3)
+    {
+     [&quot;name&quot;]=&gt;
+      string(7)
+      &quot;innfeed&quot;
+      [&quot;type&quot;]=&gt;
+      int(4)
+      [&quot;inode&quot;]=&gt;
+      int(393269)
+    }
+   [4]=&gt;
+    array(3)
+    {
+     [&quot;name&quot;]=&gt;
+      string(8)
+      &quot;outgoing&quot;
+      [&quot;type&quot;]=&gt;
+      int(4)
+      [&quot;inode&quot;]=&gt;
+      int(393270)
+    }
+   [5]=&gt;
+    array(3)
+    {
+     [&quot;name&quot;]=&gt;
+      string(8)
+      &quot;overview&quot;
+      [&quot;type&quot;]=&gt;
+      int(4)
+      [&quot;inode&quot;]=&gt;
+      int(393271)
+    }
+   [6]=&gt;
+    array(3)
+    {
+     [&quot;name&quot;]=&gt;
+      string(3)
+      &quot;tmp&quot;
+      [&quot;type&quot;]=&gt;
+      int(4)
+      [&quot;inode&quot;]=&gt;
+      int(393272)
+    }
+  }
+}
+</pre></div>
+   </div>
+  </div>
+ </div>
+
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.eio-readahead.html">eio_readahead</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.eio-readlink.html">eio_readlink</a></div>
+ <div class="up"><a href="ref.eio.html">Eio Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

@@ -1,0 +1,205 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Проверяет, содержит ли объект в своем дереве предков указанный класс</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.is-a.html">is_a</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.method-exists.html">method_exists</a></div>
+ <div class="up"><a href="ref.classobj.html">Классы/Объекты</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.is-subclass-of" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">is_subclass_of</h1>
+  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">is_subclass_of</span> &mdash; <span class="dc-title">Проверяет, содержит ли объект в своем дереве предков указанный класс</span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-function.is-subclass-of-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><strong>is_subclass_of</strong></span>
+    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$object</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$class_name</code></span>
+   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$allow_string</code><span class="initializer"> = <strong><code>TRUE</code></strong></span></span>
+  ] )</div>
+
+  <p class="para rdfs-comment">
+   Проверяет, содержит ли объект <code class="parameter">object</code>
+   в своем дереве предков класс <code class="parameter">class_name</code> .
+  </p>
+ </div>
+
+ <div class="refsect1 parameters" id="refsect1-function.is-subclass-of-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">object</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Имя класса или экземпляр объекта
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">class_name</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Имя класса
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">allow_string</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Если параметр установлен в false, то не допускается имя класса в виде строки
+       в качестве параметра <code class="parameter">object</code>. Это также предотвращает вызов
+       автозагрузчика, если класс не существует.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+ <div class="refsect1 returnvalues" id="refsect1-function.is-subclass-of-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Эта функция возвращает <strong><code>TRUE</code></strong>, если объект <code class="parameter">object</code>
+   принадлежит к классу, наследующему от <code class="parameter">class_name</code>, иначе
+   она возвращает <strong><code>FALSE</code></strong>.
+  </p>
+ </div>
+
+ <div class="refsect1 changelog" id="refsect1-function.is-subclass-of-changelog">
+  <h3 class="title">Список изменений</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Версия</th>
+       <th>Описание</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.3.9</td>
+       <td>
+        Добавлен параметр <code class="parameter">allow_string</code>
+       </td>
+      </tr>
+
+      <tr>
+       <td>5.3.7</td>
+       <td>
+        Добавлена поддержка работы с интерфейсами для параметра
+        <code class="parameter">class_name</code>
+       </td>
+      </tr>
+
+      <tr>
+       <td>5.0.3</td>
+       <td>
+        Вы также можете передать параметр <code class="parameter">object</code>
+        в виде строки (имени класса)
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+ <div class="refsect1 examples" id="refsect1-function.is-subclass-of-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-5094">
+    <p><strong>Пример #1 Пример использования <span class="function"><strong>is_subclass_of()</strong></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;объявляем&nbsp;класс<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">WidgetFactory<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$oink&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'moo'</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;объявляем&nbsp;наследника<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">WidgetFactory_Child&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">WidgetFactory<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;var&nbsp;</span><span style="color: #0000BB">$oink&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'oink'</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;создаем&nbsp;новый&nbsp;объект<br /></span><span style="color: #0000BB">$WF&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">WidgetFactory</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$WFC&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">WidgetFactory_Child</span><span style="color: #007700">();<br /><br />if&nbsp;(</span><span style="color: #0000BB">is_subclass_of</span><span style="color: #007700">(</span><span style="color: #0000BB">$WFC</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'WidgetFactory'</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"да,&nbsp;\$WFC&nbsp;наследует&nbsp;WidgetFactory\n"</span><span style="color: #007700">;<br />}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"нет,&nbsp;\$WFC&nbsp;не&nbsp;наследует&nbsp;WidgetFactory\n"</span><span style="color: #007700">;<br />}<br /><br /><br />if&nbsp;(</span><span style="color: #0000BB">is_subclass_of</span><span style="color: #007700">(</span><span style="color: #0000BB">$WF</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'WidgetFactory'</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"да,&nbsp;\$WF&nbsp;наследует&nbsp;WidgetFactory\n"</span><span style="color: #007700">;<br />}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"нет,&nbsp;\$WF&nbsp;не&nbsp;наследует&nbsp;WidgetFactory\n"</span><span style="color: #007700">;<br />}<br /><br /><br /></span><span style="color: #FF8000">//&nbsp;применимо&nbsp;только&nbsp;с&nbsp;версии&nbsp;PHP&nbsp;5.0.3<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">is_subclass_of</span><span style="color: #007700">(</span><span style="color: #DD0000">'WidgetFactory_Child'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'WidgetFactory'</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"да,&nbsp;WidgetFactory_Child&nbsp;наследует&nbsp;WidgetFactory\n"</span><span style="color: #007700">;<br />}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"нет,&nbsp;WidgetFactory_Child&nbsp;не&nbsp;наследует&nbsp;WidgetFactory\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>Результат выполнения данного примера:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+да, $WFC наследует WidgetFactory
+нет, $WF не наследует WidgetFactory
+да, WidgetFactory_Child наследует WidgetFactory
+</pre></div>
+    </div>
+   </div>
+  </p>
+  <p class="para">
+   <div class="example" id="example-5095">
+    <p><strong>Пример #2 Пример использования интерфейсов и <span class="function"><strong>is_subclass_of()</strong></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Определяем&nbsp;интерфейс<br /></span><span style="color: #007700">interface&nbsp;</span><span style="color: #0000BB">MyInterface<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">MyFunction</span><span style="color: #007700">();<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;Определяем&nbsp;класс&nbsp;с&nbsp;реализацией&nbsp;интерфейса<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">MyClass&nbsp;</span><span style="color: #007700">implements&nbsp;</span><span style="color: #0000BB">MyInterface<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">MyFunction</span><span style="color: #007700">()<br />&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">"MyClass&nbsp;реализует&nbsp;MyInterface!"</span><span style="color: #007700">;<br />&nbsp;&nbsp;}<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;Создаем&nbsp;объект<br /></span><span style="color: #0000BB">$my_object&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MyClass</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;Код&nbsp;ниже&nbsp;работает&nbsp;начиная&nbsp;с&nbsp;PHP&nbsp;5.3.7<br /><br />//&nbsp;Проверка&nbsp;с&nbsp;помощью&nbsp;экземпляра&nbsp;объекта<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">is_subclass_of</span><span style="color: #007700">(</span><span style="color: #0000BB">$my_object</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'MyInterface'</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Да,&nbsp;\$my_object&nbsp;является&nbsp;подклассом&nbsp;MyInterface\n"</span><span style="color: #007700">;<br />}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Нет,&nbsp;\$my_object&nbsp;не&nbsp;является&nbsp;подклассом&nbsp;MyInterface\n"</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;Проверка&nbsp;с&nbsp;помощью&nbsp;имени&nbsp;класса&nbsp;в&nbsp;виде&nbsp;строки<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">is_subclass_of</span><span style="color: #007700">(</span><span style="color: #DD0000">'MyClass'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'MyInterface'</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Да,&nbsp;MyClass&nbsp;является&nbsp;подклассом&nbsp;MyInterface\n"</span><span style="color: #007700">;<br />}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Нет,&nbsp;MyClass&nbsp;не&nbsp;является&nbsp;подклассом&nbsp;MyInterface\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>Результат выполнения данного примера:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+Да, $my_object является подклассом MyInterface
+Да, MyClass является подклассом MyInterface
+</pre></div>
+    </div>
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.is-subclass-of-notes">
+  <h3 class="title">Примечания</h3>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+<p class="para">Вызов этой функции будет использовать все зарегистрированные
+ <a href="language.oop5.autoload.html" class="link">функции автозагрузки</a>, если класс еще не известен.</p></p></blockquote>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.is-subclass-of-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.get-class.html" class="function" rel="rdfs-seeAlso">get_class()</a> - Возвращает имя класса, к которому принадлежит объект</span></li>
+    <li class="member"><span class="function"><a href="function.get-parent-class.html" class="function" rel="rdfs-seeAlso">get_parent_class()</a> - Возвращает имя родительского класса для объекта или класса</span></li>
+    <li class="member"><span class="function"><a href="function.is-a.html" class="function" rel="rdfs-seeAlso">is_a()</a> - Проверяет, принадлежит ли объект к данному классу или
+   содержит данный класс в числе своих предков</span></li>
+    <li class="member"><span class="function"><a href="function.class-parents.html" class="function" rel="rdfs-seeAlso">class_parents()</a> - Возвращает список родительских классов заданного класса</span></li>
+   </ul>
+  </p>
+ </div>
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.is-a.html">is_a</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.method-exists.html">method_exists</a></div>
+ <div class="up"><a href="ref.classobj.html">Классы/Объекты</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

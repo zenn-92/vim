@@ -1,0 +1,232 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Задание настроек</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mysqli.next-result.html">mysqli::next_result</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mysqli.ping.html">mysqli::ping</a></div>
+ <div class="up"><a href="class.mysqli.html">mysqli</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="mysqli.options" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">mysqli::options</h1>
+  <h1 class="refname">mysqli_options</h1>
+  <p class="verinfo">(PHP 5)</p><p class="refpurpose"><span class="refname">mysqli::options</span> -- <span class="refname">mysqli_options</span> &mdash; <span class="dc-title">Задание настроек</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-mysqli.options-description">
+  <h3 class="title">Описание</h3>
+  <p class="para">Объектно-ориентированный стиль</p>
+  <div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><strong>mysqli::options</strong></span>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$option</code></span>
+   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">Процедурный стиль</p>
+  <div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><strong>mysqli_options</strong></span>
+    ( <span class="methodparam"><span class="type"><a href="class.mysqli.html" class="type mysqli">mysqli</a></span> <code class="parameter">$link</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$option</code></span>
+   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$value</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Используется для задания дополнительных настроек соединения и поведения
+   подключения к базе данных.
+  </p>
+  <p class="para">
+   Эту функцию можно вызывать неоднократно, чтобы задать несколько настроек.
+  </p>
+  <p class="para">
+   <span class="function"><strong>mysqli_options()</strong></span> нужно вызывать после
+   <span class="function"><a href="mysqli.init.html" class="function">mysqli_init()</a></span> и перед
+   <span class="function"><a href="mysqli.real-connect.html" class="function">mysqli_real_connect()</a></span>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-mysqli.options-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    <dt>
+<code class="parameter">
+link</code></dt>
+<dd>
+<p class="para">Только для процедурного стиля: Идентификатор соединения, полученный с помощью
+<span class="function"><a href="function.mysqli-connect.html" class="function">mysqli_connect()</a></span> или <span class="function"><a href="mysqli.init.html" class="function">mysqli_init()</a></span>
+</p></dd>
+
+    
+     <dt>
+<code class="parameter">option</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Настройка, которую требуется задать. Это может быть одно из следующих
+       значений:
+       <table class="doctable table">
+        <caption><strong>Допустимые настройки</strong></caption>
+        
+         <thead>
+          <tr>
+           <th>Имя</th>
+           <th>Описание</th>
+          </tr>
+
+         </thead>
+
+         <tbody class="tbody">
+          <tr>
+           <td><strong><code>MYSQLI_OPT_CONNECT_TIMEOUT</code></strong></td>
+           <td>
+            таймаут соединения в секундах (поддерживается в Windows с TCP/IP,
+            начиная с PHP 5.3.1)
+           </td>
+          </tr>
+
+          <tr>
+           <td><strong><code>MYSQLI_OPT_LOCAL_INFILE</code></strong></td>
+           <td>
+            включение/выключение <em>LOAD LOCAL INFILE</em>
+           </td>
+          </tr>
+
+          <tr>
+           <td><strong><code>MYSQLI_INIT_COMMAND</code></strong></td>
+           <td>
+            команда, которую требуется выполнить сразу после подключения к
+            серверу MySQL
+           </td>
+          </tr>
+
+          <tr>
+           <td><strong><code>MYSQLI_READ_DEFAULT_FILE</code></strong></td>
+           <td>
+            Читать настройки из именованного файла вместо
+            <var class="filename">my.cnf</var>
+           </td>
+          </tr>
+
+          <tr>
+           <td><strong><code>MYSQLI_READ_DEFAULT_GROUP</code></strong></td>
+           <td>
+            Читать настройки из именованной группы в файле
+            <var class="filename">my.cnf</var> или другом файле, заданным настройкой
+            <strong><code>MYSQL_READ_DEFAULT_FILE</code></strong>.
+           </td>
+          </tr>
+
+          <tr>
+           <td><strong><code>MYSQLI_SERVER_PUBLIC_KEY</code></strong></td>
+           <td>
+             RSA public key file used with the SHA-256 based authentication.
+           </td>
+          </tr>
+
+         </tbody>
+        
+       </table>
+
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">value</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Значение настройки.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-mysqli.options-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает <strong><code>TRUE</code></strong> в случае успешного завершения  или <strong><code>FALSE</code></strong> в случае возникновения ошибки.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-mysqli.options-changelog">
+  <h3 class="title">Список изменений</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Версия</th>
+       <th>Описание</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.5.0</td>
+       <td>
+        The <strong><code>MYSQLI_SERVER_PUBLIC_KEY</code></strong> option was added.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-mysqli.options-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   См. <span class="function"><a href="mysqli.real-connect.html" class="function">mysqli_real_connect()</a></span>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-mysqli.options-notes">
+  <h3 class="title">Примечания</h3>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+<p class="para">MySQLnd всегда подразумевает кодировку, которую использует по умолчанию сервер. Эта кодировка передается во время
+установки соединения/авторизации, которе использует mysqlnd.</p><p class="para">Libmysqlclient по умолчанию использует
+кодировку, установленную в <var class="filename">my.cnf</var> или специальным вызовом <span class="function"><strong>mysqli_options()</strong></span> до
+использования <span class="function"><a href="mysqli.real-connect.html" class="function">mysqli_real_connect()</a></span>, но после <span class="function"><a href="mysqli.init.html" class="function">mysqli_init()</a></span>.</p></p></blockquote>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-mysqli.options-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="mysqli.init.html" class="function" rel="rdfs-seeAlso">mysqli_init()</a> - Инициализирует MySQLi и возвращает ресурс для использования в функции
+   mysqli_real_connect()</span></li>
+    <li class="member"><span class="function"><a href="mysqli.real-connect.html" class="function" rel="rdfs-seeAlso">mysqli_real_connect()</a> - Устанавливает соединение с сервером mysql</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mysqli.next-result.html">mysqli::next_result</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mysqli.ping.html">mysqli::ping</a></div>
+ <div class="up"><a href="class.mysqli.html">mysqli</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

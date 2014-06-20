@@ -1,0 +1,188 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Открывает файл или URL</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="streamwrapper.stream-metadata.html">streamWrapper::stream_metadata</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="streamwrapper.stream-read.html">streamWrapper::stream_read</a></div>
+ <div class="up"><a href="class.streamwrapper.html">streamWrapper</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="streamwrapper.stream-open" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">streamWrapper::stream_open</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.2, PHP 5)</p><p class="refpurpose"><span class="refname">streamWrapper::stream_open</span> &mdash; <span class="dc-title">Открывает файл или URL</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-streamwrapper.stream-open-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><strong>streamWrapper::stream_open</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$path</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$mode</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$options</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter reference">&$opened_path</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   This method is called immediately after the wrapper is initialized (f.e. by
+   <span class="function"><a href="function.fopen.html" class="function">fopen()</a></span> and <span class="function"><a href="function.file-get-contents.html" class="function">file_get_contents()</a></span>).
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-streamwrapper.stream-open-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">path</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Задает URL, который будет передан в вызывающую функцию.
+      </p>
+      <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+       <p class="para">
+        URL можно разделить на части функцией <span class="function"><a href="function.parse-url.html" class="function">parse_url()</a></span>.
+        URL должен быть отделен символами ://.
+        Символы : and :/ пока работают, но дальнейшая поддержка не гарантируется.
+       </p>
+      </p></blockquote>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">mode</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Режим открытия файла, аналогичен режимам для
+       <span class="function"><a href="function.fopen.html" class="function">fopen()</a></span>.
+      </p>
+      <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+       <p class="para">
+        Не забывайте проверять, поддерживается ли режим
+        <code class="parameter">mode</code> файлом
+        <code class="parameter">path</code>.
+       </p>
+      </p></blockquote>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">options</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Хранит дополнительные флаги, задаваемые API потоков. Может содержать одно
+       или несколько значений объединенных операцией ИЛИ. Значения приведены ниже.
+       <table class="doctable informaltable">
+        
+         <thead>
+          <tr>
+           <th>Флаг</th>
+           <th>Описание</th>
+          </tr>
+
+         </thead>
+
+         <tbody class="tbody">
+          <tr>
+           <td><strong><code>STREAM_USE_PATH</code></strong></td>
+           <td>Если путь <code class="parameter">path</code> относительный, требуется
+            искать ресурс, используя include_path.
+           </td>
+          </tr>
+
+          <tr>
+           <td><strong><code>STREAM_REPORT_ERRORS</code></strong></td>
+           <td>Если этот флаг задан, Вы можете вызывать ошибки
+            функцией <span class="function"><a href="function.trigger-error.html" class="function">trigger_error()</a></span> во время
+            открытия потока. Если флаг не задан, ошибки вызывать нельзя.
+           </td>
+          </tr>
+
+         </tbody>
+        
+       </table>
+
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">opened_path</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Если <code class="parameter">path</code> успешно открыт, и
+       <strong><code>STREAM_USE_PATH</code></strong> задана в <code class="parameter">options</code>,
+       то в аргументе <code class="parameter">opened_path</code> необходимо сохранить
+       полный путь к открытому файлу или ресурсу.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-streamwrapper.stream-open-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает <strong><code>TRUE</code></strong> в случае успешного завершения  или <strong><code>FALSE</code></strong> в случае возникновения ошибки.
+  </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-streamwrapper.stream-open-errors">
+  <h3 class="title">Ошибки</h3>
+  <p class="para">Вызывает ошибку уровня
+<strong><code>E_WARNING</code></strong>, если вызов к этому методу не удался
+(например, не реализован).</p>
+ </div>
+
+ 
+
+
+
+ <div class="refsect1 notes" id="refsect1-streamwrapper.stream-open-notes">
+  <h3 class="title">Примечания</h3>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: <p class="para">Свойство
+<var class="varname"><var class="varname">streamWrapper::$context</var></var>
+будет обновлено, если корректный контекст был передан в вызываемую функцию.</p></p></blockquote>
+ </div>
+
+ 
+ <div class="refsect1 seealso" id="refsect1-streamwrapper.stream-open-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.fopen.html" class="function" rel="rdfs-seeAlso">fopen()</a> - Открывает файл или URL</span></li>
+    <li class="member"><span class="function"><a href="function.parse-url.html" class="function" rel="rdfs-seeAlso">parse_url()</a> - Разбирает URL и возвращает его компоненты</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="streamwrapper.stream-metadata.html">streamWrapper::stream_metadata</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="streamwrapper.stream-read.html">streamWrapper::stream_read</a></div>
+ <div class="up"><a href="class.streamwrapper.html">streamWrapper</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

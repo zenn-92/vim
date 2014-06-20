@@ -1,0 +1,168 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Настройка во время выполнения</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="soap.installation.html">Установка</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="soap.resources.html">Типы ресурсов</a></div>
+ <div class="up"><a href="soap.setup.html">Установка и настройка</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="soap.configuration" class="section">
+ <h2 class="title">Настройка во время выполнения</h2>
+ <p class="simpara">
+Поведение этих функций зависит от установок в <var class="filename">php.ini</var>.
+</p>
+ <p class="para">
+  <table class="doctable table">
+   <caption><strong>SOAP Опции настройки</strong></caption>
+   
+    <thead>
+     <tr>
+      <th>Имя</th>
+      <th>По умолчанию</th>
+      <th>Меняемо</th>
+      <th>Список изменений</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td><a href="soap.configuration.html#ini.soap.wsdl-cache-enabled" class="link">soap.wsdl_cache_enabled</a></td>
+      <td>1</td>
+      <td>PHP_INI_ALL</td>
+      <td></td>
+     </tr>
+
+     <tr>
+      <td><a href="soap.configuration.html#ini.soap.wsdl-cache-dir" class="link">soap.wsdl_cache_dir</a></td>
+      <td>/tmp</td>
+      <td>PHP_INI_ALL</td>
+      <td></td>
+     </tr>
+
+     <tr>
+      <td><a href="soap.configuration.html#ini.soap.wsdl-cache-ttl" class="link">soap.wsdl_cache_ttl</a></td>
+      <td>86400</td>
+      <td>PHP_INI_ALL</td>
+      <td></td>
+     </tr>
+
+     <tr>
+      <td><a href="soap.configuration.html#ini.soap.wsdl-cache" class="link">soap.wsdl_cache</a></td>
+      <td>1</td>
+      <td>PHP_INI_ALL</td>
+      <td></td>
+     </tr>
+
+     <tr>
+      <td><a href="soap.configuration.html#ini.soap.wsdl-cache-limit" class="link">soap.wsdl_cache_limit</a></td>
+      <td>5</td>
+      <td>PHP_INI_ALL</td>
+      <td></td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </p>
+
+ <p class="para">Краткое разъяснение конфигурационных
+директив.</p>
+
+ <p class="para">
+  <dl>
+
+   
+    <dt id="ini.soap.wsdl-cache-enabled">
+     <code class="parameter">soap.wsdl_cache_enabled</code>
+     <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Включает или отключает кэширование WSDL.
+     </p>
+    </dd>
+
+   
+   
+    <dt id="ini.soap.wsdl-cache-dir">
+     <code class="parameter">soap.wsdl_cache_dir</code>
+     <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Устанавливает путь к директории, где расширение SOAP будет хранить кэш-файлы.
+     </p>
+    </dd>
+
+   
+   
+    <dt id="ini.soap.wsdl-cache-ttl">
+     <code class="parameter">soap.wsdl_cache_ttl</code>
+     <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Устанавливает количество секунд (время жизни) для файлов в кэше, которое они
+      будут использоваться вместо оригинальных файлов.
+     </p>
+    </dd>
+
+   
+   
+    <dt id="ini.soap.wsdl-cache">
+     <code class="parameter">soap.wsdl_cache</code>
+     <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Если параметр <code class="parameter">soap.wsdl_cache_enabled</code> принимает значение &quot;on&quot;, то эта опция
+      определяет тип кэширования. Он может быть любым из следующих типов:
+      <strong><code>WSDL_CACHE_NONE</code></strong> (<em>0</em>),
+      <strong><code>WSDL_CACHE_DISK</code></strong> (<em>1</em>),
+      <strong><code>WSDL_CACHE_MEMORY</code></strong> (<em>2</em>) или
+      <strong><code>WSDL_CACHE_BOTH</code></strong> (<em>3</em>). Это также
+      может быть установлено через массив <code class="parameter">options</code>  в конструкторе
+      <a href="class.soapclient.html" class="classname">SoapClient</a> или <a href="class.soapserver.html" class="classname">SoapServer</a>.
+     </p>
+    </dd>
+
+   
+   
+    <dt id="ini.soap.wsdl-cache-limit">
+     <code class="parameter">soap.wsdl_cache_limit</code>
+     <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Максимальное количество находящихся в оперативной памяти кэшированных файлов WSDL. Дальнейшее добавление
+      файлов в заполненную кэш-память будет приводить к удалению из нее самых старых файлов.
+     </p>
+    </dd>
+
+   
+
+  </dl>
+
+ </p>
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="soap.installation.html">Установка</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="soap.resources.html">Типы ресурсов</a></div>
+ <div class="up"><a href="soap.setup.html">Установка и настройка</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

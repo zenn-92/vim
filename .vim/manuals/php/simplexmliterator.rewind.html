@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Возвращает итератор к первому элементу</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="simplexmliterator.next.html">SimpleXMLIterator::next</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="simplexmliterator.valid.html">SimpleXMLIterator::valid</a></div>
+ <div class="up"><a href="class.simplexmliterator.html">SimpleXMLIterator</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="simplexmliterator.rewind" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">SimpleXMLIterator::rewind</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0)</p><p class="refpurpose"><span class="refname">SimpleXMLIterator::rewind</span> &mdash; <span class="dc-title">Возвращает итератор к первому элементу</span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-simplexmliterator.rewind-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type"><span class="type void">void</span></span> <span class="methodname"><strong>SimpleXMLIterator::rewind</strong></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Этот метод возвращает <a href="class.simplexmliterator.html" class="classname">SimpleXMLIterator</a> к первому элементу.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-simplexmliterator.rewind-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">У этой функции нет параметров.</p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-simplexmliterator.rewind-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Эта функция не возвращает значения после выполнения.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-simplexmliterator.rewind-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-5550">
+    <p><strong>Пример #1 Возврат к первому элементу</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$xmlIterator&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">SimpleXMLIterator</span><span style="color: #007700">(</span><span style="color: #DD0000">'&lt;books&gt;&lt;book&gt;Основы&nbsp;PHP&lt;/book&gt;&lt;book&gt;Основы&nbsp;XML&lt;/book&gt;&lt;/books&gt;'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$xmlIterator</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">rewind</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$xmlIterator</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">current</span><span style="color: #007700">());<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+     <div class="example-contents"><p>Результат выполнения данного примера:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+object(SimpleXMLIterator)#2 (1) {
+  [0]=&gt;
+  string(10) &quot;Основы PHP&quot;
+}
+</pre></div>
+    </div>
+   </div>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="simplexmliterator.next.html">SimpleXMLIterator::next</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="simplexmliterator.valid.html">SimpleXMLIterator::valid</a></div>
+ <div class="up"><a href="class.simplexmliterator.html">SimpleXMLIterator</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

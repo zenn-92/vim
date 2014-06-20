@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Отличия от регулярных выражений POSIX</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="reference.pcre.pattern.differences.html">Differences From Perl</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="ref.pcre.html">PCRE</a></div>
+ <div class="up"><a href="pcre.pattern.html">Регулярные выражения PCRE</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="reference.pcre.pattern.posix" class="article">
+ <h1>Отличия от регулярных выражений POSIX</h1>
+
+
+ <p class="para">
+  По состоянию на PHP 5.3.0, расширение <a href="book.regex.html" class="link">регулярные выражения POSIX‎</a>
+  считается устаревшим. Существует целый ряд отличий между регулярными выражениями POSIX и
+  PCRE. На этой странице перечислены наиболее важные из них, которые необходимо 
+  знать для того, чтобы выполнить преобразование в PCRE.
+ </p>
+
+ <p class="para">
+  <ol type="1">
+   <li class="listitem">
+    <span class="simpara">
+     Функции PCRE требуют, чтобы шаблон был заключен в <a href="regexp.reference.delimiters.html" class="link">разделители</a>.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     В отличие от POSIX, в расширении PCRE нет специальных функция для поиска совпадений
+     без учета регистра. Вместо них используется <a href="reference.pcre.pattern.modifiers.html" class="link">модификатор шаблона</a>
+     <em class="emphasis">i</em> (<em>PCRE_CASELESS</em>). Также доступны другие
+     модификаторы шаблонов для изменения стратегии поиска совпадений.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     Функции POSIX находят самое длинное совпадение, ближнее к левому краю, а PCRE
+     останавливается с первым найденным совпадением. Если строка не совпадает вовсе, это
+     не имеет значения, в противном случае это может оказать существенное влияние 
+     и на результаты поиска совпадений, и на скорость этого поиска.
+    </span>
+    <span class="simpara">
+     Чтобы проиллюстрировать эту разницу, рассмотрим следующий пример из книги
+     Джеффри Фридла &quot;Регулярные выражения&quot; (Jeffrey Friedl, &quot;Mastering Regular Expressions&quot;). 
+     При применении шаблона
+     <em>one(self)?(selfsufficient)?</em> к строке
+     <em>oneselfsufficient</em>, PCRE вернет
+     <em>oneself</em>, но при использовании POSIX результатом будет вся 
+     строка <em>oneselfsufficient</em>. Обе (под)строки соответствуют
+     исходному шаблону, но POSIX требует, чтобы наиболее длинная вернулась в качестве результата.
+    </span>
+   </li>
+  </ol>
+ </p>
+
+ <p class="para">
+  <table class="doctable table">
+   <caption><strong>Замены для функций</strong></caption>
+   
+    <thead>
+     <tr>
+      <th>POSIX</th>
+      <th>PCRE</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td><span class="function"><a href="function.ereg-replace.html" class="function">ereg_replace()</a></span></td>
+      <td><span class="function"><a href="function.preg-replace.html" class="function">preg_replace()</a></span></td>
+     </tr>
+
+     <tr>
+      <td><span class="function"><a href="function.ereg.html" class="function">ereg()</a></span></td>
+      <td><span class="function"><a href="function.preg-match.html" class="function">preg_match()</a></span></td>
+     </tr>
+
+     <tr>
+      <td><span class="function"><a href="function.eregi-replace.html" class="function">eregi_replace()</a></span></td>
+      <td><span class="function"><a href="function.preg-replace.html" class="function">preg_replace()</a></span></td>
+     </tr>
+
+     <tr>
+      <td><span class="function"><a href="function.eregi.html" class="function">eregi()</a></span></td>
+      <td><span class="function"><a href="function.preg-match.html" class="function">preg_match()</a></span></td>
+     </tr>
+
+     <tr>
+      <td><span class="function"><a href="function.split.html" class="function">split()</a></span></td>
+      <td><span class="function"><a href="function.preg-split.html" class="function">preg_split()</a></span></td>
+     </tr>
+
+     <tr>
+      <td><span class="function"><a href="function.spliti.html" class="function">spliti()</a></span></td>
+      <td><span class="function"><a href="function.preg-split.html" class="function">preg_split()</a></span></td>
+     </tr>
+
+     <tr>
+      <td><span class="function"><a href="function.sql-regcase.html" class="function">sql_regcase()</a></span></td>
+      <td><em class="emphasis">Нет эквивалента</em></td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </p>
+</div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="reference.pcre.pattern.differences.html">Differences From Perl</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="ref.pcre.html">PCRE</a></div>
+ <div class="up"><a href="pcre.pattern.html">Регулярные выражения PCRE</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

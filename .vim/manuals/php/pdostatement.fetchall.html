@@ -1,0 +1,363 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Возвращает массив, содержащий все строки результирующего набора</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="pdostatement.fetch.html">PDOStatement::fetch</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="pdostatement.fetchcolumn.html">PDOStatement::fetchColumn</a></div>
+ <div class="up"><a href="class.pdostatement.html">PDOStatement</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="pdostatement.fetchall" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">PDOStatement::fetchAll</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PECL pdo &gt;= 0.1.0)</p><p class="refpurpose"><span class="refname">PDOStatement::fetchAll</span> &mdash; <span class="dc-title">
+   Возвращает массив, содержащий все строки результирующего набора
+  </span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-pdostatement.fetchall-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">array</span> <span class="methodname"><strong>PDOStatement::fetchAll</strong></span>
+    ([ <span class="methodparam"><span class="type">int</span> <code class="parameter">$fetch_style</code></span>
+   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$fetch_argument</code></span>
+   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$ctor_args</code><span class="initializer"> = array()</span></span>
+  ]]] )</div>
+
+
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-pdostatement.fetchall-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">fetch_style</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Определяет содержимое возвращаемого массива. Подробней можно узнать
+       из документации к методу <span class="function"><a href="pdostatement.fetch.html" class="function">PDOStatement::fetch()</a></span>.
+       По умолчанию параметр принимает значение
+       <strong><code>PDO::ATTR_DEFAULT_FETCH_MODE</code></strong>
+       (которое в свою очередь имеет умолчание <strong><code>PDO::FETCH_BOTH</code></strong>)
+      </p>
+      <p class="para">
+       Чтобы извлечь значения только одного столбца, передайте в качестве значения
+       этого параметра константу <strong><code>PDO::FETCH_COLUMN</code></strong>. С помощью
+       параметра <code class="parameter">column-index</code> можно задать столбец, из
+       которого требуется извлечь данные.
+      </p>
+      <p class="para">
+       Если требуется извлечь только уникальные строки одного столбца, нужно
+       передать побитовое ИЛИ констант <strong><code>PDO::FETCH_COLUMN</code></strong> и
+       <strong><code>PDO::FETCH_UNIQUE</code></strong>.
+      </p>
+      <p class="para">
+       Чтобы получить ассоциативный массив строк сгруппированный по значениям
+       определенного столбца, нужно передать побитовое ИЛИ констант
+       <strong><code>PDO::FETCH_COLUMN</code></strong> и
+       <strong><code>PDO::FETCH_GROUP</code></strong>.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">fetch_argument</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Смысл этого аргумента зависит от значения параметра
+       <code class="parameter">fetch_style</code>:
+       <ul class="itemizedlist">
+        <li class="listitem">
+         <p class="para">
+          <strong><code>PDO::FETCH_COLUMN</code></strong>: Будет возвращен указанный столбец.
+          Индексация столбцов начинается с 0.
+         </p>
+        </li>
+        <li class="listitem">
+         <p class="para">
+          <strong><code>PDO::FETCH_CLASS</code></strong>: Будет создан и возвращен новый
+          объект указанного класса. Свойствам объекта будут присвоены значения
+          столбцов, имена которых совпадут с именами свойств.
+         </p>
+        </li>
+        <li class="listitem">
+         <p class="para">
+          <strong><code>PDO::FETCH_FUNC</code></strong>: Будут возвращены результаты вызовов
+          указанной функции. Данные каждой строки результирующего набора будут
+          передаваться в эту функцию.
+         </p>
+        </li>
+       </ul>
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">ctor_args</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Аргументы конструктора класса. Для случаев, когда параметру
+       <code class="parameter">fetch_style</code> присвоено значение
+       <strong><code>PDO::FETCH_CLASS</code></strong>.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-pdostatement.fetchall-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   <span class="function"><strong>PDOStatement::fetchAll()</strong></span> возвращает массив, содержащий все
+   оставшиеся строки результирующего набора. Массив представляет каждую строку
+   либо в виде массива значений одного столбца, либо в виде объекта, имена свойств
+   которого совпадают с именами столбцов.
+  </p>
+  <p class="para">
+   Использование этого метода для извлечения строк больших результирующих
+   наборов может пагубно сказаться на производительности системы и сетевых
+   ресурсов. Вместо извлечения всех данных и их обработки в PHP рекомендуется
+   использовать встроенные средства СУБД. Например, использование выражений
+   WHETE и ORDER BY языка SQL может уменьшить размеры результирующего набора.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-pdostatement.fetchall-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-975"><p><strong>Пример #1 Извлечение всех оставшихся строк результирующего набора</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$sth&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #DD0000">"SELECT&nbsp;name,&nbsp;colour&nbsp;FROM&nbsp;fruit"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">/*&nbsp;Извлечение&nbsp;всех&nbsp;оставшихся&nbsp;строк&nbsp;результирующего&nbsp;набора&nbsp;*/<br /></span><span style="color: #007700">print(</span><span style="color: #DD0000">"Извлечение&nbsp;всех&nbsp;оставшихся&nbsp;строк&nbsp;результирующего&nbsp;набора:\n"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetchAll</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>Результатом выполнения данного примера
+будет что-то подобное:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+Извлечение всех оставшихся строк результирующего набора:
+Array
+(
+    [0] =&gt; Array
+        (
+            [NAME] =&gt; pear
+            [0] =&gt; pear
+            [COLOUR] =&gt; green
+            [1] =&gt; green
+        )
+
+    [1] =&gt; Array
+        (
+            [NAME] =&gt; watermelon
+            [0] =&gt; watermelon
+            [COLOUR] =&gt; pink
+            [1] =&gt; pink
+        )
+
+)
+</pre></div>
+    </div>
+   </div>
+   <div class="example" id="example-976">
+    <p><strong>Пример #2 
+     Извлечение всех значений одного столбца результирующего набора
+    </strong></p>
+    <div class="example-contents"><p>
+     В следующем примере показано, как извлечь из результирующего набора значения
+     только одного столбца, даже если строки содержат значения нескольких
+     столбцов.
+    </p></div>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$sth&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #DD0000">"SELECT&nbsp;name,&nbsp;colour&nbsp;FROM&nbsp;fruit"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">/*&nbsp;Извлечение&nbsp;всех&nbsp;значений&nbsp;первого&nbsp;столбца&nbsp;*/<br /></span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetchAll</span><span style="color: #007700">(</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">FETCH_COLUMN</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>Результатом выполнения данного примера
+будет что-то подобное:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+Array(3)
+(
+    [0] =&gt;
+    string(5) =&gt; apple
+    [1] =&gt;
+    string(4) =&gt; pear
+    [2] =&gt;
+    string(10) =&gt; watermelon
+)
+</pre></div>
+    </div>
+   </div>
+   <div class="example" id="example-977">
+    <p><strong>Пример #3 
+     Группировка строк по значениям одного столбца
+    </strong></p>
+    <div class="example-contents"><p>
+     В следующем примере показано, как получить ассоциативный массив строк
+     результирующего набора, сгруппированных по значениям указанного столбца.
+     Массив содержит три ключа: занчения <em>apple</em> и
+     <em>pear</em> являются массивами, содержащими два разных цвета;
+     в тоже время <em>watermelon</em> будет массивом, сожержащим только
+     один цвет.
+    </p></div>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$insert&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #DD0000">"INSERT&nbsp;INTO&nbsp;fruit(name,&nbsp;colour)&nbsp;VALUES&nbsp;(?,&nbsp;?)"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$insert</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">(array(</span><span style="color: #DD0000">'apple'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'green'</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">$insert</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">(array(</span><span style="color: #DD0000">'pear'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'yellow'</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">$sth&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #DD0000">"SELECT&nbsp;name,&nbsp;colour&nbsp;FROM&nbsp;fruit"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">/*&nbsp;Группируем&nbsp;записи&nbsp;по&nbsp;значениям&nbsp;первого&nbsp;столбца&nbsp;*/<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetchAll</span><span style="color: #007700">(</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">FETCH_COLUMN</span><span style="color: #007700">|</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">FETCH_GROUP</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>Результатом выполнения данного примера
+будет что-то подобное:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+array(3) {
+  [&quot;apple&quot;]=&gt;
+  array(2) {
+    [0]=&gt;
+    string(5) &quot;green&quot;
+    [1]=&gt;
+    string(3) &quot;red&quot;
+  }
+  [&quot;pear&quot;]=&gt;
+  array(2) {
+    [0]=&gt;
+    string(5) &quot;green&quot;
+    [1]=&gt;
+    string(6) &quot;yellow&quot;
+  }
+  [&quot;watermelon&quot;]=&gt;
+  array(1) {
+    [0]=&gt;
+    string(5) &quot;green&quot;
+  }
+}
+
+</pre></div>
+    </div>
+   </div>
+   <div class="example" id="example-978">
+    <p><strong>Пример #4 
+     Создание объекта для каждой строки
+    </strong></p>
+    <div class="example-contents"><p>
+     В следующем примере показано поведение метода в режиме выборки
+     <strong><code>PDO::FETCH_CLASS</code></strong>.
+    </p></div>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">fruit&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;</span><span style="color: #0000BB">$colour</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">$sth&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #DD0000">"SELECT&nbsp;name,&nbsp;colour&nbsp;FROM&nbsp;fruit"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetchAll</span><span style="color: #007700">(</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">FETCH_CLASS</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"fruit"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>Результатом выполнения данного примера
+будет что-то подобное:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+array(3) {
+  [0]=&gt;
+  object(fruit)#1 (2) {
+    [&quot;name&quot;]=&gt;
+    string(5) &quot;apple&quot;
+    [&quot;colour&quot;]=&gt;
+    string(5) &quot;green&quot;
+  }
+  [1]=&gt;
+  object(fruit)#2 (2) {
+    [&quot;name&quot;]=&gt;
+    string(4) &quot;pear&quot;
+    [&quot;colour&quot;]=&gt;
+    string(6) &quot;yellow&quot;
+  }
+  [2]=&gt;
+  object(fruit)#3 (2) {
+    [&quot;name&quot;]=&gt;
+    string(10) &quot;watermelon&quot;
+    [&quot;colour&quot;]=&gt;
+    string(4) &quot;pink&quot;
+  }
+}
+</pre></div>
+    </div>
+   </div>
+   <div class="example" id="example-979">
+    <p><strong>Пример #5 
+     Вызов функции для каждой строки
+    </strong></p>
+    <div class="example-contents"><p>
+     В следующем примере показано поведение метода в режиме выборки
+     <strong><code>PDO::FETCH_FUNC</code></strong>.
+    </p></div>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">fruit</span><span style="color: #007700">(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$colour</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #DD0000">"</span><span style="color: #007700">{</span><span style="color: #0000BB">$name</span><span style="color: #007700">}</span><span style="color: #DD0000">:&nbsp;</span><span style="color: #007700">{</span><span style="color: #0000BB">$colour</span><span style="color: #007700">}</span><span style="color: #DD0000">"</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">$sth&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #DD0000">"SELECT&nbsp;name,&nbsp;colour&nbsp;FROM&nbsp;fruit"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetchAll</span><span style="color: #007700">(</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">FETCH_FUNC</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"fruit"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>Результатом выполнения данного примера
+будет что-то подобное:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+array(3) {
+  [0]=&gt;
+  string(12) &quot;apple: green&quot;
+  [1]=&gt;
+  string(12) &quot;pear: yellow&quot;
+  [2]=&gt;
+  string(16) &quot;watermelon: pink&quot;
+}
+</pre></div>
+    </div>
+   </div>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-pdostatement.fetchall-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="pdo.query.html" class="function" rel="rdfs-seeAlso">PDO::query()</a> - Выполняет SQL запрос и возвращает результирующий набор в виде объекта
+   PDOStatement</span></li>
+    <li class="member"><span class="function"><a href="pdostatement.fetch.html" class="function" rel="rdfs-seeAlso">PDOStatement::fetch()</a> - Извлечение следующей строки из результирующего набора</span></li>
+    <li class="member"><span class="function"><a href="pdostatement.fetchcolumn.html" class="function" rel="rdfs-seeAlso">PDOStatement::fetchColumn()</a> - Возвращает данные одного столбца следующей строки результирующего набора</span></li>
+    <li class="member"><span class="function"><a href="pdo.prepare.html" class="function" rel="rdfs-seeAlso">PDO::prepare()</a> - Подготавливает запрос к выполнению и возвращает ассоциированный с этим запросом
+   объект</span></li>
+    <li class="member"><span class="function"><a href="pdostatement.setfetchmode.html" class="function" rel="rdfs-seeAlso">PDOStatement::setFetchMode()</a> - Задает режим выборки по умолчанию для объекта запроса</span></li>
+   </ul>
+  </p>
+ </div>
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="pdostatement.fetch.html">PDOStatement::fetch</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="pdostatement.fetchcolumn.html">PDOStatement::fetchColumn</a></div>
+ <div class="up"><a href="class.pdostatement.html">PDOStatement</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

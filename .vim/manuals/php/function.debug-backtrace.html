@@ -1,0 +1,313 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Выводит стек вызовов функций в массив</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="ref.errorfunc.html">Функции обработки ошибок</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.debug-print-backtrace.html">debug_print_backtrace</a></div>
+ <div class="up"><a href="ref.errorfunc.html">Функции обработки ошибок</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.debug-backtrace" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">debug_backtrace</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5)</p><p class="refpurpose"><span class="refname">debug_backtrace</span> &mdash; <span class="dc-title">Выводит стек вызовов функций в массив</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.debug-backtrace-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">array</span> <span class="methodname"><strong>debug_backtrace</strong></span>
+    ([ <span class="methodparam"><span class="type">int</span> <code class="parameter">$options</code><span class="initializer"> = DEBUG_BACKTRACE_PROVIDE_OBJECT</span></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$limit</code><span class="initializer"> = 0</span></span>
+  ]] )</div>
+
+  <p class="para rdfs-comment">
+   <span class="function"><strong>debug_backtrace()</strong></span> выводит стек вызовов функций PHP в
+   массив.
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 parameters" id="refsect1-function.debug-backtrace-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">options</code></dt>
+
+     <dd>
+
+      <p class="para">
+       В версии 5.3.6, этот аргумент является битовой маской для следующих
+       настроек:
+       <table class="doctable table">
+        <caption><strong>Настройки <span class="function"><strong>debug_backtrace()</strong></span></strong></caption>
+        
+         <tbody class="tbody">
+          <tr>
+           <td>DEBUG_BACKTRACE_PROVIDE_OBJECT</td>
+           <td>
+            Требуется или нет заполнять данные &quot;объектов&quot;.
+           </td>
+          </tr>
+
+          <tr>
+           <td>DEBUG_BACKTRACE_IGNORE_ARGS</td>
+           <td>
+            Требуется или нет не выводить данные с индексом &quot;args&quot;, то есть
+            списки аргументов всех функций/методов, для уменьшения расхода
+            памяти.
+           </td>
+          </tr>
+
+         </tbody>
+        
+       </table>
+
+       До версии 5.3.6 принимаются только значения <strong><code>TRUE</code></strong> или <strong><code>FALSE</code></strong>, которые
+       означают, задана настройка
+       <strong><code>DEBUG_BACKTRACE_PROVIDE_OBJECT</code></strong> или нет
+       соответственно.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">limit</code></dt>
+
+     <dd>
+
+      <p class="para">
+       В версии 5.4.0, этот аргумент используется для ограничения количества
+       вызовов функций, которые будут выведены. По умолчанию
+       (<code class="parameter">limit</code>=<em>0</em>) будет выведен весь
+       стек вызовов.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 returnvalues" id="refsect1-function.debug-backtrace-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает массив вложенных ассоциативных массивов (<span class="type"><a href="language.types.array.html" class="type array">array</a></span>).
+   Описание элементов массива приведено ниже:
+  </p>
+  <p class="para">
+   <table class="doctable table">
+    <caption><strong>
+     Список возможных значений элементов массивов, возвращаемых функцией
+     <span class="function"><strong>debug_backtrace()</strong></span>
+    </strong></caption>
+    
+     <thead>
+      <tr>
+       <th>Имя</th>
+       <th>Тип</th>
+       <th>Описание</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>function</td>
+       <td><span class="type"><a href="language.types.string.html" class="type string">string</a></span></td>
+       <td>
+        Имя текущей функции. См. также
+        <a href="language.constants.predefined.html" class="link">__FUNCTION__</a>.
+       </td>
+      </tr>
+
+      <tr>
+       <td>line</td>
+       <td><span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span></td>
+       <td>
+        Текущий номер строки. См. также
+        <a href="language.constants.predefined.html" class="link">__LINE__</a>.
+       </td>
+      </tr>
+
+      <tr>
+       <td>file</td>
+       <td><span class="type"><a href="language.types.string.html" class="type string">string</a></span></td>
+       <td>
+        Имя текущего файла. См. также
+        <a href="language.constants.predefined.html" class="link">__FILE__</a>.
+       </td>
+      </tr>
+
+      <tr>
+       <td>class</td>
+       <td><span class="type"><a href="language.types.string.html" class="type string">string</a></span></td>
+       <td>
+        Имя текущего <a href="language.oop5.html" class="link">класса</a>. См. также
+        <a href="language.constants.predefined.html" class="link">__CLASS__</a>
+       </td>
+      </tr>
+
+      <tr>
+       <td>object</td>
+       <td><span class="type"><a href="language.types.object.html" class="type object">object</a></span></td>
+       <td>
+        Текущий <a href="language.oop5.html" class="link">объект</a>.
+       </td>
+      </tr>
+
+      <tr>
+       <td>type</td>
+       <td><span class="type"><a href="language.types.string.html" class="type string">string</a></span></td>
+       <td>
+        Текущий тип вызова функции. Если это вызов метода объекта, будет
+        выведено &quot;-&gt;&quot;. Если это вызов статического метода класса, то &quot;::&quot;.
+        Если это простой вызов функции, не выводится ничего.
+       </td>
+      </tr>
+
+      <tr>
+       <td>args</td>
+       <td><span class="type"><a href="language.types.array.html" class="type array">array</a></span></td>
+       <td>
+        При нахождении внутри функции, будет выведен список аргументов этой
+        функции. Если внутри включаемого файла, будет выведен список включаемых
+        файлов.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 changelog" id="refsect1-function.debug-backtrace-changelog">
+  <h3 class="title">Список изменений</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Версия</th>
+       <th>Описание</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.4.0</td>
+       <td>
+        Добавлен необязательный аргумент <code class="parameter">limit</code>.
+       </td>
+      </tr>
+
+      <tr>
+       <td>5.3.6</td>
+       <td>
+        Аргумент <code class="parameter">provide_object</code> заменен на
+        <code class="parameter">options</code> и добавлена дополнительная настройка
+        <strong><code>DEBUG_BACKTRACE_IGNORE_ARGS</code></strong>.
+       </td>
+      </tr>
+
+      <tr>
+       <td>5.2.5</td>
+       <td>
+        Добавлен необязательный аргумент <code class="parameter">provide_object</code>.
+       </td>
+      </tr>
+
+      <tr>
+       <td>5.1.1</td>
+       <td>
+        Элементом возвращаемого массива теперь может быть текущий объект
+        <span class="type"><a href="language.types.object.html" class="type object">object</a></span>.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 examples" id="refsect1-function.debug-backtrace-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-447">
+    <p><strong>Пример #1 Пример использования <span class="function"><strong>debug_backtrace()</strong></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;filename:&nbsp;/tmp/a.php<br /><br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">a_test</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"\nHi:&nbsp;</span><span style="color: #0000BB">$str</span><span style="color: #DD0000">"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">debug_backtrace</span><span style="color: #007700">());<br />}<br /><br /></span><span style="color: #0000BB">a_test</span><span style="color: #007700">(</span><span style="color: #DD0000">'friend'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;<br /></span><br /><span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;filename:&nbsp;/tmp/b.php<br /></span><span style="color: #007700">include_once&nbsp;</span><span style="color: #DD0000">'/tmp/a.php'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>
+     Результат аналогичен приведенному ниже, если запустить
+     <var class="filename">/tmp/b.php</var>:
+    </p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+Hi: friend
+array(2) {
+[0]=&gt;
+array(4) {
+    [&quot;file&quot;] =&gt; string(10) &quot;/tmp/a.php&quot;
+    [&quot;line&quot;] =&gt; int(10)
+    [&quot;function&quot;] =&gt; string(6) &quot;a_test&quot;
+    [&quot;args&quot;]=&gt;
+    array(1) {
+      [0] =&gt; &amp;string(6) &quot;friend&quot;
+    }
+}
+[1]=&gt;
+array(4) {
+    [&quot;file&quot;] =&gt; string(10) &quot;/tmp/b.php&quot;
+    [&quot;line&quot;] =&gt; int(2)
+    [&quot;args&quot;] =&gt;
+    array(1) {
+      [0] =&gt; string(10) &quot;/tmp/a.php&quot;
+    }
+    [&quot;function&quot;] =&gt; string(12) &quot;include_once&quot;
+  }
+}
+</pre></div>
+    </div>
+   </div>
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 seealso" id="refsect1-function.debug-backtrace-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.trigger-error.html" class="function" rel="rdfs-seeAlso">trigger_error()</a> - Вызывает пользовательскую ошибку/предупреждение/уведомление</span></li>
+    <li class="member"><span class="function"><a href="function.debug-print-backtrace.html" class="function" rel="rdfs-seeAlso">debug_print_backtrace()</a> - Выводит стек вызовов функций</span></li>
+   </ul>
+  </p>
+ </div>
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="ref.errorfunc.html">Функции обработки ошибок</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.debug-print-backtrace.html">debug_print_backtrace</a></div>
+ <div class="up"><a href="ref.errorfunc.html">Функции обработки ошибок</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

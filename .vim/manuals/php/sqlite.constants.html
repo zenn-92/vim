@@ -1,0 +1,484 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Предопределенные константы</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="sqlite.resources.html">Типы ресурсов</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="ref.sqlite.html">SQLite</a></div>
+ <div class="up"><a href="book.sqlite.html">SQLite</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="sqlite.constants" class="appendix">
+ <h1>Предопределенные константы</h1>
+
+ <p class="simpara">
+Перечисленные ниже константы определены данным расширением и могут быть
+доступны только в том случае, если PHP был собран с
+поддержкой этого расширения или же в том случае, если
+данное расширение было подгружено во время выполнения.
+</p>
+ <p class="para">
+  Функции <span class="function"><a href="function.sqlite-fetch-array.html" class="function">sqlite_fetch_array()</a></span> и
+  <span class="function"><a href="function.sqlite-current.html" class="function">sqlite_current()</a></span> могут принимать аргумент, задающий вид
+  возвращаемого массива. В качестве значения этого аргумента используются
+  следующие константы:
+ </p>
+ <dl>
+
+  <strong class="title">Константы выборки SQLite</strong>
+  
+   <dt id="constant.sqlite-assoc">
+    <strong><code>SQLITE_ASSOC</code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Индексами массива являются имена полей.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.sqlite-both">
+    <strong><code>SQLITE_BOTH</code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Каждому полю соответствуют два элемента массива: с числовым индексом,
+     являющимся порядковым номером поля, и строковым индексом -
+     именем поля.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.sqlite-num">
+    <strong><code>SQLITE_NUM</code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Индексами массива являются порядковые номера полей, начиная с 0.
+    </span>
+   </dd>
+
+  
+ </dl>
+
+ <p class="para">
+  Некоторые функции возвращают коды статусов. Ими являются следующие
+  константы:
+ </p>
+ <dl>
+
+  <strong class="title">Константы статус-кодов SQLite</strong>
+  
+   <dt id="constant.sqlite-ok">
+    <strong><code>SQLITE_OK</code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Успешный результат.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.sqlite-error">
+    <strong><code>SQLITE_ERROR</code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Ошибка SQL или отсутствующая база данных.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.sqlite-internal">
+    <strong><code>SQLITE_INTERNAL</code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Внутренняя логическая ошибка SQLite.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.sqlite-perm">
+    <strong><code>SQLITE_PERM</code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Доступ запрещен.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.sqlite-abort">
+    <strong><code>SQLITE_ABORT</code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Callback-процедура запросила прерывание операции.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.sqlite-busy">
+    <strong><code>SQLITE_BUSY</code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Файл с базой данных заблокирован.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.sqlite-locked">
+    <strong><code>SQLITE_LOCKED</code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Таблица в базе данных заблокирована.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.sqlite-nomem">
+    <strong><code>SQLITE_NOMEM</code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Не удалось выделить память.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.sqlite-readonly">
+    <strong><code>SQLITE_READONLY</code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Попытка записи в базу данных, доступную только для чтения.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.sqlite-interrupt">
+    <strong><code>SQLITE_INTERRUPT</code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Операция была прервана изнутри.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.sqlite-ioerr">
+    <strong><code>SQLITE_IOERR</code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     На диске произошла ошибка ввода/вывода.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.sqlite-notadb">
+    <strong><code>SQLITE_NOTADB</code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Открытый файл не является файлом базы данных.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.sqlite-corrupt">
+    <strong><code>SQLITE_CORRUPT</code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Образ файла базы данных на диске поврежден.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.sqlite-format">
+    <strong><code>SQLITE_FORMAT</code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Ошибка вспомогательного форматирования базы данных.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.sqlite-notfound">
+    <strong><code>SQLITE_NOTFOUND</code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     (Внутренняя) Таблица или запись не найдена.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.sqlite-full">
+    <strong><code>SQLITE_FULL</code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Вставка не удалась из-за переполнения базы данных.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.sqlite-cantopen">
+    <strong><code>SQLITE_CANTOPEN</code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Не удалось открыть файл базы данных.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.sqlite-protocol">
+    <strong><code>SQLITE_PROTOCOL</code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Ошибка протокола блокирования базы данных.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.sqlite-empty">
+    <strong><code>SQLITE_EMPTY</code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     (Внутренняя) Таблица базы данных пуста.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.sqlite-schema">
+    <strong><code>SQLITE_SCHEMA</code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Схема базы данных изменилась.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.sqlite-toobig">
+    <strong><code>SQLITE_TOOBIG</code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Слишком много данных для одного ряда таблицы.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.sqlite-constraint">
+    <strong><code>SQLITE_CONSTRAINT</code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Прерывание в связи с нарушением ограничения.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.sqlite-mismatch">
+    <strong><code>SQLITE_MISMATCH</code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Несовпадение типа данных.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.sqlite-misuse">
+    <strong><code>SQLITE_MISUSE</code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Библиотека была использована некорректно.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.sqlite-nolfs">
+    <strong><code>SQLITE_NOLFS</code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Использование возможностей ОС не поддерживается хостом.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.sqlite-auth">
+    <strong><code>SQLITE_AUTH</code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Авторизация не удалась.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.sqlite-row">
+    <strong><code>SQLITE_ROW</code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Внутренний процесс получил еще один готовый ряд.
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.sqlite-done">
+    <strong><code>SQLITE_DONE</code></strong> 
+    (<span class="type"><a href="language.types.integer.html" class="type int">int</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Внутренний процесс закончил выполнение.
+    </span>
+   </dd>
+
+  
+ </dl>
+
+</div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="sqlite.resources.html">Типы ресурсов</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="ref.sqlite.html">SQLite</a></div>
+ <div class="up"><a href="book.sqlite.html">SQLite</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Изменение настроек потока</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="streamwrapper.stream-seek.html">streamWrapper::stream_seek</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="streamwrapper.stream-stat.html">streamWrapper::stream_stat</a></div>
+ <div class="up"><a href="class.streamwrapper.html">streamWrapper</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="streamwrapper.stream-set-option" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">streamWrapper::stream_set_option</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0)</p><p class="refpurpose"><span class="refname">streamWrapper::stream_set_option</span> &mdash; <span class="dc-title">Изменение настроек потока</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-streamwrapper.stream-set-option-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><strong>streamWrapper::stream_set_option</strong></span>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$option</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$arg1</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$arg2</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Этот метод вызывается при задании настроек потока.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-streamwrapper.stream-set-option-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">option</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Одно из значений:
+       <ul class="simplelist">
+        <li class="member">
+         <strong><code>STREAM_OPTION_BLOCKING</code></strong>
+         (Метод вызван в результате вызова функции
+         <span class="function"><a href="function.stream-set-blocking.html" class="function">stream_set_blocking()</a></span>)
+        </li>
+        <li class="member">
+         <strong><code>STREAM_OPTION_READ_TIMEOUT</code></strong>
+         (Метод вызван в результате вызова функции
+         <span class="function"><a href="function.stream-set-timeout.html" class="function">stream_set_timeout()</a></span>)
+        </li>
+        <li class="member">
+         <strong><code>STREAM_OPTION_WRITE_BUFFER</code></strong>
+         (Метод вызван в результате вызова функции
+         <span class="function"><a href="function.stream-set-write-buffer.html" class="function">stream_set_write_buffer()</a></span>)
+        </li>
+       </ul>
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">arg1</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Если <code class="parameter">option</code> принимает значение:
+       <ul class="simplelist">
+        <li class="member">
+         <strong><code>STREAM_OPTION_BLOCKING</code></strong>:
+         запрошен режим блокировки (1 блокировать, 0 не блокировать).
+        </li>
+        <li class="member">
+         <strong><code>STREAM_OPTION_READ_TIMEOUT</code></strong>: таймаут в секундах.
+        </li>
+        <li class="member">
+         <strong><code>STREAM_OPTION_WRITE_BUFFER</code></strong>:
+         режим буферизации (<strong><code>STREAM_BUFFER_NONE</code></strong> или
+         <strong><code>STREAM_BUFFER_FULL</code></strong>).
+        </li>
+       </ul>
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">arg2</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Если <code class="parameter">option</code> принимает занчение:
+       <ul class="simplelist">
+        <li class="member">
+         <strong><code>STREAM_OPTION_BLOCKING</code></strong>: это значение ни на что не влияет.
+        </li>
+        <li class="member">
+         <strong><code>STREAM_OPTION_READ_TIMEOUT</code></strong>: таймаут в миллисекундах.
+        </li>
+        <li class="member">
+         <strong><code>STREAM_OPTION_WRITE_BUFFER</code></strong>: требуемый размер буфера.
+        </li>
+       </ul>
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-streamwrapper.stream-set-option-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает <strong><code>TRUE</code></strong> в случае успешного завершения  или <strong><code>FALSE</code></strong> в случае возникновения ошибки.
+   Если <code class="parameter">option</code> не реализован, метод должен возвращать <strong><code>FALSE</code></strong>.
+  </p>
+ </div>
+
+
+
+
+ <div class="refsect1 seealso" id="refsect1-streamwrapper.stream-set-option-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.stream-set-blocking.html" class="function" rel="rdfs-seeAlso">stream_set_blocking()</a> - Устанавливает блокирующий/неблокирующий режим на потоке</span></li>
+    <li class="member"><span class="function"><a href="function.stream-set-timeout.html" class="function" rel="rdfs-seeAlso">stream_set_timeout()</a> - Устанавливает значение тайм-аута на потоке</span></li>
+    <li class="member"><span class="function"><a href="function.stream-set-write-buffer.html" class="function" rel="rdfs-seeAlso">stream_set_write_buffer()</a> - Устанавливает буферизацию файла при записи в указанный поток</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="streamwrapper.stream-seek.html">streamWrapper::stream_seek</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="streamwrapper.stream-stat.html">streamWrapper::stream_stat</a></div>
+ <div class="up"><a href="class.streamwrapper.html">streamWrapper</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

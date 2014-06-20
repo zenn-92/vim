@@ -1,0 +1,234 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Возвращает длину участка в начале строки, полностью соответствующего маске</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.strrpos.html">strrpos</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.strstr.html">strstr</a></div>
+ <div class="up"><a href="ref.strings.html">Обработка строк</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.strspn" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">strspn</h1>
+  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">strspn</span> &mdash; <span class="dc-title">
+   Возвращает длину участка в начале строки, полностью соответствующего маске
+  </span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.strspn-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">int</span> <span class="methodname"><strong>strspn</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$subject</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$mask</code></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$start</code></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code></span>
+  ]] )</div>
+
+  <p class="para rdfs-comment">
+   Возвращает длину участка от начала строки <code class="parameter">subject</code>,
+   содержащий <em class="emphasis">только</em> символы из <code class="parameter">mask</code>.
+  </p>
+  <p class="para">
+   Если параметры <code class="parameter">start</code> и <code class="parameter">length</code>
+   не указаны, то будет исследована вся строка <code class="parameter">subject</code>.
+   Если они указаны, то эффект будет аналогичен вызову
+   <em>strspn(substr($subject, $start, $length) $mask)</em>
+   (подробнее см. функцию <a href="function.substr.html" class="xref">substr</a>).
+  </p>
+  <p class="para">
+   Строка кода:
+   <div class="informalexample">
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$var&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">strspn</span><span style="color: #007700">(</span><span style="color: #DD0000">"42&nbsp;is&nbsp;the&nbsp;answer&nbsp;to&nbsp;the&nbsp;128th&nbsp;question."</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"1234567890"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+   присвоит <em>2</em> переменной <var class="varname"><var class="varname">$var</var></var>,
+   так как &quot;42&quot; - это начальный участок строки <code class="parameter">subject</code>,
+   состоящий только из символов &quot;1234567890&quot;.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.strspn-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">subject</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Исследуемая строка.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">mask</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Список из разрешенных символов.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">start</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Позиция начала поиска в <code class="parameter">subject</code>.
+      </p>
+      <p class="para">
+       Если <code class="parameter">start</code> указан и неотрицателен,
+       то <span class="function"><strong>strspn()</strong></span> начнет искать в строке
+       <code class="parameter">subject</code> начиная с позиции
+       <code class="parameter">start</code>. К примеру, в
+       строке &#039;<em>abcdef</em>&#039;, символом с позицией
+       <em>0</em> является &#039;<em>a</em>&#039;, символом
+       с позицией <em>2</em> является
+       &#039;<em>c</em>&#039; и т.д.
+      </p>
+      <p class="para">
+       Если <code class="parameter">start</code> указан и отрицателен,
+       то <span class="function"><strong>strspn()</strong></span> начнет поиск
+       в строке <code class="parameter">subject</code> с позиции, отстоящей
+       на <code class="parameter">start</code> символов с конца
+       <code class="parameter">subject</code>.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">length</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Длина исследуемого фрагмента <code class="parameter">subject</code>.
+      </p>
+      <p class="para">
+       Если <code class="parameter">length</code> указан и неотрицателен,
+       то строка <code class="parameter">subject</code> будет исследована
+       в течение <code class="parameter">length</code> после стартовой позиции.
+      </p>
+      <p class="para">
+        Если <code class="parameter">length</code> указана и отрицательна,
+        то строка <code class="parameter">subject</code> будет исследована
+        начиная со стартовой позиции до позиции, отстоящей на
+        <code class="parameter">length</code> символов с конца
+        <code class="parameter">subject</code>.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.strspn-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает длину первого участка <code class="parameter">subject</code>,
+   состоящего целиком из символов в <code class="parameter">mask</code>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.strspn-changelog">
+  <h3 class="title">Список изменений</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Версия</th>
+       <th>Описание</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>4.3.0</td>
+       <td>
+        Добавлены параметры <code class="parameter">start</code> и <code class="parameter">length</code>
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.strspn-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-4938">
+    <p><strong>Пример #1 Пример использования <span class="function"><strong>strspn()</strong></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;subject&nbsp;не&nbsp;начинается&nbsp;ни&nbsp;из&nbsp;какого&nbsp;символа&nbsp;из&nbsp;mask<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">strspn</span><span style="color: #007700">(</span><span style="color: #DD0000">"foo"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"o"</span><span style="color: #007700">));<br /><br /></span><span style="color: #FF8000">//&nbsp;проверить&nbsp;два&nbsp;символа&nbsp;из&nbsp;subject&nbsp;начиная&nbsp;с&nbsp;позиции&nbsp;1<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">strspn</span><span style="color: #007700">(</span><span style="color: #DD0000">"foo"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"o"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">));<br /><br /></span><span style="color: #FF8000">//&nbsp;проверить&nbsp;один&nbsp;символ&nbsp;из&nbsp;subject&nbsp;начиная&nbsp;с&nbsp;позиции&nbsp;1<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">strspn</span><span style="color: #007700">(</span><span style="color: #DD0000">"foo"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"o"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>Результат выполнения данного примера:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+int(0)
+int(2)
+int(1)
+</pre></div>
+    </div>
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.strspn-notes">
+  <h3 class="title">Примечания</h3>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: <span class="simpara">Эта функция безопасна
+для обработки данных в двоичной форме.</span></p></blockquote>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.strspn-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.strcspn.html" class="function" rel="rdfs-seeAlso">strcspn()</a> - Возвращает длину участка в начале строки, не соответствующего маске</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.strrpos.html">strrpos</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.strstr.html">strstr</a></div>
+ <div class="up"><a href="ref.strings.html">Обработка строк</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

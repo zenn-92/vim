@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Изменения в модулях SAPI</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="migration54.new-features.html">Новые возможности</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="migration54.deprecated.html">Устаревшие функции и возможности в PHP 5.4.x</a></div>
+ <div class="up"><a href="migration54.html">Переход с PHP 5.3.x на PHP 5.4.x</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="migration54.sapi" class="section">
+  <h2 class="title">Изменения в модулях SAPI</h2>
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara">
+     Доступен новый модуль SAPI, называемый <em>cli-server</em>.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     Добавлена CLI-опция <em>--rz</em>, которая отображает информацию о имени расширения Zend.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     Добавлена ссылка <em>#inisetting=value</em> для изменения <var class="filename">php.ini</var> опций в процессе работы скрипта при интерактивной работе в консоли.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     Добавлены функции, совместимые с Apache: <span class="function"><a href="function.apache-child-terminate.html" class="function">apache_child_terminate()</a></span>,
+     <span class="function"><a href="function.getallheaders.html" class="function">getallheaders()</a></span>, <span class="function"><a href="function.apache-request-headers.html" class="function">apache_request_headers()</a></span>
+     и <span class="function"><a href="function.apache-response-headers.html" class="function">apache_response_headers()</a></span> для FastCGI SAPI.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     PHP-FPM: Добавлена опция <em>process.max</em> для контроля количества ветвлений FPM-процессов.
+    </span>
+   </li>
+  </ul>
+ </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="migration54.new-features.html">Новые возможности</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="migration54.deprecated.html">Устаревшие функции и возможности в PHP 5.4.x</a></div>
+ <div class="up"><a href="migration54.html">Переход с PHP 5.3.x на PHP 5.4.x</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

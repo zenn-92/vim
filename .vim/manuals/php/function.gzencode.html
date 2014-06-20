@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Сжимает строку в формате gzip</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.gzdeflate.html">gzdeflate</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.gzeof.html">gzeof</a></div>
+ <div class="up"><a href="ref.zlib.html">Zlib;</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.gzencode" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">gzencode</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5)</p><p class="refpurpose"><span class="refname">gzencode</span> &mdash; <span class="dc-title">Сжимает строку в формате gzip</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.gzencode-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">string</span> <span class="methodname"><strong>gzencode</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$level</code><span class="initializer"> = -1</span></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$encoding_mode</code><span class="initializer"> = FORCE_GZIP</span></span>
+  ]] )</div>
+
+  <p class="para rdfs-comment">   
+   Возвращает сжатую версию входных данных <code class="parameter">data</code>, 
+   аналогично выводу программы <strong class="command">gzip</strong>.
+  </p>
+  <p class="para">
+   Подробности о формате GZIP см. <a href="http://www.faqs.org/rfcs/rfc1952" class="link external">&raquo;&nbsp;Формат файла GZIP. Спецификация версии 4.3</a> (RFC 1952).
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.gzencode-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">data</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Данные для сжатия.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">level</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Уровень сжатия. 0 - без сжатия, 9 - максимальное сжатие. Если не указано, 
+       будет использоваться уровень сжатия по умолчанию библиотеки zlib.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">encoding_mode</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Режим сжатия, может быть <strong><code>FORCE_GZIP</code></strong> (по умолчанию)
+       или <strong><code>FORCE_DEFLATE</code></strong>.
+      </p>
+      <p class="para">
+       До PHP 5.4.0 в случае использования <strong><code>FORCE_DEFLATE</code></strong>,
+       возвращалась строка, сжатая по стандартному алгоритму zlib deflate
+       (с заголовками zlib) после заголовка файла gzip, но без проверочной суммы crc32 в конце.
+      </p>
+      <p class="para">
+       Начиная с версии PHP 5.4.0, использование константы <strong><code>FORCE_DEFLATE</code></strong>
+       генерирует вывод, совместимый с RFC 1950, состоящий из заголовка zlib,
+       сжатых данных и контрольной суммы Adler.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.gzencode-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Сжатая строка или <strong><code>FALSE</code></strong> в случае ошибки.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.gzencode-changelog">
+  <h3 class="title">Список изменений</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Версия</th>
+       <th>Описание</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.4.0</td>
+       <td>
+        <strong><code>FORCE_DEFLATE</code></strong> теперь генерирует вывод, совместимый
+        с RFC 1950.
+       </td>
+      </tr>
+
+      <tr>
+       <td>4.2.0</td>
+       <td>
+        Добавлен аргумент <code class="parameter">encoding_mode</code>
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.gzencode-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   Возвращаемые данные будут содержать соответствующие заголовки и структуры данных как в обычном .gz-файле, например:
+   <div class="example" id="example-829">
+    <p><strong>Пример #1 Создание файла gzip</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$data&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">implode</span><span style="color: #007700">(</span><span style="color: #DD0000">""</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">file</span><span style="color: #007700">(</span><span style="color: #DD0000">"bigfile.txt"</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">$gzdata&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">gzencode</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">9</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$fp&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">fopen</span><span style="color: #007700">(</span><span style="color: #DD0000">"bigfile.txt.gz"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"w"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">fwrite</span><span style="color: #007700">(</span><span style="color: #0000BB">$fp</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$gzdata</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">fclose</span><span style="color: #007700">(</span><span style="color: #0000BB">$fp</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.gzencode-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.gzdecode.html" class="function" rel="rdfs-seeAlso">gzdecode()</a> - Распаковывает строку, упакованную с помощью gzip</span></li>
+    <li class="member"><span class="function"><a href="function.gzdeflate.html" class="function" rel="rdfs-seeAlso">gzdeflate()</a> - Сжимает строку</span></li>
+    <li class="member"><span class="function"><a href="function.gzinflate.html" class="function" rel="rdfs-seeAlso">gzinflate()</a> - Распаковывает строку</span></li>
+    <li class="member"><span class="function"><a href="function.gzuncompress.html" class="function" rel="rdfs-seeAlso">gzuncompress()</a> - Распаковывает строку</span></li>
+    <li class="member"><span class="function"><a href="function.gzcompress.html" class="function" rel="rdfs-seeAlso">gzcompress()</a> - Сжимает строку</span></li>
+    <li class="member">
+     <a href="http://www.faqs.org/rfcs/rfc1950" class="link external">&raquo;&nbsp;
+      Спецификация ZLIB Compressed Data (RFC 1950)
+     </a>
+    </li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.gzdeflate.html">gzdeflate</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.gzeof.html">gzeof</a></div>
+ <div class="up"><a href="ref.zlib.html">Zlib;</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

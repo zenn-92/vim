@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Advisory file locking</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="streamwrapper.stream-flush.html">streamWrapper::stream_flush</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="streamwrapper.stream-metadata.html">streamWrapper::stream_metadata</a></div>
+ <div class="up"><a href="class.streamwrapper.html">streamWrapper</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="streamwrapper.stream-lock" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">streamWrapper::stream_lock</h1>
+  <p class="verinfo">(PHP 5)</p><p class="refpurpose"><span class="refname">streamWrapper::stream_lock</span> &mdash; <span class="dc-title">Advisory file locking</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-streamwrapper.stream-lock-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><strong>streamWrapper::stream_lock</strong></span>
+    ( <span class="methodparam"><span class="type"><span class="type mode">mode</span></span> <code class="parameter">$operation</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Этот метод вызывается в следующих случаях: при вызове функции
+   <span class="function"><a href="function.flock.html" class="function">flock()</a></span>, при вызове
+   <span class="function"><a href="function.file-put-contents.html" class="function">file_put_contents()</a></span> (когда <code class="parameter">flags</code>
+   содержит <strong><code>LOCK_EX</code></strong>), при вызове
+   <span class="function"><a href="function.stream-set-blocking.html" class="function">stream_set_blocking()</a></span> и при закрытии потока
+   (<strong><code>LOCK_UN</code></strong>).
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-streamwrapper.stream-lock-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">operation</code></dt>
+
+     <dd>
+
+      <p class="para">
+       <code class="parameter">operation</code> может принимать одно из
+       следующих значений:
+       <ul class="itemizedlist">
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code>LOCK_SH</code></strong> установить совместную блокировку (для чтения).
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code>LOCK_EX</code></strong> установить эксклюзивную блокировку (для записи).
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code>LOCK_UN</code></strong> снять блокировку (совместную или эксклюзивную).
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code>LOCK_NB</code></strong>, если Вы не хотите, чтобы
+          <span class="function"><a href="function.flock.html" class="function">flock()</a></span> ставила свои блокировки.
+          (не поддерживается в Windows)
+         </span>
+        </li>
+       </ul>
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-streamwrapper.stream-lock-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает <strong><code>TRUE</code></strong> в случае успешного завершения  или <strong><code>FALSE</code></strong> в случае возникновения ошибки.
+  </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-streamwrapper.stream-lock-errors">
+  <h3 class="title">Ошибки</h3>
+  <p class="para">
+   Вызывает ошибку <strong><code>E_WARNING</code></strong>, если вызов метода не удался
+   (то есть метод не реализован).
+  </p>
+ </div>
+
+ 
+
+
+
+ <div class="refsect1 seealso" id="refsect1-streamwrapper.stream-lock-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.stream-set-blocking.html" class="function" rel="rdfs-seeAlso">stream_set_blocking()</a> - Устанавливает блокирующий/неблокирующий режим на потоке</span></li>
+    <li class="member"><span class="function"><a href="function.flock.html" class="function" rel="rdfs-seeAlso">flock()</a> - Портируемая консультативная блокировка файлов</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="streamwrapper.stream-flush.html">streamWrapper::stream_flush</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="streamwrapper.stream-metadata.html">streamWrapper::stream_metadata</a></div>
+ <div class="up"><a href="class.streamwrapper.html">streamWrapper</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

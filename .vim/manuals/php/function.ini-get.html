@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Получает значение настройки конфигурации</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.ini-get-all.html">ini_get_all</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.ini-restore.html">ini_restore</a></div>
+ <div class="up"><a href="ref.info.html">PHP опции/Информационные Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.ini-get" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">ini_get</h1>
+  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">ini_get</span> &mdash; <span class="dc-title">
+   Получает значение настройки конфигурации
+  </span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.ini-get-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">string</span> <span class="methodname"><strong>ini_get</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$varname</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   В случае успеха возвращает значение настройки конфигурации.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.ini-get-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">varname</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Имя настройки конфигурации.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.ini-get-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает значение настройки конфигурации в виде строки. Для значений
+   <em>null</em> будет возвращаться пустая строка. Функция вернет
+   <strong><code>FALSE</code></strong>, если указанная настройка не существует.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.ini-get-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-498">
+    <p><strong>Пример #1 Несколько примеров использования <span class="function"><strong>ini_get()</strong></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*<br />Наш&nbsp;файл&nbsp;php.ini&nbsp;содержит&nbsp;следующие&nbsp;настройки:<br /><br />display_errors&nbsp;=&nbsp;On<br />register_globals&nbsp;=&nbsp;Off<br />post_max_size&nbsp;=&nbsp;8M<br />*/<br /><br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">'display_errors&nbsp;=&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">ini_get</span><span style="color: #007700">(</span><span style="color: #DD0000">'display_errors'</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #DD0000">'register_globals&nbsp;=&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">ini_get</span><span style="color: #007700">(</span><span style="color: #DD0000">'register_globals'</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #DD0000">'post_max_size&nbsp;=&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">ini_get</span><span style="color: #007700">(</span><span style="color: #DD0000">'post_max_size'</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #DD0000">'post_max_size+1&nbsp;=&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;(</span><span style="color: #0000BB">ini_get</span><span style="color: #007700">(</span><span style="color: #DD0000">'post_max_size'</span><span style="color: #007700">)+</span><span style="color: #0000BB">1</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #DD0000">'post_max_size&nbsp;in&nbsp;bytes&nbsp;=&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">return_bytes</span><span style="color: #007700">(</span><span style="color: #0000BB">ini_get</span><span style="color: #007700">(</span><span style="color: #DD0000">'post_max_size'</span><span style="color: #007700">));<br /><br />function&nbsp;</span><span style="color: #0000BB">return_bytes</span><span style="color: #007700">(</span><span style="color: #0000BB">$val</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$val&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">trim</span><span style="color: #007700">(</span><span style="color: #0000BB">$val</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$last&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">strtolower</span><span style="color: #007700">(</span><span style="color: #0000BB">$val</span><span style="color: #007700">[</span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #0000BB">$val</span><span style="color: #007700">)-</span><span style="color: #0000BB">1</span><span style="color: #007700">]);<br />&nbsp;&nbsp;&nbsp;&nbsp;switch(</span><span style="color: #0000BB">$last</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Модификатор&nbsp;'G'&nbsp;доступен,&nbsp;начиная&nbsp;с&nbsp;PHP&nbsp;5.1.0<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">case&nbsp;</span><span style="color: #DD0000">'g'</span><span style="color: #007700">:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$val&nbsp;</span><span style="color: #007700">*=&nbsp;</span><span style="color: #0000BB">1024</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #DD0000">'m'</span><span style="color: #007700">:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$val&nbsp;</span><span style="color: #007700">*=&nbsp;</span><span style="color: #0000BB">1024</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;</span><span style="color: #DD0000">'k'</span><span style="color: #007700">:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$val&nbsp;</span><span style="color: #007700">*=&nbsp;</span><span style="color: #0000BB">1024</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$val</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>Результатом выполнения данного примера
+будет что-то подобное:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+
+display_errors = 1
+register_globals = 0
+post_max_size = 8M
+post_max_size+1 = 9
+post_max_size in bytes = 8388608
+
+</pre></div>
+    </div>
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.ini-get-notes">
+  <h3 class="title">Примечания</h3>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <strong>Возвращаемые boolean-значения</strong><br />
+   <p class="para">
+    Boolean-значение ini-настройки <em>off</em> будет возвращено в виде
+    пустой строки или строки &quot;0&quot;, в то время как значению <em>on</em>
+    будет соответствовать строка &quot;1&quot;. Функция также может возвращать буквенные
+    значения INI настройки.
+   </p>
+  </p></blockquote>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <strong>Возвращаемые значения количества памяти</strong><br />
+   <p class="para">
+    Многие ini настройки, значения которых измеряются количеством памяти, такие как
+    <a href="ini.core.html#ini.upload-max-filesize" class="link">upload_max_filesize</a>, записаны в
+    <var class="filename">php.ini</var> в сокращенном виде.
+    <span class="function"><strong>ini_get()</strong></span> вернет именно то, что записано в файле <var class="filename">php.ini</var>,
+    а <em class="emphasis">НЕ</em> <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span> эквивалент этой величины.
+    Попытка использования полученной величины в арифметических операциях не даст
+    желаемого результата. В приведенном выше примере продемонстрировано, как можно
+    перевести сокращенную запись в число байт.
+   </p>
+  </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.ini-get-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.get-cfg-var.html" class="function" rel="rdfs-seeAlso">get_cfg_var()</a> - Извлекает значение настройки конфигурации PHP</span></li>
+    <li class="member"><span class="function"><a href="function.ini-get-all.html" class="function" rel="rdfs-seeAlso">ini_get_all()</a> - Получение всех настроек конфигурации</span></li>
+    <li class="member"><span class="function"><a href="function.ini-restore.html" class="function" rel="rdfs-seeAlso">ini_restore()</a> - Восстанавливает значение настройки конфигурации</span></li>
+    <li class="member"><span class="function"><a href="function.ini-set.html" class="function" rel="rdfs-seeAlso">ini_set()</a> - Установка значения настройки конфигурации</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.ini-get-all.html">ini_get_all</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.ini-restore.html">ini_restore</a></div>
+ <div class="up"><a href="ref.info.html">PHP опции/Информационные Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

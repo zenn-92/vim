@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Настройка во время выполнения</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="apd.installwin32.html">Сборка на Win32</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="apd.resources.html">Типы ресурсов</a></div>
+ <div class="up"><a href="apd.setup.html">Установка и настройка</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="apd.configuration" class="section">
+ <h2 class="title">Настройка во время выполнения</h2>
+ <p class="simpara">
+Поведение этих функций зависит от установок в <var class="filename">php.ini</var>.
+</p>
+ <p class="para">
+  <table class="doctable table">
+   <caption><strong>Параметры конфигурации APD</strong></caption>
+   
+    <thead>
+     <tr>
+      <th>Имя</th>
+      <th>По умолчанию</th>
+      <th>Меняемо</th>
+      <th>Список изменений</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td><a href="apd.configuration.html#ini.apd.dumpdir" class="link">apd.dumpdir</a></td>
+      <td>NULL</td>
+      <td>PHP_INI_ALL</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><a href="apd.configuration.html#ini.apd.statement-tracing" class="link">apd.statement_tracing</a></td>
+      <td>&quot;0&quot;</td>
+      <td>PHP_INI_ALL</td>
+      <td>Доступно начиная с apd 0.9.</td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+  Для подробного описания констант
+PHP_INI_*, обратитесь к разделу <a href="configuration.changes.modes.html" class="xref">Где могут быть установлены параметры конфигурации</a>.
+ </p>
+ 
+ <p class="para">Краткое разъяснение конфигурационных
+директив.</p>
+ 
+ <p class="para">
+  <dl>
+
+   
+    <dt id="ini.apd.dumpdir">
+     <code class="parameter">apd.dumpdir</code>
+     <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Задает каталог, в который APD записывает дамп-файлы профилей.
+      Можно указать абсолютный путь или относительный.
+     </p>
+     <p class="para">
+      Можно указать другой каталог в качестве аргумента
+      <span class="function"><a href="function.apd-set-pprof-trace.html" class="function">apd_set_pprof_trace()</a></span>.
+     </p>
+    </dd>
+
+   
+   
+    <dt id="ini.apd.statement-tracing">
+     <code class="parameter">apd.statement_tracing</code>
+     <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Указывает будет ли или нет проводиться построковая трассировка. 
+      Включение этого параметра (если он равен 1) будет влиять на 
+      производительность приложения.
+     </p>
+    </dd>
+
+   
+   
+  </dl>
+
+ </p>
+ 
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="apd.installwin32.html">Сборка на Win32</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="apd.resources.html">Типы ресурсов</a></div>
+ <div class="up"><a href="apd.setup.html">Установка и настройка</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

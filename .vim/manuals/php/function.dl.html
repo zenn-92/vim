@@ -1,0 +1,207 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Загружает PHP расширение во время выполнения</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.cli-set-process-title.html">cli_set_process_title</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.extension-loaded.html">extension_loaded</a></div>
+ <div class="up"><a href="ref.info.html">PHP опции/Информационные Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.dl" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">dl</h1>
+  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">dl</span> &mdash; <span class="dc-title">Загружает PHP расширение во время выполнения</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.dl-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><strong>dl</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$library</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Загружает PHP расширение заданное аргументом <code class="parameter">library</code>.
+  </p>
+  <p class="para">
+   Чтобы проверить, что заданное расширение уже загружено, используйте функцию
+   <span class="function"><a href="function.extension-loaded.html" class="function">extension_loaded()</a></span>. Эта функция работает как для встроенных
+   расширений, так и для динамически загруженных (т.е. загруженных как через
+   <var class="filename">php.ini</var>, так и через <span class="function"><strong>dl()</strong></span>).
+  </p>
+  <div class="warning"><strong class="warning">Внимание</strong>
+   <p class="simpara">
+    Эта функция удалена из некоторых SAPI в PHP 5.3.
+   </p>
+  </div>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.dl-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">library</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Этот аргумент содержит <em class="emphasis">только</em> имя файла расширения,
+       которое требуется загрузить. Это имя зависит от платформы. Например,
+       расширение <a href="ref.sockets.html" class="link">sockets</a> (если скомпилировано,
+       как загружаемый модуль, а не модуль по умолчанию!) будет называться
+       <var class="filename">sockets.so</var> на Unix платформах, и
+       <var class="filename">php_sockets.dll</var> в Windows среде.
+      </p>
+      <p class="para">
+       Директория, из которой расширение должно быть загружено также зависит от
+       платформы:
+      </p>
+      <p class="para">
+       Windows - Если явно не задано в <var class="filename">php.ini</var>, расширение будет грузиться из
+       <var class="filename">C:\php4\extensions\</var> (PHP 4) или 
+       <var class="filename">C:\php5\</var> (PHP 5) по умолчанию.
+      </p>
+      <p class="para">
+       Unix - Если явно не задано в <var class="filename">php.ini</var>, директория по умолчанию зависит от
+       <ul class="itemizedlist">
+        <li class="listitem">
+         <span class="simpara">
+          PHP собран с настройкой <em>--enable-debug</em> или без нее
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          PHP собран с (экспериментально) ZTS (Zend Thread Safety) поддержкой или нет
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          текущего внутреннего номера <em>ZEND_MODULE_API_NO</em>
+          (номер внутреннего модуля Zend API, который как правило является датой
+          значительного изменения API модуля, например <em>20010901</em>)
+         </span>
+        </li>
+       </ul>
+       Принимая во внимание вышесказанное, получаем следующие умолчания для
+       директории расширения
+       <em>&lt;install-dir&gt;/lib/php/extensions/ &lt;debug-or-not&gt;-&lt;zts-or-not&gt;-ZEND_MODULE_API_NO</em>,
+       непример
+       <var class="filename">/usr/local/php/lib/php/extensions/debug-non-zts-20010901</var>
+       или
+       <var class="filename">/usr/local/php/lib/php/extensions/no-debug-zts-20010901</var>.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.dl-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает <strong><code>TRUE</code></strong> в случае успешного завершения  или <strong><code>FALSE</code></strong> в случае возникновения ошибки. Если механизм загрузки модулей недоступен или отключен
+   (либо значением off настройки <a href="info.configuration.html#ini.enable-dl" class="link">enable_dl</a>,
+   либо включен <a href="ini.sect.safe-mode.html#ini.safe-mode" class="link">безопасный режим</a> в <var class="filename">php.ini</var>), будет выдана ошибка
+   <strong><code>E_ERROR</code></strong>, и выполнение будет остановлено. Если
+   <span class="function"><strong>dl()</strong></span> не сможет загрузить заданную библиотеку, то в дополнение
+   к <strong><code>FALSE</code></strong> будет выдано сообщение <strong><code>E_WARNING</code></strong>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.dl-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-479">
+    <p><strong>Пример #1 Примеры использования <span class="function"><strong>dl()</strong></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Пример&nbsp;загрузки&nbsp;расширения,&nbsp;основываясь&nbsp;на&nbsp;ОС<br /></span><span style="color: #007700">if&nbsp;(!</span><span style="color: #0000BB">extension_loaded</span><span style="color: #007700">(</span><span style="color: #DD0000">'sqlite'</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #0000BB">strtoupper</span><span style="color: #007700">(</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #0000BB">PHP_OS</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">3</span><span style="color: #007700">))&nbsp;===&nbsp;</span><span style="color: #DD0000">'WIN'</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">dl</span><span style="color: #007700">(</span><span style="color: #DD0000">'php_sqlite.dll'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">dl</span><span style="color: #007700">(</span><span style="color: #DD0000">'sqlite.so'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;Или&nbsp;на&nbsp;константе&nbsp;PHP_SHLIB_SUFFIX&nbsp;(доступна&nbsp;с&nbsp;PHP&nbsp;4.3.0)<br /></span><span style="color: #007700">if&nbsp;(!</span><span style="color: #0000BB">extension_loaded</span><span style="color: #007700">(</span><span style="color: #DD0000">'sqlite'</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$prefix&nbsp;</span><span style="color: #007700">=&nbsp;(</span><span style="color: #0000BB">PHP_SHLIB_SUFFIX&nbsp;</span><span style="color: #007700">===&nbsp;</span><span style="color: #DD0000">'dll'</span><span style="color: #007700">)&nbsp;?&nbsp;</span><span style="color: #DD0000">'php_'&nbsp;</span><span style="color: #007700">:&nbsp;</span><span style="color: #DD0000">''</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">dl</span><span style="color: #007700">(</span><span style="color: #0000BB">$prefix&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">'sqlite.'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">PHP_SHLIB_SUFFIX</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.dl-changelog">
+  <h3 class="title">Список изменений</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Версия</th>
+       <th>Описание</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.3.0</td>
+       <td>
+        <span class="function"><strong>dl()</strong></span> выключен в некоторых SAPI в связи с нестабильностью
+        работы. Из SAPI, поддерживающих <span class="function"><strong>dl()</strong></span>, остались только
+        CLI и Embed. Используйте вместо dl
+        <a href="ini.core.html#ini.extension" class="link">Директивы загрузки расширений</a>.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.dl-notes">
+  <h3 class="title">Примечания</h3>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <p class="para">
+    <span class="function"><strong>dl()</strong></span> <em class="emphasis">не</em> поддерживается в PHP собранных
+    с поддержкой ZTS. Используйте вместо dl
+    <a href="ini.core.html#ini.extension" class="link">Директивы загрузки расширений</a>.
+   </p>
+  </p></blockquote>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <p class="para">
+    <span class="function"><strong>dl()</strong></span> чувствительна к регистру на Unix платформах.
+   </p>
+  </p></blockquote>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: <span class="simpara">Эта функция недоступна в
+<a href="features.safe-mode.html" class="link">безопасном режиме</a>.</span></p></blockquote>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.dl-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><a href="ini.core.html#ini.extension" class="link">Директивы загрузки расширений</a></li>
+    <li class="member"><span class="function"><a href="function.extension-loaded.html" class="function" rel="rdfs-seeAlso">extension_loaded()</a> - Определение, загружено ли расширение</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.cli-set-process-title.html">cli_set_process_title</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.extension-loaded.html">extension_loaded</a></div>
+ <div class="up"><a href="ref.info.html">PHP опции/Информационные Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

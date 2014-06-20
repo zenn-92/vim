@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Перевод файлового указателя на заданную позицию</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="splfileobject.fscanf.html">SplFileObject::fscanf</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="splfileobject.fstat.html">SplFileObject::fstat</a></div>
+ <div class="up"><a href="class.splfileobject.html">SplFileObject</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="splfileobject.fseek" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">SplFileObject::fseek</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0)</p><p class="refpurpose"><span class="refname">SplFileObject::fseek</span> &mdash; <span class="dc-title">Перевод файлового указателя на заданную позицию</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-splfileobject.fseek-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">int</span> <span class="methodname"><strong>SplFileObject::fseek</strong></span>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$whence</code><span class="initializer"> = SEEK_SET</span></span>
+  ] )</div>
+
+  <p class="para rdfs-comment">
+   Перемещает файловый указатель на указанное в параметре
+   <code class="parameter">offset</code> количество байт. За позицию, от которой будет
+   отсчитываться смещение отвечает параметр <code class="parameter">whence</code>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-splfileobject.fseek-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">offset</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Смещение. Отрицательная величина смещения используется, когда нужно
+       перемещаться по файлу от конца к началу, т.е. когда в качестве аргумента
+       <code class="parameter">whence</code> передано значение SEEK_END.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">whence</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Возможные значения параметра <code class="parameter">whence</code>:
+       <ul class="simplelist">
+        <li class="member"><strong><code>SEEK_SET</code></strong> - Установить указатель на позицию
+        <code class="parameter">offset</code> байт от начала файла.</li>
+        <li class="member"><strong><code>SEEK_CUR</code></strong> - Переместить указатель на 
+        <code class="parameter">offset</code> байт относительно текущего положения.</li>
+        <li class="member"><strong><code>SEEK_END</code></strong> - Установить указательна позицию
+        <code class="parameter">offset</code> байт от конца файла.</li>
+       </ul>
+      </p>
+      <p class="para">
+       Если параметр <code class="parameter">whence</code> опущен, функция будет работать в
+       режиме <strong><code>SEEK_SET</code></strong>.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-splfileobject.fseek-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает 0, если перемещение прошло успешно, и -1 в противном случае. Следует
+   помнить, что перемещение за конец файла не рассматривается как ошибка.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-splfileobject.fseek-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-4004">
+    <p><strong>Пример #1 Пример использования <span class="methodname"><strong>SplFileObject::fseek()</strong></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$file&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">SplFileInfo</span><span style="color: #007700">(</span><span style="color: #DD0000">"somefile.txt"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Чтение&nbsp;первой&nbsp;строки<br /></span><span style="color: #0000BB">$data&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$file</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fgets</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">//&nbsp;Перемещаемся&nbsp;снова&nbsp;в&nbsp;начало&nbsp;файла<br />//&nbsp;смысл&nbsp;тот&nbsp;же,&nbsp;что&nbsp;и&nbsp;$file-&gt;rewind();<br /></span><span style="color: #0000BB">$file</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fseek</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-splfileobject.fseek-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.fseek.html" class="function" rel="rdfs-seeAlso">fseek()</a> - Устанавливает смещение в файловом указателе</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="splfileobject.fscanf.html">SplFileObject::fscanf</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="splfileobject.fstat.html">SplFileObject::fstat</a></div>
+ <div class="up"><a href="class.splfileobject.html">SplFileObject</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

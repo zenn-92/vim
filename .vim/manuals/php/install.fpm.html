@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Менеджер процессов FastCGI (FPM)</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="install.cloud.ec2.html">Amazon EC2</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="install.fpm.install.html">Установка</a></div>
+ <div class="up"><a href="install.html">Установка и настройка</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="install.fpm" class="chapter">
+   <h1>Менеджер процессов FastCGI (FPM)</h1>
+<h2>Содержание</h2><ul class="chunklist chunklist_chapter"><li><a href="install.fpm.install.html">Установка</a></li><li><a href="install.fpm.configuration.html">Настройка</a></li></ul>
+
+   <p class="para">
+    FPM (Менеджер процессов FastCGI) является альтернативной реализацией PHP FastCGI
+    с несколькими дополнительными возможностями обычно используемыми для
+    высоконагруженных сайтов.
+   </p>
+   <p class="para">
+    Эти возможности включают в себя:
+    <ul class="itemizedlist">
+     <li class="listitem">
+      <p class="para">
+       продвинутое управление процессами с корректной (graceful)
+       процедурой остановки и запуска;
+      </p>
+     </li>
+     <li class="listitem">
+      <p class="para">
+       возможность запуска воркеров с различными uid/gid/chroot-окружением,
+       а также запуска на различных портах с использованием разных php.ini
+       (замещение safe_mode);
+      </p>
+     </li>
+     <li class="listitem">
+      <p class="para">
+       логирование стандартных потоков вывода (stdout) и ошибок (stderr);
+      </p>
+     </li>
+     <li class="listitem">
+      <p class="para">
+       аварийный перезапуск в случае внезапного разрушения opcode-кэша;
+      </p>
+     </li>
+     <li class="listitem">
+      <p class="para">
+       поддержка ускоренной загрузки (accelerated upload);
+      </p>
+     </li>
+     <li class="listitem">
+      <p class="para">
+       &quot;slowlog&quot; - логирование необычно медленно выполняющихся скриптов
+       (не только их имена, но также и их трассировки. Это достигается с помощью
+       ptrace и других подобных утилит для чтения данных исполнения удаленных процессов);
+      </p>
+     </li>
+     <li class="listitem">
+      <p class="para">
+       <span class="function"><a href="function.fastcgi-finish-request.html" class="function">fastcgi_finish_request()</a></span> - специальная функция для
+       завершения запроса и сброса всех буферов данных, причем процесс может
+       продолжать выполнение каких-либо длительных действий (конвертирование видео,
+       обработка статистики и т.п.);
+      </p>
+     </li>
+     <li class="listitem">
+      <p class="para">
+       Динамическое/статическое порождение дочерних процессов;
+      </p>
+     </li>
+     <li class="listitem">
+      <p class="para">
+       Базовая информация о статусе SAPI (аналогично Apache mod_status);
+      </p>
+     </li>
+     <li class="listitem">
+      <p class="para">
+       Конфигурационный файл, основанный на php.ini.
+      </p>
+     </li>
+    </ul>
+   </p>
+   
+   
+
+
+
+  
+
+
+
+   
+
+
+
+  
+
+
+
+  </div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="install.cloud.ec2.html">Amazon EC2</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="install.fpm.install.html">Установка</a></div>
+ <div class="up"><a href="install.html">Установка и настройка</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

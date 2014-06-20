@@ -1,0 +1,236 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Находит файловые пути, совпадающие с шаблоном</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.fwrite.html">fwrite</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.is-dir.html">is_dir</a></div>
+ <div class="up"><a href="ref.filesystem.html">Файловая система</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.glob" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">glob</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5)</p><p class="refpurpose"><span class="refname">glob</span> &mdash; <span class="dc-title">Находит файловые пути, совпадающие с шаблоном</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-function.glob-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">array</span> <span class="methodname"><strong>glob</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$pattern</code></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
+  ] )</div>
+
+  <p class="para rdfs-comment">
+   Функция <span class="function"><strong>glob()</strong></span> ищет все пути, совпадающие с
+   шаблоном <code class="parameter">pattern</code> согласно правилам,
+   используемым в функции glob() библиотеки libc, которые похожи на
+   правила, используемые большинством распространённых оболочек.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.glob-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">pattern</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Шаблон. Не происходит раскрытие тильды и подстановка параметров.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">flags</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Допустимые флаги:
+       <ul class="itemizedlist">
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code>GLOB_MARK</code></strong> - Добавляет слэш к каждой возвращаемой директории.
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code>GLOB_NOSORT</code></strong> - Возвращает файлы в том виде, в
+          котором они содержатся в директории (без сортировки)
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code>GLOB_NOCHECK</code></strong> - Возвращает шаблон поиска, если
+          с его помощью не был найден ни один файл.
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code>GLOB_NOESCAPE</code></strong> - Обратные слэши не экранируют
+          метасимволы.
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code>GLOB_BRACE</code></strong> - Раскрывает {a,b,c} для совпадения с
+          &#039;a&#039;, &#039;b&#039; или &#039;c&#039;.
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code>GLOB_ONLYDIR</code></strong> - Возвращает только директории,
+          совпадающие с шаблоном.
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code>GLOB_ERR</code></strong> - Останавливается при ошибках чтения
+          (например, директории без права чтения), по умолчанию ошибки
+          игнорируются.
+         </span>
+        </li>
+       </ul>
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.glob-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает массив, который содержит совпадающие файлы/директории,
+   пустой массив в случае отсутствия совпадения или <strong><code>FALSE</code></strong> в
+   случае ошибки.
+  </p>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <p class="para">
+    На некоторых системах невозможно отличить отсутствие совпадения
+    и ошибку.
+   </p>
+  </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.glob-changelog">
+  <h3 class="title">Список изменений</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Версия</th>
+       <th>Описание</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.1.0</td>
+       <td>
+        Добавлена константа <strong><code>GLOB_ERR</code></strong>
+       </td>
+      </tr>
+
+      <tr>
+       <td>4.3.3</td>
+       <td>
+        Константа <strong><code>GLOB_ONLYDIR</code></strong> стала доступна
+        на Windows и других системах, не использующих библиотеку
+        GNU C
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.glob-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-2448">
+    <p><strong>Пример #1 
+     Удобный способ, как при помощи <span class="function"><strong>glob()</strong></span> можно заменить
+     <span class="function"><a href="function.opendir.html" class="function">opendir()</a></span> и её друзей.
+    </strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">foreach&nbsp;(</span><span style="color: #0000BB">glob</span><span style="color: #007700">(</span><span style="color: #DD0000">"*.txt"</span><span style="color: #007700">)&nbsp;as&nbsp;</span><span style="color: #0000BB">$filename</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"</span><span style="color: #0000BB">$filename</span><span style="color: #DD0000">&nbsp;размер&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">filesize</span><span style="color: #007700">(</span><span style="color: #0000BB">$filename</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>Результатом выполнения данного примера
+будет что-то подобное:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+funclist.txt размер 44686
+funcsummary.txt размер 267625
+quickref.txt размер 137820
+</pre></div>
+    </div>
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.glob-notes">
+  <h3 class="title">Примечания</h3>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: <span class="simpara">Эта функция неприменима для
+работы с <a href="features.remote-files.html" class="link">удаленными файлами</a>, поскольку
+файл должен быть доступен через файловую систему сервера.</span></p></blockquote>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <span class="simpara">
+    Эта функция недоступна на некоторых системах (например, старой Sun OS).
+   </span>
+  </p></blockquote>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <span class="simpara">
+    Флаг <strong><code>GLOB_BRACE</code></strong> недоступен на некоторых
+    не GNU-системах, например, Solaris.
+   </span>
+  </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.glob-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.opendir.html" class="function" rel="rdfs-seeAlso">opendir()</a> - Открывает дескриптор каталога</span></li>
+    <li class="member"><span class="function"><a href="function.readdir.html" class="function" rel="rdfs-seeAlso">readdir()</a> - Получает элемент каталога по его дескриптору</span></li>
+    <li class="member"><span class="function"><a href="function.closedir.html" class="function" rel="rdfs-seeAlso">closedir()</a> - Освобождает дескриптор каталога</span></li>
+    <li class="member"><span class="function"><a href="function.fnmatch.html" class="function" rel="rdfs-seeAlso">fnmatch()</a> - Проверяет совпадение имени файла с шаблоном</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.fwrite.html">fwrite</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.is-dir.html">is_dir</a></div>
+ <div class="up"><a href="ref.filesystem.html">Файловая система</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

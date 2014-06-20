@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Объекты данных PHP</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.odbc-tables.html">odbc_tables</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="intro.pdo.html">Введение</a></div>
+ <div class="up"><a href="refs.database.abstract.html">Уровни абстракции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="book.pdo" class="book">
+ 
+ <h1 class="title">Объекты данных PHP</h1>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+ 
+
+ 
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+<ul class="chunklist chunklist_book"><li><a href="intro.pdo.html">Введение</a></li><li><a href="pdo.setup.html">Установка и настройка</a><ul class="chunklist chunklist_book chunklist_children"><li><a href="pdo.requirements.html">Требования</a></li><li><a href="pdo.installation.html">Установка</a></li><li><a href="pdo.configuration.html">Настройка во время выполнения</a></li><li><a href="pdo.resources.html">Типы ресурсов</a></li></ul></li><li><a href="pdo.constants.html">Предопределенные константы</a></li><li><a href="pdo.connections.html">Подключения и Управление подключениями</a></li><li><a href="pdo.transactions.html">Транзакции и автоматическая фиксация изменений</a></li><li><a href="pdo.prepared-statements.html">Подготовленные запросы и хранимые процедуры</a></li><li><a href="pdo.error-handling.html">Ошибки и их обработка</a></li><li><a href="pdo.lobs.html">Большие объекты (LOB)</a></li><li><a href="class.pdo.html">PDO</a> — Класс PDO<ul class="chunklist chunklist_book chunklist_children"><li><a href="pdo.begintransaction.html">PDO::beginTransaction</a> — Инициализация транзакции</li><li><a href="pdo.commit.html">PDO::commit</a> — Фиксирует транзакцию</li><li><a href="pdo.construct.html">PDO::__construct</a> — Создает экземпляр PDO, предоставляющий соединение с базой данных</li><li><a href="pdo.errorcode.html">PDO::errorCode</a> — Возвращает код SQLSTATE результата последней операции с базой данных</li><li><a href="pdo.errorinfo.html">PDO::errorInfo</a> — Получает расширенную информацию об ошибке, произошедшей в ходе
+   последнего обращения к базе данных</li><li><a href="pdo.exec.html">PDO::exec</a> — Запускает SQL запрос на выполнение и возвращает количество строк, задействованых
+   в ходе его выполнения</li><li><a href="pdo.getattribute.html">PDO::getAttribute</a> — Получить атрибут соеденения с базой данных</li><li><a href="pdo.getavailabledrivers.html">PDO::getAvailableDrivers</a> — Возвращает массив доступных драйверов PDO</li><li><a href="pdo.intransaction.html">PDO::inTransaction</a> — Проверяет, есть ли внутри транзакция</li><li><a href="pdo.lastinsertid.html">PDO::lastInsertId</a> — Возвращает ID последней вставленной строки или последовательное значение</li><li><a href="pdo.prepare.html">PDO::prepare</a> — Подготавливает запрос к выполнению и возвращает ассоциированный с этим запросом
+   объект</li><li><a href="pdo.query.html">PDO::query</a> — Выполняет SQL запрос и возвращает результирующий набор в виде объекта
+   PDOStatement</li><li><a href="pdo.quote.html">PDO::quote</a> — Заключает строку в кавычки для использования в запросе</li><li><a href="pdo.rollback.html">PDO::rollBack</a> — Откат транзакции</li><li><a href="pdo.setattribute.html">PDO::setAttribute</a> — Присвоение атрибута</li></ul></li><li><a href="class.pdostatement.html">PDOStatement</a> — Класс PDOStatement<ul class="chunklist chunklist_book chunklist_children"><li><a href="pdostatement.bindcolumn.html">PDOStatement::bindColumn</a> — Связывает столбец с PHP переменной</li><li><a href="pdostatement.bindparam.html">PDOStatement::bindParam</a> — Привязывает параметр запроса к переменной</li><li><a href="pdostatement.bindvalue.html">PDOStatement::bindValue</a> — Связывает параметр с заданным значением</li><li><a href="pdostatement.closecursor.html">PDOStatement::closeCursor</a> — Закрывает курсор, переводя запрос в состояние готовности к повторному запуску</li><li><a href="pdostatement.columncount.html">PDOStatement::columnCount</a> — Возвращает количество столбцов в результирующем наборе</li><li><a href="pdostatement.debugdumpparams.html">PDOStatement::debugDumpParams</a> — Вывод информации о подготовленной SQL команде в целях отладки</li><li><a href="pdostatement.errorcode.html">PDOStatement::errorCode</a> — Определяет SQLSTATE код соответствующий последней операции объекта PDOStatement</li><li><a href="pdostatement.errorinfo.html">PDOStatement::errorInfo</a> — Получение расширенной информации об ошибке, произошедшей в результате работы
+   объекта PDOStatement</li><li><a href="pdostatement.execute.html">PDOStatement::execute</a> — Запускает подготовленный запрос на выполнение</li><li><a href="pdostatement.fetch.html">PDOStatement::fetch</a> — Извлечение следующей строки из результирующего набора</li><li><a href="pdostatement.fetchall.html">PDOStatement::fetchAll</a> — Возвращает массив, содержащий все строки результирующего набора</li><li><a href="pdostatement.fetchcolumn.html">PDOStatement::fetchColumn</a> — Возвращает данные одного столбца следующей строки результирующего набора</li><li><a href="pdostatement.fetchobject.html">PDOStatement::fetchObject</a> — Извлекает следующую строку и возвращает ее в виде объекта</li><li><a href="pdostatement.getattribute.html">PDOStatement::getAttribute</a> — Получение значения атрибута запроса PDOStatement</li><li><a href="pdostatement.getcolumnmeta.html">PDOStatement::getColumnMeta</a> — Возвращает метаданные столбца в результирующей таблице</li><li><a href="pdostatement.nextrowset.html">PDOStatement::nextRowset</a> — Переход к следующему набору строк в результате запроса</li><li><a href="pdostatement.rowcount.html">PDOStatement::rowCount</a> — Возвращает количество строк, модифицированных последним SQL запросом</li><li><a href="pdostatement.setattribute.html">PDOStatement::setAttribute</a> — Присваивает атрибут объекту PDOStatement</li><li><a href="pdostatement.setfetchmode.html">PDOStatement::setFetchMode</a> — Задает режим выборки по умолчанию для объекта запроса</li></ul></li><li><a href="class.pdoexception.html">PDOException</a> — Класс PDOException</li><li><a href="pdo.drivers.html">PDO Драйверы</a><ul class="chunklist chunklist_book chunklist_children"><li><a href="ref.pdo-cubrid.html">CUBRID (PDO)</a> — CUBRID Functions (PDO_CUBRID)</li><li><a href="ref.pdo-dblib.html">MS SQL Server (PDO)</a> — Microsoft SQL Server and Sybase Functions (PDO_DBLIB)</li><li><a href="ref.pdo-firebird.html">Firebird (PDO)</a> — Firebird Functions (PDO_FIREBIRD)</li><li><a href="ref.pdo-ibm.html">IBM (PDO)</a> — IBM Functions (PDO_IBM)</li><li><a href="ref.pdo-informix.html">Informix (PDO)</a> — Informix Functions (PDO_INFORMIX)</li><li><a href="ref.pdo-mysql.html">MySQL (PDO)</a> — MySQL Functions (PDO_MYSQL)</li><li><a href="ref.pdo-sqlsrv.html">MS SQL Server (PDO)</a> — Microsoft SQL Server Functions (PDO_SQLSRV)</li><li><a href="ref.pdo-oci.html">Oracle (PDO)</a> — Oracle Functions (PDO_OCI)</li><li><a href="ref.pdo-odbc.html">ODBC and DB2 (PDO)</a> — ODBC and DB2 Functions (PDO_ODBC)</li><li><a href="ref.pdo-pgsql.html">PostgreSQL (PDO)</a> — PostgreSQL Functions (PDO_PGSQL)</li><li><a href="ref.pdo-sqlite.html">SQLite (PDO)</a> — SQLite Functions (PDO_SQLITE)</li><li><a href="ref.pdo-4d.html">4D (PDO)</a> — 4D Functions (PDO_4D)</li></ul></li></ul></div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.odbc-tables.html">odbc_tables</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="intro.pdo.html">Введение</a></div>
+ <div class="up"><a href="refs.database.abstract.html">Уровни абстракции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

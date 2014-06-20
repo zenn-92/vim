@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Отправляет сообщение в сокет, независимо от того, подсоединён он или нет</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.stream-socket-recvfrom.html">stream_socket_recvfrom</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.stream-socket-server.html">stream_socket_server</a></div>
+ <div class="up"><a href="ref.stream.html">Функции для работы с потоками</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.stream-socket-sendto" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">stream_socket_sendto</h1>
+  <p class="verinfo">(PHP 5)</p><p class="refpurpose"><span class="refname">stream_socket_sendto</span> &mdash; <span class="dc-title">Отправляет сообщение в сокет, независимо от того, подсоединён он или нет </span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-function.stream-socket-sendto-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">int</span> <span class="methodname"><strong>stream_socket_sendto</strong></span>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$socket</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$address</code></span>
+  ]] )</div>
+
+  <p class="para rdfs-comment">
+   Отпралвяет указанные данные <code class="parameter">data</code> через сокет
+   <code class="parameter">socket</code>.  
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.stream-socket-sendto-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">socket</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Сокет, через который будут отправлены данные <code class="parameter">data</code>.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">data</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Отправляемые данные.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">flags</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Значение параметра  <code class="parameter">flags</code> может быть комбинацией 
+       следующего:
+       <table class="doctable table">
+        <caption><strong>возможные значения для параметра <code class="parameter">flags</code></strong></caption>
+        
+         <tbody class="tbody">
+          <tr>
+           <td><strong><code>STREAM_OOB</code></strong></td>
+           <td>
+            Обрабатывать OOB (out-of-band, внеполосные) данные.
+           </td>
+          </tr>
+
+         </tbody>
+        
+       </table>
+
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">address</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Адрес, указанный при создании потокового сокета, будет использоваться
+       до тех пор, пока не указан альтернативный адрес в параметре <code class="parameter">address</code>.
+      </p>
+      <p class="para">
+       Если указан, он должен быть в формате ipv4 или ipv6.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.stream-socket-sendto-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает код результата, как целое число.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.stream-socket-sendto-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-4083">
+    <p><strong>Пример #1 Пример использования <span class="function"><strong>stream_socket_sendto()</strong></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;Открыть&nbsp;сокет&nbsp;на&nbsp;1234-м&nbsp;порту&nbsp;на&nbsp;localhost&nbsp;*/<br /></span><span style="color: #0000BB">$socket&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">stream_socket_client</span><span style="color: #007700">(</span><span style="color: #DD0000">'tcp://127.0.0.1:1234'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Отправить&nbsp;обычные&nbsp;данные&nbsp;через&nbsp;обычные&nbsp;каналы.&nbsp;*/<br /></span><span style="color: #0000BB">fwrite</span><span style="color: #007700">(</span><span style="color: #0000BB">$socket</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Передача&nbsp;обычных&nbsp;данных."</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Отправляем&nbsp;внеполосные&nbsp;данные.&nbsp;*/<br /></span><span style="color: #0000BB">stream_socket_sendto</span><span style="color: #007700">(</span><span style="color: #0000BB">$socket</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Внеполосные&nbsp;данные."</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">STREAM_OOB</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Закрыть&nbsp;сокет&nbsp;*/<br /></span><span style="color: #0000BB">fclose</span><span style="color: #007700">(</span><span style="color: #0000BB">$socket</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.stream-socket-sendto-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <ul class="simplelist">
+   <li class="member"><span class="function"><a href="function.stream-socket-recvfrom.html" class="function" rel="rdfs-seeAlso">stream_socket_recvfrom()</a> - Получает данные из сокета, подсоединённого или нет</span></li>
+   <li class="member"><span class="function"><a href="function.stream-socket-client.html" class="function" rel="rdfs-seeAlso">stream_socket_client()</a> - Открывает соединение с интернет-сокетом или с доменным сокетом Unix</span></li>
+   <li class="member"><span class="function"><a href="function.stream-socket-server.html" class="function" rel="rdfs-seeAlso">stream_socket_server()</a> - Создаёт интернет-сокет или доменный сокет Unix</span></li>
+  </ul>
+ </div>
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.stream-socket-recvfrom.html">stream_socket_recvfrom</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.stream-socket-server.html">stream_socket_server</a></div>
+ <div class="up"><a href="ref.stream.html">Функции для работы с потоками</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

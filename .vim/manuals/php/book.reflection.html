@@ -1,0 +1,173 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Reflection</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="quickhashintstringhash.update.html">QuickHashIntStringHash::update</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="intro.reflection.html">Введение</a></div>
+ <div class="up"><a href="refs.basic.vartype.html">Расширения, относящиеся к переменным и типам</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="book.reflection" class="book">
+ 
+ <h1 class="title">Reflection</h1>
+ 
+
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+<ul class="chunklist chunklist_book"><li><a href="intro.reflection.html">Введение</a></li><li><a href="reflection.setup.html">Установка и настройка</a><ul class="chunklist chunklist_book chunklist_children"><li><a href="reflection.requirements.html">Требования</a></li><li><a href="reflection.installation.html">Установка</a></li><li><a href="reflection.configuration.html">Настройка во время выполнения</a></li><li><a href="reflection.resources.html">Типы ресурсов</a></li></ul></li><li><a href="reflection.constants.html">Предопределенные константы</a></li><li><a href="reflection.examples.html">Примеры</a></li><li><a href="reflection.extending.html">Расширение</a></li><li><a href="class.reflection.html">Reflection</a> — Класс Reflection<ul class="chunklist chunklist_book chunklist_children"><li><a href="reflection.export.html">Reflection::export</a> — Экспортирует Reflection</li><li><a href="reflection.getmodifiernames.html">Reflection::getModifierNames</a> — Получение имен модификаторов</li></ul></li><li><a href="class.reflectionclass.html">ReflectionClass</a> — Класс ReflectionClass<ul class="chunklist chunklist_book chunklist_children"><li><a href="reflectionclass.construct.html">ReflectionClass::__construct</a> — Создаёт объект класса ReflectionClass</li><li><a href="reflectionclass.export.html">ReflectionClass::export</a> — Экспортирует класс</li><li><a href="reflectionclass.getconstant.html">ReflectionClass::getConstant</a> — Возвращает определенную константу</li><li><a href="reflectionclass.getconstants.html">ReflectionClass::getConstants</a> — Возвращает константы</li><li><a href="reflectionclass.getconstructor.html">ReflectionClass::getConstructor</a> — Возвращает конструктор класса</li><li><a href="reflectionclass.getdefaultproperties.html">ReflectionClass::getDefaultProperties</a> — Возвращает свойства по умолчанию</li><li><a href="reflectionclass.getdoccomment.html">ReflectionClass::getDocComment</a> — Возвращает doc-блоки комментариев</li><li><a href="reflectionclass.getendline.html">ReflectionClass::getEndLine</a> — Возвращает номер последней строки</li><li><a href="reflectionclass.getextension.html">ReflectionClass::getExtension</a> — Возвращает объект класса ReflectionExtension для расширения, определенного в классе</li><li><a href="reflectionclass.getextensionname.html">ReflectionClass::getExtensionName</a> — Возвращает имя расширения, определенного в классе</li><li><a href="reflectionclass.getfilename.html">ReflectionClass::getFileName</a> — Возвращает имя файла, в котором объявлен класс</li><li><a href="reflectionclass.getinterfacenames.html">ReflectionClass::getInterfaceNames</a> — Возвращает имена интерфейсов</li><li><a href="reflectionclass.getinterfaces.html">ReflectionClass::getInterfaces</a> — Возвращает интерфейсы</li><li><a href="reflectionclass.getmethod.html">ReflectionClass::getMethod</a> — Возвращает экземпляр ReflectionMethod для метода класса</li><li><a href="reflectionclass.getmethods.html">ReflectionClass::getMethods</a> — Возвращает список методов в виде массива</li><li><a href="reflectionclass.getmodifiers.html">ReflectionClass::getModifiers</a> — Возвращает информацию о модификаторах класса</li><li><a href="reflectionclass.getname.html">ReflectionClass::getName</a> — Возвращает имя класса</li><li><a href="reflectionclass.getnamespacename.html">ReflectionClass::getNamespaceName</a> — Возвращает название пространства имён</li><li><a href="reflectionclass.getparentclass.html">ReflectionClass::getParentClass</a> — Возвращает родительский класс</li><li><a href="reflectionclass.getproperties.html">ReflectionClass::getProperties</a> — Возвращает свойства</li><li><a href="reflectionclass.getproperty.html">ReflectionClass::getProperty</a> — Возвращает экземпляр ReflectionProperty для свойства класса</li><li><a href="reflectionclass.getshortname.html">ReflectionClass::getShortName</a> — Возвращает короткое имя</li><li><a href="reflectionclass.getstartline.html">ReflectionClass::getStartLine</a> — Возвращает номер начальной строки</li><li><a href="reflectionclass.getstaticproperties.html">ReflectionClass::getStaticProperties</a> — Возвращает static свойства</li><li><a href="reflectionclass.getstaticpropertyvalue.html">ReflectionClass::getStaticPropertyValue</a> — Возвращает значение static свойства</li><li><a href="reflectionclass.gettraitaliases.html">ReflectionClass::getTraitAliases</a> — Возвращает массив trait-псевдонимов</li><li><a href="reflectionclass.gettraitnames.html">ReflectionClass::getTraitNames</a> — Возвращает массив trait-имён, задействованных в этом классе</li><li><a href="reflectionclass.gettraits.html">ReflectionClass::getTraits</a> — Возвращает массив traits, задействованных в этом классе</li><li><a href="reflectionclass.hasconstant.html">ReflectionClass::hasConstant</a> — Проверяет, задана ли константа</li><li><a href="reflectionclass.hasmethod.html">ReflectionClass::hasMethod</a> — Проверяет, задан ли метод</li><li><a href="reflectionclass.hasproperty.html">ReflectionClass::hasProperty</a> — Проверяет, задано ли свойство</li><li><a href="reflectionclass.implementsinterface.html">ReflectionClass::implementsInterface</a> — Проверяет, реализуется ли интерфейс</li><li><a href="reflectionclass.innamespace.html">ReflectionClass::inNamespace</a> — Проверяет, определён ли класс в пространстве имён</li><li><a href="reflectionclass.isabstract.html">ReflectionClass::isAbstract</a> — Проверяет, является ли класс абстрактным</li><li><a href="reflectionclass.iscloneable.html">ReflectionClass::isCloneable</a> — Проверяет, можно ли клонировать этот класс</li><li><a href="reflectionclass.isfinal.html">ReflectionClass::isFinal</a> — Проверяет, является ли класс окончательным (final)</li><li><a href="reflectionclass.isinstance.html">ReflectionClass::isInstance</a> — Проверяет, принадлежит ли объект классу</li><li><a href="reflectionclass.isinstantiable.html">ReflectionClass::isInstantiable</a> — Проверяет, можно ли создать экземпляр класса</li><li><a href="reflectionclass.isinterface.html">ReflectionClass::isInterface</a> — Проверяет, является ли класс интерфейсом</li><li><a href="reflectionclass.isinternal.html">ReflectionClass::isInternal</a> — Проверяет, является ли класс встроенным в расширение или в ядро</li><li><a href="reflectionclass.isiterateable.html">ReflectionClass::isIterateable</a> — Проверяет, является ли класс итерируемым</li><li><a href="reflectionclass.issubclassof.html">ReflectionClass::isSubclassOf</a> — Проверяет, является ли класс подклассом</li><li><a href="reflectionclass.istrait.html">ReflectionClass::isTrait</a> — Проверяет, является ли класс trait</li><li><a href="reflectionclass.isuserdefined.html">ReflectionClass::isUserDefined</a> — Проверяет, является ли класс пользовательским</li><li><a href="reflectionclass.newinstance.html">ReflectionClass::newInstance</a> — Создаёт экземпляр класса с переданными аргументами</li><li><a href="reflectionclass.newinstanceargs.html">ReflectionClass::newInstanceArgs</a> — Создаёт экземпляр класса с переданными параметрами</li><li><a href="reflectionclass.newinstancewithoutconstructor.html">ReflectionClass::newInstanceWithoutConstructor</a> — Создаёт новый экземпляр класса без вызова конструктора</li><li><a href="reflectionclass.setstaticpropertyvalue.html">ReflectionClass::setStaticPropertyValue</a> — Устанавливает значение static-свойства</li><li><a href="reflectionclass.tostring.html">ReflectionClass::__toString</a> — Возвращает строковое представление объекта класса ReflectionClass</li></ul></li><li><a href="class.reflectionzendextension.html">ReflectionZendExtension</a> — Класс ReflectionZendExtension<ul class="chunklist chunklist_book chunklist_children"><li><a href="reflectionzendextension.clone.html">ReflectionZendExtension::__clone</a> — Копирующий конструктор</li><li><a href="reflectionzendextension.construct.html">ReflectionZendExtension::__construct</a> — Конструктор</li><li><a href="reflectionzendextension.export.html">ReflectionZendExtension::export</a> — Экспорт</li><li><a href="reflectionzendextension.getauthor.html">ReflectionZendExtension::getAuthor</a> — Получение автора</li><li><a href="reflectionzendextension.getcopyright.html">ReflectionZendExtension::getCopyright</a> — Получение строки авторских прав</li><li><a href="reflectionzendextension.getname.html">ReflectionZendExtension::getName</a> — Получение строки имени</li><li><a href="reflectionzendextension.geturl.html">ReflectionZendExtension::getURL</a> — Получение URL</li><li><a href="reflectionzendextension.getversion.html">ReflectionZendExtension::getVersion</a> — Получение номера версии</li><li><a href="reflectionzendextension.tostring.html">ReflectionZendExtension::__toString</a> — Преобразование в строку</li></ul></li><li><a href="class.reflectionextension.html">ReflectionExtension</a> — Класс ReflectionExtension<ul class="chunklist chunklist_book chunklist_children"><li><a href="reflectionextension.clone.html">ReflectionExtension::__clone</a> — Клонирует объект</li><li><a href="reflectionextension.construct.html">ReflectionExtension::__construct</a> — Создаёт объект класса ReflectionExtension</li><li><a href="reflectionextension.export.html">ReflectionExtension::export</a> — Экспортирует модуль</li><li><a href="reflectionextension.getclasses.html">ReflectionExtension::getClasses</a> — Возвращает классы</li><li><a href="reflectionextension.getclassnames.html">ReflectionExtension::getClassNames</a> — Получение имен классов</li><li><a href="reflectionextension.getconstants.html">ReflectionExtension::getConstants</a> — Получение констант</li><li><a href="reflectionextension.getdependencies.html">ReflectionExtension::getDependencies</a> — Получение зависимостей</li><li><a href="reflectionextension.getfunctions.html">ReflectionExtension::getFunctions</a> — Получение функций расширения</li><li><a href="reflectionextension.getinientries.html">ReflectionExtension::getINIEntries</a> — Получение ini-настроек расширения</li><li><a href="reflectionextension.getname.html">ReflectionExtension::getName</a> — Получение имени расширения</li><li><a href="reflectionextension.getversion.html">ReflectionExtension::getVersion</a> — Получение версии расширения</li><li><a href="reflectionextension.info.html">ReflectionExtension::info</a> — Вывод информации о расширении</li><li><a href="reflectionextension.ispersistent.html">ReflectionExtension::isPersistent</a> — Определяет, является ли расширение постоянным</li><li><a href="reflectionextension.istemporary.html">ReflectionExtension::isTemporary</a> — Определяет, является ли расширение временным</li><li><a href="reflectionextension.tostring.html">ReflectionExtension::__toString</a> — Преобразование в строку</li></ul></li><li><a href="class.reflectionfunction.html">ReflectionFunction</a> — Класс ReflectionFunction<ul class="chunklist chunklist_book chunklist_children"><li><a href="reflectionfunction.construct.html">ReflectionFunction::__construct</a> — Конструктор класса ReflectionFunction</li><li><a href="reflectionfunction.export.html">ReflectionFunction::export</a> — Экспорт функции</li><li><a href="reflectionfunction.getclosure.html">ReflectionFunction::getClosure</a> — Возвращает динамически созданное замыкание для функции</li><li><a href="reflectionfunction.invoke.html">ReflectionFunction::invoke</a> — Вызывает функцию</li><li><a href="reflectionfunction.invokeargs.html">ReflectionFunction::invokeArgs</a> — Вызов функции с передачей аргументов</li><li><a href="reflectionfunction.isdisabled.html">ReflectionFunction::isDisabled</a> — Проверяет, что функция отключена</li><li><a href="reflectionfunction.tostring.html">ReflectionFunction::__toString</a> — Представление в виде строки</li></ul></li><li><a href="class.reflectionfunctionabstract.html">ReflectionFunctionAbstract</a> — Класс ReflectionFunctionAbstract<ul class="chunklist chunklist_book chunklist_children"><li><a href="reflectionfunctionabstract.clone.html">ReflectionFunctionAbstract::__clone</a> — Копирующий конструктор</li><li><a href="reflectionfunctionabstract.getclosurescopeclass.html">ReflectionFunctionAbstract::getClosureScopeClass</a> — Returns the scope associated to the closure</li><li><a href="reflectionfunctionabstract.getclosurethis.html">ReflectionFunctionAbstract::getClosureThis</a> — Возвращает указатель this замыкания</li><li><a href="reflectionfunctionabstract.getdoccomment.html">ReflectionFunctionAbstract::getDocComment</a> — Получает документируемый комментарий</li><li><a href="reflectionfunctionabstract.getendline.html">ReflectionFunctionAbstract::getEndLine</a> — Получает номер строки завершения описания функции</li><li><a href="reflectionfunctionabstract.getextension.html">ReflectionFunctionAbstract::getExtension</a> — Получает информацию о расширении</li><li><a href="reflectionfunctionabstract.getextensionname.html">ReflectionFunctionAbstract::getExtensionName</a> — Получение имени расширения</li><li><a href="reflectionfunctionabstract.getfilename.html">ReflectionFunctionAbstract::getFileName</a> — Получает имя файла</li><li><a href="reflectionfunctionabstract.getname.html">ReflectionFunctionAbstract::getName</a> — Получает имя функции</li><li><a href="reflectionfunctionabstract.getnamespacename.html">ReflectionFunctionAbstract::getNamespaceName</a> — Получение имени пространства имен</li><li><a href="reflectionfunctionabstract.getnumberofparameters.html">ReflectionFunctionAbstract::getNumberOfParameters</a> — Получает количество аргументов</li><li><a href="reflectionfunctionabstract.getnumberofrequiredparameters.html">ReflectionFunctionAbstract::getNumberOfRequiredParameters</a> — Получает количество обязательных аргументов</li><li><a href="reflectionfunctionabstract.getparameters.html">ReflectionFunctionAbstract::getParameters</a> — Получает аргументы</li><li><a href="reflectionfunctionabstract.getshortname.html">ReflectionFunctionAbstract::getShortName</a> — Получает короткое имя функции</li><li><a href="reflectionfunctionabstract.getstartline.html">ReflectionFunctionAbstract::getStartLine</a> — Получает начальный номер строки</li><li><a href="reflectionfunctionabstract.getstaticvariables.html">ReflectionFunctionAbstract::getStaticVariables</a> — Получает статические переменные</li><li><a href="reflectionfunctionabstract.innamespace.html">ReflectionFunctionAbstract::inNamespace</a> — Проверяет, находится ли функция в пространстве имен</li><li><a href="reflectionfunctionabstract.isclosure.html">ReflectionFunctionAbstract::isClosure</a> — Проверяет, является ли функция замыканием</li><li><a href="reflectionfunctionabstract.isdeprecated.html">ReflectionFunctionAbstract::isDeprecated</a> — Проверяет, является ли функция устаревшей</li><li><a href="reflectionfunctionabstract.isgenerator.html">ReflectionFunctionAbstract::isGenerator</a> — Returns whether this function is a generator</li><li><a href="reflectionfunctionabstract.isinternal.html">ReflectionFunctionAbstract::isInternal</a> — Проверяет, является ли функция внутренней</li><li><a href="reflectionfunctionabstract.isuserdefined.html">ReflectionFunctionAbstract::isUserDefined</a> — Проверяет, является ли функция определенной пользователем</li><li><a href="reflectionfunctionabstract.returnsreference.html">ReflectionFunctionAbstract::returnsReference</a> — Проверяет, что функция возвращает ссылку</li><li><a href="reflectionfunctionabstract.tostring.html">ReflectionFunctionAbstract::__toString</a> — Преобразование в строку</li></ul></li><li><a href="class.reflectionmethod.html">ReflectionMethod</a> — Класс ReflectionMethod<ul class="chunklist chunklist_book chunklist_children"><li><a href="reflectionmethod.construct.html">ReflectionMethod::__construct</a> — Конструктор класса ReflectionMethod</li><li><a href="reflectionmethod.export.html">ReflectionMethod::export</a> — Экспорт отраженного метода</li><li><a href="reflectionmethod.getclosure.html">ReflectionMethod::getClosure</a> — Возвращает динамически созданное замыкание для метода</li><li><a href="reflectionmethod.getdeclaringclass.html">ReflectionMethod::getDeclaringClass</a> — Получает класс, объявляющий отображенный метод</li><li><a href="reflectionmethod.getmodifiers.html">ReflectionMethod::getModifiers</a> — Получает модификаторы метода</li><li><a href="reflectionmethod.getprototype.html">ReflectionMethod::getPrototype</a> — Получает прототип метода (если такой есть)</li><li><a href="reflectionmethod.invoke.html">ReflectionMethod::invoke</a> — Вызов</li><li><a href="reflectionmethod.invokeargs.html">ReflectionMethod::invokeArgs</a> — Вызов метода с передачей аргументов массивом</li><li><a href="reflectionmethod.isabstract.html">ReflectionMethod::isAbstract</a> — Проверяет, является ли метод абстрактным</li><li><a href="reflectionmethod.isconstructor.html">ReflectionMethod::isConstructor</a> — Проверяет, является ли метод конструктором</li><li><a href="reflectionmethod.isdestructor.html">ReflectionMethod::isDestructor</a> — Проверяет, является ли метод деструктором</li><li><a href="reflectionmethod.isfinal.html">ReflectionMethod::isFinal</a> — Проверяет, может ли метод иметь наследников (final)</li><li><a href="reflectionmethod.isprivate.html">ReflectionMethod::isPrivate</a> — Проверяет, является ли метод частным (private)</li><li><a href="reflectionmethod.isprotected.html">ReflectionMethod::isProtected</a> — Проверяет, является ли метод защищенным (protected)</li><li><a href="reflectionmethod.ispublic.html">ReflectionMethod::isPublic</a> — Проверяет, является ли метод общедоступным (public)</li><li><a href="reflectionmethod.isstatic.html">ReflectionMethod::isStatic</a> — Проверяет, является ли метод статическим</li><li><a href="reflectionmethod.setaccessible.html">ReflectionMethod::setAccessible</a> — Делает метод доступным</li><li><a href="reflectionmethod.tostring.html">ReflectionMethod::__toString</a> — Возвращает строковое представление объекта Reflection method</li></ul></li><li><a href="class.reflectionobject.html">ReflectionObject</a> — Класс ReflectionObject<ul class="chunklist chunklist_book chunklist_children"><li><a href="reflectionobject.construct.html">ReflectionObject::__construct</a> — Конструктор класса ReflectionObject</li><li><a href="reflectionobject.export.html">ReflectionObject::export</a> — Экспорт</li></ul></li><li><a href="class.reflectionparameter.html">ReflectionParameter</a> — Класс ReflectionParameter<ul class="chunklist chunklist_book chunklist_children"><li><a href="reflectionparameter.allowsnull.html">ReflectionParameter::allowsNull</a> — Проверяет, допустимо ли значение null для аргумента</li><li><a href="reflectionparameter.canbepassedbyvalue.html">ReflectionParameter::canBePassedByValue</a> — Проверяет, можно ли передать этот аргумент по значению</li><li><a href="reflectionparameter.clone.html">ReflectionParameter::__clone</a> — Копирующий конструктор</li><li><a href="reflectionparameter.construct.html">ReflectionParameter::__construct</a> — Конструктор класса</li><li><a href="reflectionparameter.export.html">ReflectionParameter::export</a> — Экспорт</li><li><a href="reflectionparameter.getclass.html">ReflectionParameter::getClass</a> — Получение класса</li><li><a href="reflectionparameter.getdeclaringclass.html">ReflectionParameter::getDeclaringClass</a> — Получение объявляющего класса</li><li><a href="reflectionparameter.getdeclaringfunction.html">ReflectionParameter::getDeclaringFunction</a> — Получение объявляющей функции</li><li><a href="reflectionparameter.getdefaultvalue.html">ReflectionParameter::getDefaultValue</a> — Получение значения по умолчанию аргумента</li><li><a href="reflectionparameter.getdefaultvalueconstantname.html">ReflectionParameter::getDefaultValueConstantName</a> — Returns the default value's constant name if default value is constant or null</li><li><a href="reflectionparameter.getname.html">ReflectionParameter::getName</a> — Получение имени аргумента</li><li><a href="reflectionparameter.getposition.html">ReflectionParameter::getPosition</a> — Получение позиции аргумента</li><li><a href="reflectionparameter.isarray.html">ReflectionParameter::isArray</a> — Проверяет, ожидает ли аргумент массив в качестве значения</li><li><a href="reflectionparameter.iscallable.html">ReflectionParameter::isCallable</a> — Returns whether parameter MUST be callable</li><li><a href="reflectionparameter.isdefaultvalueavailable.html">ReflectionParameter::isDefaultValueAvailable</a> — Проверяет доступно ли значение по умолчанию аргумента</li><li><a href="reflectionparameter.isdefaultvalueconstant.html">ReflectionParameter::isDefaultValueConstant</a> — Returns whether the default value of this parameter is constant</li><li><a href="reflectionparameter.isoptional.html">ReflectionParameter::isOptional</a> — Проверка, является ли аргумент необязательным</li><li><a href="reflectionparameter.ispassedbyreference.html">ReflectionParameter::isPassedByReference</a> — Проверяет, что аргумент передан по ссылке</li><li><a href="reflectionparameter.tostring.html">ReflectionParameter::__toString</a> — Преобразование в строку</li></ul></li><li><a href="class.reflectionproperty.html">ReflectionProperty</a> — Класс ReflectionProperty<ul class="chunklist chunklist_book chunklist_children"><li><a href="reflectionproperty.clone.html">ReflectionProperty::__clone</a> — Копирующий конструктор</li><li><a href="reflectionproperty.construct.html">ReflectionProperty::__construct</a> — Конструктор класса ReflectionProperty</li><li><a href="reflectionproperty.export.html">ReflectionProperty::export</a> — Экспорт</li><li><a href="reflectionproperty.getdeclaringclass.html">ReflectionProperty::getDeclaringClass</a> — Получение объявляющего класса</li><li><a href="reflectionproperty.getdoccomment.html">ReflectionProperty::getDocComment</a> — Получение документируемого комментария</li><li><a href="reflectionproperty.getmodifiers.html">ReflectionProperty::getModifiers</a> — Получение модификаторов</li><li><a href="reflectionproperty.getname.html">ReflectionProperty::getName</a> — Получение имени свойства</li><li><a href="reflectionproperty.getvalue.html">ReflectionProperty::getValue</a> — Получение значения</li><li><a href="reflectionproperty.isdefault.html">ReflectionProperty::isDefault</a> — Проверяет, является ли значение свойством по умолчанию</li><li><a href="reflectionproperty.isprivate.html">ReflectionProperty::isPrivate</a> — Проверяет, является ли свойство частным (private)</li><li><a href="reflectionproperty.isprotected.html">ReflectionProperty::isProtected</a> — Проверяет, является ли свойство защищенным (protected)</li><li><a href="reflectionproperty.ispublic.html">ReflectionProperty::isPublic</a> — Проверяет, является ли свойство общедоступным (public)</li><li><a href="reflectionproperty.isstatic.html">ReflectionProperty::isStatic</a> — Проверка, является ли свойство статическим</li><li><a href="reflectionproperty.setaccessible.html">ReflectionProperty::setAccessible</a> — Задание доступности свойства</li><li><a href="reflectionproperty.setvalue.html">ReflectionProperty::setValue</a> — Задание значения свойству</li><li><a href="reflectionproperty.tostring.html">ReflectionProperty::__toString</a> — Преобразование в строку</li></ul></li><li><a href="class.reflector.html">Reflector</a> — Интерфейс Reflector<ul class="chunklist chunklist_book chunklist_children"><li><a href="reflector.export.html">Reflector::export</a> — Экспорт</li><li><a href="reflector.tostring.html">Reflector::__toString</a> — Представление в виде строки</li></ul></li><li><a href="class.reflectionexception.html">ReflectionException</a> — Класс ReflectionException</li></ul></div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="quickhashintstringhash.update.html">QuickHashIntStringHash::update</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="intro.reflection.html">Введение</a></div>
+ <div class="up"><a href="refs.basic.vartype.html">Расширения, относящиеся к переменным и типам</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Stores a string of bytes in the database</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mongogridfs.remove.html">MongoGridFS::remove</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mongogridfs.storefile.html">MongoGridFS::storeFile</a></div>
+ <div class="up"><a href="class.mongogridfs.html">MongoGridFS</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="mongogridfs.storebytes" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">MongoGridFS::storeBytes</h1>
+  <p class="verinfo">(PECL mongo &gt;=0.9.2)</p><p class="refpurpose"><span class="refname">MongoGridFS::storeBytes</span> &mdash; <span class="dc-title">Stores a string of bytes in the database</span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-mongogridfs.storebytes-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <span class="methodname"><strong>MongoGridFS::storeBytes</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$bytes</code></span>
+   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$metadata</code><span class="initializer"> = array()</span></span>
+   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
+  ]] )</div>
+
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-mongogridfs.storebytes-parameters">
+ <h3 class="title">Список параметров</h3>
+ <p class="para">
+  <dl>
+
+   
+    <dt>
+
+     <code class="parameter">bytes</code>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      String of bytes to store.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+
+     <code class="parameter">metadata</code>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Other metadata fields to include in the file document.
+     </p>
+     <blockquote class="note"><p><strong class="note">Замечание</strong>: <p class="para">Данные поля могут перезаписать поля, автоматически созданные драйвером, как указано в основной документации MongoDB  <a href="http://docs.mongodb.org/manual/core/gridfs/#the-files-collection" class="link external">&raquo;&nbsp;коллекции файлов</a>. В качестве практического применения данного поведения можно указать собственный <em>chunkSize</em> или <em>_id</em> для файла.</p></p></blockquote>
+    </dd>
+
+   
+   
+    <dt>
+
+     <code class="parameter">options</code>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Options for the store.
+      <ul class="itemizedlist">
+       <li class="listitem"><p class="para"><em>&quot;w&quot;</em></p><p class="para">Смотрите <a href="mongo.writeconcerns.html" class="link">WriteConcerns</a>. Значение по умолчанию для <a href="class.mongoclient.html" class="classname">MongoClient</a> является <em>1</em>.</p></li>
+      </ul>
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-mongogridfs.storebytes-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">Возвращает <em>_id</em> сохраненного документа. Это будет сгенерированный <a href="class.mongoid.html" class="classname">MongoId</a>, за исключением случая, когда <em>_id</em> был явно указан в параметре <code class="parameter">extra</code>.</p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-mongogridfs.storebytes-errors">
+  <h3 class="title">Ошибки</h3>
+  <p class="para">Бросает исключение <a href="class.mongocursorexception.html" class="classname">MongoCursorException</a>, если установлена опция &quot;w&quot; и запись не удалась.</p><p class="para">Бросает исключение <a href="class.mongocursortimeoutexception.html" class="classname">MongoCursorTimeoutException</a>, если опция &quot;w&quot; установлена в значение больше единицы и операция занимает более, чем <var class="varname"><var class="varname">MongoCursor::$timeout</var></var> миллисекунд. Операция на сервере не прекращается, это таймаут клиента. Операция в <em>MongoCollection::$wtimeout</em> считается в миллисекундах.</p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-mongogridfs.storebytes-examples">
+  <h3 class="title">Примеры</h3>
+  <div class="example" id="example-1544">
+   <p><strong>Пример #1 <span class="function"><strong>MongoGridFS::storeBytes()</strong></span> with additional metadata</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$m&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoClient</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$gridfs&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$m</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">selectDB</span><span style="color: #007700">(</span><span style="color: #DD0000">'test'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">getGridFS</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">$bytes&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'abcdefghijklmnopqrstuvwxyz'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$id&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$gridfs</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">storeBytes</span><span style="color: #007700">(</span><span style="color: #0000BB">$bytes</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #DD0000">'_id'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'alphabet'</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">$gridfsFile&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$gridfs</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">get</span><span style="color: #007700">(</span><span style="color: #0000BB">$id</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$gridfsFile</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">file</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>Результатом выполнения данного примера
+будет что-то подобное:</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>
+array(7) {
+  [&quot;_id&quot;]=&gt;
+  string(8) &quot;alphabet&quot;
+  [&quot;uploadDate&quot;]=&gt;
+  object(MongoDate)#7 (0) {
+  }
+  [&quot;length&quot;]=&gt;
+  int(26)
+  [&quot;chunkSize&quot;]=&gt;
+  int(262144)
+  [&quot;md5&quot;]=&gt;
+  string(32) &quot;c3fcd3d76192e4007dfb496cca67e13b&quot;
+}
+</pre></div>
+   </div>
+  </div>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-mongogridfs.storebytes-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <ul class="simplelist">
+   <li class="member"><span class="function"><a href="mongogridfs.put.html" class="function" rel="rdfs-seeAlso">MongoGridFS::put()</a> - Stores a file in the database</span></li>
+   <li class="member"><span class="function"><a href="mongogridfs.storefile.html" class="function" rel="rdfs-seeAlso">MongoGridFS::storeFile()</a> - Stores a file in the database</span></li>
+   <li class="member"><span class="function"><a href="mongogridfs.storeupload.html" class="function" rel="rdfs-seeAlso">MongoGridFS::storeUpload()</a> - Stores an uploaded file in the database</span></li>
+   <li class="member">MongoDB core docs on <a href="http://docs.mongodb.org/manual/core/gridfs/" class="link external">&raquo;&nbsp;GridFS</a></li>
+  </ul>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mongogridfs.remove.html">MongoGridFS::remove</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mongogridfs.storefile.html">MongoGridFS::storeFile</a></div>
+ <div class="up"><a href="class.mongogridfs.html">MongoGridFS</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

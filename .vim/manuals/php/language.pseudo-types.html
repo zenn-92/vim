@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Псевдо-типы и переменные, используемые в этой документации</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="language.types.callable.html">Callbacks</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="language.types.type-juggling.html">Манипуляции с типами</a></div>
+ <div class="up"><a href="language.types.html">Типы</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="language.pseudo-types" class="sect1">
+ <h2 class="title">Псевдо-типы и переменные, используемые в этой документации</h2> 
+
+ <div class="sect2" id="language.types.mixed">
+  <h3 class="title">mixed</h3>
+
+  <p class="para">
+   <em>mixed</em> говорит о том, что параметр может принимать много
+   (но необязательно все) типов.
+  </p>
+
+  <p class="para">
+   Например, функция <span class="function"><a href="function.gettype.html" class="function">gettype()</a></span> принимает все типы PHP, тогда как
+   <span class="function"><a href="function.str-replace.html" class="function">str_replace()</a></span> принимает только типы <span class="type"><a href="language.types.string.html" class="type string">string</a></span> и
+   <span class="type"><a href="language.types.array.html" class="type array">array</a></span>.
+  </p>
+
+ </div>
+
+ <div class="sect2" id="language.types.number">
+  <h3 class="title">number</h3>
+
+  <p class="para">
+   <em>number</em> говорит о том, что параметр может быть либо
+   <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>, либо <span class="type"><a href="language.types.float.html" class="type float">float</a></span>.
+  </p>
+
+ </div>
+
+ <div class="sect2" id="language.types.callback">
+  <h3 class="title">callback</h3>
+
+  <p class="para">
+   Псевдо-тип <span class="type"><a href="language.pseudo-types.html#language.types.callback" class="type callback">callback</a></span> использовался в этой документации до того, как был введен
+   тип <span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> в PHP 5.4. Он означает в точности
+   то же самое.
+  </p>
+  
+ </div>
+ 
+ <div class="sect2" id="language.types.void">
+  <h3 class="title">void</h3>
+
+  <p class="para">
+   <em>void</em> в качестве типа результата означает, что возвращенное
+   значение бесполезно. <em>void</em> в списке параметров означает, что
+   функция не принимает параметров.
+  </p>
+
+ </div>
+
+ <div class="sect2" id="language.types.dotdotdot">
+  <h3 class="title">...</h3>
+
+  <p class="para">
+   <code class="parameter">$...</code> в прототипах функции означает
+   <em>and so on</em> (и так далее). Это имя переменной используется когда
+   функция может принимать бесконечное количество параметров.
+  </p>
+
+ </div>
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="language.types.callable.html">Callbacks</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="language.types.type-juggling.html">Манипуляции с типами</a></div>
+ <div class="up"><a href="language.types.html">Типы</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

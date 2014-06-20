@@ -1,0 +1,380 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Возвращает информацию о языке и локали</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.money-format.html">money_format</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.nl2br.html">nl2br</a></div>
+ <div class="up"><a href="ref.strings.html">Обработка строк</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.nl-langinfo" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">nl_langinfo</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.1.0, PHP 5)</p><p class="refpurpose"><span class="refname">nl_langinfo</span> &mdash; <span class="dc-title">Возвращает информацию о языке и локали</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.nl-langinfo-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">string</span> <span class="methodname"><strong>nl_langinfo</strong></span>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$item</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   <span class="function"><strong>nl_langinfo()</strong></span> используется для доступа к отдельным 
+   элементам различных категорий текущей локали.
+   В отличии от <span class="function"><a href="function.localeconv.html" class="function">localeconv()</a></span>, возвращающей все 
+   элементы, <span class="function"><strong>nl_langinfo()</strong></span> позволяет выбрать 
+   отдельный элемент.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.nl-langinfo-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">item</code></dt>
+
+     <dd>
+
+      <p class="para">
+       <code class="parameter">item</code> может быть целым числом или 
+       соответствующей константой. Ниже приведены возможные 
+       константы для <code class="parameter">item</code> и их
+       описания. Для некоторых локалей отдельные константы могут быть 
+       неопределены.
+       <table class="doctable table">
+        <caption><strong>Константы nl_langinfo</strong></caption>
+        
+         <col />
+         <col />
+         <thead>
+          <tr>
+           <th>Константа</th>
+           <th>Описание</th>
+          </tr>
+
+         </thead>
+
+         <tbody class="tbody">
+          <tr>
+           <td colspan="2" style="text-align: center;"><em class="emphasis">Константы в категории LC_TIME</em></td>
+          </tr>
+
+          <tr>
+           <td><strong><code>ABDAY_(1-7)</code></strong></td>
+           <td>Сокращенное название n-го дня недели.</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>DAY_(1-7)</code></strong></td>
+           <td>Полное название n-го дня недели (DAY_1 соответствует воскресенью).</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>ABMON_(1-12)</code></strong></td>
+           <td>Сокращенное название n-го месяца.</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>MON_(1-12)</code></strong></td>
+           <td>Полное название n-го месяца.</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>AM_STR</code></strong></td>
+           <td>Обозначение &quot;до полудня&quot;.</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>PM_STR</code></strong></td>
+           <td>Обозначение &quot;после полудня&quot;.</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>D_T_FMT</code></strong></td>
+           <td>Строка, которую можно использовать в качестве формата с функцией <span class="function"><a href="function.strftime.html" class="function">strftime()</a></span> для вывода даты и времени.</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>D_FMT</code></strong></td>
+           <td>Строка, которую можно использовать в качестве формата с функцией <span class="function"><a href="function.strftime.html" class="function">strftime()</a></span> для вывода даты.</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>T_FMT</code></strong></td>
+           <td>Строка, которую можно использовать в качестве формата с функцией <span class="function"><a href="function.strftime.html" class="function">strftime()</a></span> для вывода времени.</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>T_FMT_AMPM</code></strong></td>
+           <td>Строка, которую можно использовать в качестве формата с функцией <span class="function"><a href="function.strftime.html" class="function">strftime()</a></span> для вывода времени в 12-часовом формате.</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>ERA</code></strong></td>
+           <td>Эра</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>ERA_YEAR</code></strong></td>
+           <td>Год в формате с эрой</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>ERA_D_T_FMT</code></strong></td>
+           <td>
+            Дата и время в формате с эрой (строка, которую можно 
+            использовать в качестве формата с функцией 
+            <span class="function"><a href="function.strftime.html" class="function">strftime()</a></span>).
+           </td>
+          </tr>
+
+          <tr>
+           <td><strong><code>ERA_D_FMT</code></strong></td>
+           <td>
+            Дата в формате с эрой (строка, которую можно 
+            использовать в качестве формата с функцией 
+            <span class="function"><a href="function.strftime.html" class="function">strftime()</a></span>).
+           </td>
+          </tr>
+
+          <tr>
+           <td><strong><code>ERA_T_FMT</code></strong></td>
+           <td>
+            Время в формате с эрой (строка, которую можно 
+            использовать в качестве формата с функцией 
+            <span class="function"><a href="function.strftime.html" class="function">strftime()</a></span>).
+           </td>
+          </tr>
+
+          <tr>
+           <td colspan="2" style="text-align: center;"><em class="emphasis">Константы в категории LC_MONETARY</em></td>
+          </tr>
+
+          <tr>
+           <td><strong><code>INT_CURR_SYMBOL</code></strong></td>
+           <td>Международное обозначение валюты.</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>CURRENCY_SYMBOL</code></strong></td>
+           <td>Национальное обозначение валюты.</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>CRNCYSTR</code></strong></td>
+           <td>Аналог <strong><code>CURRENCY_SYMBOL</code></strong>.</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>MON_DECIMAL_POINT</code></strong></td>
+           <td>Символ десятичной точки.</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>MON_THOUSANDS_SEP</code></strong></td>
+           <td>Разделитель тысяч (групп из 3 цифр).</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>MON_GROUPING</code></strong></td>
+           <td>Аналогичен элементу <em>&quot;grouping&quot;</em>.</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>POSITIVE_SIGN</code></strong></td>
+           <td>Знак для положительных чисел.</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>NEGATIVE_SIGN</code></strong></td>
+           <td>Знак для отрицательных чисел.</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>INT_FRAC_DIGITS</code></strong></td>
+           <td>Количество знаков после запятой (международный формат).</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>FRAC_DIGITS</code></strong></td>
+           <td>Количество знаков после запятой (национальный формат).</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>P_CS_PRECEDES</code></strong></td>
+           <td>Возвращает 1, если <strong><code>CURRENCY_SYMBOL</code></strong> записывется перед положительным значением.</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>P_SEP_BY_SPACE</code></strong></td>
+           <td>Возвращает 1, если <strong><code>CURRENCY_SYMBOL</code></strong> отделяется от положительного значения пробелом.</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>N_CS_PRECEDES</code></strong></td>
+           <td>Возвращает 1, если <strong><code>CURRENCY_SYMBOL</code></strong> записывется перед отрицательным значением.</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>N_SEP_BY_SPACE</code></strong></td>
+           <td>Возвращает 1, если <strong><code>CURRENCY_SYMBOL</code></strong> отделяется от отрицательного значения пробелом.</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>P_SIGN_POSN</code></strong></td>
+           <td rowspan="2" style="vertical-align: middle;">
+            <ul class="itemizedlist">
+             <li class="listitem">
+              <span class="simpara">
+               Возвращает 0, если число и обозначение валюты <strong><code>CURRENCY_SYMBOL</code></strong> заключаются в скобки
+              </span>
+             </li>
+             <li class="listitem">
+              <span class="simpara">
+               Возвращает 1, если знак записывается перед числом и обозначением валюты <strong><code>CURRENCY_SYMBOL</code></strong>
+              </span>
+             </li>
+             <li class="listitem">
+              <span class="simpara">
+               Возвращает 2, если знак записывается после числа и обозначения валюты <strong><code>CURRENCY_SYMBOL</code></strong>
+              </span>
+             </li>
+             <li class="listitem">
+              <span class="simpara">
+               Возвращает 3, если знак записывается перед обозначением валюты <strong><code>CURRENCY_SYMBOL</code></strong>
+              </span>
+             </li>
+             <li class="listitem">
+              <span class="simpara">
+               Возвращает 4, если знак записывается после обозначения валюты <strong><code>CURRENCY_SYMBOL</code></strong>
+              </span>
+             </li>
+            </ul>
+           </td>
+          </tr>
+
+          <tr>
+           <td><strong><code>N_SIGN_POSN</code></strong></td>
+          </tr>
+
+          <tr>
+           <td colspan="2" style="text-align: center;"><em class="emphasis">Константы в категории LC_NUMERIC</em></td>
+          </tr>
+
+          <tr>
+           <td><strong><code>DECIMAL_POINT</code></strong></td>
+           <td>Символ десятичной точки.</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>RADIXCHAR</code></strong></td>
+           <td>Аналогично <strong><code>DECIMAL_POINT</code></strong>.</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>THOUSANDS_SEP</code></strong></td>
+           <td>Разделитель тысяч (групп из 3 цифр).</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>THOUSEP</code></strong></td>
+           <td>Аналогично <strong><code>THOUSANDS_SEP</code></strong>.</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>GROUPING</code></strong></td>
+           <td class="empty">&nbsp;</td>
+          </tr>
+
+          <tr>
+           <td colspan="2" style="text-align: center;"><em class="emphasis">Константы в категории LC_MESSAGES</em></td>
+          </tr>
+
+          <tr>
+           <td><strong><code>YESEXPR</code></strong></td>
+           <td>Регулярное выражение, при совпадении с которым строка рассматривается как положительный ответ 
+            (<em>&quot;yes&quot;</em>).</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>NOEXPR</code></strong></td>
+           <td>Регулярное выражение, при совпадении с которым строка рассматривается как отрицательный ответ 
+            (<em>&quot;no&quot;</em>).</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>YESSTR</code></strong></td>
+           <td>Слово &quot;да&quot; (<em>&quot;yes&quot;</em>).</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>NOSTR</code></strong></td>
+           <td>Слово &quot;нет&quot; (<em>&quot;no&quot;</em>).</td>
+          </tr>
+
+          <tr>
+           <td colspan="2" style="text-align: center;"><em class="emphasis">Константы в категории LC_CTYPE</em></td>
+          </tr>
+
+          <tr>
+           <td><strong><code>CODESET</code></strong></td>
+           <td>Возвращает строку с именем текущей кодировки.</td>
+          </tr>
+
+         </tbody>
+        
+       </table>
+
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.nl-langinfo-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает элемент в виде строки, или <strong><code>FALSE</code></strong> если <code class="parameter">item</code>
+   передан неправильно.
+  </p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.nl-langinfo-notes">
+  <h3 class="title">Примечания</h3>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: <span class="simpara">Для Windows-платформ
+эта функция не реализована.</span></p></blockquote>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.nl-langinfo-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.setlocale.html" class="function" rel="rdfs-seeAlso">setlocale()</a> - Устанавливает настройки локали</span></li>
+    <li class="member"><span class="function"><a href="function.localeconv.html" class="function" rel="rdfs-seeAlso">localeconv()</a> - Возвращает информацию о числовых форматах</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.money-format.html">money_format</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.nl2br.html">nl2br</a></div>
+ <div class="up"><a href="ref.strings.html">Обработка строк</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

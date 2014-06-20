@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Преобразование полноцветного изображения в палитровое</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.imagesy.html">imagesy</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.imagettfbbox.html">imagettfbbox</a></div>
+ <div class="up"><a href="ref.image.html">GD и функции для работы с изображениями Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.imagetruecolortopalette" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">imagetruecolortopalette</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5)</p><p class="refpurpose"><span class="refname">imagetruecolortopalette</span> &mdash; <span class="dc-title">
+   Преобразование полноцветного изображения в палитровое
+  </span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-function.imagetruecolortopalette-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><strong>imagetruecolortopalette</strong></span>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$image</code></span>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$dither</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$ncolors</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   <span class="function"><strong>imagetruecolortopalette()</strong></span> преобразует полноцветное
+   изображение в палитровое. Код этой функции взят из кода библиотеки Независимой
+   Группы JPEG. Код был модифицирован, чтобы сохранялось максимум информации об
+   альфа компонентах цветов, а также передавались цвета в лучшем виде насколько это
+   возможно. Но в итоге код работает не так хорошо, как хотелось бы. В связи с этим
+   функцию можно использовать для вывода полноцветных изображений, она гарантирует
+   самое высокое качество вывода. Но не более того.
+  </p>
+ </div>
+
+ <div class="refsect1 parameters" id="refsect1-function.imagetruecolortopalette-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    <dt>
+<code class="parameter">
+image</code></dt>
+<dd>
+<p class="para">Ресурс изображения, полученный одной из функций создания изображений,
+например, такой как <span class="function"><a href="function.imagecreatetruecolor.html" class="function">imagecreatetruecolor()</a></span>.</p></dd>
+
+    
+     <dt>
+<code class="parameter">dither</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Если задано <strong><code>TRUE</code></strong>, изображение будет сглаживаться. Сглаживание увеличивает
+       шумность картинки, но в то же время обеспечивает лучшую передачу цветов.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">ncolors</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Задает максимальное количество цветов в палитре.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+ <div class="refsect1 returnvalues" id="refsect1-function.imagetruecolortopalette-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает <strong><code>TRUE</code></strong> в случае успешного завершения  или <strong><code>FALSE</code></strong> в случае возникновения ошибки.
+  </p>
+ </div>
+
+ <div class="refsect1 examples" id="refsect1-function.imagetruecolortopalette-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-3334">
+    <p><strong>Пример #1 
+     Преобразование truecolor-изображения в палитровое
+    </strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Создание&nbsp;полноцветного&nbsp;изображения<br /></span><span style="color: #0000BB">$im&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecreatetruecolor</span><span style="color: #007700">(</span><span style="color: #0000BB">100</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">100</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Преобразование&nbsp;в&nbsp;палитровое&nbsp;(255&nbsp;цветов)&nbsp;без&nbsp;сглаживания<br /></span><span style="color: #0000BB">imagetruecolortopalette</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">255</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Сохранение&nbsp;картинки<br /></span><span style="color: #0000BB">imagepng</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'./paletteimage.png'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+ <div class="refsect1 notes" id="refsect1-function.imagetruecolortopalette-notes">
+  <h3 class="title">Примечания</h3>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: <span class="simpara">Эта функция нуждается в GD версии 2.0.1 или выше.</span></p></blockquote>
+ </div>
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.imagesy.html">imagesy</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.imagettfbbox.html">imagettfbbox</a></div>
+ <div class="up"><a href="ref.image.html">GD и функции для работы с изображениями Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

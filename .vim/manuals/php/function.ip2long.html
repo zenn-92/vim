@@ -1,0 +1,170 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Конвертирует строку, содержащую (IPv4) Интернет адрес с точками в допустимый адрес</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.inet-pton.html">inet_pton</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.long2ip.html">long2ip</a></div>
+ <div class="up"><a href="ref.network.html">Сетевые Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.ip2long" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">ip2long</h1>
+  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">ip2long</span> &mdash; <span class="dc-title">Конвертирует строку, содержащую (IPv4) Интернет адрес с точками в допустимый адрес</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-function.ip2long-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">int</span> <span class="methodname"><strong>ip2long</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$ip_address</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Функция <span class="function"><strong>ip2long()</strong></span> преобразует IPv4 адрес Интернет сети из стандартного формата (строка с точками). 
+  </p>
+  <p class="para">
+   Функция <span class="function"><strong>ip2long()</strong></span> также будет работать с неполными IP адресами. См. <a href="http://publibn.boulder.ibm.com/doc_link/en_US/a_doc_lib/libs/commtrf2/inet_addr.htm" class="link external">&raquo;&nbsp;http://publibn.boulder.ibm.com/doc_link/en_US/a_doc_lib/libs/commtrf2/inet_addr.htm</a>
+   для более подобной информации.
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 parameters" id="refsect1-function.ip2long-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">ip_address</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Адрес в стандартном формате.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 returnvalues" id="refsect1-function.ip2long-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает IPv4 адрес или <strong><code>FALSE</code></strong>, если параметр <code class="parameter">ip_address</code>
+   содержит ошибку.
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 changelog" id="refsect1-function.ip2long-changelog">
+  <h3 class="title">Список изменений</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Версия</th>
+       <th>Описание</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.2.10</td>
+       <td>
+        До этой версии функция <span class="function"><strong>ip2long()</strong></span> могла иногда возвращать верное число, даже если отправленное значение не было Интернет адресом (IPv4) в точечном формате.
+       </td>
+      </tr>
+
+      <tr>
+       <td>5.0.0</td>
+       <td>
+        До этой версии функция <span class="function"><strong>ip2long()</strong></span> возвращала -1 при ошибке.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 examples" id="refsect1-function.ip2long-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-4523">
+    <p><strong>Пример #1 Пример использования <span class="function"><strong>ip2long()</strong></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$ip&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">gethostbyname</span><span style="color: #007700">(</span><span style="color: #DD0000">'www.example.com'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$out&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"Следующие&nbsp;URL&nbsp;эквивалентны:&lt;br&nbsp;/&gt;\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$out&nbsp;</span><span style="color: #007700">.=&nbsp;</span><span style="color: #DD0000">'http://www.example.com/,&nbsp;http://'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$ip&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">'/,&nbsp;and&nbsp;http://'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">sprintf</span><span style="color: #007700">(</span><span style="color: #DD0000">"%u"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">ip2long</span><span style="color: #007700">(</span><span style="color: #0000BB">$ip</span><span style="color: #007700">))&nbsp;.&nbsp;</span><span style="color: #DD0000">"/&lt;br&nbsp;/&gt;\n"</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">$out</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+  <p class="para">
+   <div class="example" id="example-4524">
+    <p><strong>Пример #2 Отображение IP адресов</strong></p>
+    <div class="example-contents"><p>
+     Второй пример показывает как выводить сконвертированные адреса с помощью функции <span class="function"><a href="function.printf.html" class="function">printf()</a></span> как в PHP 4 так и в PHP 5:
+    </p></div>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$ip&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">gethostbyname</span><span style="color: #007700">(</span><span style="color: #DD0000">'www.example.com'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$long&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ip2long</span><span style="color: #007700">(</span><span style="color: #0000BB">$ip</span><span style="color: #007700">);<br /><br />if&nbsp;(</span><span style="color: #0000BB">$long&nbsp;</span><span style="color: #007700">==&nbsp;-</span><span style="color: #0000BB">1&nbsp;</span><span style="color: #007700">||&nbsp;</span><span style="color: #0000BB">$long&nbsp;</span><span style="color: #007700">===&nbsp;</span><span style="color: #0000BB">FALSE</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'Неверный&nbsp;IP,&nbsp;попробуйте&nbsp;еще&nbsp;раз'</span><span style="color: #007700">;<br />}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$ip&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;192.0.34.166<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$long&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;-1073732954<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"%u\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">ip2long</span><span style="color: #007700">(</span><span style="color: #0000BB">$ip</span><span style="color: #007700">));&nbsp;</span><span style="color: #FF8000">//&nbsp;3221234342<br /></span><span style="color: #007700">}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 notes" id="refsect1-function.ip2long-notes">
+  <h3 class="title">Примечания</h3>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <p class="para">
+    Ввиду того, что PHP тип <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span> является знаковым, и на 32-битных системах большое количество IP адресов будет представлено в виде отрицательных чисел, необходимо использовать &quot;%u&quot; в функции <span class="function"><a href="function.sprintf.html" class="function">sprintf()</a></span> или <span class="function"><a href="function.printf.html" class="function">printf()</a></span> для получения  IP адреса в строковом беззнаковом виде.
+   </p>
+  </p></blockquote>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <p class="para">
+    Функция <span class="function"><strong>ip2long()</strong></span> возвратит <strong><code>FALSE</code></strong> для IP
+    <em>255.255.255.255</em> в PHP 5 &lt;= 5.0.2. Это было исправлено в
+    PHP 5.0.3, теперь возвращается <em>-1</em> (как и в PHP 4).
+   </p>
+  </p></blockquote>
+ </div>
+
+ 
+ <div class="refsect1 seealso" id="refsect1-function.ip2long-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.long2ip.html" class="function" rel="rdfs-seeAlso">long2ip()</a> - Конвертирует (IPv4) адрес Интернет сети в стандартную строку с точками</span></li>
+    <li class="member"><span class="function"><a href="function.sprintf.html" class="function" rel="rdfs-seeAlso">sprintf()</a> - Возвращает отформатированную строку</span></li>
+   </ul>
+  </p>
+ </div>
+
+ 
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.inet-pton.html">inet_pton</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.long2ip.html">long2ip</a></div>
+ <div class="up"><a href="ref.network.html">Сетевые Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

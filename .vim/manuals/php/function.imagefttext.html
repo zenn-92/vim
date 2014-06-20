@@ -1,0 +1,325 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Нанесение текста на изображение, используя шрифты FreeType 2</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.imageftbbox.html">imageftbbox</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.imagegammacorrect.html">imagegammacorrect</a></div>
+ <div class="up"><a href="ref.image.html">GD и функции для работы с изображениями Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.imagefttext" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">imagefttext</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.7, PHP 5)</p><p class="refpurpose"><span class="refname">imagefttext</span> &mdash; <span class="dc-title">
+   Нанесение текста на изображение, используя шрифты FreeType 2
+  </span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-function.imagefttext-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">array</span> <span class="methodname"><strong>imagefttext</strong></span>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$image</code></span>
+   , <span class="methodparam"><span class="type">float</span> <code class="parameter">$size</code></span>
+   , <span class="methodparam"><span class="type">float</span> <code class="parameter">$angle</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$x</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$y</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$color</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$fontfile</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$text</code></span>
+   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$extrainfo</code></span>
+  ] )</div>
+
+ </div>
+
+ <div class="refsect1 parameters" id="refsect1-function.imagefttext-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    <dt>
+<code class="parameter">
+image</code></dt>
+<dd>
+<p class="para">Ресурс изображения, полученный одной из функций создания изображений,
+например, такой как <span class="function"><a href="function.imagecreatetruecolor.html" class="function">imagecreatetruecolor()</a></span>.</p></dd>
+
+    
+     <dt>
+<code class="parameter">size</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Размер шрифта в пунктах.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">angle</code></dt>
+
+     <dd>
+
+      <p class="para"> 
+       Угол в градусах, 0 градусов означает расположение текста слева направо.
+       Положительные значения означают поворот текста против часовой стрелки.
+       Например, текст повернутый на 90 градусов нужно будет читать снизу вверх.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">x</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Координаты <code class="parameter">x</code> и <code class="parameter">y</code> определяют
+       отправную точку для первого символа текста (конкретно, левый нижний угол
+       символа). Здесь есть отличие от функции <span class="function"><a href="function.imagestring.html" class="function">imagestring()</a></span>,
+       в которой <code class="parameter">x</code> и <code class="parameter">y</code> определяют
+       верхний левый угол первого символа. Например, &quot;верхний левый&quot; имеет
+       координаты 0,0.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">y</code></dt>
+
+     <dd>
+
+      <p class="para">
+       y-координата. Это позиция базовой линии шрифта, в общем случае она не
+       совпадает с низшей точкой в символе.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">color</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Индекс требуемого цвета текста, см. <span class="function"><a href="function.imagecolorexact.html" class="function">imagecolorexact()</a></span>.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">fontfile</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Путь к TrueType шрифту, который требуется использовать.
+      </p>
+      <p class="para">
+       В зависимости от версии GD библиотеки <em class="emphasis">если 
+       <code class="parameter">fontfile</code> не начинается с <em>/</em>,
+       то в конец названия файла будет добавлено расширение
+       <em>.ttf</em></em>, и библиотека будет пытаться найти
+       этот файл по адресу, определенному в настройках библиотеки.
+      </p>
+      <p class="para">
+       При использовании GD библиотеки версий младше 2.0.18 символ
+       <em>space</em> (пробел), как и точка с запятой, использовался в
+       качестве &quot;разделителя путей&quot; для различных файлов шрифтов. При исползовании
+       этой возможности будет выдаваться предупреждение: <em>Warning: Could
+       not find/open font</em>. Решением такой проблемы в этих версиях может
+       быть только исключение пробелов из путей файлов.
+      </p>
+      <p class="para">
+       В большинстве случаев размещение файлов шрифтов в директории скрипта решает
+       подобные проблемы включения файлов.
+       <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Задание&nbsp;переменной&nbsp;окружения&nbsp;для&nbsp;GD<br /></span><span style="color: #0000BB">putenv</span><span style="color: #007700">(</span><span style="color: #DD0000">'GDFONTPATH='&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">realpath</span><span style="color: #007700">(</span><span style="color: #DD0000">'.'</span><span style="color: #007700">));<br /><br /></span><span style="color: #FF8000">//&nbsp;Имя&nbsp;шрифта&nbsp;для&nbsp;использования&nbsp;(обратите&nbsp;внимание&nbsp;на&nbsp;отсутствие&nbsp;расширения&nbsp;.ttf)<br /></span><span style="color: #0000BB">$font&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'SomeFont'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+       </div>
+
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">text</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Текст для вставки в изображение.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">extrainfo</code></dt>
+
+     <dd>
+
+      <p class="para">
+       <table class="doctable table">
+       <caption><strong>
+        Возможние значения массива <code class="parameter">extrainfo</code>
+       </strong></caption>
+        
+         <thead>
+          <tr>
+           <th>Ключ</th>
+           <th>Тип</th>
+           <th>Значение</th>
+          </tr>
+
+         </thead>
+
+         <tbody class="tbody">
+          <tr>
+           <td><em>linespacing</em></td>
+           <td><span class="type"><a href="language.types.float.html" class="type float">float</a></span></td>
+           <td>
+            Определяет рисование нижнего подчеркивания
+           </td>
+          </tr>
+
+         </tbody>
+        
+       </table>
+
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+ <div class="refsect1 returnvalues" id="refsect1-function.imagefttext-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Эта функция возвращает массив, определяющий четыре точки рамки текста. Текст
+   внутри этих границ начинается с левого нижнего угла и поворачивается против
+   часовой стрелки:
+   <table class="doctable informaltable">
+    
+     <tbody class="tbody">
+      <tr>
+       <td>0</td>
+       <td>нижняя левая x-координата</td>
+      </tr>
+
+      <tr>
+       <td>1</td>
+       <td>нижняя левая y-координата</td>
+      </tr>
+
+      <tr>
+       <td>2</td>
+       <td>нижняя правая x-координата</td>
+      </tr>
+
+      <tr>
+       <td>3</td>
+       <td>нижняя правая y-координата</td>
+      </tr>
+
+      <tr>
+       <td>4</td>
+       <td>верхняя правая x-координата</td>
+      </tr>
+
+      <tr>
+       <td>5</td>
+       <td>верхняя правая y-координата</td>
+      </tr>
+
+      <tr>
+       <td>6</td>
+       <td>верхняя левая x-координата</td>
+      </tr>
+
+      <tr>
+       <td>7</td>
+       <td>верхняя левая y-координата</td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+ <div class="refsect1 examples" id="refsect1-function.imagefttext-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-3293">
+    <p><strong>Пример #1 Пример использования <span class="function"><strong>imagefttext()</strong></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Создание&nbsp;изображения&nbsp;300x100<br /></span><span style="color: #0000BB">$im&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecreatetruecolor</span><span style="color: #007700">(</span><span style="color: #0000BB">300</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">100</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$red&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecolorallocate</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0xFF</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0x00</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0x00</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$black&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecolorallocate</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0x00</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0x00</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0x00</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Сделаем&nbsp;краный&nbsp;фон<br /></span><span style="color: #0000BB">imagefilledrectangle</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">299</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">99</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$red</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Путь&nbsp;к&nbsp;ttf&nbsp;файлу&nbsp;шрифта<br /></span><span style="color: #0000BB">$font_file&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'./arial.ttf'</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;Рисуем&nbsp;текст&nbsp;'PHP&nbsp;Manual'&nbsp;шрифтом&nbsp;13го&nbsp;размера<br /></span><span style="color: #0000BB">imagefttext</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">13</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">105</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">55</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$black</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$font_file</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'PHP&nbsp;Manual'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Вывод&nbsp;изображения<br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'Content-Type:&nbsp;image/png'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">imagepng</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+ <div class="refsect1 notes" id="refsect1-function.imagefttext-notes">
+  <h3 class="title">Примечания</h3>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: <span class="simpara">Эта функция нуждается в GD версии 2.0.1 или выше.</span></p></blockquote>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: <span class="simpara">Эта функция доступна только в случае, если
+PHP был скомплирован с поддержкой freetype (<strong class="option configure">--with-freetype-dir=DIR</strong>
+)
+</span></p></blockquote>
+ </div>
+
+ <div class="refsect1 changelog" id="refsect1-function.imagefttext-changelog">
+  <h3 class="title">Список изменений</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Версия</th>
+       <th>Описание</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>4.3.5</td>
+       <td>
+        Агрумент <code class="parameter">extrainfo</code> сделан необязательным.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.imageftbbox.html">imageftbbox</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.imagegammacorrect.html">imagegammacorrect</a></div>
+ <div class="up"><a href="ref.image.html">GD и функции для работы с изображениями Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

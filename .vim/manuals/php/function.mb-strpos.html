@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Поиск позиции первого вхождения одной строки в другую</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.mb-strlen.html">mb_strlen</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.mb-strrchr.html">mb_strrchr</a></div>
+ <div class="up"><a href="ref.mbstring.html">Функции для работы с Многобайтными строками</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.mb-strpos" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">mb_strpos</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5)</p><p class="refpurpose"><span class="refname">mb_strpos</span> &mdash; <span class="dc-title">
+   Поиск позиции первого вхождения одной строки в другую
+  </span></p>
+
+ </div>
+   
+ <div class="refsect1 description" id="refsect1-function.mb-strpos-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">int</span> <span class="methodname"><strong>mb_strpos</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$haystack</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$needle</code></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code><span class="initializer"> = 0</span></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$encoding</code></span>
+  ]] )</div>
+
+  <p class="para rdfs-comment">
+   Ищет позицию первого вхождения одной строки <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+   в другую строку <span class="type"><a href="language.types.string.html" class="type string">string</a></span>.
+  </p>
+  <p class="para">
+   Выполняет безопасную с точки зрения многобайтных кодировок операцию
+   <span class="function"><a href="function.strpos.html" class="function">strpos()</a></span>, которая опирается на число символов в стоке.
+   Первый символ стоит на позиции 0, позиция второго 1 и так далее.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.mb-strpos-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">haystack</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Строка <span class="type"><a href="language.types.string.html" class="type string">string</a></span> в которой производится поиск.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">needle</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Строка, поиск которой производится в строке 
+       <code class="parameter">haystack</code>. В отличие от 
+       <span class="function"><a href="function.strpos.html" class="function">strpos()</a></span>, числовые значения не применяются в качестве
+       порядковых номеров символов.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">offset</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Смещение начала поиска. Если не задан, используется 0.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">encoding</code></dt>
+
+     <dd>
+
+      <p class="para">Параметр <code class="parameter">encoding</code>
+представляет собой символьную кодировку. Если он опущен, вместо него будет использовано значение внутренней кодировки.</p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-function.mb-strpos-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает число - позицию первого вхождения строки
+   <code class="parameter">needle</code> в строку <code class="parameter">haystack</code> 
+   <span class="type"><a href="language.types.string.html" class="type string">string</a></span>. Если строка <code class="parameter">needle</code> не найдена,
+   функция вернет <strong><code>FALSE</code></strong>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.mb-strpos-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.mb-internal-encoding.html" class="function" rel="rdfs-seeAlso">mb_internal_encoding()</a> - Установка/получение внутренней кодировки скрипта</span></li>
+    <li class="member"><span class="function"><a href="function.strpos.html" class="function" rel="rdfs-seeAlso">strpos()</a> - Возвращает позицию первого вхождения подстроки</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.mb-strlen.html">mb_strlen</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.mb-strrchr.html">mb_strrchr</a></div>
+ <div class="up"><a href="ref.mbstring.html">Функции для работы с Многобайтными строками</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

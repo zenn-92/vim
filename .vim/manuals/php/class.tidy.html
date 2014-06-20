@@ -1,0 +1,311 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Класс tidy</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="tidy.examples.basic.html">Пример использования Tidy</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="tidy.body.html">tidy::body</a></div>
+ <div class="up"><a href="book.tidy.html">Tidy</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="class.tidy" class="reference">
+ <h1 class="title">Класс <a href="class.tidy.html" class="classname">tidy</a></h1>
+ 
+ 
+ <div class="partintro"><p class="verinfo">(PHP 5, PECL tidy &gt;= 0.5.2)</p>
+ 
+
+  <div class="section" id="tidy.intro">
+   <h2 class="title">Введение</h2>
+   <p class="para">
+    HTML-узел в HTML-файле, обнаруженный Tidy.
+   </p>
+  </div>
+
+ 
+  <div class="section" id="tidy.synopsis">
+   <h2 class="title">Обзор классов</h2>
+
+
+   <div class="classsynopsis">
+    <div class="ooclass"></div>
+
+
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <strong class="classname">tidy</strong>
+     </span>
+     {</div>
+
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Свойства */</div>
+    <div class="fieldsynopsis"><span class="type">string</span> <var class="varname"><a href="tidy.props.errorbuffer.html">$<var class="varname">errorBuffer</var></a></var>;</div>
+
+    
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Методы */</div>
+    <div class="methodsynopsis dc-description">
+   <span class="type">tidyNode</span> <span class="methodname"><a href="tidy.body.html" class="methodname">body</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><a href="tidy.cleanrepair.html" class="methodname">cleanRepair</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="methodname"><a href="tidy.construct.html" class="methodname">__construct</a></span>
+    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
+   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$config</code></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$encoding</code></span>
+   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$use_include_path</code></span>
+  ]]]] )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><a href="tidy.diagnose.html" class="methodname">diagnose</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">array</span> <span class="methodname"><a href="tidy.getconfig.html" class="methodname">getConfig</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">int</span> <span class="methodname"><a href="tidy.gethtmlver.html" class="methodname">getHtmlVer</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">mixed</span> <span class="methodname"><a href="tidy.getopt.html" class="methodname">getOpt</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$option</code></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">string</span> <span class="methodname"><a href="tidy.getoptdoc.html" class="methodname">getOptDoc</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$optname</code></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">string</span> <span class="methodname"><a href="tidy.getrelease.html" class="methodname">getRelease</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">int</span> <span class="methodname"><a href="tidy.getstatus.html" class="methodname">getStatus</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">tidyNode</span> <span class="methodname"><a href="tidy.head.html" class="methodname">head</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">tidyNode</span> <span class="methodname"><a href="tidy.html.html" class="methodname">html</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><a href="tidy.isxhtml.html" class="methodname">isXhtml</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><a href="tidy.isxml.html" class="methodname">isXml</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><a href="tidy.parsefile.html" class="methodname">parseFile</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
+   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$config</code></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$encoding</code></span>
+   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$use_include_path</code><span class="initializer"> = false</span></span>
+  ]]] )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><a href="tidy.parsestring.html" class="methodname">parseString</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$input</code></span>
+   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$config</code></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$encoding</code></span>
+  ]] )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">string</span> <span class="methodname"><a href="tidy.repairfile.html" class="methodname">repairFile</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
+   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$config</code></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$encoding</code></span>
+   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$use_include_path</code><span class="initializer"> = false</span></span>
+  ]]] )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">string</span> <span class="methodname"><a href="tidy.repairstring.html" class="methodname">repairString</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>
+   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$config</code></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$encoding</code></span>
+  ]] )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">tidyNode</span> <span class="methodname"><a href="tidy.root.html" class="methodname">root</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+
+    
+   }</div>
+
+
+  </div>
+
+
+ </div>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>Содержание</h2><ul class="chunklist chunklist_reference"><li><a href="tidy.body.html">tidy::body</a> — Возвращает объект tidyNode, начиная с тега &lt;body&gt; разобранного tidy-дерева</li><li><a href="tidy.cleanrepair.html">tidy::cleanRepair</a> — Выполнить настроенную очистку и восстановление разобранной разметки</li><li><a href="tidy.construct.html">tidy::__construct</a> — Создает новый tidy-объект</li><li><a href="tidy.diagnose.html">tidy::diagnose</a> — Запуск настроенной диагностики для разобранной и восстановленной разметки</li><li><a href="tidy.props.errorbuffer.html">tidy::$errorBuffer</a> — Возвращает предупреждения и ошибки, возникшие при разборе указанного документа</li><li><a href="tidy.getconfig.html">tidy::getConfig</a> — Получает текущую конфигурацию Tidy</li><li><a href="tidy.gethtmlver.html">tidy::getHtmlVer</a> — Получает обнаруженную HTML версию для указанного документа</li><li><a href="tidy.getopt.html">tidy::getOpt</a> — Возвращает значение указанного параметра конфигурации для документа tidy</li><li><a href="tidy.getoptdoc.html">tidy::getoptdoc</a> — Возвращает описание для опции с указанным названием</li><li><a href="tidy.getrelease.html">tidy::getRelease</a> — Получить дату релиза (версию) для библиотеки Tidy</li><li><a href="tidy.getstatus.html">tidy::getStatus</a> — Получает статус указанного документа</li><li><a href="tidy.head.html">tidy::head</a> — Возвращает объект tidyNode, начиная с тега &lt;head&gt; разобранного tidy-дерева</li><li><a href="tidy.html.html">tidy::html</a> — Возвращает объект tidyNode, начиная с тега &lt;html&gt; разобранного tidy-дерева</li><li><a href="tidy.isxhtml.html">tidy::isXhtml</a> — Определяет, является ли документ XHTML-документом</li><li><a href="tidy.isxml.html">tidy::isXml</a> — Определяет, является ли документ общим XML-документом (не HTML/XHTML)</li><li><a href="tidy.parsefile.html">tidy::parseFile</a> — Разбор разметки в файле или URI</li><li><a href="tidy.parsestring.html">tidy::parseString</a> — Разбор документа, хранимого в строке</li><li><a href="tidy.repairfile.html">tidy::repairFile</a> — Воcстанавливает разметку файла и возвращает его в виде строки</li><li><a href="tidy.repairstring.html">tidy::repairString</a> — Восстанавливает строку, используя по возможности конфигурационный файл</li><li><a href="tidy.root.html">tidy::root</a> — Возвращает объект tidyNode, представляющий вершину разобранного tidy-дерева</li></ul>
+</div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="tidy.examples.basic.html">Пример использования Tidy</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="tidy.body.html">tidy::body</a></div>
+ <div class="up"><a href="book.tidy.html">Tidy</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

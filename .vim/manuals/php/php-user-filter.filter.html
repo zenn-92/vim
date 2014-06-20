@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Вызывается, как только применяется фильтр</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="class.php-user-filter.html">php_user_filter</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="php-user-filter.onclose.html">php_user_filter::onClose</a></div>
+ <div class="up"><a href="class.php-user-filter.html">php_user_filter</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="php-user-filter.filter" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">php_user_filter::filter</h1>
+  <p class="verinfo">(PHP 5)</p><p class="refpurpose"><span class="refname">php_user_filter::filter</span> &mdash; <span class="dc-title">
+   Вызывается, как только применяется фильтр
+  </span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-php-user-filter.filter-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">int</span> <span class="methodname"><strong>php_user_filter::filter</strong></span>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$in</code></span>
+   , <span class="methodparam"><span class="type">resource</span> <code class="parameter">$out</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$consumed</code></span>
+   , <span class="methodparam"><span class="type">bool</span> <code class="parameter">$closing</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Этот метод вызывается всякий раз, когда данные читаются из присоединенного
+   потока или записываются в него (такими функциями, как
+   <span class="function"><a href="function.fread.html" class="function">fread()</a></span> или <span class="function"><a href="function.fwrite.html" class="function">fwrite()</a></span>).
+  </p>
+
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-php-user-filter.filter-parameters">
+  <h3 class="title">Список параметров</h3>
+  <dl>
+
+   
+    <dt>
+<code class="parameter">in</code></dt>
+
+    <dd>
+
+     <p class="para">
+      <code class="parameter">in</code> - ресурс, указывающий на
+      <em>bucket brigade</em>, которая содержит один или
+      несколько объектов <em>bucket</em> содержащих фильтруемые данные.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">out</code></dt>
+
+    <dd>
+
+     <p class="para">
+      <code class="parameter">out</code> - ресурс, указывающий на другой объект
+      <em>bucket brigade</em>, в который будут помещаться
+      модифицированные бакеты.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">consumed</code></dt>
+
+    <dd>
+
+     <p class="para">
+      <code class="parameter">consumed</code>, который должен <em class="emphasis">всегда</em>
+      передаваться по ссылке, должен увеличиваться на размер данных, которые
+      фильтр читает и изменяет. В большинстве случаев это значит, что Вы сами будете
+      увеличивать значение <code class="parameter">consumed</code> на
+      <em>$bucket-&gt;datalen</em> для каждого <em>$bucket</em>.
+     </p>
+    </dd>
+
+   
+   
+    <dt>
+<code class="parameter">closing</code></dt>
+
+    <dd>
+
+     <p class="para">
+      Если поток закрывается (следовательно, это последний фильтр в цепочке),
+      аргумент <code class="parameter">closing</code> примет значение <strong><code>TRUE</code></strong>.
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-php-user-filter.filter-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Метод <span class="methodname"><strong>filter()</strong></span> должен возвращать одно из трех
+   значений.
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Возвращаемое значение</th>
+       <th>Описание</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td><strong><code>PSFS_PASS_ON</code></strong></td>
+       <td>
+        Фильтр отработал успешно, данные доступны через аргумент
+        <code class="parameter">out</code> <em>bucket brigade</em>.
+       </td>
+      </tr>
+
+      <tr>
+       <td><strong><code>PSFS_FEED_ME</code></strong></td>
+       <td>
+        Фильтр отработал успешно, однако доступных для вывода данных нет.
+        Требуются еще данные из потока или предыдущего фильтра.
+       </td>
+      </tr>
+
+      <tr>
+       <td><strong><code>PSFS_ERR_FATAL</code></strong> (по умолчанию)</td>
+       <td>
+        Фильтр вызвал необрабатываемую ошибку и не может продолжить выполнение.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="class.php-user-filter.html">php_user_filter</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="php-user-filter.onclose.html">php_user_filter::onClose</a></div>
+ <div class="up"><a href="class.php-user-filter.html">php_user_filter</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

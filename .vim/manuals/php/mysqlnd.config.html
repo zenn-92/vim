@@ -1,0 +1,471 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Настройка во время выполнения</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mysqlnd.install.html">Установка</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mysqlnd.incompatibilities.html">Incompatibilities</a></div>
+ <div class="up"><a href="book.mysqlnd.html">Mysqlnd</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="mysqlnd.config" class="chapter">
+
+  <h1>Настройка во время выполнения</h1>
+
+  <p class="simpara">
+Поведение этих функций зависит от установок в <var class="filename">php.ini</var>.
+</p>
+
+  <p class="para">
+  <table class="doctable table">
+   <caption><strong>Параметры конфигурации встроенного драйвера MySQL</strong></caption>
+   
+    <thead>
+     <tr>
+      <th>Имя</th>
+      <th>По умолчанию</th>
+      <th>Меняемо</th>
+      <th>Список изменений</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td><a href="mysqlnd.config.html#ini.mysqlnd.collect-statistics" class="link">mysqlnd.collect_statistics</a></td>
+      <td>&quot;1&quot;</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td>Доступен с PHP 5.3.0.</td>
+     </tr>
+
+     <tr>
+      <td><a href="mysqlnd.config.html#ini.mysqlnd.collect-memory-statistics" class="link">mysqlnd.collect_memory_statistics</a></td>
+      <td>&quot;0&quot;</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td>Доступен с PHP 5.3.0.</td>
+     </tr>
+
+     <tr>
+      <td><a href="mysqlnd.config.html#ini.mysqlnd.debug" class="link">mysqlnd.debug</a></td>
+      <td>&quot;0&quot;</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td>Доступен с PHP 5.3.0.</td>
+     </tr>
+
+     <tr>
+      <td><a href="mysqlnd.config.html#ini.ini.mysqlnd.log-mask" class="link">mysqlnd.log_mask</a></td>
+      <td>0</td>
+      <td>PHP_INI_ALL</td>
+      <td>Доступен с PHP 5.3.0</td>
+     </tr>
+
+     <tr>
+      <td><a href="mysqlnd.config.html#ini.ini.mysqlnd.mempool-default-size" class="link">mysqlnd.mempool_default_size</a></td>
+      <td>16000</td>
+      <td>PHP_INI_ALL</td>
+      <td>Доступен с PHP 5.3.3</td>
+     </tr>
+
+     <tr>
+      <td><a href="mysqlnd.config.html#ini.mysqlnd.net-read-timeout" class="link">mysqlnd.net_read_timeout</a></td>
+      <td>&quot;31536000&quot;</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td>Доступен с PHP 5.3.0.</td>
+     </tr>
+
+     <tr>
+      <td><a href="mysqlnd.config.html#ini.mysqlnd.net-cmd-buffer-size" class="link">mysqlnd.net_cmd_buffer_size</a></td>
+      <td>5.3.0 - &quot;2048&quot;, 5.3.1 - &quot;4096&quot;</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td>Доступен с PHP 5.3.0.</td>
+     </tr>
+
+     <tr>
+      <td><a href="mysqlnd.config.html#ini.mysqlnd.net-read-buffer-size" class="link">mysqlnd.net_read_buffer_size</a></td>
+      <td>&quot;32768&quot;</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td>Доступен с PHP 5.3.0.</td>
+     </tr>
+
+     <tr>
+      <td><a href="mysqlnd.config.html#ini.mysqlnd.sha256-server-public-key" class="link">mysqlnd.sha256_server_public_key</a></td>
+      <td>&quot;&quot;</td>
+      <td>PHP_INI_PERDIR</td>
+      <td>Доступен с PHP 5.5.0.</td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+  Для подробного описания констант
+PHP_INI_*, обратитесь к разделу <a href="configuration.changes.modes.html" class="xref">Где могут быть установлены параметры конфигурации</a>.
+ </p>
+
+  <p class="para">Краткое разъяснение конфигурационных
+директив.</p>
+
+  <p class="para">
+  <dl>
+
+   
+    <dt id="ini.mysqlnd.collect-statistics">
+     <code class="parameter">mysqlnd.collect_statistics</code>
+     <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Включает сбор различной статистики клиента, доступ к которой можно
+      получить с помощью <span class="function"><a href="mysqli.get-client-stats.html" class="function">mysqli_get_client_stats()</a></span>,
+      <span class="function"><a href="mysqli.get-connection-stats.html" class="function">mysqli_get_connection_stats()</a></span>,
+      <span class="function"><a href="function.mysqli-get-cache-stats.html" class="function">mysqli_get_cache_stats()</a></span> и которая отображается
+      в разделе <em>mysqlnd</em> вывода функции
+      <span class="function"><a href="function.phpinfo.html" class="function">phpinfo()</a></span>.
+     </p>
+     <p class="para">
+      Этот параметр конфигурации включает всю
+      <a href="mysqlnd.stats.html" class="link">статистику встроенного драйвера
+      MySQL</a>, кроме относящейся к работе с оперативной памятью.
+     </p>
+    </dd>
+
+   
+   
+    <dt id="ini.mysqlnd.collect-memory-statistics">
+     <code class="parameter">mysqlnd.collect_memory_statistics</code>
+     <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Включает сбор различной статистики оперативной памяти, доступ к
+      которой можно получить с помощью <span class="function"><a href="mysqli.get-client-stats.html" class="function">mysqli_get_client_stats()</a></span>,
+      <span class="function"><a href="mysqli.get-connection-stats.html" class="function">mysqli_get_connection_stats()</a></span>,
+      <span class="function"><a href="function.mysqli-get-cache-stats.html" class="function">mysqli_get_cache_stats()</a></span> и которая отображается
+      в разделе <em>mysqlnd</em> вывода функции
+      <span class="function"><a href="function.phpinfo.html" class="function">phpinfo()</a></span>.
+     </p>
+     <p class="para">
+      Этот параметр конфигурации включает всю статистику, относящуюся к
+      работе с оперативной памятью, в общий набор данных
+      <a href="mysqlnd.stats.html" class="link">статистики встроенного драйвера MySQL</a>.
+     </p>
+    </dd>
+
+   
+   
+    <dt id="ini.mysqlnd.debug">
+     <code class="parameter">mysqlnd.debug</code> <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Записывает команды из всех расширений, использующих
+      <em>mysqlnd</em>, в указанный файл с логами.
+     </p>
+     <p class="para">
+      Формат параметра следующий: <em>mysqlnd.debug =
+      &quot;option1[,parameter_option1][:option2[,parameter_option2]]&quot;</em>.
+     </p>
+     <p class="para">
+      Возможны нижеуказанные значения для строки форматирования:
+     </p>
+     <ul class="itemizedlist">
+      <li class="listitem">
+       <p class="para">
+        A[,file] - добавляет вывод трассировки в указанный файл. Также
+        каждый раз проверяет успешность записи данных. Это реализовано
+        путем закрытия и повторного открытия файла (что достаточно медленно).
+        Дает гарантию целостности файла с логами в случае ошибки приложения.
+       </p>
+      </li>
+      <li class="listitem">
+       <p class="para">
+        a[,file] - добавляет вывод трассировки в указанный файл.
+       </p>
+      </li>
+      <li class="listitem">
+       <p class="para">
+        d - Включает вывод из макроса DBUG_&lt;N&gt; для текущего состояния.
+        Может быть дополнено списком ключевых слов, чтобы выбрать вывод только
+        содержащего эти ключевые слова макросов DBUG. Пустой список ключевых слов
+        подразумевает вывод всех для макросов.
+       </p>
+      </li>
+      <li class="listitem">
+       <p class="para">
+        f[,functions] - ограничивает действия отладчика указанным списком функций.
+        Пустой список функций подразумевает выбор всех функций.
+       </p>
+      </li>
+      <li class="listitem">
+       <p class="para">
+        F - помечает вывод каждой строчки отладчика названием исходного файла,
+        содержащего код, вызвавший вывод.
+       </p>
+      </li>
+      <li class="listitem">
+       <p class="para">
+        i - помечает вывод каждой строчки отладчика PID текущего процесса.
+       </p>
+      </li>
+      <li class="listitem">
+       <p class="para">
+        L - помечает вывод каждой строчки отладчика названием исходного файла,
+        вызвавшего вывод, и номером строки в ней.
+       </p>
+      </li>
+      <li class="listitem">
+       <p class="para">
+        n - помечает вывод каждой строчки отладчика уровнем вложенности
+        текущей функции.
+       </p>
+      </li>
+      <li class="listitem">
+       <p class="para">
+        o[,file] - сходно с a[,file], но перезаписывает старый файл, а не
+        дописывает его.
+       </p>
+      </li>
+      <li class="listitem">
+       <p class="para">
+        O[,file] - сходно с A[,file] но перезаписывает старый файл, а не
+        дописывает его.
+       </p>
+      </li>
+      <li class="listitem">
+       <p class="para">
+        t[,N] - включает контроль функций во время трассировки.
+        Максимальный уровень вложенности определен N и по умолчанию равен 200.
+       </p>
+      </li>
+      <li class="listitem">
+       <p class="para">
+        x - этот параметр активирует профилирование.
+       </p>
+      </li>
+     </ul>
+     <p class="para">
+      Пример:
+     </p>
+<div class="example-contents">
+<div class="cdata"><pre>
+d:t:x:O,/tmp/mysqlnd.trace
+</pre></div>
+</div>
+
+     <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+      <p class="para">
+       Эта возможность доступна только для отладочной сборки PHP.
+       Работает на Microsoft Windows при использовании отладочной сборки PHP,
+       если PHP был собран с помощью Microsoft Visual C версии 9 и выше.
+      </p>
+     </p></blockquote>
+     <p class="para"/>
+    </dd>
+
+   
+   
+    <dt id="ini.ini.mysqlnd.log-mask">
+     <code class="parameter">mysqlnd.log_mask</code>
+     <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Определяет, какие запросы будут журналироваться. Значение по умолчанию - 0, что отключает журналирование.
+      Значение параметра - только целое число, константы PHP использовать нельзя. Например, при значении
+      48 (16 + 32) в журнал будут записываться медленные запросы, которые либо используют неподходящие индексы
+      (SERVER_QUERY_NO_GOOD_INDEX_USED = 16), либо неиспользуют их вообще SERVER_QUERY_NO_INDEX_USED = 32). 
+      При значении 2043 (1 + 2 + 8 + ... + 1024) в журнал будуть записываться все типы медленных запросов.
+     </p>
+     <p class="para">
+      Используются следующие типы запросов: SERVER_STATUS_IN_TRANS=1, SERVER_STATUS_AUTOCOMMIT=2,
+      SERVER_MORE_RESULTS_EXISTS=8, SERVER_QUERY_NO_GOOD_INDEX_USED=16, SERVER_QUERY_NO_INDEX_USED=32,
+      SERVER_STATUS_CURSOR_EXISTS=64, SERVER_STATUS_LAST_ROW_SENT=128, SERVER_STATUS_DB_DROPPED=256,
+      SERVER_STATUS_NO_BACKSLASH_ESCAPES=512, and SERVER_QUERY_WAS_SLOW=1024.
+     </p>
+    </dd>
+
+   
+   
+    <dt id="ini.ini.mysqlnd.mempool-default-size">
+     <code class="parameter">mysqlnd.mempool_default_size</code>
+     <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Default size of the mysqlnd memory pool, which is used by result sets.
+     </p>
+    </dd>
+
+   
+   
+    <dt id="ini.mysqlnd.net-read-timeout">
+     <code class="parameter">mysqlnd.net_read_timeout</code>
+     <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      <em>mysqlnd</em> и клиентская библиотека MySQL,
+      <em>libmysqlclient</em>, используют разные сетевые API.
+      <em>mysqlnd</em> использует потоки PHP, тогда как
+      <em>libmysqlclient</em> - собственную обертку над сетевыми вызовами
+      операционной системы. В PHP по умолчанию выставлен 60-секундный
+      таймаут для потоков. Этот параметр выставляется в
+      <var class="filename">php.ini</var> директивой <em>default_socket_timeout</em>.
+      По умолчанию это относится ко всем потокам, которым не установлено другое значение таймаута.
+      <em>mysqlnd</em> не устанавливал других значений, поэтому
+      подключения долго выполняющихся запросов могут быть отключены после
+      <em>default_socket_timeout</em> секунд с ошибкой
+      "<span class="quote">2006 - MySQL Server has gone away</span>". Клиентская библиотека MySQL
+      устанавливает таймаут по умолчанию равным 365 * 24 * 3600 секунд (1 год)
+      и ждет возникновения других таймаутов, таких как таймаут TCP/IP.
+      Теперь <em>mysqlnd</em> использует такой же очень долгий таймаут.
+      Это значение можно изменить через новую директиву <var class="filename">php.ini</var> -
+      <em>mysqlnd.net_read_timeout</em>.
+      <em>mysqlnd.net_read_timeout</em> будет использоваться любым
+      расширением (<em>ext/mysql</em>,
+      <em>ext/mysqli</em>, <em>PDO_MySQL</em>), использующим
+      <em>mysqlnd</em>. <em>mysqlnd</em> указывает
+      потокам PHP использовать <em>mysqlnd.net_read_timeout</em>.
+      Пожалуйста, обратите внимание, что могут быть небольшие различия между
+      <em>MYSQL_OPT_READ_TIMEOUT</em> в клиентской библиотеке MySQL
+      и потоках PHP, например, судя по документации, <em>MYSQL_OPT_READ_TIMEOUT</em> работает
+      только для TCP/IP-подключений и, вплоть до MySQL 5.1.2, только под
+      Windows. Потоки PHP могут не иметь подобных ограничений. В случае сомнений
+      просьба сверяться с документацией потоков.
+     </p>
+    </dd>
+
+   
+   
+    <dt id="ini.mysqlnd.net-cmd-buffer-size">
+     <code class="parameter">mysqlnd.net_cmd_buffer_size</code>
+     <span class="type"><span class="type long">long</span></span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      <em>mysqlnd</em> резервирует внутренний командно-сетевой
+      буфер размером <em>mysqlnd.net_cmd_buffer_size</em> (в
+      <var class="filename">php.ini</var>) байт для каждого соединения. Если команда
+      клиент-серверного протокола MySQL, например,
+      <em>COM_QUERY</em> ("<span class="quote">обычный</span>" запрос), не
+      умещается в буфер, <em>mysqlnd</em> увеличит буфер до размера,
+      необходимого для отправки команды.
+      Каждый раз, когда буфер был увеличен, переменная статистики <em>command_buffer_too_small</em>
+      будет увеличена на один.
+     </p>
+     <p class="para">
+      Если <em>mysqlnd</em> приходится увеличивать буфер сверх его
+      заданного размера в <em>mysqlnd.net_cmd_buffer_size</em> байт
+      для большинства соединений, вам следует обдумать необходимость увеличения
+      размера по-умолчанию, чтобы избежать повторных резерваций буфера.
+     </p>
+     <p class="para">
+      Размер буфера по умолчанию равен 2048 байт в PHP 5.3.0. В дальнейших
+      версиях значение по умолчанию изменено на 4096 байт. Вручную его можно изменить
+      либо в <var class="filename">php.ini</var>, установив параметр
+      <em>mysqlnd.net_cmd_buffer_size</em>, или с помощью функции
+      <em>mysqli_options(MYSQLI_OPT_NET_CMD_BUFFER_SIZE, int
+      size)</em>.
+     </p>
+     <p class="para">
+      Рекомендуется устанавливать размер буфера не менее 4096 байт, поскольку
+      <em>mysqlnd</em> также использует его при считывании определенных
+      пакетов данных из MySQL. В PHP 5.3.0 <em>mysqlnd</em> не
+      станет увеличивать размер буфера, если MySQL пришлет пакет большего размера,
+      чем текущий размер буфера. Как следствие, <em>mysqlnd</em>
+      будет не в состоянии расшифровать пакет и клиентское приложение получит ошибку.
+      В PHP 5.3.0 есть только два случая, в которых пакет может быть больше указанных
+      по умолчанию в <em>mysqlnd.net_cmd_buffer_size</em> 2048 байт:
+      в пакете передается очень длинное сообщение об ошибке или пакет содержит
+      метаданные из <em>COM_LIST_FIELD</em>
+      (<em>mysql_list_fields()</em>) и эти данные получаются из
+      строкового столбца с очень длинным значением по умолчанию (более 1900 байт).
+     </p>
+     <p class="para">
+      Начиная с PHP 5.3.2 mysqlnd не дает установить значение буфера менее
+      4096 байт.
+     </p>
+     <p class="para">
+      Это значение также может быть установлено функцией
+      <em>mysqli_options(link,
+      MYSQLI_OPT_NET_CMD_BUFFER_SIZE, size)</em>.
+     </p>
+    </dd>
+
+   
+   
+    <dt id="ini.mysqlnd.net-read-buffer-size">
+     <code class="parameter">mysqlnd.net_read_buffer_size</code>
+     <span class="type"><span class="type long">long</span></span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Максимальный размер части данных при считывании, в байтах, при обработке
+      тела командного пакета MySQL. Клиент-серверный протокол MySQL оборачивает
+      все свои команды в пакеты. Пакет состоит из небольшого заголовка и тела,
+      содержащего непосредственно данные команды. Размер тела закодирован в заголовке.
+      <em>mysqlnd</em> считывает тело частями по
+      <em>MIN(header.size, mysqlnd.net_read_buffer_size)</em>
+      байт. Если размер тела пакета больше, чем
+      <em>mysqlnd.net_read_buffer_size</em> байт,
+      <em>mysqlnd</em> будет вызывать <em>read()</em>
+      несколько раз.
+     </p>
+     <p class="para">
+      Это значение также может быть установлено функцией
+      <em>mysqli_options(link,
+      MYSQLI_OPT_NET_READ_BUFFER_SIZE, size)</em>.
+     </p>
+    </dd>
+
+   
+   
+    <dt id="ini.mysqlnd.sha256-server-public-key">
+     <code class="parameter">mysqlnd.sha256_server_public_key</code>
+     <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Данная опция относится к плагину аутентификации SHA-256 и содержит путь к файлу
+      с публичным ключом RSA MySQL-сервера..
+     </p>
+     <p class="para">
+      Клиент может как не указывать публичный ключ RSA, указать его с помощью
+      данной опции, либо установить ключ во время выполнения с помощью функции
+      <span class="function"><a href="mysqli.options.html" class="function">mysqli_options()</a></span>. Если публичный ключ RSA не был передан
+      клиентом, то ключ будет получен в результате стандартной процедуры
+      аутентификации плагина аутентификации SHA-256.
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </p>
+</div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mysqlnd.install.html">Установка</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mysqlnd.incompatibilities.html">Incompatibilities</a></div>
+ <div class="up"><a href="book.mysqlnd.html">Mysqlnd</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

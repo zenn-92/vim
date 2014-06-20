@@ -1,0 +1,307 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Предопределенные константы</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="errorfunc.resources.html">Типы ресурсов</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="errorfunc.examples.html">Примеры</a></div>
+ <div class="up"><a href="book.errorfunc.html">Обработка ошибок</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="errorfunc.constants" class="appendix">
+ <h1>Предопределенные константы</h1>
+
+ <p class="simpara">
+Перечисленные ниже константы всегда доступны как часть ядра PHP.
+</p>
+ <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+  <span class="simpara">
+   Данные имена констант можно использовать в файле <var class="filename">php.ini</var> но не вне PHP,
+   как например в файле <var class="filename">httpd.conf</var>, где вместо них необходимо использовать значения их
+   битовых масок.
+  </span>
+ </p></blockquote>
+ <table id="errorfunc.constants.errorlevels" class="doctable table">
+  <caption><strong>Ошибки и протоколирование</strong></caption>
+  
+   <thead>
+    <tr>
+     <th>Значение</th>
+     <th>Константа</th>
+     <th>Описание</th>
+     <th>Примечание</th>
+    </tr>
+
+   </thead>
+
+   <tbody class="tbody">
+    <tr id="errorfunc.constants.errorlevels.e-error">
+     <td>1</td>
+     <td>
+      <strong><code>E_ERROR</code></strong> 
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+     </td>
+     <td>
+      Фатальные ошибки времени выполнения. Это неустранимые средствами самого 
+      скрипта ошибки, такие как ошибка распределения памяти и т.п. 
+      Выполнение скрипта в таком случае прекращается.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    
+    <tr id="errorfunc.constants.errorlevels.e-warning">
+     <td>2</td>
+     <td>
+      <strong><code>E_WARNING</code></strong> 
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+     </td>
+     <td>
+      Предупреждения времени выполнения (нефатальные ошибки). 
+      Выполнение скрипта в таком случае не прекращается.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    
+    <tr id="errorfunc.constants.errorlevels.e-parse">
+     <td>4</td>
+     <td>
+      <strong><code>E_PARSE</code></strong> 
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+     </td>
+     <td>
+      Ошибки на этапе компиляции. Должны генерироваться 
+      только парсером.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    
+    <tr id="errorfunc.constants.errorlevels.e-notice">
+     <td>8</td>
+     <td>
+      <strong><code>E_NOTICE</code></strong> 
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+     </td>
+     <td>
+      Уведомления времени выполнения. Указывают на то, что во время выполнения скрипта
+      произошло что-то, что может указывать на ошибку, хотя это может происходить
+      и при обычном выполнении программы.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    
+    <tr id="errorfunc.constants.errorlevels.e-core-error">
+     <td>16</td>
+     <td>
+      <strong><code>E_CORE_ERROR</code></strong> 
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+     </td>
+     <td>
+      Фатальные ошибки, которые происходят во время запуска РНР. Такие ошибки схожи с
+      <strong><code>E_ERROR</code></strong>, за исключением того, что они генерируются ядром PHP.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    
+    <tr id="errorfunc.constants.errorlevels.e-core-warning">
+     <td>32</td>
+     <td>
+      <strong><code>E_CORE_WARNING</code></strong> 
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+     </td>
+     <td>
+      Предупреждения (нефатальные ошибки), которые происходят во время начального запуска РНР.
+      Такие предупреждения схожи с <strong><code>E_WARNING</code></strong>, за исключением того,
+      что они генерируются ядром PHP.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    
+    <tr id="errorfunc.constants.errorlevels.e-compile-error">
+     <td>64</td>
+     <td>
+      <strong><code>E_COMPILE_ERROR</code></strong> 
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+     </td>
+     <td>
+      Фатальные ошибки на этапе компиляции. Такие ошибки 
+      схожи с <strong><code>E_ERROR</code></strong>, за исключением того, 
+      что они генерируются скриптовым движком Zend.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    
+    <tr id="errorfunc.constants.errorlevels.e-compile-warning">
+     <td>128</td>
+     <td>
+      <strong><code>E_COMPILE_WARNING</code></strong> 
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+     </td>
+     <td>
+      Предупреждения на этапе компиляции (нефатальные ошибки). Такие 
+      предупреждения схожи с <strong><code>E_WARNING</code></strong>, за 
+      исключением того, что они генерируются скриптовым движком Zend.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    
+    <tr id="errorfunc.constants.errorlevels.e-user-error">
+     <td>256</td>
+     <td>
+      <strong><code>E_USER_ERROR</code></strong> 
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+     </td>
+     <td>
+      Сообщения об ошибках сгенерированные пользователем. Такие 
+      ошибки схожи с <strong><code>E_ERROR</code></strong>, за исключением 
+      того, что они генерируются в коде скрипта средствами функции 
+      PHP <span class="function"><a href="function.trigger-error.html" class="function">trigger_error()</a></span>.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    
+    <tr id="errorfunc.constants.errorlevels.e-user-warning">
+     <td>512</td>
+     <td>
+      <strong><code>E_USER_WARNING</code></strong> 
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+     </td>
+     <td>
+      Предупреждения сгенерированные пользователем. Такие 
+      предупреждения схожи с <strong><code>E_WARNING</code></strong>, 
+      за исключением того, что они генерируются в коде скрипта 
+      средствами функции PHP <span class="function"><a href="function.trigger-error.html" class="function">trigger_error()</a></span>.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    
+    <tr id="errorfunc.constants.errorlevels.e-user-notice">
+     <td>1024</td>
+     <td>
+      <strong><code>E_USER_NOTICE</code></strong> 
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+     </td>
+     <td>
+      Уведомления сгенерированные пользователем. Такие уведомления 
+      схожи с <strong><code>E_NOTICE</code></strong>, за исключением того, 
+      что они генерируются в коде скрипта, средствами 
+      функции PHP <span class="function"><a href="function.trigger-error.html" class="function">trigger_error()</a></span>.
+     </td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    
+    <tr id="errorfunc.constants.errorlevels.e-strict">
+     <td>2048</td>
+     <td>
+      <strong><code>E_STRICT</code></strong> 
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+     </td>
+     <td>
+      Включаются для того, чтобы PHP предлагал изменения в коде, которые
+      обеспечат лучшее взаимодействие и совместимость кода.
+     </td>
+     <td>Начиная с PHP 5, но не включены в <strong><code>E_ALL</code></strong> вплоть до PHP 5.4.0</td>
+    </tr>
+
+    
+    <tr id="errorfunc.constants.errorlevels.e-recoverable-error">
+     <td>4096</td>
+     <td>
+      <strong><code>E_RECOVERABLE_ERROR</code></strong> 
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+     </td>
+     <td>
+      Фатальные ошибки с возможностью обработки. Такие ошибки указывают, что,
+      вероятно, возникла опасная ситуация, но при этом, скриптовый движок остается в стабильном состоянии.
+      Если такая ошибка не обрабатывается функцией, определенной пользователем для обработки ошибок
+      (см. <span class="function"><a href="function.set-error-handler.html" class="function">set_error_handler()</a></span>), выполнение приложения прерывается, как происходит
+      при ошибках <strong><code>E_ERROR</code></strong>.
+     </td>
+     <td>Начиная с PHP 5.2.0</td>
+    </tr>
+
+    
+    <tr id="errorfunc.constants.errorlevels.e-deprecated-error">
+     <td>8192</td>
+     <td>
+      <strong><code>E_DEPRECATED</code></strong> 
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+     </td>
+     <td>
+      Уведомления времени выполнения об использовании устаревших 
+      конструкций. Включаются для того, чтобы получать предупреждения 
+      о коде, который не будет работать в следующих версиях PHP.
+     </td>
+     <td>Начиная с PHP 5.3.0</td>
+    </tr>
+
+    
+    <tr id="errorfunc.constants.errorlevels.e-user-deprecated">
+     <td>16384</td>
+     <td>
+      <strong><code>E_USER_DEPRECATED</code></strong> 
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+     </td>
+     <td>
+      Уведомления времени выполнения об использовании устаревших 
+      конструкций, сгенерированные пользователем. Такие уведомления 
+      схожи с <strong><code>E_DEPRECATED</code></strong> за исключением того,
+      что они генерируются в коде скрипта, с помощью функции PHP 
+      <span class="function"><a href="function.trigger-error.html" class="function">trigger_error()</a></span>.
+     </td>
+     <td>Начиная с PHP 5.3.0</td>
+    </tr>
+
+    
+    <tr id="errorfunc.constants.errorlevels.e-all">
+     <td>32767</td>
+     <td>
+      <strong><code>E_ALL</code></strong> 
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+     </td>
+     <td>
+      Все поддерживаемые ошибки и предупреждения, за исключением 
+      ошибок <strong><code>E_STRICT</code></strong> до PHP 5.4.0.
+     </td>
+     <td>
+      32767 в PHP 5.4.x,
+      30719 в PHP 5.3.x,
+      6143 в PHP 5.2.x,
+      2047 ранее
+     </td>
+    </tr>
+
+    
+   </tbody>
+  
+ </table>
+
+ 
+ <p class="para">
+  Представленные выше значения (как числовые, так и символьные) 
+  используются для задания битовой маски, определяющей об ошибках 
+  какого типа будет даваться отчет. Вы можете использовать 
+  <a href="language.operators.bitwise.html" class="link">побитовые операторы</a>,
+  чтобы совмещать эти значения для указания определенных типов ошибок.
+  Стоит отметить, что в <var class="filename">php.ini</var> допустимы только следующие 
+  операторы: &#039;|&#039;, &#039;~&#039;, &#039;!&#039;, &#039;^&#039; и &#039;&amp;&#039;.
+ </p>
+</div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="errorfunc.resources.html">Типы ресурсов</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="errorfunc.examples.html">Примеры</a></div>
+ <div class="up"><a href="book.errorfunc.html">Обработка ошибок</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

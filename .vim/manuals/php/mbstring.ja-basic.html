@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Основы Японских многобайтных кодировок</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mbstring.encodings.html">Краткий список поддерживаемых кодировок</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mbstring.http.html">HTTP Ввод и Вывод</a></div>
+ <div class="up"><a href="book.mbstring.html">Многобайтные строки</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="mbstring.ja-basic" class="chapter">
+ <h1>Основы Японских многобайтных кодировок</h1>
+
+ <p class="para">
+  Японские символы могут быть представлены только в многобайтных кодировках,
+  и многие стандарты кодирования зависят от платформы и назначения текста.
+  Осложняет ситуацию то, что эти стандарты слабо друг от друга отличаются.
+  Чтобы создать вэб-приложение, правильно работающее в японском окружении, 
+  разработчику необходимо держать все эти расхождения в уме, чтобы быть уверенным,
+  что в каждый момент используется правильная кодировка.
+ </p>
+ <p class="para">
+  <ul class="itemizedlist">
+   <li class="listitem">
+    <span class="simpara">Кодовое пространство для символа может занимать до шести байт</span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     Большинство японских многобайтных символов требуют для хранения вдвое
+     больше пространства, чем однобайтные символы. Такие символы называют 
+     &quot;zen-kaku&quot; по-японски, что означает &quot;полная ширина&quot;.
+     Другие, более узкие символы называют &quot;han-kaku&quot;, что значит
+     &quot;полуширина&quot;. Графические свойства символов, однако, зависят от 
+     шрифта, которым они отображаются.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     В некоторых кодировках для смены кодовой разметки определенной области
+     кодов (<em>00h</em> на <em>7fh</em>) используются 
+     клавиши shift(escape), определенные в стандарте in ISO-2022.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     ISO-2022-JP должен использоваться в SMTP/NNTP, а заголовки и сущности
+     должны перекодироваться в соответствии с требованиями RFC. Даже, если 
+     перекодировка не требуется, все же она будет не лишней, так как некоторые 
+     популярные почтовые клиенты не умеют работать с другими кодировками.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     Вэб страницы, создаваемые для служб мобильных телефонов, таких как
+     <a href="http://www.nttdocomo.com/services/imode/" class="link external">&raquo;&nbsp;i-mode</a>
+     или <a href="http://www.au.kddi.com/english/service/ezweb/index.html" class="link external">&raquo;&nbsp;EZweb</a>
+     должны использовать кодировку Shift_JIS.
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+      В PHP 5.4.0 поддерживаются символы пиктограмм, используемые в сервисах мобильных 
+      телефонов, таких как <a href="http://www.nttdocomo.com/services/imode/" class="link external">&raquo;&nbsp;i-mode</a> или
+      <a href="http://www.au.kddi.com/english/service/ezweb/index.html" class="link external">&raquo;&nbsp;EZweb</a>.
+    </span>
+   </li>
+  </ul>
+ </p>
+</div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mbstring.encodings.html">Краткий список поддерживаемых кодировок</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mbstring.http.html">HTTP Ввод и Вывод</a></div>
+ <div class="up"><a href="book.mbstring.html">Многобайтные строки</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

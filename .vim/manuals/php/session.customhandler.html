@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Пользовательские обработчики сессии</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="session.idpassing.html">Передача идентификатора сессии</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="session.upload-progress.html">Отслеживание прогресса загрузки файлов с помощью сессий</a></div>
+ <div class="up"><a href="session.examples.html">Примеры</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="session.customhandler" class="section">
+  <h2 class="title">Пользовательские обработчики сессии</h2>
+  <p class="para">
+   Для реализации хранилища данных (или любого иного хранилища) следует 
+   использовать <span class="function"><a href="function.session-set-save-handler.html" class="function">session_set_save_handler()</a></span>, чтобы создать 
+   набор пользовательских функций хранилища. Начиная с PHP 5.4.0 вы можете создать обработчики сессий,
+   используя класс <a href="class.sessionhandlerinterface.html" class="classname">SessionHandlerInterface</a>, или расширить внутренние обработчики PHP,
+   унаследовав класс <a href="class.sessionhandler.html" class="classname">SessionHandler</a>.
+  </p>
+  <p class="para">
+   Функции обратного вызова, указанные в <span class="function"><a href="function.session-set-save-handler.html" class="function">session_set_save_handler()</a></span>, являются методами,
+   вызываемыми PHP в течении жизненного цикла сессии: <code class="parameter">open</code>, <code class="parameter">read</code>,
+   <code class="parameter">write</code> и <code class="parameter">close</code> и для служебных задач:
+   <code class="parameter">destroy</code> для удаления сессии и <code class="parameter">gc</code> для периодической
+   сборки мусора.
+  </p>
+  <p class="para">
+   Следовательно, в PHP всегда необходимы обработчики, сохраняющие сессии. По умолчанию работает
+   внутренний обработчик &#039;files&#039;, сохраняющий сессии в файлы. Пользовательский обработчик может быть установлен,
+   используя функцию <span class="function"><a href="function.session-set-save-handler.html" class="function">session_set_save_handler()</a></span>. Альтернативные обработчики для сохранения сессии
+   также доступны в расширениях PHP, таких как <code class="parameter">sqlite</code>,
+   <code class="parameter">memcache</code> и <code class="parameter">memcached</code> и могут быть установлены с помощью
+   <a href="session.configuration.html#ini.session.save-handler" class="link">session.save_handler</a>.
+  </p>
+  <p class="para">
+   Когда стартует сессия, PHP внутренне вызовет обработчик <code class="parameter">open</code> с последующим
+   вызовом обработчика <code class="parameter">read</code>, который должен вернуть закодированную строку - в точности такую,
+   какая передавалась для сохранения. После возвращения обработчиком <code class="parameter">read</code> закодированной строки, PHP
+   декодирует ее и заполнит получившимся массивом суперглобальный массив <var class="varname"><var class="varname"><a href="reserved.variables.session.html" class="classname">$_SESSION</a></var></var>.
+  </p>
+  <p class="para">
+   Когда PHP завершает исполнение скрипта (или когда вызвана функция <span class="function"><a href="function.session-write-close.html" class="function">session_write_close()</a></span>),
+   PHP внутренне закодирует суперглобальный массив <var class="varname"><var class="varname"><a href="reserved.variables.session.html" class="classname">$_SESSION</a></var></var>, и передаст
+   эти данные с идентификатором сессии функции обратного вызова <code class="parameter">write</code>.
+   После того, как отработает функция обратного вызова <code class="parameter">write</code>, PHP внутренне вызовет
+   обработчик функции обратного вызова <code class="parameter">close</code>.
+  </p>
+  <p class="para">
+   Когда сессия специально уничтожена, PHP вызовет обработчик <code class="parameter">destroy</code> с
+   идентификатором сессии.
+  </p>
+ <p class="para">
+   PHP будет вызывать обработчик функции обратного вызова <code class="parameter">gc</code> время от времени,
+   чтобы пометить сессии как истекшие в соответствии с временем жизни сессий.
+   Эта операция удалит все записи из постоянного хранилища, к которым не осуществлялся доступ
+   более, чем интервал времени, заданный в параметре <code class="parameter">$lifetime</code>.
+ </p>
+ </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="session.idpassing.html">Передача идентификатора сессии</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="session.upload-progress.html">Отслеживание прогресса загрузки файлов с помощью сессий</a></div>
+ <div class="up"><a href="session.examples.html">Примеры</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

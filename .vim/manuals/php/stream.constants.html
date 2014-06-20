@@ -1,0 +1,486 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Предопределенные константы</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="stream.resources.html">Классы для работы с потоками</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="stream.filters.html">Потоковые фильтры</a></div>
+ <div class="up"><a href="book.stream.html">Потоки</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="stream.constants" class="appendix">
+ <h1>Предопределенные константы</h1>
+
+ <p class="simpara">
+Перечисленные ниже константы определены данным расширением и могут быть
+доступны только в том случае, если PHP был собран с
+поддержкой этого расширения или же в том случае, если
+данное расширение было подгружено во время выполнения.
+</p>
+ <p class="para">
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>Константа</th>
+      <th>Описание</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr id="constant.stream-filter-read">
+      <td><strong><code>STREAM_FILTER_READ</code></strong> *</td>
+      <td>
+       Используется в функциях <span class="function"><a href="function.stream-filter-append.html" class="function">stream_filter_append()</a></span>
+       и <span class="function"><a href="function.stream-filter-prepend.html" class="function">stream_filter_prepend()</a></span>. Указывает на то,
+       что заданный фильтр может использоваться только в операциях чтения
+       (<em class="emphasis">reading</em>)
+      </td>
+     </tr>
+
+     <tr id="constant.stream-filter-write">
+      <td><strong><code>STREAM_FILTER_WRITE</code></strong> *</td>
+      <td>
+       Используется в функциях <span class="function"><a href="function.stream-filter-append.html" class="function">stream_filter_append()</a></span>
+       и <span class="function"><a href="function.stream-filter-prepend.html" class="function">stream_filter_prepend()</a></span>. Указывает на то,
+       что заданный фильтр может использоваться только в операциях записи
+       (<em class="emphasis">writing</em>)
+      </td>
+     </tr>
+
+     <tr id="constant.stream-filter-all">
+      <td><strong><code>STREAM_FILTER_ALL</code></strong> *</td>
+      <td>
+       Эквивалентно записи
+       <code class="code">STREAM_FILTER_READ | STREAM_FILTER_WRITE</code>
+      </td>
+     </tr>
+
+     <tr id="constant.psfs-pass-on">
+      <td><strong><code>PSFS_PASS_ON</code></strong> *</td>
+      <td><em>Return Code</em> указывает, что пользовательский
+       фильтр вернул бакеты (buckets) в <code class="parameter">$out</code>.
+      </td>
+     </tr>
+
+     <tr id="constant.psfs-feed-me">
+      <td><strong><code>PSFS_FEED_ME</code></strong> *</td>
+      <td><em>Return Code</em> указывает, что пользовательский
+       фильтр не вернул бакеты (buckets) в <code class="parameter">$out</code>.
+       (т.е. Нет доступных данных).
+      </td>
+     </tr>
+
+     <tr id="constant.psfs-err-fatal">
+      <td><strong><code>PSFS_ERR_FATAL</code></strong> *</td>
+      <td><em>Return Code</em> указывает, что пользовательский
+       фильтр вызвал необрабатываемую ошибку (т.е. Получены неверные
+       данные).
+      </td>
+     </tr>
+
+     <tr id="constant.psfs-flag-normal">
+      <td><strong><code>PSFS_FLAG_NORMAL</code></strong></td>
+      <td>Нормальное чтение/запись.</td>
+     </tr>
+
+     <tr id="constant.psfs-flag-flush-inc">
+      <td><strong><code>PSFS_FLAG_FLUSH_INC</code></strong></td>
+      <td>Добавочное архивирование.</td>
+     </tr>
+
+     <tr id="constant.psfs-flag-flush-close">
+      <td><strong><code>PSFS_FLAG_FLUSH_CLOSE</code></strong></td>
+      <td>Сохранение на диск перед закрытием.</td>
+     </tr>
+
+     <tr id="constant.stream-use-path">
+      <td><strong><code>STREAM_USE_PATH</code></strong></td>
+      <td><em>Flag</em> indicating if the <em>stream</em>
+       used the include path.
+      </td>
+     </tr>
+
+     <tr id="constant.stream-report-errors">
+      <td><strong><code>STREAM_REPORT_ERRORS</code></strong></td>
+      <td>
+       Флаг (<em>Flag</em>) указывающий, что
+       <em>wrapper</em> может выбрасывать исключения в
+       процессе открытия потока функцией <span class="function"><a href="function.trigger-error.html" class="function">trigger_error()</a></span>
+       Если этот флаг не установлен, вызывать ошибки не стоит.
+      </td>
+     </tr>
+
+     <tr id="constant.stream-client-async-connect">
+      <td><strong><code>STREAM_CLIENT_ASYNC_CONNECT</code></strong> *</td>
+      <td>
+       Асинхронное открытие соединения с клиентским сокетом. Эта настройка должна
+       использоваться совместно с флагом
+       <strong><code>STREAM_CLIENT_CONNECT</code></strong>.
+       Используется в функции <span class="function"><a href="function.stream-socket-client.html" class="function">stream_socket_client()</a></span>.
+      </td>
+     </tr>
+
+     <tr id="constant.stream-client-connect">
+      <td><strong><code>STREAM_CLIENT_CONNECT</code></strong> *</td>
+      <td>
+       Открытие соединения с клиентским сокетом. Клиентские сокеты
+       всегда должны включать этот флаг. Испльзуется функцией
+       <span class="function"><a href="function.stream-socket-client.html" class="function">stream_socket_client()</a></span>.
+      </td>
+     </tr>
+
+     <tr id="constant.stream-client-persistent">
+      <td><strong><code>STREAM_CLIENT_PERSISTENT</code></strong> *</td>
+      <td>
+       Клиентский сокет, открытый функцией
+       <span class="function"><a href="function.stream-socket-client.html" class="function">stream_socket_client()</a></span> будет оставаться
+       открытым между загрузками страниц.
+      </td>
+     </tr>
+
+     <tr id="constant.stream-server-bind">
+      <td><strong><code>STREAM_SERVER_BIND</code></strong> *</td>
+      <td>
+       Сообщает потоку, созданному функцией
+       <span class="function"><a href="function.stream-socket-server.html" class="function">stream_socket_server()</a></span>, связаться с заданной целью.
+       Серверные сокеты всегда должны включать этот флаг.
+      </td>
+     </tr>
+
+     <tr id="constant.stream-server-listen">
+      <td><strong><code>STREAM_SERVER_LISTEN</code></strong> *</td>
+      <td>
+       Указывает потоку, созданному функцией
+       <span class="function"><a href="function.stream-socket-server.html" class="function">stream_socket_server()</a></span> и связанному флагом
+       <strong><code>STREAM_SERVER_BIND</code></strong>, начать слушать сокет.
+       Передачи данных, устанавливающие соединение (как TCP), должны
+       испльзовать этот флаг, иначе сокет не включится. Использование этого
+       флага при передаче без установления соединения (как UDP) вызовет
+       ошибку.
+      </td>
+     </tr>
+
+     <tr id="constant.stream-notify-resolve">
+      <td><strong><code>STREAM_NOTIFY_RESOLVE</code></strong> *</td>
+      <td>
+       Требуемый для потока адрес удаленного ресурса определен, либо это определение
+       завершилось неудачей. Чтобы узнать, что именно произошло, см.
+       <code class="parameter">severity</code>.
+      </td>
+     </tr>
+
+     <tr id="constant.stream-notify-connect">
+      <td><strong><code>STREAM_NOTIFY_CONNECT</code></strong></td>
+      <td>
+       Соединение с внешним ресурсом установлено.
+      </td>
+     </tr>
+
+     <tr id="constant.stream-notify-auth-required">
+      <td><strong><code>STREAM_NOTIFY_AUTH_REQUIRED</code></strong></td>
+      <td>
+       Для доступа к заданному ресурсу необходима дополнительная авторизация.
+       Обычно выдается в ошибке уровня <code class="parameter">severity</code>
+       <strong><code>STREAM_NOTIFY_SEVERITY_ERR</code></strong>.
+      </td>
+     </tr>
+
+     <tr id="constant.stream-notify-mime-type-is">
+      <td><strong><code>STREAM_NOTIFY_MIME_TYPE_IS</code></strong></td>
+      <td>
+       <em>mime-type</em> ресурса идентифицирован. Описание
+       найденного типа можно посмотреть в параметре
+       <code class="parameter">message</code>.
+      </td>
+     </tr>
+
+     <tr id="constant.stream-notify-file-size-is">
+      <td><strong><code>STREAM_NOTIFY_FILE_SIZE_IS</code></strong></td>
+      <td>
+       Размер (<em>size</em>) ресурса определен.
+      </td>
+     </tr>
+
+     <tr id="constant.stream-notify-redirected">
+      <td><strong><code>STREAM_NOTIFY_REDIRECTED</code></strong></td>
+      <td>
+       Внешний ресурс перенаправил поток в другое место.
+       Дополнительно смотри <code class="parameter">message</code>.
+      </td>
+     </tr>
+
+     <tr id="constant.stream-notify-progress">
+      <td><strong><code>STREAM_NOTIFY_PROGRESS</code></strong></td>
+      <td>
+       Индикатор текущего процесса передачи данных через поток.
+       Можно узнать, сколько передано (<code class="parameter">bytes_transferred</code>),
+       и сколько всего байт (<code class="parameter">bytes_max</code>).
+      </td>
+     </tr>
+
+     <tr id="constant.stream-notify-completed">
+      <td><strong><code>STREAM_NOTIFY_COMPLETED</code></strong> *</td>
+      <td>
+       В потоке больше нет доступных данных.
+      </td>
+     </tr>
+
+     <tr id="constant.stream-notify-failure">
+      <td><strong><code>STREAM_NOTIFY_FAILURE</code></strong></td>
+      <td>
+       Общая ошибка при работе с потоком. Детали смотри в 
+       <code class="parameter">message</code> и
+       <code class="parameter">message_code</code>.
+      </td>
+     </tr>
+
+     <tr id="constant.stream-notify-auth-result">
+      <td><strong><code>STREAM_NOTIFY_AUTH_RESULT</code></strong></td>
+      <td>
+       Авторизация завершена (независимо от успеха авторизации).
+      </td>
+     </tr>
+
+     <tr id="constant.stream-notify-severity-info">
+      <td><strong><code>STREAM_NOTIFY_SEVERITY_INFO</code></strong></td>
+      <td>
+       Обычное уведомление, не относящееся к ошибкам.
+      </td>
+     </tr>
+
+     <tr id="constant.stream-notify-severity-warn">
+      <td><strong><code>STREAM_NOTIFY_SEVERITY_WARN</code></strong></td>
+      <td>
+       Некритичная ошибка. Возможно продолжить работу.
+      </td>
+     </tr>
+
+     <tr id="constant.stream-notify-severity-err">
+      <td><strong><code>STREAM_NOTIFY_SEVERITY_ERR</code></strong></td>
+      <td>
+       Критичная ошибка. Продолжение работы невозможно.
+      </td>
+     </tr>
+
+     <tr id="constant.stream-ipproto-icmp">
+      <td><strong><code>STREAM_IPPROTO_ICMP</code></strong> +</td>
+      <td>
+       Предоставляет ICMP сокет.
+      </td>
+     </tr>
+
+     <tr id="constant.stream-ipproto-ip">
+      <td><strong><code>STREAM_IPPROTO_IP</code></strong> +</td>
+      <td>
+       Предоставляет IP сокет.
+      </td>
+     </tr>
+
+     <tr id="constant.stream-ipproto-raw">
+      <td><strong><code>STREAM_IPPROTO_RAW</code></strong> +</td>
+      <td>
+       Предоставляет RAW сокет.
+      </td>
+     </tr>
+
+     <tr id="constant.stream-ipproto-tcp">
+      <td><strong><code>STREAM_IPPROTO_TCP</code></strong> +</td>
+      <td>
+       Предоставляет TCP сокет.
+      </td>
+     </tr>
+
+     <tr id="constant.stream-ipproto-udp">
+      <td><strong><code>STREAM_IPPROTO_UDP</code></strong> +</td>
+      <td>
+       Предоставляет UDP сокет.
+      </td>
+     </tr>
+
+     <tr id="constant.stream-pf-inet">
+      <td><strong><code>STREAM_PF_INET</code></strong> +</td>
+      <td>
+       Интернет протокол 4 версии (IPv4).
+      </td>
+     </tr>
+
+     <tr id="constant.stream-pf-inet6">
+      <td><strong><code>STREAM_PF_INET6</code></strong> +</td>
+      <td>
+       Интернет протокол 6 версии (IPv6).
+      </td>
+     </tr>
+
+     <tr id="constant.stream-pf-unix">
+      <td><strong><code>STREAM_PF_UNIX</code></strong> +</td>
+      <td>
+       Внутренние протоколы Unix.
+      </td>
+     </tr>
+
+     <tr id="constant.stream-sock-dgram">
+      <td><strong><code>STREAM_SOCK_DGRAM</code></strong> +</td>
+      <td>
+       Предоставляет датаграммы - сообщения без установления соединения
+       (UDP, например).
+      </td>
+     </tr>
+
+     <tr id="constant.stream-sock-raw">
+      <td><strong><code>STREAM_SOCK_RAW</code></strong> +</td>
+      <td>
+       Предоставляет raw сокет, который дает доступ к внутренним
+       сетевым протоколам и интерфейсам. Обычно сокеты этого типа
+       доступны только root-пользователям.
+      </td>
+     </tr>
+
+     <tr id="constant.stream-sock-rdm">
+      <td><strong><code>STREAM_SOCK_RDM</code></strong> +</td>
+      <td>
+       Предоставляет RDM (Reliably-delivered messages) сокет.
+      </td>
+     </tr>
+
+     <tr id="constant.stream-sock-seqpacket">
+      <td><strong><code>STREAM_SOCK_SEQPACKET</code></strong> +</td>
+      <td>
+       Предоставляет сокет последовательного потока пакетов.
+      </td>
+     </tr>
+
+     <tr id="constant.stream-sock-stream">
+      <td><strong><code>STREAM_SOCK_STREAM</code></strong> +</td>
+      <td>
+       Предоставляет последовательные двунаправленные байтовые потоки
+       с механизмом передачи связанных данных (TCP, например).
+      </td>
+     </tr>
+
+     <tr id="constant.stream-shut-rd">
+      <td><strong><code>STREAM_SHUT_RD</code></strong></td>
+      <td>
+       Используется функцией <span class="function"><a href="function.stream-socket-shutdown.html" class="function">stream_socket_shutdown()</a></span> для
+       отключения дальнейшего приема данных. Добавлено в PHP 5.2.1.
+      </td>
+     </tr>
+
+     <tr id="constant.stream-shut-wr">
+      <td><strong><code>STREAM_SHUT_WR</code></strong></td>
+      <td>
+       Используется функцией <span class="function"><a href="function.stream-socket-shutdown.html" class="function">stream_socket_shutdown()</a></span> для
+       отключения дальнейшей передачи данных. Добавлено в PHP 5.2.1.
+      </td>
+     </tr>
+
+     <tr id="constant.stream-shut-rdwr">
+      <td><strong><code>STREAM_SHUT_RDWR</code></strong></td>
+      <td>
+       Используется функцией <span class="function"><a href="function.stream-socket-shutdown.html" class="function">stream_socket_shutdown()</a></span> для
+       отключения дальнейших приема и передачи данных. Добавлено в PHP 5.2.1.
+      </td>
+     </tr>
+
+     <tr id="constant.stream-cast-for-select">
+      <td><strong><code>STREAM_CAST_FOR_SELECT</code></strong></td>
+      <td>
+       Распределение потоков, используется, когда функция
+       <span class="function"><a href="function.stream-select.html" class="function">stream_select()</a></span> вызывает
+       <span class="function"><strong>stream_cast()</strong></span>.
+      </td>
+     </tr>
+
+     <tr id="constant.stream-cast-as-stream">
+      <td><strong><code>STREAM_CAST_AS_STREAM</code></strong></td>
+      <td>
+       Распределение потоков, используется, когда функция
+       <span class="function"><strong>stream_cast()</strong></span> вызывается из другого места
+       (см. выше).
+      </td>
+     </tr>
+
+     <tr id="constant.stream-meta-touch">
+      <td><strong><code>STREAM_META_TOUCH</code></strong></td>
+      <td>
+       Используется в функции <span class="function"><strong>stream_metadata()</strong></span>
+       для задания вызова <span class="function"><a href="function.touch.html" class="function">touch()</a></span>.
+      </td>
+     </tr>
+
+     <tr id="constant.stream-meta-owner">
+      <td><strong><code>STREAM_META_OWNER</code></strong></td>
+      <td>
+       Используется в функции <span class="function"><strong>stream_metadata()</strong></span>
+       для задания вызова <span class="function"><a href="function.chown.html" class="function">chown()</a></span>.
+      </td>
+     </tr>
+
+     <tr id="constant.stream-meta-owner-name">
+      <td><strong><code>STREAM_META_OWNER_NAME</code></strong></td>
+      <td>
+       Используется в функции <span class="function"><strong>stream_metadata()</strong></span>
+       для задания вызова <span class="function"><a href="function.chown.html" class="function">chown()</a></span>.
+      </td>
+     </tr>
+
+     <tr id="constant.stream-meta-group">
+      <td><strong><code>STREAM_META_GROUP</code></strong></td>
+      <td>
+       Используется в функции <span class="function"><strong>stream_metadata()</strong></span>
+       для задания вызова <span class="function"><a href="function.chgrp.html" class="function">chgrp()</a></span>.
+      </td>
+     </tr>
+
+     <tr id="constant.stream-meta-group-name">
+      <td><strong><code>STREAM_META_GROUP_NAME</code></strong></td>
+      <td>
+       Используется в функции <span class="function"><strong>stream_metadata()</strong></span>
+       для задания вызова <span class="function"><a href="function.chgrp.html" class="function">chgrp()</a></span>.
+      </td>
+     </tr>
+
+     <tr id="constant.stream-meta-access">
+      <td><strong><code>STREAM_META_ACCESS</code></strong></td>
+      <td>
+       Используется в функции <span class="function"><strong>stream_metadata()</strong></span>
+       для задания вызова <span class="function"><a href="function.chmod.html" class="function">chmod()</a></span>.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </p>
+ <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+  <span class="simpara">
+   Константы, отмеченные <em>*</em>, доступны с версии
+   PHP 5.0.0.
+  </span>
+ </p></blockquote>
+ <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+  <span class="simpara">
+   Константы, отмеченные <em>+</em>, доступны с версии PHP
+   5.1.0 и предназначены для использования в функции
+   <span class="function"><a href="function.stream-socket-pair.html" class="function">stream_socket_pair()</a></span>. Учитывайте, что некоторые из
+   констант могут быть недоступны в Вашей системе.
+  </span>
+ </p></blockquote>
+ <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+  <span class="simpara">
+   Константы <strong><code>STREAM_META_*</code></strong> доступны с версии PHP
+   5.4.0 и предназначены для использования в функции
+   <span class="function"><strong>stream_metadata()</strong></span>. 
+  </span>
+ </p></blockquote>
+</div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="stream.resources.html">Классы для работы с потоками</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="stream.filters.html">Потоковые фильтры</a></div>
+ <div class="up"><a href="book.stream.html">Потоки</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

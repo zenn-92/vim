@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Разбор строки файла в соответствии с заданным форматом</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="splfileobject.fputcsv.html">SplFileObject::fputcsv</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="splfileobject.fseek.html">SplFileObject::fseek</a></div>
+ <div class="up"><a href="class.splfileobject.html">SplFileObject</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="splfileobject.fscanf" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">SplFileObject::fscanf</h1>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0)</p><p class="refpurpose"><span class="refname">SplFileObject::fscanf</span> &mdash; <span class="dc-title">
+   Разбор строки файла в соответствии с заданным форматом
+  </span></p>
+
+ </div>
+
+ <div class="refsect1 description" id="refsect1-splfileobject.fscanf-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <span class="methodname"><strong>SplFileObject::fscanf</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$format</code></span>
+   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter reference">&$...</code></span>
+  ] )</div>
+
+  <p class="para rdfs-comment">
+   Читает строку из файла и разбирает ее в соответствии с заданным форматом
+   <code class="parameter">format</code>. Спецификация формата приведена в документации к
+   функции <span class="function"><a href="function.sprintf.html" class="function">sprintf()</a></span>.
+  </p>
+  <p class="para">
+   Любое межсловное пространство в строке <code class="parameter">format</code> может
+   соответствовать любому межсловному пространству в строке файла. Это значит, что
+   символ табуляции <em>\t</em> с строке формата может соответствовать
+   пробелу в строке файла.
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-splfileobject.fscanf-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">format</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Строка форматирования. О символах форматирования можно узнать из
+       документации к функции <span class="function"><a href="function.sprintf.html" class="function">sprintf()</a></span>.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">...</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Дополнительные строки форматирования.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 returnvalues" id="refsect1-splfileobject.fscanf-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Если передан только один параметр, распознанные в строке значения будут
+   помещены в массив. Если переданы дополнительные строки форматирования, функция
+   вернет количество шаблонов, с которыми совпала строка. Необязательные
+   параметры должны передаваться по ссылке.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-splfileobject.fscanf-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-4003">
+    <p><strong>Пример #1 Пример использования <span class="methodname"><strong>SplFileObject::fscanf()</strong></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$file&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">SplFileObject</span><span style="color: #007700">(</span><span style="color: #DD0000">"misc.txt"</span><span style="color: #007700">);<br />while&nbsp;(</span><span style="color: #0000BB">$userinfo&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$file</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fscanf</span><span style="color: #007700">(</span><span style="color: #DD0000">"%s&nbsp;%s&nbsp;%s"</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;list&nbsp;(</span><span style="color: #0000BB">$name</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$profession</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$countrycode</span><span style="color: #007700">)&nbsp;=&nbsp;</span><span style="color: #0000BB">$userinfo</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>Содержимое файла users.txt</p></div>
+    <div class="example-contents">
+<div class="txtcode"><pre class="txtcode">javier   argonaut    pe
+hiroshi  sculptor    jp
+robert   slacker     us
+luigi    florist     it</pre>
+</div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-splfileobject.fscanf-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.fscanf.html" class="function" rel="rdfs-seeAlso">fscanf()</a> - Обрабатывает данные из файла в соответствии с форматом</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="splfileobject.fputcsv.html">SplFileObject::fputcsv</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="splfileobject.fseek.html">SplFileObject::fseek</a></div>
+ <div class="up"><a href="class.splfileobject.html">SplFileObject</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

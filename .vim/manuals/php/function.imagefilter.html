@@ -1,0 +1,390 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Применяет фильтр к изображению</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.imagefilltoborder.html">imagefilltoborder</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.imageflip.html">imageflip</a></div>
+ <div class="up"><a href="ref.image.html">GD и функции для работы с изображениями Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.imagefilter" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">imagefilter</h1>
+  <p class="verinfo">(PHP 5)</p><p class="refpurpose"><span class="refname">imagefilter</span> &mdash; <span class="dc-title">Применяет фильтр к изображению</span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-function.imagefilter-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><strong>imagefilter</strong></span>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$image</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$filtertype</code></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$arg1</code></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$arg2</code></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$arg3</code></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$arg4</code></span>
+  ]]]] )</div>
+
+  <p class="para rdfs-comment">
+   <span class="function"><strong>imagefilter()</strong></span> применяет заданный фильтр
+   <code class="parameter">filtertype</code> к изображению <code class="parameter">image</code>.
+  </p>
+ </div>
+
+ <div class="refsect1 parameters" id="refsect1-function.imagefilter-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    <dt>
+<code class="parameter">
+image</code></dt>
+<dd>
+<p class="para">Ресурс изображения, полученный одной из функций создания изображений,
+например, такой как <span class="function"><a href="function.imagecreatetruecolor.html" class="function">imagecreatetruecolor()</a></span>.</p></dd>
+
+    
+     <dt>
+<code class="parameter">filtertype</code></dt>
+
+     <dd>
+
+      <p class="para">
+       <code class="parameter">filtertype</code> может быть одним из следующих:
+       <ul class="itemizedlist">
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code>IMG_FILTER_NEGATE</code></strong>: Инвертирует все цвета изображения.
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code>IMG_FILTER_GRAYSCALE</code></strong>: Преобразует цвета изображения в
+          градации серого.
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code>IMG_FILTER_BRIGHTNESS</code></strong>: Изменяет яркость изображения.
+          Используйте аргумент <code class="parameter">arg1</code> для задания уровня
+          яркости.
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code>IMG_FILTER_CONTRAST</code></strong>: Изменяет контрастность
+          изображения. Используйте аргумент <code class="parameter">arg1</code> для
+          задания уровня контрастности.
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code>IMG_FILTER_COLORIZE</code></strong>: То же, что и
+          <strong><code>IMG_FILTER_GRAYSCALE</code></strong>, за исключением того, что
+          можно задать цвет. Используйте аргументы <code class="parameter">arg1</code>,
+          <code class="parameter">arg2</code> и <code class="parameter">arg3</code> для указания
+          каналов <code class="parameter">red</code>, <code class="parameter">green</code>,
+          <code class="parameter">blue</code>, а <code class="parameter">arg4</code> для 
+          <code class="parameter">alpha</code> канала. Диапазон для каждого канала цвета
+          от 0 до 255.
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code>IMG_FILTER_EDGEDETECT</code></strong>: Использует определение
+          границ для их подсветки.
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code>IMG_FILTER_EMBOSS</code></strong>: Добавляет рельеф.
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code>IMG_FILTER_GAUSSIAN_BLUR</code></strong>: Размывает изображение по
+          методу Гауса.
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code>IMG_FILTER_SELECTIVE_BLUR</code></strong>: Размывает изображение.
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code>IMG_FILTER_MEAN_REMOVAL</code></strong>: Использует усреднение
+          для достижения эффекта &quot;эскиза&quot;.
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code>IMG_FILTER_SMOOTH</code></strong>: Делает границы более плавными,
+          а изображение менее четким. Используйте аргумент
+          <code class="parameter">arg1</code> для задания уровня гладкости.
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code>IMG_FILTER_PIXELATE</code></strong>: Применяет эффект
+          пикселирования. Используйте аргумент <code class="parameter">arg1</code>
+          для задания размера блока и аргумент <code class="parameter">arg2</code>
+          для задания режима эффекта пикселирования.
+         </span>
+        </li>
+       </ul>
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">arg1</code></dt>
+
+     <dd>
+
+      <p class="para">
+       <ul class="itemizedlist">
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code>IMG_FILTER_BRIGHTNESS</code></strong>: Уровень яркости.
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code>IMG_FILTER_CONTRAST</code></strong>: Уровень контрастности.
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code>IMG_FILTER_COLORIZE</code></strong>: Значение красного компонента цвета.
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code>IMG_FILTER_SMOOTH</code></strong>: Уровень сглаживания.
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code>IMG_FILTER_PIXELATE</code></strong>: Размер блока в пикселах.
+         </span>
+        </li>
+       </ul>
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">arg2</code></dt>
+
+     <dd>
+
+      <p class="para">
+       <ul class="itemizedlist">
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code>IMG_FILTER_COLORIZE</code></strong>: Значение зеленого компонента цвета.
+         </span>
+        </li>
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code>IMG_FILTER_PIXELATE</code></strong>: Использовать усовершенствованный
+          эффект пикселирования или нет (по умолчанию <strong><code>FALSE</code></strong>).
+         </span>
+        </li>
+       </ul>
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">arg3</code></dt>
+
+     <dd>
+
+      <p class="para">
+       <ul class="itemizedlist">
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code>IMG_FILTER_COLORIZE</code></strong>: Значение синего компонента цвета.
+         </span>
+        </li>
+       </ul>
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">arg4</code></dt>
+
+     <dd>
+
+      <p class="para">
+       <ul class="itemizedlist">
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code>IMG_FILTER_COLORIZE</code></strong>: Альфа канал, значение между
+          0 и 127. 0 означает непрозрачность, 127 соответствует абсолютной
+          прозрачности.
+         </span>
+        </li>
+       </ul>
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+ <div class="refsect1 returnvalues" id="refsect1-function.imagefilter-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает <strong><code>TRUE</code></strong> в случае успешного завершения  или <strong><code>FALSE</code></strong> в случае возникновения ошибки.
+  </p>
+ </div>
+
+ <div class="refsect1 changelog" id="refsect1-function.imagefilter-changelog">
+  <h3 class="title">Список изменений</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Версия</th>
+       <th>Описание</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.3.0</td>
+       <td>
+        Добавлена поддержка пикселирования (<strong><code>IMGFILTER_PIXELATE</code></strong>).
+       </td>
+      </tr>
+
+      <tr>
+       <td>5.2.5</td>
+       <td>
+        Добавлена поддержка прозрачности <strong><code>IMG_FILTER_COLORIZE</code></strong>.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+ <div class="refsect1 examples" id="refsect1-function.imagefilter-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-3281">
+    <p><strong>Пример #1 Пример использования <span class="function"><strong>imagefilter()</strong></span> с фильтром grayscale</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$im&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecreatefrompng</span><span style="color: #007700">(</span><span style="color: #DD0000">'dave.png'</span><span style="color: #007700">);<br /><br />if(</span><span style="color: #0000BB">$im&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;</span><span style="color: #0000BB">imagefilter</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">IMG_FILTER_GRAYSCALE</span><span style="color: #007700">))<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'Изображение&nbsp;преобразовано&nbsp;к&nbsp;градациям&nbsp;серого.'</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">imagepng</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'dave.png'</span><span style="color: #007700">);<br />}<br />else<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'Преобразование&nbsp;не&nbsp;удалось.'</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+  <p class="para">
+   <div class="example" id="example-3282">
+    <p><strong>Пример #2 
+     Пример использования <span class="function"><strong>imagefilter()</strong></span> с фильтром яркости
+    </strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$im&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecreatefrompng</span><span style="color: #007700">(</span><span style="color: #DD0000">'sean.png'</span><span style="color: #007700">);<br /><br />if(</span><span style="color: #0000BB">$im&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;</span><span style="color: #0000BB">imagefilter</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">IMG_FILTER_BRIGHTNESS</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">20</span><span style="color: #007700">))<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'Яркость&nbsp;изображения&nbsp;изменена.'</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">imagepng</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'sean.png'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br />}<br />else<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'Изменить&nbsp;яркость&nbsp;не&nbsp;удалось.'</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+  <p class="para">
+   <div class="example" id="example-3283">
+    <p><strong>Пример #3 
+     Пример использования <span class="function"><strong>imagefilter()</strong></span> с фильтром colorize
+    </strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$im&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecreatefrompng</span><span style="color: #007700">(</span><span style="color: #DD0000">'philip.png'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;R,&nbsp;G,&nbsp;B,&nbsp;so&nbsp;0,&nbsp;255,&nbsp;0&nbsp;is&nbsp;green&nbsp;*/<br /></span><span style="color: #007700">if(</span><span style="color: #0000BB">$im&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;</span><span style="color: #0000BB">imagefilter</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">IMG_FILTER_COLORIZE</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">255</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">))<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'Изображение&nbsp;преобразовано&nbsp;к&nbsp;оттенкам&nbsp;зеленого.'</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">imagepng</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'philip.png'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br />}<br />else<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'Преобразование&nbsp;не&nbsp;удалось.'</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+  <p class="para">
+   <div class="example" id="example-3284">
+    <p><strong>Пример #4 
+     Пример использования <span class="function"><strong>imagefilter()</strong></span> с фильтром negate
+    </strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Определим&nbsp;нашу&nbsp;функцию,&nbsp;которую&nbsp;можно&nbsp;использовать&nbsp;в&nbsp;PHP<br />//&nbsp;без&nbsp;imagefilter()<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">negate</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;if(</span><span style="color: #0000BB">function_exists</span><span style="color: #007700">(</span><span style="color: #DD0000">'imagefilter'</span><span style="color: #007700">))<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">imagefilter</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">IMG_FILTER_NEGATE</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;for(</span><span style="color: #0000BB">$x&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$x&nbsp;</span><span style="color: #007700">&lt;&nbsp;</span><span style="color: #0000BB">imagesx</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);&nbsp;++</span><span style="color: #0000BB">$x</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(</span><span style="color: #0000BB">$y&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$y&nbsp;</span><span style="color: #007700">&lt;&nbsp;</span><span style="color: #0000BB">imagesy</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);&nbsp;++</span><span style="color: #0000BB">$y</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$index&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecolorat</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$x</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$y</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$rgb&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecolorsforindex</span><span style="color: #007700">(</span><span style="color: #0000BB">$index</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$color&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecolorallocate</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">255&nbsp;</span><span style="color: #007700">-&nbsp;</span><span style="color: #0000BB">$rgb</span><span style="color: #007700">[</span><span style="color: #DD0000">'red'</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">255&nbsp;</span><span style="color: #007700">-&nbsp;</span><span style="color: #0000BB">$rgb</span><span style="color: #007700">[</span><span style="color: #DD0000">'green'</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">255&nbsp;</span><span style="color: #007700">-&nbsp;</span><span style="color: #0000BB">$rgb</span><span style="color: #007700">[</span><span style="color: #DD0000">'blue'</span><span style="color: #007700">]);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">imagesetpixel</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$x</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$y</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$color</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;return(</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #0000BB">$im&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecreatefromjpeg</span><span style="color: #007700">(</span><span style="color: #DD0000">'kalle.jpg'</span><span style="color: #007700">);<br /><br />if(</span><span style="color: #0000BB">$im&nbsp;</span><span style="color: #007700">&amp;&amp;&nbsp;</span><span style="color: #0000BB">negate</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">))<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'Изображение&nbsp;инвертировано&nbsp;успешно.'</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">imagejpeg</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'kalle.jpg'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">100</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br />}<br />else<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'Инвертировать&nbsp;изображение&nbsp;не&nbsp;удалось.'</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+  <p class="para">
+   <div class="example" id="example-3285">
+    <p><strong>Пример #5 
+     Пример использования <span class="function"><strong>imagefilter()</strong></span> с фильтром pixelate
+    </strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;загрузка&nbsp;PHP&nbsp;логотипа,&nbsp;нам&nbsp;нужно&nbsp;2&nbsp;штуки<br />//&nbsp;для&nbsp;сравнения<br /></span><span style="color: #0000BB">$logo1&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecreatefrompng</span><span style="color: #007700">(</span><span style="color: #DD0000">'./php.png'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$logo2&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecreatefrompng</span><span style="color: #007700">(</span><span style="color: #DD0000">'./php.png'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;подопытный&nbsp;экземпляр<br /></span><span style="color: #0000BB">$output&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecreatetruecolor</span><span style="color: #007700">(</span><span style="color: #0000BB">imagesx</span><span style="color: #007700">(</span><span style="color: #0000BB">$logo1</span><span style="color: #007700">)&nbsp;*&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">imagesy</span><span style="color: #007700">(</span><span style="color: #0000BB">$logo1</span><span style="color: #007700">));<br /><br /></span><span style="color: #FF8000">//&nbsp;Применение&nbsp;пикселирования&nbsp;к&nbsp;каждому&nbsp;изображению&nbsp;с&nbsp;размером&nbsp;блока&nbsp;в&nbsp;3&nbsp;пиксела<br /></span><span style="color: #0000BB">imagefilter</span><span style="color: #007700">(</span><span style="color: #0000BB">$logo1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">IMG_FILTER_PIXELATE</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">3</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">imagefilter</span><span style="color: #007700">(</span><span style="color: #0000BB">$logo2</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">IMG_FILTER_PIXELATE</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">3</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Совмещение&nbsp;различий&nbsp;в&nbsp;выходном&nbsp;изображении<br /></span><span style="color: #0000BB">imagecopy</span><span style="color: #007700">(</span><span style="color: #0000BB">$output</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$logo1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">imagesx</span><span style="color: #007700">(</span><span style="color: #0000BB">$logo1</span><span style="color: #007700">)&nbsp;-&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">imagesy</span><span style="color: #007700">(</span><span style="color: #0000BB">$logo1</span><span style="color: #007700">)&nbsp;-&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">imagecopy</span><span style="color: #007700">(</span><span style="color: #0000BB">$output</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$logo2</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">imagesx</span><span style="color: #007700">(</span><span style="color: #0000BB">$logo2</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">imagesx</span><span style="color: #007700">(</span><span style="color: #0000BB">$logo2</span><span style="color: #007700">)&nbsp;-&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">imagesy</span><span style="color: #007700">(</span><span style="color: #0000BB">$logo2</span><span style="color: #007700">)&nbsp;-&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$logo1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$logo2</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Вывод&nbsp;различий<br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'Content-Type:&nbsp;image/png'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">imagepng</span><span style="color: #007700">(</span><span style="color: #0000BB">$output</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$output</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>Результатом выполнения данного примера
+будет что-то подобное:</p></div>
+    <div class="mediaobject">
+     
+     <div class="imageobject">
+      <img src="images/21009b70229598c6a80eef8b45bf282b-imagefilterpixelate.png" alt="Вывод примера: imagefilter() pixelate" width="190" height="51" />
+     </div>
+    </div>
+   </div>
+  </p>
+ </div>
+
+ <div class="refsect1 notes" id="refsect1-function.imagefilter-notes">
+  <h3 class="title">Примечания</h3>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: <span class="simpara">Эта функция доступна только в
+случае, если PHP был скомпилирован со встроенной библиотекой GD.</span></p></blockquote>
+ </div>
+
+ <div class="refsect1 seealso" id="refsect1-function.imagefilter-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.imageconvolution.html" class="function" rel="rdfs-seeAlso">imageconvolution()</a> - Наложение искривляющей матрицы 3х3, используя коэффициент и смещение</span></li>
+   </ul>
+  </p>
+ </div>
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.imagefilltoborder.html">imagefilltoborder</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.imageflip.html">imageflip</a></div>
+ <div class="up"><a href="ref.image.html">GD и функции для работы с изображениями Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

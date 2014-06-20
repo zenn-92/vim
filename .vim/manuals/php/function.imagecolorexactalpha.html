@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Получение индекса заданного цвета и альфа компонента</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.imagecolorexact.html">imagecolorexact</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.imagecolormatch.html">imagecolormatch</a></div>
+ <div class="up"><a href="ref.image.html">GD и функции для работы с изображениями Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.imagecolorexactalpha" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">imagecolorexactalpha</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5)</p><p class="refpurpose"><span class="refname">imagecolorexactalpha</span> &mdash; <span class="dc-title">Получение индекса заданного цвета и альфа компонента</span></p>
+
+ </div>
+ <div class="refsect1 description" id="refsect1-function.imagecolorexactalpha-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">int</span> <span class="methodname"><strong>imagecolorexactalpha</strong></span>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$image</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$red</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$green</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$blue</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$alpha</code></span>
+   )</div>
+
+  <p class="para rdfs-comment">
+   Возвращает индекс для заданного цвета и альфа компонента в палитре изображения.
+  </p>
+ </div>
+
+ <div class="refsect1 parameters" id="refsect1-function.imagecolorexactalpha-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    <dt>
+<code class="parameter">
+image</code></dt>
+<dd>
+<p class="para">Ресурс изображения, полученный одной из функций создания изображений,
+например, такой как <span class="function"><a href="function.imagecreatetruecolor.html" class="function">imagecreatetruecolor()</a></span>.</p></dd>
+
+    
+     <dt>
+<code class="parameter">red</code></dt>
+
+     <dd>
+
+      <p class="para">Значение красного компонента цвета.</p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">green</code></dt>
+
+     <dd>
+
+      <p class="para">Значение зеленого компонента цвета.</p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">blue</code></dt>
+
+     <dd>
+
+      <p class="para">Значение синего компонента цвета.</p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">alpha</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Значение в диапазоне от <em>0</em> до <em>127</em>.
+       <em>0</em> означает непрозрачность,
+       <em>127</em> означает абсолютную прозрачность.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+   Параметры цвета могут быть либо целочисленными в диапазоне от 0 до 255, либо
+   шестнадцатиричными в диапазоне от 0x00 до 0xFF.
+  </p>
+ </div>
+
+ <div class="refsect1 returnvalues" id="refsect1-function.imagecolorexactalpha-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Возвращает индекс для заданного цвета и альфа компонента в палитре изображения
+   либо -1, если такого цвета в палитре нет.
+  </p>
+ </div>
+
+ <div class="refsect1 examples" id="refsect1-function.imagecolorexactalpha-examples">
+  <h3 class="title">Примеры</h3>
+  <div class="example" id="example-3242">
+   <p><strong>Пример #1 Получение цветов GD логотипа</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">//&nbsp;создание&nbsp;изображения<br /></span><span style="color: #0000BB">$im&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecreatefrompng</span><span style="color: #007700">(</span><span style="color: #DD0000">'./gdlogo.png'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$colors&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;Array();<br /></span><span style="color: #0000BB">$colors</span><span style="color: #007700">[]&nbsp;=&nbsp;</span><span style="color: #0000BB">imagecolorexactalpha</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">255</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$colors</span><span style="color: #007700">[]&nbsp;=&nbsp;</span><span style="color: #0000BB">imagecolorexactalpha</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">127</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$colors</span><span style="color: #007700">[]&nbsp;=&nbsp;</span><span style="color: #0000BB">imagecolorexactalpha</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">255</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">255</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">255</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">55</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$colors</span><span style="color: #007700">[]&nbsp;=&nbsp;</span><span style="color: #0000BB">imagecolorexactalpha</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">100</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">255</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">52</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">20</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$colors</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;освобождение&nbsp;памяти<br /></span><span style="color: #0000BB">imagedestroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$im</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>Результатом выполнения данного примера
+будет что-то подобное:</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>
+Array
+(
+    [0] =&gt; 16711680
+    [1] =&gt; 2130706432
+    [2] =&gt; 939524095
+    [3] =&gt; 342163252
+)
+</pre></div>
+   </div>
+  </div>
+ </div>
+
+ <div class="refsect1 notes" id="refsect1-function.imagecolorexactalpha-notes">
+  <h3 class="title">Примечания</h3>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: <span class="simpara">Эта функция нуждается в GD версии 2.0.1 или выше.</span></p></blockquote>
+ </div>
+
+ <div class="refsect1 seealso" id="refsect1-function.imagecolorexactalpha-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.imagecolorclosestalpha.html" class="function" rel="rdfs-seeAlso">imagecolorclosestalpha()</a> - Получение индекса цвета ближайшего к заданному с учетом прозрачности</span></li>
+   </ul>
+  </p>
+ </div>
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.imagecolorexact.html">imagecolorexact</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.imagecolormatch.html">imagecolormatch</a></div>
+ <div class="up"><a href="ref.image.html">GD и функции для работы с изображениями Функции</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

@@ -1,0 +1,340 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Список опций контекста SSL</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="context.ftp.html">Параметры контекста FTP</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="context.curl.html">Опции контекста CURL</a></div>
+ <div class="up"><a href="context.html">Контекстные опции и параметры</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="context.ssl" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">Опции контекста SSL</h1>
+  <p class="refpurpose"><span class="refname">Опции контекста SSL</span> &mdash; <span class="dc-title">Список опций контекста SSL</span></p>
+
+ </div>
+ 
+ <div class="refsect1 description" id="refsect1-context.ssl-description">
+  <h3 class="title">Описание</h3>
+  <p class="para">
+   Опции контекста для протоколов <em>ssl://</em> и <em>tls://</em>
+  </p>
+ </div>
+
+
+ <div class="refsect1 options" id="refsect1-context.ssl-options">
+  <h3 class="title">Опции</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt id="context.ssl.verify-peer">
+      <code class="parameter">verify_peer</code>
+      <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       Требовать проверки используемого SSL-сертификата.
+      </p>
+      <p class="para">
+       По умолчанию <strong><code>FALSE</code></strong>.
+      </p>
+     </dd>
+
+    
+    
+     <dt id="context.ssl.allow-self-signed">
+      <code class="parameter">allow_self_signed</code>
+      <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       Разрешить самоподписанные сертификаты. Требует
+       <a href="context.ssl.html#context.ssl.verify-peer" class="link"><code class="parameter">verify_peer</code></a>.
+      </p>
+      <p class="para">
+       По умолчанию <strong><code>FALSE</code></strong>
+      </p>
+     </dd>
+
+    
+    
+     <dt id="context.ssl.cafile">
+      <code class="parameter">cafile</code>
+      <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       Расположение файла сертификата в локальной файловой системе,
+    который следует использовать с опцией контекста <em>verify_peer</em>
+    для проверки подлинности удалённого узла.
+      </p>
+     </dd>
+
+    
+    
+     <dt id="context.ssl.capath">
+      <code class="parameter">capath</code>
+      <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       Если параметр <em>cafile</em> не определён или сертификат не найден,
+       осуществляется поиск в директории, указанной в <em>capath</em>.
+       Путь <em>capath</em> должен быть к корректной директории, содержащей сертификаты, имена которых
+    являются хешем от поля subject, указанного в сертификате.
+      </p>
+     </dd>
+
+    
+    
+     <dt id="context.ssl.local-cert">
+      <code class="parameter">local_cert</code>
+      <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       Путь к локальному сертификату в файловой системе. Это должен быть файл, закодированный PEM,
+       который содержит ваш сертификат и приватный ключ.
+       Он дополнительно может содержать публичный ключ эмитента.
+      </p>
+     </dd>
+
+    
+    
+     <dt id="context.ssl.passphrase">
+      <code class="parameter">passphrase</code>
+      <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       Идентификационная фраза, с которой ваш файл <em>local_cert</em> был
+       закодирован.
+      </p>
+     </dd>
+
+    
+    
+     <dt id="context.ssl.cn-match">
+      <code class="parameter">CN_match</code>
+      <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+    Имя хоста (Common Name), которое мы ожидаем. PHP будет производить ограниченное сопоставление,
+    учитывающее символы подстановки (*,?). Если имя хоста не совпадает со строкой,
+    соединение будет сброшено.
+      </p>
+     </dd>
+
+    
+    
+     <dt id="context.ssl.verify-depth">
+      <code class="parameter">verify_depth</code>
+      <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       Прервать, если цепочка сертификата слишком длинная.
+      </p>
+      <p class="para">
+       По умолчанию проверка отсутствует.
+      </p>
+     </dd>
+
+    
+    
+     <dt id="context.ssl.ciphers">
+      <code class="parameter">ciphers</code>
+      <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+    Устанавливает список доступных алгоритмов шифрования. Формат этой строки описан в
+       разделе <a href="http://www.openssl.org/docs/apps/ciphers.html#CIPHER_LIST_FORMAT" class="link external">&raquo;&nbsp;шифры(1)</a>.
+      </p>
+      <p class="para">
+       По умолчанию принимает значение <em>DEFAULT</em>.
+      </p>
+     </dd>
+
+    
+    
+     <dt id="context.ssl.capture-peer-cert">
+      <code class="parameter">capture_peer_cert</code>
+      <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       Если установлено в <strong><code>TRUE</code></strong>, то будет создана опция контекста <em>peer_certificate</em>,
+       содержащая сертификат удаленного узла.
+      </p>
+     </dd>
+
+    
+    
+     <dt id="context.ssl.capture-peer-cert-chain">
+      <code class="parameter">capture_peer_cert_chain</code>
+      <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       Если установлено в <strong><code>TRUE</code></strong>, то будет создана опция контекста <em>peer_certificate_chain</em>,
+       содержащая цепочку сертификатов.
+      </p>
+     </dd>
+
+    
+    
+     <dt id="context.ssl.sni-enabled">
+      <code class="parameter">SNI_enabled</code>
+      <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       Если установлено в <strong><code>TRUE</code></strong>, то будет включено указание имени сервера. Включение SNI 
+       позволяет использовать разные сертификаты на одном и том же IP-адресе.
+      </p>
+     </dd>
+
+    
+    
+     <dt id="context.ssl.sni-server-name">
+      <code class="parameter">SNI_server_name</code>
+      <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       Если эта опция установлена, то это значение будет использоваться для указания имени сервера.
+    Если это значение не установлено, то имя сервера определяется из имени хоста, использовавшегося
+    при открытии потока.
+      </p>
+     </dd>
+
+    
+    
+     <dt id="context.ssl.disable-compression">
+      <code class="parameter">disable_compression</code>
+      <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       Отключает сжатие TLS, что помогает предотвратить атаки типа CRIME.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 changelog" id="refsect1-context.ssl-changelog">
+  <h3 class="title">Список изменений</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>Версия</th>
+       <th>Описание</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.3.2</td>
+       <td>
+        Добавлены параметры <code class="parameter">SNI_enabled</code> и
+        <code class="parameter">SNI_server_name</code>.
+       </td>
+      </tr>
+
+      <tr>
+       <td>5.0.0</td>
+       <td>
+        Добавлены параметры <code class="parameter">capture_peer_cert</code>,
+        <code class="parameter">capture_peer_chain</code> и
+        <code class="parameter">ciphers</code>.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-context.ssl-notes">
+  <h3 class="title">Примечания</h3>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <span class="simpara">
+    Так как <em>ssl://</em> - это низлежащий транспортный протокол для оберток
+    <a href="wrappers.http.html" class="link"><em>https://</em></a> и
+    <a href="wrappers.ftp.html" class="link"><em>ftps://</em></a>, 
+    то любые опции контекста, которые применяются к <em>ssl://</em> будут также применяться к
+    <em>https://</em> и <em>ftps://</em>.
+   </span>
+  </p></blockquote>
+  <blockquote class="note"><p><strong class="note">Замечание</strong>: 
+   <span class="simpara">
+    Чтобы была доступна возможность указания имени сервера (SNI, Server Name Indication), PHP должен
+ быть скомпилирован с OpenSSL 0.9.8j или более поздней. Используйте константу
+    <strong><code>OPENSSL_TLSEXT_SERVER_NAME</code></strong> чтобы определить,
+ поддерживается ли SNI.
+   </span>
+  </p></blockquote>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-context.ssl-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><a href="context.socket.html" class="xref">Контекстные опции сокета</a></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="context.ftp.html">Параметры контекста FTP</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="context.curl.html">Опции контекста CURL</a></div>
+ <div class="up"><a href="context.html">Контекстные опции и параметры</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

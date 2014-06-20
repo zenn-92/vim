@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Определение кодировки символов</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.mb-decode-numericentity.html">mb_decode_numericentity</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.mb-detect-order.html">mb_detect_order</a></div>
+ <div class="up"><a href="ref.mbstring.html">Функции для работы с Многобайтными строками</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="function.mb-detect-encoding" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">mb_detect_encoding</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5)</p><p class="refpurpose"><span class="refname">mb_detect_encoding</span> &mdash; <span class="dc-title">Определение кодировки символов</span></p>
+
+ </div>
+   
+ <div class="refsect1 description" id="refsect1-function.mb-detect-encoding-description">
+  <h3 class="title">Описание</h3>
+  <div class="methodsynopsis dc-description">
+   <span class="type">string</span> <span class="methodname"><strong>mb_detect_encoding</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$str</code></span>
+   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$encoding_list</code><span class="initializer"> = mb_detect_order()</span></span>
+   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$strict</code><span class="initializer"> = false</span></span>
+  ]] )</div>
+
+  <p class="para rdfs-comment">
+   Определяет кодировку символов в строке <span class="type"><a href="language.types.string.html" class="type string">string</a></span> <code class="parameter">str</code>. 
+  </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.mb-detect-encoding-parameters">
+  <h3 class="title">Список параметров</h3>
+  <p class="para">
+   <dl>
+
+    
+     <dt>
+<code class="parameter">str</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Строка <span class="type"><a href="language.types.string.html" class="type string">string</a></span>, кодировку в которой требуется определить.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">encoding_list</code></dt>
+
+     <dd>
+
+      <p class="para">
+       <code class="parameter">encoding_list</code> список возможных кодировок.
+       Может быть представлен массивом или строкой, в которой будут перечислены
+       названия кодировок, отделенные запятыми.
+      </p>
+      <p class="para">
+       Если <code class="parameter">encoding_list</code> не задан, будет применен
+       detect_order.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">strict</code></dt>
+
+     <dd>
+
+      <p class="para">
+       <code class="parameter">strict</code> задает режим точного определения 
+       кодировки. По умолчанию <strong><code>FALSE</code></strong>.
+      </p>
+     </dd>
+
+    
+   </dl>
+
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 returnvalues" id="refsect1-function.mb-detect-encoding-returnvalues">
+  <h3 class="title">Возвращаемые значения</h3>
+  <p class="para">
+   Название кодировки или <strong><code>FALSE</code></strong>, если для заданной строки определить
+   кодировку не удалось.
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.mb-detect-encoding-examples">
+  <h3 class="title">Примеры</h3>
+  <p class="para">
+   <div class="example" id="example-2755">
+    <p><strong>Пример #1 Пример использования <span class="function"><strong>mb_detect_encoding()</strong></span></strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;Определение&nbsp;кодировки&nbsp;с&nbsp;текущим&nbsp;detect_order&nbsp;*/<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">mb_detect_encoding</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;"auto"&nbsp;раскрывается&nbsp;в&nbsp;соответствии&nbsp;с&nbsp;mbstring.language&nbsp;*/<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">mb_detect_encoding</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"auto"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Зададим&nbsp;список&nbsp;кодировок&nbsp;encoding_list&nbsp;в&nbsp;виде&nbsp;строки&nbsp;*/<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">mb_detect_encoding</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"JIS,&nbsp;eucjp-win,&nbsp;sjis-win"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Использование&nbsp;массива&nbsp;для&nbsp;задания&nbsp;возможных&nbsp;кодировок&nbsp;encoding_list&nbsp;&nbsp;*/<br /></span><span style="color: #0000BB">$ary</span><span style="color: #007700">[]&nbsp;=&nbsp;</span><span style="color: #DD0000">"ASCII"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$ary</span><span style="color: #007700">[]&nbsp;=&nbsp;</span><span style="color: #DD0000">"JIS"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$ary</span><span style="color: #007700">[]&nbsp;=&nbsp;</span><span style="color: #DD0000">"EUC-JP"</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">mb_detect_encoding</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$ary</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.mb-detect-encoding-seealso">
+  <h3 class="title">Смотрите также</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.mb-detect-order.html" class="function" rel="rdfs-seeAlso">mb_detect_order()</a> - Установка/получение списка кодировок для механизмов определения кодировки</span></li>
+   </ul>
+  </p>
+ </div>
+
+
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="function.mb-decode-numericentity.html">mb_decode_numericentity</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.mb-detect-order.html">mb_detect_order</a></div>
+ <div class="up"><a href="ref.mbstring.html">Функции для работы с Многобайтными строками</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>
